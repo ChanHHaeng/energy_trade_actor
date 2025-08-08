@@ -1,0 +1,21 @@
+[gd_resource type="Theme" load_steps=4 format=3 uid="uid://1vin11fw4tw5"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_iy58a"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g31lc"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_knq72"]
+
+[resource]
+LineEdit/colors/font_color = Color(0, 0, 0, 1)
+LineEdit/colors/font_placeholder_color = Color(0, 0, 0, 0.6)
+LineEdit/font_sizes/font_size = 16
+LineEdit/styles/focus = SubResource("StyleBoxEmpty_iy58a")
+LineEdit/styles/normal = SubResource("StyleBoxFlat_g31lc")
+LineEdit/styles/read_only = SubResource("StyleBoxEmpty_knq72")
