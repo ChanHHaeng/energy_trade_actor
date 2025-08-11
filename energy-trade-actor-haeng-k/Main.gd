@@ -7,8 +7,8 @@ func _ready():
 	$HTTPRequest_export.request_completed.connect(_on_export_completed)
 	$HTTPRequest_buildings.request_completed.connect(_on_building_completed)
 	var err_build=$HTTPRequest_buildings.request("http://192.168.0.6:3000/buildings")
-	var err=$HTTPRequest_import.request("http://192.168.0.6:3000/import_data")
-	var err2=$HTTPRequest_export.request("http://192.168.0.6:3000/export_data")
+	var err=$HTTPRequest_import.request("http://192.168.0.6:3000/purchase_data")
+	var err2=$HTTPRequest_export.request("http://192.168.0.6:3000/bid_data")
 	
 	
 

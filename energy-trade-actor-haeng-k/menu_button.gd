@@ -4,6 +4,8 @@ extends MenuButton
 @onready var glass=load("res://greenglass.tres")
 @onready var unselected=load("res://unselected_cell.tres")
 @onready var selected=load("res://selected_cell.tres")
+
+var timelist=[]
 func _ready() -> void:
 	#if Engine.is_editor_hint():
 		#get_popup().clear()
@@ -15,6 +17,7 @@ func _ready() -> void:
 	get_popup().add_theme_stylebox_override('panel',glass)
 	get_popup().connect("index_pressed", Callable(self, "_on_index_pressed"))
 	get_popup().hide_on_checkable_item_selection = false
+	
 
 
 func _on_index_pressed(index: int) -> void:
@@ -28,6 +31,7 @@ func _on_index_pressed(index: int) -> void:
 			$"../GridContainer".get_child(index+24).theme=selected
 			$"../GridContainer".get_child(index+24).placeholder_text="price"
 			$"../GridContainer".get_child(index+24).editable=true
+			timelist.append(index)
 			
 		else:
 			$"../GridContainer".get_child(index).add_theme_color_override('font_color',Color.GRAY)
@@ -39,6 +43,7 @@ func _on_index_pressed(index: int) -> void:
 			$"../GridContainer".get_child(index+24).placeholder_text=""
 			$"../GridContainer".get_child(index+24).text=""
 			$"../GridContainer".get_child(index+24).editable=false
+			timelist.erase(index)
 	else:
 		if get_popup().is_item_checked(index):
 			$"../GridContainer".get_child(index+24).add_theme_color_override('font_color',Color.BLACK)
@@ -48,7 +53,7 @@ func _on_index_pressed(index: int) -> void:
 			$"../GridContainer".get_child(index+48).theme=selected
 			$"../GridContainer".get_child(index+48).placeholder_text="price"
 			$"../GridContainer".get_child(index+48).editable=true
-			
+			timelist.append(index)
 		else:
 			$"../GridContainer".get_child(index+24).add_theme_color_override('font_color',Color.GRAY)
 			$"../GridContainer".get_child(index+36).theme=unselected
@@ -59,4 +64,5 @@ func _on_index_pressed(index: int) -> void:
 			$"../GridContainer".get_child(index+48).placeholder_text=""
 			$"../GridContainer".get_child(index+48).text=""
 			$"../GridContainer".get_child(index+48).editable=false
+			timelist.erase(index)
 	
