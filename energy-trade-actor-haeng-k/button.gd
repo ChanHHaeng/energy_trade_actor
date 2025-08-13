@@ -6,4 +6,7 @@ extends Button
 
 
 func _on_toggled(toggled_on: bool) -> void:
-	$Line2D.visible=!toggled_on
+	
+	get_node("../../Panel/"+self.name+" page").visible=toggled_on
+	#if not toggled_on:
+		#get_node("../../Panel/"+self.name+" page").get_child(0).

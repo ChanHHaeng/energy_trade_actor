@@ -4,8 +4,12 @@ extends MenuButton
 @onready var glass=load("res://greenglass.tres")
 @onready var unselected=load("res://unselected_cell.tres")
 @onready var selected=load("res://selected_cell.tres")
+@onready var unselected_label=load("res://themes/unselected_label.tres")
+@onready var selected_label=load("res://themes/selected_label.tres")
 
 var timelist=[]
+var time_amountlist
+var time_pricelist
 func _ready() -> void:
 	#if Engine.is_editor_hint():
 		#get_popup().clear()
@@ -25,6 +29,7 @@ func _on_index_pressed(index: int) -> void:
 	if index<12:
 		if get_popup().is_item_checked(index):
 			$"../GridContainer".get_child(index).add_theme_color_override('font_color',Color.BLACK)
+			$"../GridContainer".get_child(index).add_theme_stylebox_override("normal",selected_label)
 			$"../GridContainer".get_child(index+12).theme=selected
 			$"../GridContainer".get_child(index+12).placeholder_text="amount"
 			$"../GridContainer".get_child(index+12).editable=true
@@ -35,6 +40,7 @@ func _on_index_pressed(index: int) -> void:
 			
 		else:
 			$"../GridContainer".get_child(index).add_theme_color_override('font_color',Color.GRAY)
+			$"../GridContainer".get_child(index).add_theme_stylebox_override("normal",unselected_label)
 			$"../GridContainer".get_child(index+12).theme=unselected
 			$"../GridContainer".get_child(index+12).placeholder_text=""
 			$"../GridContainer".get_child(index+12).text=""
@@ -47,6 +53,7 @@ func _on_index_pressed(index: int) -> void:
 	else:
 		if get_popup().is_item_checked(index):
 			$"../GridContainer".get_child(index+24).add_theme_color_override('font_color',Color.BLACK)
+			$"../GridContainer".get_child(index+24).add_theme_stylebox_override("normal",selected_label)
 			$"../GridContainer".get_child(index+36).theme=selected
 			$"../GridContainer".get_child(index+36).placeholder_text="amount"
 			$"../GridContainer".get_child(index+36).editable=true
@@ -56,6 +63,7 @@ func _on_index_pressed(index: int) -> void:
 			timelist.append(index)
 		else:
 			$"../GridContainer".get_child(index+24).add_theme_color_override('font_color',Color.GRAY)
+			$"../GridContainer".get_child(index+24).add_theme_stylebox_override("normal",unselected_label)
 			$"../GridContainer".get_child(index+36).theme=unselected
 			$"../GridContainer".get_child(index+36).placeholder_text=""
 			$"../GridContainer".get_child(index+36).text=""
