@@ -1,9 +1,9 @@
 #@tool
 extends MenuButton
 
-@onready var glass=load("res://greenglass.tres")
-@onready var unselected=load("res://unselected_cell.tres")
-@onready var selected=load("res://selected_cell.tres")
+@onready var glass=load("res://themes/greenglass.tres")
+@onready var unselected=load("res://themes/unselected_cell.tres")
+@onready var selected=load("res://themes/selected_cell.tres")
 @onready var unselected_label=load("res://themes/unselected_label.tres")
 @onready var selected_label=load("res://themes/selected_label.tres")
 
