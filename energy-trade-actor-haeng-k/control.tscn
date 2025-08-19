@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://d1gwqkrd33l0v"]
+[gd_scene load_steps=32 format=3 uid="uid://d1gwqkrd33l0v"]
 
 [ext_resource type="ButtonGroup" uid="uid://c23vsaa7035ln" path="res://subthings/menubuttongrout.tres" id="1_0fbet"]
 [ext_resource type="Script" uid="uid://bt2hnocu2gnnm" path="res://scripts/Main.gd" id="1_qtu10"]
@@ -11,7 +11,12 @@
 [ext_resource type="Script" uid="uid://oh3t85n5p215" path="res://scripts/enroll.gd" id="8_6a6wx"]
 [ext_resource type="Script" uid="uid://bi2hlq57wl1cg" path="res://scripts/values.gd" id="9_pxugv"]
 [ext_resource type="Script" uid="uid://bygtdoyvtfkh4" path="res://scripts/timelist.gd" id="11_pxugv"]
+[ext_resource type="Script" uid="uid://cl06736yiiluv" path="res://catalogue_page.gd" id="11_xvdhi"]
 [ext_resource type="Script" uid="uid://bxj5qautppjun" path="res://min_value.gd" id="12_eh0v1"]
+[ext_resource type="Script" uid="uid://dq7iia31evatj" path="res://insert.gd" id="13_am1vj"]
+[ext_resource type="Script" uid="uid://bo0i1ccdb4mg" path="res://optioncontainer.gd" id="13_oq4si"]
+[ext_resource type="Script" uid="uid://ct1kv1ug7ngtt" path="res://pages.gd" id="14_g31lc"]
+[ext_resource type="Script" uid="uid://dwtkxrat3xd2y" path="res://tree.gd" id="15_knq72"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6a6wx"]
 bg_color = Color(1, 1, 1, 1)
@@ -55,6 +60,11 @@ bg_color = Color(1, 1, 1, 1)
 bg_color = Color(1, 1, 1, 1)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sky72"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_eh0v1"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oq4si"]
+bg_color = Color(1, 1, 1, 1)
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -165,7 +175,6 @@ offset_bottom = 615.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_sky72")
 
 [node name="Purchase page" type="Panel" parent="Panel/Panel"]
-visible = false
 layout_mode = 0
 offset_left = 24.0
 offset_top = 20.0
@@ -1602,19 +1611,21 @@ script = ExtResource("8_6a6wx")
 [node name="HTTPRequest" type="HTTPRequest" parent="Panel/Panel/Bid page"]
 
 [node name="Catalogue page" type="Panel" parent="Panel/Panel"]
+visible = false
 layout_mode = 0
 offset_left = 24.0
 offset_top = 20.0
 offset_right = 1078.0
 offset_bottom = 502.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_iy58a")
+script = ExtResource("11_xvdhi")
 
 [node name="timelist" type="MenuButton" parent="Panel/Panel/Catalogue page"]
 layout_mode = 0
 offset_left = 25.0
 offset_top = 17.0
 offset_right = 234.0
-offset_bottom = 41.0
+offset_bottom = 48.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_styles/normal = ExtResource("2_kbped")
 text = "select times"
@@ -1701,40 +1712,168 @@ auto_translate_mode = 1
 [node name="blacktriangle" type="Label" parent="Panel/Panel/Catalogue page/timelist"]
 layout_mode = 0
 offset_left = 191.0
+offset_top = 3.0
 offset_right = 207.0
-offset_bottom = 23.0
+offset_bottom = 26.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "▼"
 
 [node name="optioncontainer" type="GridContainer" parent="Panel/Panel/Catalogue page"]
+unique_name_in_owner = true
 layout_mode = 0
 offset_left = 24.0
 offset_top = 52.0
 offset_right = 1015.0
 offset_bottom = 92.0
 columns = 8
+script = ExtResource("13_oq4si")
 
-[node name="min value" type="LineEdit" parent="Panel/Panel/Catalogue page"]
+[node name="values" type="Control" parent="Panel/Panel/Catalogue page"]
+anchors_preset = 0
+offset_left = 271.0
+offset_top = 18.0
+offset_right = 556.0
+offset_bottom = 48.0
+
+[node name="min value" type="LineEdit" parent="Panel/Panel/Catalogue page/values"]
 layout_mode = 0
-offset_left = 268.0
-offset_top = 15.0
-offset_right = 395.0
-offset_bottom = 46.0
+offset_right = 120.0
+offset_bottom = 31.0
+theme_override_colors/font_placeholder_color = Color(0.384314, 0.384314, 0.384314, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = ExtResource("2_kbped")
 script = ExtResource("12_eh0v1")
 
-[node name="min price" type="LineEdit" parent="Panel/Panel/Catalogue page"]
-offset_left = 425.0
-offset_top = 15.0
-offset_right = 552.0
-offset_bottom = 46.0
+[node name="max value" type="LineEdit" parent="Panel/Panel/Catalogue page/values"]
+offset_left = 150.0
+offset_right = 270.0
+offset_bottom = 31.0
+theme_override_colors/font_placeholder_color = Color(0.384314, 0.384314, 0.384314, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = ExtResource("2_kbped")
 script = ExtResource("12_eh0v1")
+
+[node name="insert" type="Button" parent="Panel/Panel/Catalogue page/values"]
+layout_mode = 0
+offset_left = 288.0
+offset_right = 318.0
+offset_bottom = 31.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_eh0v1")
+theme_override_styles/normal = ExtResource("2_kbped")
+disabled = true
+text = "V"
+script = ExtResource("13_am1vj")
+
+[node name="Label" type="Label" parent="Panel/Panel/Catalogue page/values"]
+layout_mode = 0
+offset_left = 129.0
+offset_top = 4.0
+offset_right = 139.0
+offset_bottom = 27.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "~"
+
+[node name="prices" type="Control" parent="Panel/Panel/Catalogue page"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 624.0
+offset_top = 18.0
+offset_right = 945.0
+offset_bottom = 48.0
+
+[node name="min price" type="LineEdit" parent="Panel/Panel/Catalogue page/prices"]
+layout_mode = 0
+offset_right = 120.0
+offset_bottom = 31.0
+theme_override_colors/font_placeholder_color = Color(0.384314, 0.384314, 0.384314, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = ExtResource("2_kbped")
+script = ExtResource("12_eh0v1")
+
+[node name="max price" type="LineEdit" parent="Panel/Panel/Catalogue page/prices"]
+offset_left = 150.0
+offset_right = 270.0
+offset_bottom = 31.0
+theme_override_colors/font_placeholder_color = Color(0.384314, 0.384314, 0.384314, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = ExtResource("2_kbped")
+script = ExtResource("12_eh0v1")
+
+[node name="insert" type="Button" parent="Panel/Panel/Catalogue page/prices"]
+layout_mode = 0
+offset_left = 288.0
+offset_right = 318.0
+offset_bottom = 31.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_eh0v1")
+theme_override_styles/normal = ExtResource("2_kbped")
+disabled = true
+text = "V"
+script = ExtResource("13_am1vj")
+
+[node name="Label" type="Label" parent="Panel/Panel/Catalogue page/prices"]
+layout_mode = 0
+offset_left = 129.0
+offset_top = 4.0
+offset_right = 139.0
+offset_bottom = 27.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "~"
+
+[node name="Purchase_sect" type="Panel" parent="Panel/Panel/Catalogue page"]
+layout_mode = 0
+offset_left = 29.0
+offset_top = 105.0
+offset_right = 512.0
+offset_bottom = 463.0
+script = ExtResource("14_g31lc")
+
+[node name="purchase" type="Tree" parent="Panel/Panel/Catalogue page/Purchase_sect"]
+layout_mode = 0
+offset_left = 23.0
+offset_top = 31.0
+offset_right = 465.0
+offset_bottom = 317.0
+columns = 5
+column_titles_visible = true
+hide_root = true
+select_mode = 1
+script = ExtResource("15_knq72")
+
+[node name="Bidpage_sect" type="Panel" parent="Panel/Panel/Catalogue page"]
+offset_left = 545.0
+offset_top = 106.0
+offset_right = 1030.0
+offset_bottom = 464.0
+script = ExtResource("14_g31lc")
+
+[node name="bid" type="Tree" parent="Panel/Panel/Catalogue page/Bidpage_sect"]
+offset_left = 23.0
+offset_top = 31.0
+offset_right = 465.0
+offset_bottom = 317.0
+columns = 5
+column_titles_visible = true
+hide_root = true
+select_mode = 1
+script = ExtResource("15_knq72")
+
+[node name="My Page page" type="Panel" parent="Panel/Panel"]
+visible = false
+layout_mode = 0
+offset_left = 24.0
+offset_top = 20.0
+offset_right = 1078.0
+offset_bottom = 502.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_oq4si")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 5.0
 
-[node name="HTTPRequest_import" type="HTTPRequest" parent="."]
+[node name="HTTPRequest_purchase" type="HTTPRequest" parent="."]
 
-[node name="HTTPRequest_export" type="HTTPRequest" parent="."]
+[node name="HTTPRequest_bid" type="HTTPRequest" parent="."]
 
 [node name="HTTPRequest_buildings" type="HTTPRequest" parent="."]
 
@@ -1746,5 +1885,14 @@ wait_time = 5.0
 [connection signal="pressed" from="Panel/Panel/Purchase page/purchase_data" to="Panel/Panel/Purchase page/purchase_data" method="_on_pressed"]
 [connection signal="about_to_popup" from="Panel/Panel/Bid page/MenuButton" to="Panel/Panel/Bid page/MenuButton" method="_on_about_to_popup"]
 [connection signal="pressed" from="Panel/Panel/Bid page/bid_data" to="Panel/Panel/Bid page/bid_data" method="_on_pressed"]
+[connection signal="visibility_changed" from="Panel/Panel/Catalogue page" to="Panel/Panel/Catalogue page" method="_on_visibility_changed"]
 [connection signal="about_to_popup" from="Panel/Panel/Catalogue page/timelist" to="Panel/Panel/Catalogue page/timelist" method="_on_about_to_popup"]
+[connection signal="child_entered_tree" from="Panel/Panel/Catalogue page/optioncontainer" to="Panel/Panel/Catalogue page/optioncontainer" method="_on_child_entered_tree"]
+[connection signal="child_entered_tree" from="Panel/Panel/Catalogue page/optioncontainer" to="Panel/Panel/Catalogue page/Purchase_sect" method="_on_optioncontainer_child_entered_tree"]
+[connection signal="child_entered_tree" from="Panel/Panel/Catalogue page/optioncontainer" to="Panel/Panel/Catalogue page/Bidpage_sect" method="_on_optioncontainer_child_entered_tree"]
 [connection signal="child_exiting_tree" from="Panel/Panel/Catalogue page/optioncontainer" to="Panel/Panel/Catalogue page/timelist" method="_on_optioncontainer_child_exiting_tree"]
+[connection signal="child_exiting_tree" from="Panel/Panel/Catalogue page/optioncontainer" to="Panel/Panel/Catalogue page/optioncontainer" method="_on_child_exiting_tree"]
+[connection signal="child_exiting_tree" from="Panel/Panel/Catalogue page/optioncontainer" to="Panel/Panel/Catalogue page/Purchase_sect" method="_on_optioncontainer_child_exiting_tree"]
+[connection signal="child_exiting_tree" from="Panel/Panel/Catalogue page/optioncontainer" to="Panel/Panel/Catalogue page/Bidpage_sect" method="_on_optioncontainer_child_exiting_tree"]
+[connection signal="pressed" from="Panel/Panel/Catalogue page/values/insert" to="Panel/Panel/Catalogue page/values/insert" method="_on_pressed"]
+[connection signal="pressed" from="Panel/Panel/Catalogue page/prices/insert" to="Panel/Panel/Catalogue page/prices/insert" method="_on_pressed"]

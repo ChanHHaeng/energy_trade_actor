@@ -5,6 +5,11 @@ extends Button
 #@export var tween_time: float = 0.12
 
 
+func _ready() -> void:
+	if Global.building_id==0 and name=="My Page":
+		self.text="master"
+	
+	
 func _on_toggled(toggled_on: bool) -> void:
 	
 	get_node("../../Panel/"+self.name+" page").visible=toggled_on

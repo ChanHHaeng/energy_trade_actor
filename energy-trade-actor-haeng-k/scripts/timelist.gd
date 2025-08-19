@@ -13,11 +13,10 @@ func _on_index_pressed(index: int) -> void:
 	get_popup().set_item_checked(index, !get_popup().is_item_checked(index))
 	if get_popup().is_item_checked(index):
 		var option=optionscene.instantiate()
-		option.text=get_popup().get_item_text(index)
+		option.text="  "+get_popup().get_item_text(index)
 		option.name=get_popup().get_item_text(index)
-		print(option.get_minimum_size().x)
 		option.custom_minimum_size.x=option.get_minimum_size().x+30
-		print(option.get_minimum_size().x)
+		option.status=0
 		$"../optioncontainer".add_child(option)
 	elif !get_popup().is_item_checked(index):
 		#$"../optioncontainer".get_node(get_popup().get_item_text(index)).queue_free()

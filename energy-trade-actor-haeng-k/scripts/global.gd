@@ -1,14 +1,16 @@
 extends Node
 
 
-var import_data=[]
+var purchase_data=[]
 
-var export_data=[]
+var bid_data=[]
 
 
 var date="2025-08-08"
 
 var building_id=1
+
+var now=13
 
 
 var TimeSlots = [

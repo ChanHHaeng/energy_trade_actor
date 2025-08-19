@@ -32,7 +32,7 @@ func _on_pressed() -> void:
 				"building_id"=Global.building_id,
 				"start_time"=time,
 				"bid"=$"../GridContainer".get_child(index+12).text,
-				"value"=$"../GridContainer".get_child(index+24).text
+				"price"=$"../GridContainer".get_child(index+24).text
 			}
 		else:
 			body= {
@@ -40,7 +40,7 @@ func _on_pressed() -> void:
 				"building_id"=Global.building_id,
 				"start_time"=time,
 				"purchase"=$"../GridContainer".get_child(index+12).text,
-				"value"=$"../GridContainer".get_child(index+24).text
+				"price"=$"../GridContainer".get_child(index+24).text
 			}
 		body_array.append(body)
 		
