@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://d1gwqkrd33l0v"]
+[gd_scene load_steps=36 format=3 uid="uid://d1gwqkrd33l0v"]
 
 [ext_resource type="ButtonGroup" uid="uid://c23vsaa7035ln" path="res://subthings/menubuttongrout.tres" id="1_0fbet"]
 [ext_resource type="Script" uid="uid://bt2hnocu2gnnm" path="res://scripts/Main.gd" id="1_qtu10"]
@@ -17,6 +17,9 @@
 [ext_resource type="Script" uid="uid://bo0i1ccdb4mg" path="res://optioncontainer.gd" id="13_oq4si"]
 [ext_resource type="Script" uid="uid://ct1kv1ug7ngtt" path="res://pages.gd" id="14_g31lc"]
 [ext_resource type="Script" uid="uid://dwtkxrat3xd2y" path="res://tree.gd" id="15_knq72"]
+[ext_resource type="Script" uid="uid://b4l27jbqu7u11" path="res://my_page_page.gd" id="18_m4egf"]
+[ext_resource type="Script" uid="uid://bilujbdcxnnpp" path="res://master.gd" id="19_kuuv8"]
+[ext_resource type="Script" uid="uid://ds1aer3hhjmc0" path="res://scripts/timelist_master.gd" id="20_kuuv8"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6a6wx"]
 bg_color = Color(1, 1, 1, 1)
@@ -65,6 +68,14 @@ bg_color = Color(1, 1, 1, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oq4si"]
 bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m4egf"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.360784, 0.972549, 0.796078, 0.501961)
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -1745,6 +1756,7 @@ theme_override_styles/normal = ExtResource("2_kbped")
 script = ExtResource("12_eh0v1")
 
 [node name="max value" type="LineEdit" parent="Panel/Panel/Catalogue page/values"]
+layout_mode = 0
 offset_left = 150.0
 offset_right = 270.0
 offset_bottom = 31.0
@@ -1792,6 +1804,7 @@ theme_override_styles/normal = ExtResource("2_kbped")
 script = ExtResource("12_eh0v1")
 
 [node name="max price" type="LineEdit" parent="Panel/Panel/Catalogue page/prices"]
+layout_mode = 0
 offset_left = 150.0
 offset_right = 270.0
 offset_bottom = 31.0
@@ -1842,6 +1855,7 @@ select_mode = 1
 script = ExtResource("15_knq72")
 
 [node name="Bidpage_sect" type="Panel" parent="Panel/Panel/Catalogue page"]
+layout_mode = 0
 offset_left = 545.0
 offset_top = 106.0
 offset_right = 1030.0
@@ -1849,6 +1863,7 @@ offset_bottom = 464.0
 script = ExtResource("14_g31lc")
 
 [node name="bid" type="Tree" parent="Panel/Panel/Catalogue page/Bidpage_sect"]
+layout_mode = 0
 offset_left = 23.0
 offset_top = 31.0
 offset_right = 465.0
@@ -1867,15 +1882,170 @@ offset_top = 20.0
 offset_right = 1078.0
 offset_bottom = 502.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_oq4si")
+script = ExtResource("18_m4egf")
+
+[node name="Master" type="Panel" parent="Panel/Panel/My Page page"]
+visible = false
+layout_mode = 0
+offset_left = 9.0
+offset_top = 10.0
+offset_right = 1040.0
+offset_bottom = 470.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_m4egf")
+script = ExtResource("19_kuuv8")
+
+[node name="Label" type="Label" parent="Panel/Panel/My Page page/Master"]
+layout_mode = 0
+offset_left = 27.0
+offset_top = 22.0
+offset_right = 228.0
+offset_bottom = 64.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "Hello, Master!"
+
+[node name="Label2" type="Label" parent="Panel/Panel/My Page page/Master"]
+layout_mode = 0
+offset_left = 93.0
+offset_top = 105.0
+offset_right = 246.0
+offset_bottom = 128.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Current transaction"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Panel/Panel/My Page page/Master"]
+layout_mode = 0
+offset_left = 68.0
+offset_top = 160.0
+offset_right = 968.0
+offset_bottom = 401.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/Panel/My Page page/Master/ScrollContainer"]
+layout_mode = 2
+
+[node name="purchaseContainer" type="VBoxContainer" parent="Panel/Panel/My Page page/Master/ScrollContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="bidContainer2" type="VBoxContainer" parent="Panel/Panel/My Page page/Master/ScrollContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="timelist" type="MenuButton" parent="Panel/Panel/My Page page/Master"]
+layout_mode = 0
+offset_left = 261.0
+offset_top = 103.0
+offset_right = 470.0
+offset_bottom = 134.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = ExtResource("2_kbped")
+text = "select times"
+flat = false
+icon_alignment = 2
+item_count = 24
+popup/item_0/text = "06:00 ~ 07:00"
+popup/item_0/checkable = 2
+popup/item_0/id = 0
+popup/item_1/text = "07:00 ~ 08:00"
+popup/item_1/checkable = 2
+popup/item_1/id = 1
+popup/item_2/text = "08:00 ~ 09:00"
+popup/item_2/checkable = 2
+popup/item_2/id = 2
+popup/item_3/text = "09:00 ~ 10:00"
+popup/item_3/checkable = 2
+popup/item_3/id = 3
+popup/item_4/text = "10:00 ~ 11:00"
+popup/item_4/checkable = 2
+popup/item_4/id = 4
+popup/item_5/text = "11:00 ~ 12:00"
+popup/item_5/checkable = 2
+popup/item_5/id = 5
+popup/item_6/text = "12:00 ~ 13:00"
+popup/item_6/checkable = 2
+popup/item_6/id = 6
+popup/item_7/text = "13:00 ~ 14:00"
+popup/item_7/checkable = 2
+popup/item_7/id = 7
+popup/item_8/text = "14:00 ~ 15:00"
+popup/item_8/checkable = 2
+popup/item_8/id = 8
+popup/item_9/text = "15:00 ~ 16:00"
+popup/item_9/checkable = 2
+popup/item_9/id = 9
+popup/item_10/text = "16:00 ~ 17:00"
+popup/item_10/checkable = 2
+popup/item_10/id = 10
+popup/item_11/text = "17:00 ~ 18:00"
+popup/item_11/checkable = 2
+popup/item_11/id = 11
+popup/item_12/text = "18:00 ~ 19:00"
+popup/item_12/checkable = 2
+popup/item_12/id = 12
+popup/item_13/text = "19:00 ~ 20:00"
+popup/item_13/checkable = 2
+popup/item_13/id = 13
+popup/item_14/text = "20:00 ~ 21:00"
+popup/item_14/checkable = 2
+popup/item_14/id = 14
+popup/item_15/text = "21:00 ~ 22:00"
+popup/item_15/checkable = 2
+popup/item_15/id = 15
+popup/item_16/text = "22:00 ~ 23:00"
+popup/item_16/checkable = 2
+popup/item_16/id = 16
+popup/item_17/text = "23:00 ~ 24:00"
+popup/item_17/checkable = 2
+popup/item_17/id = 17
+popup/item_18/text = "00:00 ~ 01:00"
+popup/item_18/checkable = 2
+popup/item_18/id = 18
+popup/item_19/text = "01:00 ~ 02:00"
+popup/item_19/checkable = 2
+popup/item_19/id = 19
+popup/item_20/text = "02:00 ~ 03:00"
+popup/item_20/checkable = 2
+popup/item_20/id = 20
+popup/item_21/text = "03:00 ~ 04:00"
+popup/item_21/checkable = 2
+popup/item_21/id = 21
+popup/item_22/text = "04:00 ~ 05:00"
+popup/item_22/checkable = 2
+popup/item_22/id = 22
+popup/item_23/text = "05:00 ~ 06:00"
+popup/item_23/checkable = 2
+popup/item_23/id = 23
+script = ExtResource("20_kuuv8")
+
+[node name="blacktriangle" type="Label" parent="Panel/Panel/My Page page/Master/timelist"]
+layout_mode = 0
+offset_left = 191.0
+offset_top = 3.0
+offset_right = 207.0
+offset_bottom = 26.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "▼"
+
+[node name="User" type="Panel" parent="Panel/Panel/My Page page"]
+visible = false
+layout_mode = 0
+offset_left = 9.0
+offset_top = 10.0
+offset_right = 1040.0
+offset_bottom = 470.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_m4egf")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 5.0
 
 [node name="HTTPRequest_purchase" type="HTTPRequest" parent="."]
+unique_name_in_owner = true
 
 [node name="HTTPRequest_bid" type="HTTPRequest" parent="."]
+unique_name_in_owner = true
 
 [node name="HTTPRequest_buildings" type="HTTPRequest" parent="."]
+unique_name_in_owner = true
 
 [connection signal="toggled" from="Panel/HBoxContainer/Purchase" to="Panel/HBoxContainer/Purchase" method="_on_toggled"]
 [connection signal="toggled" from="Panel/HBoxContainer/Bid" to="Panel/HBoxContainer/Bid" method="_on_toggled"]
@@ -1896,3 +2066,5 @@ wait_time = 5.0
 [connection signal="child_exiting_tree" from="Panel/Panel/Catalogue page/optioncontainer" to="Panel/Panel/Catalogue page/Bidpage_sect" method="_on_optioncontainer_child_exiting_tree"]
 [connection signal="pressed" from="Panel/Panel/Catalogue page/values/insert" to="Panel/Panel/Catalogue page/values/insert" method="_on_pressed"]
 [connection signal="pressed" from="Panel/Panel/Catalogue page/prices/insert" to="Panel/Panel/Catalogue page/prices/insert" method="_on_pressed"]
+[connection signal="visibility_changed" from="Panel/Panel/My Page page" to="Panel/Panel/My Page page" method="_on_visibility_changed"]
+[connection signal="visibility_changed" from="Panel/Panel/My Page page/Master" to="Panel/Panel/My Page page/Master" method="_on_visibility_changed"]
