@@ -2,8 +2,9 @@ extends Node
 
 
 var purchase_data=[]
-
+var transaction_purchase=[]
 var bid_data=[]
+var transaction_bid=[]
 
 
 var date="2025-08-08"

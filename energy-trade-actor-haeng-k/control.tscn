@@ -1927,7 +1927,7 @@ layout_mode = 2
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="bidContainer2" type="VBoxContainer" parent="Panel/Panel/My Page page/Master/ScrollContainer/HBoxContainer"]
+[node name="bidContainer" type="VBoxContainer" parent="Panel/Panel/My Page page/Master/ScrollContainer/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 
