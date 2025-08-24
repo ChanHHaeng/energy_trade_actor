@@ -23,7 +23,7 @@ func _bid_completed(a,b,c,d):
 	Global.bid_data=result.duplicate(true)
 	Global.bid_data.sort_custom(sortingdata_bid)
 	for i in Global.bid_data:
-		Global.transaction_bid.append(i["bid"])
+		Global.transaction_bid.append([i["bid"],i["price"]])
 	print(Global.bid_data)
 	bidcheck=true
 	check_all_ready()
@@ -35,7 +35,8 @@ func _purchase_completed(a,b,c,d):
 	Global.purchase_data=result.duplicate(true)
 	Global.purchase_data.sort_custom(sortingdata_pur)
 	for i in Global.purchase_data:
-		Global.transaction_purchase.append(i["purchase"])
+		Global.transaction_purchase.append([i["purchase"],i["price"]])
+	print(Global.purchase_data)
 	purcheck=true
 	check_all_ready()
 

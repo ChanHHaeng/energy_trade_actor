@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://ixcsaah51xsr" path="res://userbox.gd" id="1_7qidy"]
 
 [node name="ColorRect" type="ColorRect"]
-custom_minimum_size = Vector2(440, 40)
+custom_minimum_size = Vector2(440, 107)
 offset_right = 400.0
 offset_bottom = 40.0
 color = Color(0, 0, 0, 1)
@@ -14,14 +14,14 @@ layout_mode = 0
 offset_left = 3.0
 offset_top = 3.0
 offset_right = 437.0
-offset_bottom = 37.0
+offset_bottom = 104.0
 
 [node name="Label" type="Label" parent="ColorRect"]
 layout_mode = 0
-offset_left = 6.0
-offset_top = 6.0
-offset_right = 384.0
-offset_bottom = 29.0
+offset_left = 3.0
+offset_top = -1.0
+offset_right = 381.0
+offset_bottom = 22.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "가격: 80 용량 : 80"
 

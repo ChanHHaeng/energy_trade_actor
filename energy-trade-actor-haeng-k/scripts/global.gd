@@ -6,6 +6,8 @@ var transaction_purchase=[]
 var bid_data=[]
 var transaction_bid=[]
 
+var matching_result=[]
+
 
 var date="2025-08-08"
 
