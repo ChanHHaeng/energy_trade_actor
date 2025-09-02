@@ -1,6 +1,7 @@
 extends Node
 
 
+var postgrest="http://192.168.0.7"
 var purchase_data=[]
 var transaction_purchase=[]
 var bid_data=[]
@@ -42,3 +43,18 @@ var TimeSlots = [
 	"04_00 ~ 05_00",
 	"05_00 ~ 06_00"
 ]
+
+
+func _ready() -> void:
+	for i in range(24):
+		transaction_bid.append([])
+		transaction_purchase.append([])
+		
+func transaction_clear(serial):
+	match serial:
+		0:
+			for i in range(24):
+				transaction_purchase[i].clear()
+		1:
+			for i in range(24):
+				transaction_bid[i].clear()

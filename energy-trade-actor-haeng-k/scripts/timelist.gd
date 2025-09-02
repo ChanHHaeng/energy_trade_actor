@@ -22,8 +22,8 @@ func _on_index_pressed(index: int) -> void:
 		#$"../optioncontainer".get_node(get_popup().get_item_text(index)).queue_free()
 		var nodename=get_popup().get_item_text(index)
 		nodename= nodename.replace(":","_")
-		print(nodename)
-		print($"../optioncontainer".get_node(nodename))
+		#print(nodename)
+		#print($"../optioncontainer".get_node(nodename))
 		$"../optioncontainer".get_node(nodename).queue_free()
 
 func _on_optioncontainer_child_exiting_tree(node: Node) -> void:

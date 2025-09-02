@@ -8,7 +8,7 @@ var body_array=[]
 var value_list=[]
 var price_list=[]
 func _ready() -> void:
-	url="http://192.168.0.6:3000/"+name
+	url=Global.postgrest+":3000/"+name
 	headers = [
 		"Content-Type: application/json"
 	]
@@ -72,6 +72,7 @@ func  disabling():
 		if $"../GridContainer".get_child(index+12).correct_form and $"../GridContainer".get_child(index+24).correct_form:
 			pass
 		else:
+			self.disabled=true
 			return
 	
 	self.disabled=false

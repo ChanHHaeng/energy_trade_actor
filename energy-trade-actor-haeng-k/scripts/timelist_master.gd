@@ -13,7 +13,16 @@ func _ready() -> void:
 
 func _on_index_pressed(index: int) -> void:
 	var count=get_popup().item_count
-	
 	for i in range(count):
 		get_popup().set_item_checked(i,false)
 	get_popup().set_item_checked(index, !get_popup().is_item_checked(index))
+	var time
+	if index<18:
+		time=index+6
+	else:
+		time=index-18
+	for i in %bidContainer.get_children():
+		if i.time==time:
+			i.visible=true
+		else:
+			i.visible=false

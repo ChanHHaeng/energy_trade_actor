@@ -3,7 +3,7 @@ extends Control
 
 func _ready():
 	$HTTPRequest_buildings.request_completed.connect(_on_building_completed)
-	var err_build=$HTTPRequest_buildings.request("http://192.168.0.6:3000/buildings")
+	var err_build=$HTTPRequest_buildings.request(str(Global.postgrest)+":3000/buildings")
 	var now=Time.get_datetime_string_from_system()
 	print(now)
 

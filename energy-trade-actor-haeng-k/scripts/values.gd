@@ -17,4 +17,4 @@ func texts_changed(new_text):
 	else:
 		prev_text=text
 		correct_form=true
-		get_parent().get_parent().get_child(2).disabling()
+	get_parent().get_parent().get_child(2).disabling()
