@@ -4,9 +4,14 @@ extends Panel
 @onready var userbox=load("res://userbox.tscn")
 
 func _ready() -> void:
+	self.visible=false
 	var now=Time.get_datetime_string_from_system()
 
 func _on_visibility_changed() -> void:
+	if Global.building_id==0:
+		$Label.text="Hello, Master!"
+	else:
+		$Label.text="Hello, User "+str(Global.building_id)+"! \nCheck your transaction result!"
 	if is_visible_in_tree():
 		Global.matching_result.clear()
 		var flag=true
@@ -17,11 +22,7 @@ func _on_visibility_changed() -> void:
 				#print(Global.transaction_purchase[k])
 				#print(Global.transaction_bid[k])
 				for i in len(Global.transaction_bid[k]):
-					while(Global.transaction_bid[k][i][0]>0): 
-						#print("time:", k)
-						#print("ireguller",Global.transaction_purchase[k])
-						#print("value: ", Global.transaction_purchase[k][j][1])
-						#print("and ",Global.transaction_bid[k][i][1])
+					while(Global.transaction_bid[k][i][0]>0 and j<len(Global.transaction_purchase[k])): 
 						if Global.transaction_purchase[k][j][1]>=Global.transaction_bid[k][i][1]: #거래 가능 (매칭 성사)
 							if Global.transaction_purchase[k][j][0]>Global.transaction_bid[k][i][0]:
 								Global.matching_result.append([Global.transaction_purchase[k][j][2],Global.transaction_bid[k][i][2],Global.transaction_bid[k][i][0],(Global.transaction_purchase[k][j][1]+Global.transaction_bid[k][i][1])/2,k])

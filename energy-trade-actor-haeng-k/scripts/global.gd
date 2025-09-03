@@ -1,7 +1,7 @@
 extends Node
 
 
-var postgrest="http://192.168.0.7"
+var postgrest="http://192.168.0.13"
 var purchase_data=[]
 var transaction_purchase=[]
 var bid_data=[]
@@ -10,7 +10,7 @@ var transaction_bid=[]
 var matching_result=[]
 
 
-var date="2025-08-08"
+var date="2025-08-07"
 
 var building_id=0
 

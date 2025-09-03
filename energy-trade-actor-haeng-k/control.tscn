@@ -1,15 +1,18 @@
-[gd_scene load_steps=40 format=3 uid="uid://d1gwqkrd33l0v"]
+[gd_scene load_steps=48 format=3 uid="uid://d1gwqkrd33l0v"]
 
 [ext_resource type="ButtonGroup" uid="uid://c23vsaa7035ln" path="res://subthings/menubuttongrout.tres" id="1_0fbet"]
 [ext_resource type="Script" uid="uid://bt2hnocu2gnnm" path="res://scripts/Main.gd" id="1_qtu10"]
 [ext_resource type="Script" uid="uid://b2vti33dpxp2l" path="res://scripts/button.gd" id="2_62e2m"]
 [ext_resource type="StyleBox" uid="uid://c7vue7jx6lx8n" path="res://themes/greenglass.tres" id="2_kbped"]
 [ext_resource type="StyleBox" uid="uid://coboi5x8fymw5" path="res://assets/lightglass.tres" id="3_3fl80"]
+[ext_resource type="Script" uid="uid://ctctxhhpa3vtw" path="res://trade_page.gd" id="6_2pj6v"]
 [ext_resource type="Script" uid="uid://c5kopll4xx0h8" path="res://scripts/menu_button.gd" id="6_fj5cn"]
 [ext_resource type="Script" uid="uid://b7cmyhuxspct2" path="res://scripts/grid_container.gd" id="6_iy58a"]
+[ext_resource type="PackedScene" uid="uid://ryurc2muk230" path="res://timer.tscn" id="7_858bn"]
 [ext_resource type="StyleBox" uid="uid://bvoo6s30tvhur" path="res://themes/unselected_label.tres" id="7_pxugv"]
 [ext_resource type="Theme" uid="uid://ck6edqclwknam" path="res://themes/unselected_cell.tres" id="7_sky72"]
 [ext_resource type="Script" uid="uid://oh3t85n5p215" path="res://scripts/enroll.gd" id="8_6a6wx"]
+[ext_resource type="ButtonGroup" uid="uid://f50ldjp6jnm3" path="res://time_button_group.tres" id="8_858bn"]
 [ext_resource type="Script" uid="uid://bi2hlq57wl1cg" path="res://scripts/values.gd" id="9_pxugv"]
 [ext_resource type="Script" uid="uid://bygtdoyvtfkh4" path="res://scripts/timelist.gd" id="11_pxugv"]
 [ext_resource type="Script" uid="uid://cl06736yiiluv" path="res://catalogue_page.gd" id="11_xvdhi"]
@@ -22,6 +25,8 @@
 [ext_resource type="Script" uid="uid://bilujbdcxnnpp" path="res://master.gd" id="19_kuuv8"]
 [ext_resource type="Script" uid="uid://ds1aer3hhjmc0" path="res://scripts/timelist_master.gd" id="20_kuuv8"]
 [ext_resource type="Script" uid="uid://c624y8ii38rqn" path="res://globalbuild.gd" id="21_ou021"]
+[ext_resource type="Script" uid="uid://beld12sg178n7" path="res://bid_container.gd" id="21_v61lp"]
+[ext_resource type="Script" uid="uid://dbqis1a21u6hf" path="res://master_x_button.gd" id="22_8jbwv"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6a6wx"]
 bg_color = Color(1, 1, 1, 1)
@@ -56,10 +61,37 @@ bg_color = Color(0.97, 0.97, 0.97, 1)
 corner_radius_bottom_right = 30
 corner_radius_bottom_left = 30
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nws1w"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6a6wx"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v61lp"]
+bg_color = Color(0.321672, 0.957997, 0.779177, 0.501961)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_color = Color(0.360784, 0.972549, 0.796078, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
 [sub_resource type="Theme" id="Theme_3fl80"]
 PopupMenu/colors/font_color = Color(0, 0, 0, 1)
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6a6wx"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_858bn"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sky72"]
 
@@ -88,12 +120,8 @@ border_color = Color(0.360784, 0.972549, 0.796078, 1)
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3fl80"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m4egf"]
-bg_color = Color(1, 1, 1, 1)
-border_width_left = 5
-border_width_top = 5
-border_width_right = 5
-border_width_bottom = 5
-border_color = Color(0.360784, 0.972549, 0.796078, 0.501961)
+bg_color = Color(0.97, 0.97, 0.97, 1)
+border_color = Color(0.97, 0.97, 0.97, 1)
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -124,9 +152,9 @@ offset_left = 32.0
 offset_top = 29.5
 offset_right = 1123.0
 offset_bottom = 93.5
-theme_override_constants/separation = 40
+theme_override_constants/separation = 3
 
-[node name="Purchase" type="Button" parent="Panel/HBoxContainer"]
+[node name="Trade" type="Button" parent="Panel/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
@@ -141,10 +169,12 @@ theme_override_styles/normal = ExtResource("3_3fl80")
 toggle_mode = true
 button_pressed = true
 button_group = ExtResource("1_0fbet")
-text = "Purchase"
+text = "Trade
+"
 script = ExtResource("2_62e2m")
 
 [node name="Bid" type="Button" parent="Panel/HBoxContainer"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
@@ -201,747 +231,187 @@ offset_right = 1124.0
 offset_bottom = 615.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_sky72")
 
-[node name="Purchase page" type="Panel" parent="Panel/Panel"]
+[node name="Trade page" type="Panel" parent="Panel/Panel"]
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_g31lc")
+script = ExtResource("6_2pj6v")
 
-[node name="MenuButton" type="MenuButton" parent="Panel/Panel/Purchase page"]
-layout_mode = 0
-offset_left = 25.0
-offset_top = 57.0
-offset_right = 234.0
-offset_bottom = 81.0
-theme = SubResource("Theme_3fl80")
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_styles/hover = ExtResource("2_kbped")
-theme_override_styles/pressed = ExtResource("2_kbped")
-theme_override_styles/normal = ExtResource("2_kbped")
-text = "select purchase times"
-flat = false
-item_count = 24
-popup/item_0/text = "06:00 ~ 07:00"
-popup/item_0/checkable = 1
-popup/item_0/id = 0
-popup/item_1/text = "07:00 ~ 08:00"
-popup/item_1/checkable = 1
-popup/item_1/id = 1
-popup/item_2/text = "08:00 ~ 09:00"
-popup/item_2/checkable = 1
-popup/item_2/id = 2
-popup/item_3/text = "09:00 ~ 10:00"
-popup/item_3/checkable = 1
-popup/item_3/id = 3
-popup/item_4/text = "10:00 ~ 11:00"
-popup/item_4/checkable = 1
-popup/item_4/id = 4
-popup/item_5/text = "11:00 ~ 12:00"
-popup/item_5/checkable = 1
-popup/item_5/id = 5
-popup/item_6/text = "12:00 ~ 13:00"
-popup/item_6/checkable = 1
-popup/item_6/id = 6
-popup/item_7/text = "13:00 ~ 14:00"
-popup/item_7/checkable = 1
-popup/item_7/id = 7
-popup/item_8/text = "14:00 ~ 15:00"
-popup/item_8/checkable = 1
-popup/item_8/id = 8
-popup/item_9/text = "15:00 ~ 16:00"
-popup/item_9/checkable = 1
-popup/item_9/id = 9
-popup/item_10/text = "16:00 ~ 17:00"
-popup/item_10/checkable = 1
-popup/item_10/id = 10
-popup/item_11/text = "17:00 ~ 18:00"
-popup/item_11/checkable = 1
-popup/item_11/id = 11
-popup/item_12/text = "18:00 ~ 19:00"
-popup/item_12/checkable = 1
-popup/item_12/id = 12
-popup/item_13/text = "19:00 ~ 20:00"
-popup/item_13/checkable = 1
-popup/item_13/id = 13
-popup/item_14/text = "20:00 ~ 21:00"
-popup/item_14/checkable = 1
-popup/item_14/id = 14
-popup/item_15/text = "21:00 ~ 22:00"
-popup/item_15/checkable = 1
-popup/item_15/id = 15
-popup/item_16/text = "22:00 ~ 23:00"
-popup/item_16/checkable = 1
-popup/item_16/id = 16
-popup/item_17/text = "23:00 ~ 24:00"
-popup/item_17/checkable = 1
-popup/item_17/id = 17
-popup/item_18/text = "00:00 ~ 01:00"
-popup/item_18/checkable = 1
-popup/item_18/id = 18
-popup/item_19/text = "01:00 ~ 02:00"
-popup/item_19/checkable = 1
-popup/item_19/id = 19
-popup/item_20/text = "02:00 ~ 03:00"
-popup/item_20/checkable = 1
-popup/item_20/id = 20
-popup/item_21/text = "03:00 ~ 04:00"
-popup/item_21/checkable = 1
-popup/item_21/id = 21
-popup/item_22/text = "04:00 ~ 05:00"
-popup/item_22/checkable = 1
-popup/item_22/id = 22
-popup/item_23/text = "05:00 ~ 06:00"
-popup/item_23/checkable = 1
-popup/item_23/id = 23
-script = ExtResource("6_fj5cn")
-
-[node name="PopupMenu" type="PopupMenu" parent="Panel/Panel/Purchase page/MenuButton"]
-auto_translate_mode = 1
-
-[node name="blacktriangle" type="Label" parent="Panel/Panel/Purchase page/MenuButton"]
-layout_mode = 0
-offset_left = 191.0
-offset_right = 207.0
-offset_bottom = 23.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "▼"
-
-[node name="GridContainer" type="GridContainer" parent="Panel/Panel/Purchase page"]
+[node name="GridContainer" type="GridContainer" parent="Panel/Panel/Trade page"]
 custom_minimum_size = Vector2(80, 0)
 layout_mode = 0
-offset_left = 25.0
-offset_top = 235.0
-offset_right = 1029.0
-offset_bottom = 406.0
+offset_left = 34.0
+offset_top = 126.0
+offset_right = 1038.0
+offset_bottom = 176.0
 theme_override_constants/h_separation = 4
 theme_override_constants/v_separation = 4
 columns = 12
 script = ExtResource("6_iy58a")
 
-[node name="06_00" type="Label" parent="Panel/Panel/Purchase page/GridContainer"]
-custom_minimum_size = Vector2(80, 0)
+[node name="6" parent="Panel/Panel/Trade page/GridContainer" instance=ExtResource("7_858bn")]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.745, 0.745, 0.745, 1)
-theme_override_styles/normal = ExtResource("7_pxugv")
-text = "06:00"
-horizontal_alignment = 1
+theme_override_styles/normal = SubResource("StyleBoxFlat_nws1w")
+button_group = ExtResource("8_858bn")
 
-[node name="07_00" type="Label" parent="Panel/Panel/Purchase page/GridContainer"]
-custom_minimum_size = Vector2(80, 0)
+[node name="7" parent="Panel/Panel/Trade page/GridContainer" instance=ExtResource("7_858bn")]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.745, 0.745, 0.745, 1)
-theme_override_styles/normal = ExtResource("7_pxugv")
-text = "07:00"
-horizontal_alignment = 1
-
-[node name="08_00" type="Label" parent="Panel/Panel/Purchase page/GridContainer"]
-custom_minimum_size = Vector2(80, 0)
-layout_mode = 2
-theme_override_colors/font_color = Color(0.745, 0.745, 0.745, 1)
-theme_override_styles/normal = ExtResource("7_pxugv")
-text = "08:00"
-horizontal_alignment = 1
-
-[node name="09_00" type="Label" parent="Panel/Panel/Purchase page/GridContainer"]
-custom_minimum_size = Vector2(80, 0)
-layout_mode = 2
-theme_override_colors/font_color = Color(0.745, 0.745, 0.745, 1)
-theme_override_styles/normal = ExtResource("7_pxugv")
-text = "09:00"
-horizontal_alignment = 1
-
-[node name="10_00" type="Label" parent="Panel/Panel/Purchase page/GridContainer"]
-custom_minimum_size = Vector2(80, 0)
-layout_mode = 2
-theme_override_colors/font_color = Color(0.745, 0.745, 0.745, 1)
-theme_override_styles/normal = ExtResource("7_pxugv")
-text = "10:00"
-horizontal_alignment = 1
-
-[node name="11_00" type="Label" parent="Panel/Panel/Purchase page/GridContainer"]
-custom_minimum_size = Vector2(80, 0)
-layout_mode = 2
-theme_override_colors/font_color = Color(0.745, 0.745, 0.745, 1)
-theme_override_styles/normal = ExtResource("7_pxugv")
-text = "11:00"
-horizontal_alignment = 1
-
-[node name="12_00" type="Label" parent="Panel/Panel/Purchase page/GridContainer"]
-custom_minimum_size = Vector2(80, 0)
-layout_mode = 2
-theme_override_colors/font_color = Color(0.745, 0.745, 0.745, 1)
-theme_override_styles/normal = ExtResource("7_pxugv")
-text = "12:00"
-horizontal_alignment = 1
-
-[node name="13_00" type="Label" parent="Panel/Panel/Purchase page/GridContainer"]
-custom_minimum_size = Vector2(80, 0)
-layout_mode = 2
-theme_override_colors/font_color = Color(0.745, 0.745, 0.745, 1)
-theme_override_styles/normal = ExtResource("7_pxugv")
-text = "13:00"
-horizontal_alignment = 1
-
-[node name="14_00" type="Label" parent="Panel/Panel/Purchase page/GridContainer"]
-custom_minimum_size = Vector2(80, 0)
-layout_mode = 2
-theme_override_colors/font_color = Color(0.745, 0.745, 0.745, 1)
-theme_override_styles/normal = ExtResource("7_pxugv")
-text = "14:00"
-horizontal_alignment = 1
-
-[node name="15_00" type="Label" parent="Panel/Panel/Purchase page/GridContainer"]
-custom_minimum_size = Vector2(80, 0)
-layout_mode = 2
-theme_override_colors/font_color = Color(0.745, 0.745, 0.745, 1)
-theme_override_styles/normal = ExtResource("7_pxugv")
-text = "15:00"
-horizontal_alignment = 1
-
-[node name="16_00" type="Label" parent="Panel/Panel/Purchase page/GridContainer"]
-custom_minimum_size = Vector2(80, 0)
-layout_mode = 2
-theme_override_colors/font_color = Color(0.745, 0.745, 0.745, 1)
-theme_override_styles/normal = ExtResource("7_pxugv")
-text = "16:00"
-horizontal_alignment = 1
-
-[node name="17_00" type="Label" parent="Panel/Panel/Purchase page/GridContainer"]
-custom_minimum_size = Vector2(80, 0)
-layout_mode = 2
-theme_override_colors/font_color = Color(0.745, 0.745, 0.745, 1)
-theme_override_styles/normal = ExtResource("7_pxugv")
-text = "17:00"
-horizontal_alignment = 1
-
-[node name="06_00 value" type="LineEdit" parent="Panel/Panel/Purchase page/GridContainer"]
-custom_minimum_size = Vector2(80, 0)
-layout_mode = 2
-theme = ExtResource("7_sky72")
-theme_override_font_sizes/font_size = 14
-alignment = 1
-editable = false
-script = ExtResource("9_pxugv")
-
-[node name="07_00 value" type="LineEdit" parent="Panel/Panel/Purchase page/GridContainer"]
-custom_minimum_size = Vector2(80, 0)
-layout_mode = 2
-theme = ExtResource("7_sky72")
-theme_override_font_sizes/font_size = 14
-alignment = 1
-editable = false
-script = ExtResource("9_pxugv")
-
-[node name="08_00 value" type="LineEdit" parent="Panel/Panel/Purchase page/GridContainer"]
-custom_minimum_size = Vector2(80, 0)
-layout_mode = 2
-theme = ExtResource("7_sky72")
-theme_override_font_sizes/font_size = 14
-alignment = 1
-editable = false
-script = ExtResource("9_pxugv")
-
-[node name="09_00 value" type="LineEdit" parent="Panel/Panel/Purchase page/GridContainer"]
-custom_minimum_size = Vector2(80, 0)
-layout_mode = 2
-theme = ExtResource("7_sky72")
-theme_override_font_sizes/font_size = 14
-alignment = 1
-editable = false
-script = ExtResource("9_pxugv")
-
-[node name="10_00 value" type="LineEdit" parent="Panel/Panel/Purchase page/GridContainer"]
-custom_minimum_size = Vector2(80, 0)
-layout_mode = 2
-theme = ExtResource("7_sky72")
-theme_override_font_sizes/font_size = 14
-alignment = 1
-editable = false
-script = ExtResource("9_pxugv")
-
-[node name="11_00 value" type="LineEdit" parent="Panel/Panel/Purchase page/GridContainer"]
-custom_minimum_size = Vector2(80, 0)
-layout_mode = 2
-theme = ExtResource("7_sky72")
-theme_override_font_sizes/font_size = 14
-alignment = 1
-editable = false
-script = ExtResource("9_pxugv")
-
-[node name="12_00 value" type="LineEdit" parent="Panel/Panel/Purchase page/GridContainer"]
-custom_minimum_size = Vector2(80, 0)
-layout_mode = 2
-theme = ExtResource("7_sky72")
-theme_override_font_sizes/font_size = 14
-alignment = 1
-editable = false
-script = ExtResource("9_pxugv")
-
-[node name="13_00 value" type="LineEdit" parent="Panel/Panel/Purchase page/GridContainer"]
-custom_minimum_size = Vector2(80, 0)
-layout_mode = 2
-theme = ExtResource("7_sky72")
-theme_override_font_sizes/font_size = 14
-alignment = 1
-editable = false
-script = ExtResource("9_pxugv")
-
-[node name="14_00 value" type="LineEdit" parent="Panel/Panel/Purchase page/GridContainer"]
-custom_minimum_size = Vector2(80, 0)
-layout_mode = 2
-theme = ExtResource("7_sky72")
-theme_override_font_sizes/font_size = 14
-alignment = 1
-editable = false
-script = ExtResource("9_pxugv")
-
-[node name="15_00 value" type="LineEdit" parent="Panel/Panel/Purchase page/GridContainer"]
-custom_minimum_size = Vector2(80, 0)
-layout_mode = 2
-theme = ExtResource("7_sky72")
-theme_override_font_sizes/font_size = 14
-alignment = 1
-editable = false
-script = ExtResource("9_pxugv")
-
-[node name="16_00 value" type="LineEdit" parent="Panel/Panel/Purchase page/GridContainer"]
-custom_minimum_size = Vector2(80, 0)
-layout_mode = 2
-theme = ExtResource("7_sky72")
-theme_override_font_sizes/font_size = 14
-alignment = 1
-editable = false
-script = ExtResource("9_pxugv")
-
-[node name="17_00 value" type="LineEdit" parent="Panel/Panel/Purchase page/GridContainer"]
-custom_minimum_size = Vector2(80, 0)
-layout_mode = 2
-theme = ExtResource("7_sky72")
-theme_override_font_sizes/font_size = 14
-alignment = 1
-editable = false
-script = ExtResource("9_pxugv")
-
-[node name="06_00 price" type="LineEdit" parent="Panel/Panel/Purchase page/GridContainer"]
-custom_minimum_size = Vector2(80, 0)
-layout_mode = 2
-theme = ExtResource("7_sky72")
-alignment = 1
-editable = false
-script = ExtResource("9_pxugv")
-
-[node name="07_00 price" type="LineEdit" parent="Panel/Panel/Purchase page/GridContainer"]
-custom_minimum_size = Vector2(80, 0)
-layout_mode = 2
-theme = ExtResource("7_sky72")
-alignment = 1
-editable = false
-script = ExtResource("9_pxugv")
-
-[node name="08_00 price" type="LineEdit" parent="Panel/Panel/Purchase page/GridContainer"]
-custom_minimum_size = Vector2(80, 0)
-layout_mode = 2
-theme = ExtResource("7_sky72")
-alignment = 1
-editable = false
-script = ExtResource("9_pxugv")
-
-[node name="09_00 price" type="LineEdit" parent="Panel/Panel/Purchase page/GridContainer"]
-custom_minimum_size = Vector2(80, 0)
-layout_mode = 2
-theme = ExtResource("7_sky72")
-alignment = 1
-editable = false
-script = ExtResource("9_pxugv")
-
-[node name="10_00 price" type="LineEdit" parent="Panel/Panel/Purchase page/GridContainer"]
-custom_minimum_size = Vector2(80, 0)
-layout_mode = 2
-theme = ExtResource("7_sky72")
-alignment = 1
-editable = false
-script = ExtResource("9_pxugv")
-
-[node name="11_00 price" type="LineEdit" parent="Panel/Panel/Purchase page/GridContainer"]
-custom_minimum_size = Vector2(80, 0)
-layout_mode = 2
-theme = ExtResource("7_sky72")
-alignment = 1
-editable = false
-script = ExtResource("9_pxugv")
-
-[node name="12_00 price" type="LineEdit" parent="Panel/Panel/Purchase page/GridContainer"]
-custom_minimum_size = Vector2(80, 0)
-layout_mode = 2
-theme = ExtResource("7_sky72")
-alignment = 1
-editable = false
-script = ExtResource("9_pxugv")
-
-[node name="13_00 price" type="LineEdit" parent="Panel/Panel/Purchase page/GridContainer"]
-custom_minimum_size = Vector2(80, 0)
-layout_mode = 2
-theme = ExtResource("7_sky72")
-alignment = 1
-editable = false
-script = ExtResource("9_pxugv")
-
-[node name="14_00 price" type="LineEdit" parent="Panel/Panel/Purchase page/GridContainer"]
-custom_minimum_size = Vector2(80, 0)
-layout_mode = 2
-theme = ExtResource("7_sky72")
-alignment = 1
-editable = false
-script = ExtResource("9_pxugv")
-
-[node name="15_00 price" type="LineEdit" parent="Panel/Panel/Purchase page/GridContainer"]
-custom_minimum_size = Vector2(80, 0)
-layout_mode = 2
-theme = ExtResource("7_sky72")
-alignment = 1
-editable = false
-script = ExtResource("9_pxugv")
-
-[node name="16_00 price" type="LineEdit" parent="Panel/Panel/Purchase page/GridContainer"]
-custom_minimum_size = Vector2(80, 0)
-layout_mode = 2
-theme = ExtResource("7_sky72")
-alignment = 1
-editable = false
-script = ExtResource("9_pxugv")
-
-[node name="17_00 price" type="LineEdit" parent="Panel/Panel/Purchase page/GridContainer"]
-custom_minimum_size = Vector2(80, 0)
-layout_mode = 2
-theme = ExtResource("7_sky72")
-alignment = 1
-editable = false
-script = ExtResource("9_pxugv")
-
-[node name="18_00" type="Label" parent="Panel/Panel/Purchase page/GridContainer"]
-custom_minimum_size = Vector2(80, 0)
-layout_mode = 2
-theme_override_colors/font_color = Color(0.745, 0.745, 0.745, 1)
-theme_override_styles/normal = ExtResource("7_pxugv")
-text = "18:00"
-horizontal_alignment = 1
-
-[node name="19_00" type="Label" parent="Panel/Panel/Purchase page/GridContainer"]
-custom_minimum_size = Vector2(80, 0)
-layout_mode = 2
-theme_override_colors/font_color = Color(0.745, 0.745, 0.745, 1)
-theme_override_styles/normal = ExtResource("7_pxugv")
-text = "19:00"
-horizontal_alignment = 1
-
-[node name="20_00" type="Label" parent="Panel/Panel/Purchase page/GridContainer"]
-custom_minimum_size = Vector2(80, 0)
-layout_mode = 2
-theme_override_colors/font_color = Color(0.745, 0.745, 0.745, 1)
-theme_override_styles/normal = ExtResource("7_pxugv")
-text = "20:00"
-horizontal_alignment = 1
-
-[node name="21_00" type="Label" parent="Panel/Panel/Purchase page/GridContainer"]
-custom_minimum_size = Vector2(80, 0)
-layout_mode = 2
-theme_override_colors/font_color = Color(0.745, 0.745, 0.745, 1)
-theme_override_styles/normal = ExtResource("7_pxugv")
-text = "21:00"
-horizontal_alignment = 1
-
-[node name="22_00" type="Label" parent="Panel/Panel/Purchase page/GridContainer"]
-custom_minimum_size = Vector2(80, 0)
-layout_mode = 2
-theme_override_colors/font_color = Color(0.745, 0.745, 0.745, 1)
-theme_override_styles/normal = ExtResource("7_pxugv")
-text = "22:00"
-horizontal_alignment = 1
-
-[node name="23_00" type="Label" parent="Panel/Panel/Purchase page/GridContainer"]
-custom_minimum_size = Vector2(80, 0)
-layout_mode = 2
-theme_override_colors/font_color = Color(0.745, 0.745, 0.745, 1)
-theme_override_styles/normal = ExtResource("7_pxugv")
-text = "23:00"
-horizontal_alignment = 1
-
-[node name="00_00" type="Label" parent="Panel/Panel/Purchase page/GridContainer"]
-custom_minimum_size = Vector2(80, 0)
-layout_mode = 2
-theme_override_colors/font_color = Color(0.745, 0.745, 0.745, 1)
-theme_override_styles/normal = ExtResource("7_pxugv")
-text = "00:00"
-horizontal_alignment = 1
-
-[node name="01_00" type="Label" parent="Panel/Panel/Purchase page/GridContainer"]
-custom_minimum_size = Vector2(80, 0)
-layout_mode = 2
-theme_override_colors/font_color = Color(0.745, 0.745, 0.745, 1)
-theme_override_styles/normal = ExtResource("7_pxugv")
+theme_override_styles/normal = SubResource("StyleBoxFlat_nws1w")
+button_group = ExtResource("8_858bn")
 text = "01:00"
-horizontal_alignment = 1
 
-[node name="02_00" type="Label" parent="Panel/Panel/Purchase page/GridContainer"]
-custom_minimum_size = Vector2(80, 0)
+[node name="8" parent="Panel/Panel/Trade page/GridContainer" instance=ExtResource("7_858bn")]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.745, 0.745, 0.745, 1)
-theme_override_styles/normal = ExtResource("7_pxugv")
+theme_override_styles/normal = SubResource("StyleBoxFlat_nws1w")
 text = "02:00"
-horizontal_alignment = 1
 
-[node name="03_00" type="Label" parent="Panel/Panel/Purchase page/GridContainer"]
-custom_minimum_size = Vector2(80, 0)
+[node name="9" parent="Panel/Panel/Trade page/GridContainer" instance=ExtResource("7_858bn")]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.745, 0.745, 0.745, 1)
-theme_override_styles/normal = ExtResource("7_pxugv")
+theme_override_styles/normal = SubResource("StyleBoxFlat_nws1w")
 text = "03:00"
-horizontal_alignment = 1
 
-[node name="04_00" type="Label" parent="Panel/Panel/Purchase page/GridContainer"]
-custom_minimum_size = Vector2(80, 0)
+[node name="10" parent="Panel/Panel/Trade page/GridContainer" instance=ExtResource("7_858bn")]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.745, 0.745, 0.745, 1)
-theme_override_styles/normal = ExtResource("7_pxugv")
+theme_override_styles/normal = SubResource("StyleBoxFlat_nws1w")
 text = "04:00"
-horizontal_alignment = 1
 
-[node name="05_00" type="Label" parent="Panel/Panel/Purchase page/GridContainer"]
-custom_minimum_size = Vector2(80, 0)
+[node name="11" parent="Panel/Panel/Trade page/GridContainer" instance=ExtResource("7_858bn")]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.745, 0.745, 0.745, 1)
-theme_override_styles/normal = ExtResource("7_pxugv")
+theme_override_styles/normal = SubResource("StyleBoxFlat_nws1w")
 text = "05:00"
-horizontal_alignment = 1
 
-[node name="18_00 value" type="LineEdit" parent="Panel/Panel/Purchase page/GridContainer"]
+[node name="12" parent="Panel/Panel/Trade page/GridContainer" instance=ExtResource("7_858bn")]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_nws1w")
+text = "06:00"
+
+[node name="13" parent="Panel/Panel/Trade page/GridContainer" instance=ExtResource("7_858bn")]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_nws1w")
+text = "07:00"
+
+[node name="14" parent="Panel/Panel/Trade page/GridContainer" instance=ExtResource("7_858bn")]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_nws1w")
+text = "08:00"
+
+[node name="15" parent="Panel/Panel/Trade page/GridContainer" instance=ExtResource("7_858bn")]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_nws1w")
+text = "09:00"
+
+[node name="16" parent="Panel/Panel/Trade page/GridContainer" instance=ExtResource("7_858bn")]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_nws1w")
+text = "10:00"
+
+[node name="17" parent="Panel/Panel/Trade page/GridContainer" instance=ExtResource("7_858bn")]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_nws1w")
+text = "11:00"
+
+[node name="GridContainer2" type="GridContainer" parent="Panel/Panel/Trade page"]
 custom_minimum_size = Vector2(80, 0)
 layout_mode = 2
-theme = ExtResource("7_sky72")
-theme_override_font_sizes/font_size = 14
-alignment = 1
-editable = false
-script = ExtResource("9_pxugv")
+offset_left = 34.0
+offset_top = 298.0
+offset_right = 1038.0
+offset_bottom = 348.0
+theme_override_constants/h_separation = 4
+theme_override_constants/v_separation = 4
+columns = 12
+script = ExtResource("6_iy58a")
 
-[node name="19_00 value" type="LineEdit" parent="Panel/Panel/Purchase page/GridContainer"]
-custom_minimum_size = Vector2(80, 0)
+[node name="6" parent="Panel/Panel/Trade page/GridContainer2" instance=ExtResource("7_858bn")]
 layout_mode = 2
-theme = ExtResource("7_sky72")
-theme_override_font_sizes/font_size = 14
-alignment = 1
-editable = false
-script = ExtResource("9_pxugv")
+theme_override_styles/normal = SubResource("StyleBoxFlat_nws1w")
+button_group = ExtResource("8_858bn")
 
-[node name="20_00 value" type="LineEdit" parent="Panel/Panel/Purchase page/GridContainer"]
-custom_minimum_size = Vector2(80, 0)
+[node name="7" parent="Panel/Panel/Trade page/GridContainer2" instance=ExtResource("7_858bn")]
 layout_mode = 2
-theme = ExtResource("7_sky72")
-theme_override_font_sizes/font_size = 14
-alignment = 1
-editable = false
-script = ExtResource("9_pxugv")
+theme_override_styles/normal = SubResource("StyleBoxFlat_nws1w")
+button_group = ExtResource("8_858bn")
+text = "01:00"
 
-[node name="21_00 value" type="LineEdit" parent="Panel/Panel/Purchase page/GridContainer"]
-custom_minimum_size = Vector2(80, 0)
+[node name="8" parent="Panel/Panel/Trade page/GridContainer2" instance=ExtResource("7_858bn")]
 layout_mode = 2
-theme = ExtResource("7_sky72")
-theme_override_font_sizes/font_size = 14
-alignment = 1
-editable = false
-script = ExtResource("9_pxugv")
+theme_override_styles/normal = SubResource("StyleBoxFlat_nws1w")
+button_group = ExtResource("8_858bn")
+text = "02:00"
 
-[node name="22_00 value" type="LineEdit" parent="Panel/Panel/Purchase page/GridContainer"]
-custom_minimum_size = Vector2(80, 0)
+[node name="9" parent="Panel/Panel/Trade page/GridContainer2" instance=ExtResource("7_858bn")]
 layout_mode = 2
-theme = ExtResource("7_sky72")
-theme_override_font_sizes/font_size = 14
-alignment = 1
-editable = false
-script = ExtResource("9_pxugv")
+theme_override_styles/normal = SubResource("StyleBoxFlat_nws1w")
+button_group = ExtResource("8_858bn")
+text = "03:00"
 
-[node name="23_00 value" type="LineEdit" parent="Panel/Panel/Purchase page/GridContainer"]
-custom_minimum_size = Vector2(80, 0)
+[node name="10" parent="Panel/Panel/Trade page/GridContainer2" instance=ExtResource("7_858bn")]
 layout_mode = 2
-theme = ExtResource("7_sky72")
-theme_override_font_sizes/font_size = 14
-alignment = 1
-editable = false
-script = ExtResource("9_pxugv")
+theme_override_styles/normal = SubResource("StyleBoxFlat_nws1w")
+button_group = ExtResource("8_858bn")
+text = "04:00"
 
-[node name="00_00 value" type="LineEdit" parent="Panel/Panel/Purchase page/GridContainer"]
-custom_minimum_size = Vector2(80, 0)
+[node name="11" parent="Panel/Panel/Trade page/GridContainer2" instance=ExtResource("7_858bn")]
 layout_mode = 2
-theme = ExtResource("7_sky72")
-theme_override_font_sizes/font_size = 14
-alignment = 1
-editable = false
-script = ExtResource("9_pxugv")
+theme_override_styles/normal = SubResource("StyleBoxFlat_nws1w")
+button_group = ExtResource("8_858bn")
+text = "05:00"
 
-[node name="01_00 value" type="LineEdit" parent="Panel/Panel/Purchase page/GridContainer"]
-custom_minimum_size = Vector2(80, 0)
+[node name="12" parent="Panel/Panel/Trade page/GridContainer2" instance=ExtResource("7_858bn")]
 layout_mode = 2
-theme = ExtResource("7_sky72")
-theme_override_font_sizes/font_size = 14
-alignment = 1
-editable = false
-script = ExtResource("9_pxugv")
+theme_override_styles/normal = SubResource("StyleBoxFlat_nws1w")
+button_group = ExtResource("8_858bn")
+text = "06:00"
 
-[node name="02_00 value" type="LineEdit" parent="Panel/Panel/Purchase page/GridContainer"]
-custom_minimum_size = Vector2(80, 0)
+[node name="13" parent="Panel/Panel/Trade page/GridContainer2" instance=ExtResource("7_858bn")]
 layout_mode = 2
-theme = ExtResource("7_sky72")
-theme_override_font_sizes/font_size = 14
-alignment = 1
-editable = false
-script = ExtResource("9_pxugv")
+theme_override_styles/normal = SubResource("StyleBoxFlat_nws1w")
+button_group = ExtResource("8_858bn")
+text = "07:00"
 
-[node name="03_00 value" type="LineEdit" parent="Panel/Panel/Purchase page/GridContainer"]
-custom_minimum_size = Vector2(80, 0)
+[node name="14" parent="Panel/Panel/Trade page/GridContainer2" instance=ExtResource("7_858bn")]
 layout_mode = 2
-theme = ExtResource("7_sky72")
-theme_override_font_sizes/font_size = 14
-alignment = 1
-editable = false
-script = ExtResource("9_pxugv")
+theme_override_styles/normal = SubResource("StyleBoxFlat_nws1w")
+button_group = ExtResource("8_858bn")
+text = "08:00"
 
-[node name="04_00 value" type="LineEdit" parent="Panel/Panel/Purchase page/GridContainer"]
-custom_minimum_size = Vector2(80, 0)
+[node name="15" parent="Panel/Panel/Trade page/GridContainer2" instance=ExtResource("7_858bn")]
 layout_mode = 2
-theme = ExtResource("7_sky72")
-theme_override_font_sizes/font_size = 14
-alignment = 1
-editable = false
-script = ExtResource("9_pxugv")
+theme_override_styles/normal = SubResource("StyleBoxFlat_nws1w")
+button_group = ExtResource("8_858bn")
+text = "09:00"
 
-[node name="05_00 value" type="LineEdit" parent="Panel/Panel/Purchase page/GridContainer"]
-custom_minimum_size = Vector2(80, 0)
+[node name="16" parent="Panel/Panel/Trade page/GridContainer2" instance=ExtResource("7_858bn")]
 layout_mode = 2
-theme = ExtResource("7_sky72")
-theme_override_font_sizes/font_size = 14
-alignment = 1
-editable = false
-script = ExtResource("9_pxugv")
+theme_override_styles/normal = SubResource("StyleBoxFlat_nws1w")
+button_group = ExtResource("8_858bn")
+text = "10:00"
 
-[node name="18_00 price" type="LineEdit" parent="Panel/Panel/Purchase page/GridContainer"]
-custom_minimum_size = Vector2(80, 0)
+[node name="17" parent="Panel/Panel/Trade page/GridContainer2" instance=ExtResource("7_858bn")]
 layout_mode = 2
-theme = ExtResource("7_sky72")
-theme_override_font_sizes/font_size = 14
-alignment = 1
-editable = false
-script = ExtResource("9_pxugv")
+theme_override_styles/normal = SubResource("StyleBoxFlat_nws1w")
+button_group = ExtResource("8_858bn")
+text = "11:00"
 
-[node name="19_00 price" type="LineEdit" parent="Panel/Panel/Purchase page/GridContainer"]
-custom_minimum_size = Vector2(80, 0)
-layout_mode = 2
-theme = ExtResource("7_sky72")
-theme_override_font_sizes/font_size = 14
-alignment = 1
-editable = false
-script = ExtResource("9_pxugv")
-
-[node name="20_00 price" type="LineEdit" parent="Panel/Panel/Purchase page/GridContainer"]
-custom_minimum_size = Vector2(80, 0)
-layout_mode = 2
-theme = ExtResource("7_sky72")
-theme_override_font_sizes/font_size = 14
-alignment = 1
-editable = false
-script = ExtResource("9_pxugv")
-
-[node name="21_00 price" type="LineEdit" parent="Panel/Panel/Purchase page/GridContainer"]
-custom_minimum_size = Vector2(80, 0)
-layout_mode = 2
-theme = ExtResource("7_sky72")
-theme_override_font_sizes/font_size = 14
-alignment = 1
-editable = false
-script = ExtResource("9_pxugv")
-
-[node name="22_00 price" type="LineEdit" parent="Panel/Panel/Purchase page/GridContainer"]
-custom_minimum_size = Vector2(80, 0)
-layout_mode = 2
-theme = ExtResource("7_sky72")
-theme_override_font_sizes/font_size = 14
-alignment = 1
-editable = false
-script = ExtResource("9_pxugv")
-
-[node name="23_00 price" type="LineEdit" parent="Panel/Panel/Purchase page/GridContainer"]
-custom_minimum_size = Vector2(80, 0)
-layout_mode = 2
-theme = ExtResource("7_sky72")
-theme_override_font_sizes/font_size = 14
-alignment = 1
-editable = false
-script = ExtResource("9_pxugv")
-
-[node name="00_00 price" type="LineEdit" parent="Panel/Panel/Purchase page/GridContainer"]
-custom_minimum_size = Vector2(80, 0)
-layout_mode = 2
-theme = ExtResource("7_sky72")
-theme_override_font_sizes/font_size = 14
-alignment = 1
-editable = false
-script = ExtResource("9_pxugv")
-
-[node name="01_00 price" type="LineEdit" parent="Panel/Panel/Purchase page/GridContainer"]
-custom_minimum_size = Vector2(80, 0)
-layout_mode = 2
-theme = ExtResource("7_sky72")
-theme_override_font_sizes/font_size = 14
-alignment = 1
-editable = false
-script = ExtResource("9_pxugv")
-
-[node name="02_00 price" type="LineEdit" parent="Panel/Panel/Purchase page/GridContainer"]
-custom_minimum_size = Vector2(80, 0)
-layout_mode = 2
-theme = ExtResource("7_sky72")
-theme_override_font_sizes/font_size = 14
-alignment = 1
-editable = false
-script = ExtResource("9_pxugv")
-
-[node name="03_00 price" type="LineEdit" parent="Panel/Panel/Purchase page/GridContainer"]
-custom_minimum_size = Vector2(80, 0)
-layout_mode = 2
-theme = ExtResource("7_sky72")
-theme_override_font_sizes/font_size = 14
-alignment = 1
-editable = false
-script = ExtResource("9_pxugv")
-
-[node name="04_00 price" type="LineEdit" parent="Panel/Panel/Purchase page/GridContainer"]
-custom_minimum_size = Vector2(80, 0)
-layout_mode = 2
-theme = ExtResource("7_sky72")
-theme_override_font_sizes/font_size = 14
-alignment = 1
-editable = false
-script = ExtResource("9_pxugv")
-
-[node name="05_00 price" type="LineEdit" parent="Panel/Panel/Purchase page/GridContainer"]
-custom_minimum_size = Vector2(80, 0)
-layout_mode = 2
-theme = ExtResource("7_sky72")
-theme_override_font_sizes/font_size = 14
-alignment = 1
-editable = false
-script = ExtResource("9_pxugv")
-
-[node name="purchase_data" type="Button" parent="Panel/Panel/Purchase page"]
+[node name="purchase_data" type="Button" parent="Panel/Panel/Trade page"]
 layout_mode = 0
 offset_left = 865.0
 offset_top = 416.0
 offset_right = 1019.0
 offset_bottom = 466.0
+theme_override_colors/font_disabled_color = Color(0.53, 0.53, 0.53, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_styles/focus = SubResource("StyleBoxEmpty_6a6wx")
+theme_override_styles/hover = SubResource("StyleBoxFlat_v61lp")
+theme_override_styles/normal = SubResource("StyleBoxFlat_v61lp")
 disabled = true
 text = "enroll"
 script = ExtResource("8_6a6wx")
 
-[node name="HTTPRequest" type="HTTPRequest" parent="Panel/Panel/Purchase page"]
+[node name="HTTPRequest" type="HTTPRequest" parent="Panel/Panel/Trade page"]
 
 [node name="Bid page" type="Panel" parent="Panel/Panel"]
+visible = false
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_g31lc")
 
@@ -951,6 +421,7 @@ offset_left = 25.0
 offset_top = 57.0
 offset_right = 234.0
 offset_bottom = 81.0
+theme = SubResource("Theme_3fl80")
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_styles/hover = ExtResource("2_kbped")
 theme_override_styles/pressed = ExtResource("2_kbped")
@@ -1644,13 +1115,183 @@ alignment = 1
 editable = false
 script = ExtResource("9_pxugv")
 
+[node name="timer" parent="Panel/Panel/Bid page/GridContainer" instance=ExtResource("7_858bn")]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_858bn")
+
+[node name="@Button@21851" parent="Panel/Panel/Bid page/GridContainer" instance=ExtResource("7_858bn")]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_858bn")
+text = "01:00"
+
+[node name="@Button@21852" parent="Panel/Panel/Bid page/GridContainer" instance=ExtResource("7_858bn")]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_858bn")
+text = "02:00"
+
+[node name="@Button@21853" parent="Panel/Panel/Bid page/GridContainer" instance=ExtResource("7_858bn")]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_858bn")
+text = "03:00"
+
+[node name="@Button@21854" parent="Panel/Panel/Bid page/GridContainer" instance=ExtResource("7_858bn")]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_858bn")
+text = "04:00"
+
+[node name="@Button@21855" parent="Panel/Panel/Bid page/GridContainer" instance=ExtResource("7_858bn")]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_858bn")
+text = "05:00"
+
+[node name="@Button@21856" parent="Panel/Panel/Bid page/GridContainer" instance=ExtResource("7_858bn")]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_858bn")
+text = "06:00"
+
+[node name="@Button@21857" parent="Panel/Panel/Bid page/GridContainer" instance=ExtResource("7_858bn")]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_858bn")
+text = "07:00"
+
+[node name="@Button@21858" parent="Panel/Panel/Bid page/GridContainer" instance=ExtResource("7_858bn")]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_858bn")
+text = "08:00"
+
+[node name="@Button@21859" parent="Panel/Panel/Bid page/GridContainer" instance=ExtResource("7_858bn")]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_858bn")
+text = "09:00"
+
+[node name="@Button@21860" parent="Panel/Panel/Bid page/GridContainer" instance=ExtResource("7_858bn")]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_858bn")
+text = "10:00"
+
+[node name="@Button@21861" parent="Panel/Panel/Bid page/GridContainer" instance=ExtResource("7_858bn")]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_858bn")
+text = "11:00"
+
+[node name="6" parent="Panel/Panel/Bid page/GridContainer" instance=ExtResource("7_858bn")]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_nws1w")
+
+[node name="7" parent="Panel/Panel/Bid page/GridContainer" instance=ExtResource("7_858bn")]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_nws1w")
+text = "01:00"
+
+[node name="8" parent="Panel/Panel/Bid page/GridContainer" instance=ExtResource("7_858bn")]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_nws1w")
+text = "02:00"
+
+[node name="9" parent="Panel/Panel/Bid page/GridContainer" instance=ExtResource("7_858bn")]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_nws1w")
+text = "03:00"
+
+[node name="10" parent="Panel/Panel/Bid page/GridContainer" instance=ExtResource("7_858bn")]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_nws1w")
+text = "04:00"
+
+[node name="11" parent="Panel/Panel/Bid page/GridContainer" instance=ExtResource("7_858bn")]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_nws1w")
+text = "05:00"
+
+[node name="12" parent="Panel/Panel/Bid page/GridContainer" instance=ExtResource("7_858bn")]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_nws1w")
+text = "06:00"
+
+[node name="13" parent="Panel/Panel/Bid page/GridContainer" instance=ExtResource("7_858bn")]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_nws1w")
+text = "07:00"
+
+[node name="14" parent="Panel/Panel/Bid page/GridContainer" instance=ExtResource("7_858bn")]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_nws1w")
+text = "08:00"
+
+[node name="15" parent="Panel/Panel/Bid page/GridContainer" instance=ExtResource("7_858bn")]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_nws1w")
+text = "09:00"
+
+[node name="16" parent="Panel/Panel/Bid page/GridContainer" instance=ExtResource("7_858bn")]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_nws1w")
+text = "10:00"
+
+[node name="17" parent="Panel/Panel/Bid page/GridContainer" instance=ExtResource("7_858bn")]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_nws1w")
+text = "11:00"
+
+[node name="_Button_21853" parent="Panel/Panel/Bid page/GridContainer" instance=ExtResource("7_858bn")]
+layout_mode = 2
+
+[node name="_Button_21854" parent="Panel/Panel/Bid page/GridContainer" instance=ExtResource("7_858bn")]
+layout_mode = 2
+text = "01:00"
+
+[node name="_Button_21855" parent="Panel/Panel/Bid page/GridContainer" instance=ExtResource("7_858bn")]
+layout_mode = 2
+text = "02:00"
+
+[node name="_Button_21856" parent="Panel/Panel/Bid page/GridContainer" instance=ExtResource("7_858bn")]
+layout_mode = 2
+text = "03:00"
+
+[node name="_Button_21857" parent="Panel/Panel/Bid page/GridContainer" instance=ExtResource("7_858bn")]
+layout_mode = 2
+text = "04:00"
+
+[node name="_Button_21858" parent="Panel/Panel/Bid page/GridContainer" instance=ExtResource("7_858bn")]
+layout_mode = 2
+text = "05:00"
+
+[node name="_Button_21859" parent="Panel/Panel/Bid page/GridContainer" instance=ExtResource("7_858bn")]
+layout_mode = 2
+text = "06:00"
+
+[node name="_Button_21860" parent="Panel/Panel/Bid page/GridContainer" instance=ExtResource("7_858bn")]
+layout_mode = 2
+text = "07:00"
+
+[node name="_Button_21861" parent="Panel/Panel/Bid page/GridContainer" instance=ExtResource("7_858bn")]
+layout_mode = 2
+text = "08:00"
+
+[node name="@Button@21862" parent="Panel/Panel/Bid page/GridContainer" instance=ExtResource("7_858bn")]
+layout_mode = 2
+text = "09:00"
+
+[node name="@Button@21863" parent="Panel/Panel/Bid page/GridContainer" instance=ExtResource("7_858bn")]
+layout_mode = 2
+text = "10:00"
+
+[node name="@Button@21864" parent="Panel/Panel/Bid page/GridContainer" instance=ExtResource("7_858bn")]
+layout_mode = 2
+text = "11:00"
+
 [node name="bid_data" type="Button" parent="Panel/Panel/Bid page"]
 layout_mode = 0
 offset_left = 865.0
 offset_top = 416.0
 offset_right = 1019.0
 offset_bottom = 466.0
+theme_override_colors/font_disabled_color = Color(0.529067, 0.529067, 0.529067, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_styles/focus = SubResource("StyleBoxEmpty_sky72")
+theme_override_styles/hover = SubResource("StyleBoxFlat_v61lp")
+theme_override_styles/normal = SubResource("StyleBoxFlat_v61lp")
 disabled = true
 text = "enroll"
 script = ExtResource("8_6a6wx")
@@ -1778,7 +1419,7 @@ offset_top = 18.0
 offset_right = 556.0
 offset_bottom = 48.0
 
-[node name="min value" type="LineEdit" parent="Panel/Panel/Catalogue page/values"]
+[node name="min amount" type="LineEdit" parent="Panel/Panel/Catalogue page/values"]
 layout_mode = 0
 offset_right = 120.0
 offset_bottom = 31.0
@@ -1787,7 +1428,7 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_styles/normal = ExtResource("2_kbped")
 script = ExtResource("12_eh0v1")
 
-[node name="max value" type="LineEdit" parent="Panel/Panel/Catalogue page/values"]
+[node name="max amount" type="LineEdit" parent="Panel/Panel/Catalogue page/values"]
 layout_mode = 0
 offset_left = 150.0
 offset_right = 270.0
@@ -1883,6 +1524,7 @@ offset_right = 465.0
 offset_bottom = 317.0
 theme_override_colors/title_button_color = Color(0, 0, 0, 1)
 theme_override_colors/font_selected_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hovered_color = Color(0, 0, 0, 1)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_styles/title_button_hover = ExtResource("2_kbped")
 theme_override_styles/title_button_pressed = ExtResource("2_kbped")
@@ -1894,6 +1536,21 @@ column_titles_visible = true
 hide_root = true
 select_mode = 1
 script = ExtResource("15_knq72")
+
+[node name="Label" type="Label" parent="Panel/Panel/Catalogue page/Purchase_sect"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -36.0
+offset_top = -23.0
+offset_right = 36.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "purchase"
 
 [node name="Bidpage_sect" type="Panel" parent="Panel/Panel/Catalogue page"]
 layout_mode = 0
@@ -1912,6 +1569,7 @@ offset_right = 465.0
 offset_bottom = 317.0
 theme_override_colors/title_button_color = Color(0, 0, 0, 1)
 theme_override_colors/font_selected_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hovered_color = Color(0, 0, 0, 1)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_styles/title_button_hover = ExtResource("2_kbped")
 theme_override_styles/title_button_pressed = ExtResource("2_kbped")
@@ -1923,6 +1581,21 @@ column_titles_visible = true
 hide_root = true
 select_mode = 1
 script = ExtResource("15_knq72")
+
+[node name="Label" type="Label" parent="Panel/Panel/Catalogue page/Bidpage_sect"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -12.5
+offset_top = -23.0
+offset_right = 12.5
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Bid"
 
 [node name="My Page page" type="Panel" parent="Panel/Panel"]
 visible = false
@@ -1952,10 +1625,10 @@ text = "Hello, Master!"
 
 [node name="Label2" type="Label" parent="Panel/Panel/My Page page/Master"]
 layout_mode = 0
-offset_left = 623.0
-offset_top = 32.0
-offset_right = 776.0
-offset_bottom = 55.0
+offset_left = 625.0
+offset_top = 44.0
+offset_right = 778.0
+offset_bottom = 67.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Current transaction"
 
@@ -1976,13 +1649,14 @@ layout_mode = 2
 [node name="bidContainer" type="VBoxContainer" parent="Panel/Panel/My Page page/Master/ScrollContainer/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+script = ExtResource("21_v61lp")
 
 [node name="timelist" type="MenuButton" parent="Panel/Panel/My Page page/Master"]
 layout_mode = 0
 offset_left = 786.0
-offset_top = 27.0
+offset_top = 40.0
 offset_right = 995.0
-offset_bottom = 58.0
+offset_bottom = 71.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_styles/normal = ExtResource("2_kbped")
 text = "select times"
@@ -1990,76 +1664,76 @@ flat = false
 icon_alignment = 2
 item_count = 24
 popup/item_0/text = "06:00 ~ 07:00"
-popup/item_0/checkable = 2
+popup/item_0/checkable = 1
 popup/item_0/id = 0
 popup/item_1/text = "07:00 ~ 08:00"
-popup/item_1/checkable = 2
+popup/item_1/checkable = 1
 popup/item_1/id = 1
 popup/item_2/text = "08:00 ~ 09:00"
-popup/item_2/checkable = 2
+popup/item_2/checkable = 1
 popup/item_2/id = 2
 popup/item_3/text = "09:00 ~ 10:00"
-popup/item_3/checkable = 2
+popup/item_3/checkable = 1
 popup/item_3/id = 3
 popup/item_4/text = "10:00 ~ 11:00"
-popup/item_4/checkable = 2
+popup/item_4/checkable = 1
 popup/item_4/id = 4
 popup/item_5/text = "11:00 ~ 12:00"
-popup/item_5/checkable = 2
+popup/item_5/checkable = 1
 popup/item_5/id = 5
 popup/item_6/text = "12:00 ~ 13:00"
-popup/item_6/checkable = 2
+popup/item_6/checkable = 1
 popup/item_6/id = 6
 popup/item_7/text = "13:00 ~ 14:00"
-popup/item_7/checkable = 2
+popup/item_7/checkable = 1
 popup/item_7/id = 7
 popup/item_8/text = "14:00 ~ 15:00"
-popup/item_8/checkable = 2
+popup/item_8/checkable = 1
 popup/item_8/id = 8
 popup/item_9/text = "15:00 ~ 16:00"
-popup/item_9/checkable = 2
+popup/item_9/checkable = 1
 popup/item_9/id = 9
 popup/item_10/text = "16:00 ~ 17:00"
-popup/item_10/checkable = 2
+popup/item_10/checkable = 1
 popup/item_10/id = 10
 popup/item_11/text = "17:00 ~ 18:00"
-popup/item_11/checkable = 2
+popup/item_11/checkable = 1
 popup/item_11/id = 11
 popup/item_12/text = "18:00 ~ 19:00"
-popup/item_12/checkable = 2
+popup/item_12/checkable = 1
 popup/item_12/id = 12
 popup/item_13/text = "19:00 ~ 20:00"
-popup/item_13/checkable = 2
+popup/item_13/checkable = 1
 popup/item_13/id = 13
 popup/item_14/text = "20:00 ~ 21:00"
-popup/item_14/checkable = 2
+popup/item_14/checkable = 1
 popup/item_14/id = 14
 popup/item_15/text = "21:00 ~ 22:00"
-popup/item_15/checkable = 2
+popup/item_15/checkable = 1
 popup/item_15/id = 15
 popup/item_16/text = "22:00 ~ 23:00"
-popup/item_16/checkable = 2
+popup/item_16/checkable = 1
 popup/item_16/id = 16
 popup/item_17/text = "23:00 ~ 24:00"
-popup/item_17/checkable = 2
+popup/item_17/checkable = 1
 popup/item_17/id = 17
 popup/item_18/text = "00:00 ~ 01:00"
-popup/item_18/checkable = 2
+popup/item_18/checkable = 1
 popup/item_18/id = 18
 popup/item_19/text = "01:00 ~ 02:00"
-popup/item_19/checkable = 2
+popup/item_19/checkable = 1
 popup/item_19/id = 19
 popup/item_20/text = "02:00 ~ 03:00"
-popup/item_20/checkable = 2
+popup/item_20/checkable = 1
 popup/item_20/id = 20
 popup/item_21/text = "03:00 ~ 04:00"
-popup/item_21/checkable = 2
+popup/item_21/checkable = 1
 popup/item_21/id = 21
 popup/item_22/text = "04:00 ~ 05:00"
-popup/item_22/checkable = 2
+popup/item_22/checkable = 1
 popup/item_22/id = 22
 popup/item_23/text = "05:00 ~ 06:00"
-popup/item_23/checkable = 2
+popup/item_23/checkable = 1
 popup/item_23/id = 23
 script = ExtResource("20_kuuv8")
 
@@ -2071,6 +1745,16 @@ offset_right = 207.0
 offset_bottom = 26.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "▼"
+
+[node name="Master X Button" type="Button" parent="Panel/Panel/My Page page/Master"]
+visible = false
+layout_mode = 0
+offset_left = 993.0
+offset_top = 7.0
+offset_right = 1024.0
+offset_bottom = 38.0
+text = "X"
+script = ExtResource("22_8jbwv")
 
 [node name="User" type="Panel" parent="Panel/Panel/My Page page"]
 visible = false
@@ -2087,6 +1771,8 @@ offset_left = 1062.0
 offset_top = 617.0
 offset_right = 1148.56
 offset_bottom = 648.0
+max_value = 64.0
+rounded = true
 script = ExtResource("21_ou021")
 
 [node name="Timer" type="Timer" parent="."]
@@ -2101,12 +1787,11 @@ unique_name_in_owner = true
 [node name="HTTPRequest_buildings" type="HTTPRequest" parent="."]
 unique_name_in_owner = true
 
-[connection signal="toggled" from="Panel/HBoxContainer/Purchase" to="Panel/HBoxContainer/Purchase" method="_on_toggled"]
+[connection signal="toggled" from="Panel/HBoxContainer/Trade" to="Panel/HBoxContainer/Trade" method="_on_toggled"]
 [connection signal="toggled" from="Panel/HBoxContainer/Bid" to="Panel/HBoxContainer/Bid" method="_on_toggled"]
 [connection signal="toggled" from="Panel/HBoxContainer/Catalogue" to="Panel/HBoxContainer/Catalogue" method="_on_toggled"]
 [connection signal="toggled" from="Panel/HBoxContainer/My Page" to="Panel/HBoxContainer/My Page" method="_on_toggled"]
-[connection signal="about_to_popup" from="Panel/Panel/Purchase page/MenuButton" to="Panel/Panel/Purchase page/MenuButton" method="_on_about_to_popup"]
-[connection signal="pressed" from="Panel/Panel/Purchase page/purchase_data" to="Panel/Panel/Purchase page/purchase_data" method="_on_pressed"]
+[connection signal="pressed" from="Panel/Panel/Trade page/purchase_data" to="Panel/Panel/Trade page/purchase_data" method="_on_pressed"]
 [connection signal="about_to_popup" from="Panel/Panel/Bid page/MenuButton" to="Panel/Panel/Bid page/MenuButton" method="_on_about_to_popup"]
 [connection signal="pressed" from="Panel/Panel/Bid page/bid_data" to="Panel/Panel/Bid page/bid_data" method="_on_pressed"]
 [connection signal="visibility_changed" from="Panel/Panel/Catalogue page" to="Panel/Panel/Catalogue page" method="_on_visibility_changed"]
@@ -2123,4 +1808,6 @@ unique_name_in_owner = true
 [connection signal="column_title_clicked" from="Panel/Panel/Catalogue page/Purchase_sect/purchase" to="Panel/Panel/Catalogue page/Purchase_sect/purchase" method="_on_column_title_clicked"]
 [connection signal="visibility_changed" from="Panel/Panel/My Page page" to="Panel/Panel/My Page page" method="_on_visibility_changed"]
 [connection signal="visibility_changed" from="Panel/Panel/My Page page/Master" to="Panel/Panel/My Page page/Master" method="_on_visibility_changed"]
+[connection signal="child_entered_tree" from="Panel/Panel/My Page page/Master/ScrollContainer/HBoxContainer/bidContainer" to="Panel/Panel/My Page page/Master/ScrollContainer/HBoxContainer/bidContainer" method="_on_child_entered_tree"]
+[connection signal="pressed" from="Panel/Panel/My Page page/Master/Master X Button" to="Panel/Panel/My Page page/Master/Master X Button" method="_on_pressed"]
 [connection signal="value_changed" from="Panel/Globalbuild" to="Panel/Globalbuild" method="_on_value_changed"]

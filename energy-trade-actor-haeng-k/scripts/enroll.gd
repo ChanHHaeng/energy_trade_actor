@@ -12,8 +12,8 @@ func _ready() -> void:
 	headers = [
 		"Content-Type: application/json"
 	]
-	timelist= $"../MenuButton".timelist
-	$"../HTTPRequest".request_completed.connect(on_request_completed)
+	#timelist= $"../MenuButton".timelist
+	#$"../HTTPRequest".request_completed.connect(on_request_completed)
 
 func _on_pressed() -> void:
 	for i in timelist:

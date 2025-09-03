@@ -4,7 +4,8 @@ var purcheck=false
 var bidcheck=false
 
 func _ready() -> void:
-	pass
+	self.visible=false
+
 
 
 func _on_visibility_changed() -> void:	
@@ -23,7 +24,7 @@ func _bid_completed(a,b,c,d):
 	Global.bid_data=result.duplicate(true)
 	Global.bid_data.sort_custom(sortingdata_bid)
 	for i in Global.bid_data:
-		Global.transaction_bid[int(i["start_time"])].append([i["bid"],i["price"],int(i["id"])])
+		Global.transaction_bid[int(i["start_time"])].append([i["bid"],i["price"],int(i["building_id"])])
 	print("bid is!")
 	print(Global.transaction_bid)
 	bidcheck=true
@@ -37,7 +38,7 @@ func _purchase_completed(a,b,c,d):
 	Global.purchase_data=result.duplicate(true)
 	Global.purchase_data.sort_custom(sortingdata_pur)
 	for i in Global.purchase_data:
-		Global.transaction_purchase[int(i["start_time"])].append([i["purchase"],i["price"],int(i["id"])])
+		Global.transaction_purchase[int(i["start_time"])].append([i["purchase"],i["price"],int(i["building_id"])])
 	print("purchase is!")
 	print(Global.transaction_purchase)
 	purcheck=true
@@ -45,7 +46,7 @@ func _purchase_completed(a,b,c,d):
 
 func check_all_ready():
 	if purcheck and bidcheck:
-		if self.visible and Global.building_id==0:
+		if self.visible:
 			$User.visible=false
 			$Master.visible=true
 		elif self. visible:

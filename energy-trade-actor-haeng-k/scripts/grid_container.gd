@@ -1,8 +1,12 @@
 @tool
 extends GridContainer
-const Script_path="res://scripts/values.gd"
-func _ready() -> void:
-	var scripts=load(Script_path)
-	for i in get_children():
-		if i is LineEdit:
-			i.set_script(scripts)
+
+@onready var timer=load("res://timer.tscn")
+
+#func _ready() -> void:
+	#for i in range(12):
+		#var childs=timer.instantiate()
+		#childs.text=("%02d:00" %[i,])
+		#childs.name=str(i+6)
+		#self.add_child(childs)
+		#childs.owner=get_tree().edited_scene_root
