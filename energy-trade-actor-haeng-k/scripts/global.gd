@@ -2,17 +2,17 @@ extends Node
 
 
 var postgrest="http://192.168.0.13"
-var purchase_data=[]
-var transaction_purchase=[]
-var bid_data=[]
-var transaction_bid=[]
+var buy_data=[]
+var transaction_buy=[]
+var sell_data=[]
+var transaction_sell=[]
 
 var matching_result=[]
 
 
 var date="2025-08-07"
 
-var building_id=0
+var building_id=3
 
 var now=13
 
@@ -44,17 +44,17 @@ var TimeSlots = [
 	"05_00 ~ 06_00"
 ]
 
-
-func _ready() -> void:
+func _enter_tree() -> void:
+	print("global")
 	for i in range(24):
-		transaction_bid.append([])
-		transaction_purchase.append([])
+		transaction_sell.append([])
+		transaction_buy.append([])
 		
 func transaction_clear(serial):
 	match serial:
 		0:
 			for i in range(24):
-				transaction_purchase[i].clear()
+				transaction_buy[i].clear()
 		1:
 			for i in range(24):
-				transaction_bid[i].clear()
+				transaction_sell[i].clear()

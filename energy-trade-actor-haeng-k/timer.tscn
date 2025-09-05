@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://ryurc2muk230"]
+[gd_scene load_steps=13 format=3 uid="uid://ryurc2muk230"]
 
 [ext_resource type="Script" uid="uid://bqp8hlbau316u" path="res://timer.gd" id="1_qdhxh"]
 [ext_resource type="StyleBox" uid="uid://c7vue7jx6lx8n" path="res://themes/greenglass.tres" id="2_ye2uk"]
@@ -6,8 +6,11 @@
 [ext_resource type="Script" uid="uid://qbtq388su3fu" path="res://h_box_container.gd" id="4_kpl8e"]
 [ext_resource type="PackedScene" uid="uid://cp8w221tlk855" path="res://data_example.tscn" id="4_mxtnu"]
 [ext_resource type="Script" uid="uid://6i3kqwqy2iso" path="res://add_more_panel.gd" id="5_kurt1"]
+[ext_resource type="StyleBox" uid="uid://ci2kj0c358ah7" path="res://assets/data_example_sell.tres" id="7_eypy5"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2pj6v"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_87wg0"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3ag6a"]
 bg_color = Color(1, 1, 1, 1)
 border_width_left = 2
 border_width_top = 2
@@ -37,33 +40,32 @@ offset_left = 448.0
 offset_top = 240.0
 offset_right = 528.0
 offset_bottom = 290.0
-theme_override_styles/normal = SubResource("StyleBoxFlat_2pj6v")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_87wg0")
+theme_override_styles/normal = SubResource("StyleBoxFlat_3ag6a")
 toggle_mode = true
 text = "00:00"
 script = ExtResource("1_qdhxh")
 
 [node name="Upper" type="Panel" parent="."]
-visible = false
 layout_mode = 0
 offset_left = -90.0
-offset_top = -98.0
+offset_top = -99.0
 offset_right = 170.0
-offset_bottom = -18.0
+offset_bottom = -11.0
 theme_override_styles/panel = ExtResource("2_ye2uk")
 script = ExtResource("3_o6fnk")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Upper"]
 layout_mode = 0
-offset_left = 21.0
-offset_top = 3.0
-offset_right = 201.0
-offset_bottom = 77.0
+offset_left = 22.0
+offset_top = 7.0
+offset_right = 202.0
+offset_bottom = 81.0
 theme_override_constants/separation = 5
 script = ExtResource("4_kpl8e")
 
 [node name="Panel" parent="Upper/HBoxContainer" instance=ExtResource("4_mxtnu")]
 layout_mode = 2
-size_flags_horizontal = 3
 
 [node name="Button" type="Button" parent="Upper"]
 layout_mode = 1
@@ -103,7 +105,6 @@ theme_override_font_sizes/font_size = 30
 text = "+"
 
 [node name="down" type="Panel" parent="."]
-visible = false
 layout_mode = 0
 offset_left = -88.0
 offset_top = 66.0
@@ -123,7 +124,7 @@ script = ExtResource("4_kpl8e")
 
 [node name="Panel" parent="down/HBoxContainer" instance=ExtResource("4_mxtnu")]
 layout_mode = 2
-size_flags_horizontal = 3
+theme_override_styles/panel = ExtResource("7_eypy5")
 
 [node name="Button" type="Button" parent="down"]
 layout_mode = 1
