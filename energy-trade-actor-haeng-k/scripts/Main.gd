@@ -29,13 +29,13 @@ func _sell_completed(a,b,c,d):
 	#print("sell is!")
 	#print(Global.transaction_sell)
 	sell_check=true
-	#check_all_ready()
+	check_all_ready()
 	
 func _buy_completed(a,b,c,d):
 	Global.transaction_clear(0)
 	var jsontext=d.get_string_from_utf8()
 	var result=JSON.parse_string(jsontext)
-	print(result)
+	#print(result)
 	Global.buy_data=result.duplicate(true)
 	Global.buy_data.sort_custom(sortingdata_buy)
 	for i in Global.buy_data:
