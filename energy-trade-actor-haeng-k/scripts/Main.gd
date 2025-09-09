@@ -22,6 +22,7 @@ func _sell_completed(a,b,c,d):
 	Global.transaction_clear(1)
 	var jsontext=d.get_string_from_utf8()
 	var result=JSON.parse_string(jsontext)
+	print(result)
 	Global.sell_data=result.duplicate(true)
 	Global.sell_data.sort_custom(sortingdata_sell)
 	for i in Global.sell_data:

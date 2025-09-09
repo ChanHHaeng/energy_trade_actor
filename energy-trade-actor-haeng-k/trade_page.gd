@@ -50,12 +50,12 @@ func setting():
 		#timetable.append([0,0])
 	print("sorting!")
 	for i in Global.buy_data:
-		if int(i["id"])==Global.building_id:
+		if int(i["building_id"])==Global.building_id:
 			timetable[int(i["start_time"])][0]+=1
 	for i in Global.sell_data:
-		if int(i["id"])==Global.building_id:
+		if int(i["building_id"])==Global.building_id:
 			timetable[Global.building_id][1]+=1
-			
+	
 	print(timetable)
 	for i in $GridContainer.get_children():
 		i.add_item(timetable[int(i.name)])

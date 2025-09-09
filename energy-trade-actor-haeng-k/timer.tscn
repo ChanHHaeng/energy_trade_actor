@@ -1,14 +1,16 @@
-[gd_scene load_steps=13 format=3 uid="uid://ryurc2muk230"]
+[gd_scene load_steps=18 format=3 uid="uid://ryurc2muk230"]
 
 [ext_resource type="Script" uid="uid://bqp8hlbau316u" path="res://timer.gd" id="1_qdhxh"]
 [ext_resource type="StyleBox" uid="uid://c7vue7jx6lx8n" path="res://themes/greenglass.tres" id="2_ye2uk"]
 [ext_resource type="Script" uid="uid://bmrcs3v2r0vs5" path="res://upper_down.gd" id="3_o6fnk"]
 [ext_resource type="Script" uid="uid://qbtq388su3fu" path="res://h_box_container.gd" id="4_kpl8e"]
-[ext_resource type="PackedScene" uid="uid://cp8w221tlk855" path="res://data_example.tscn" id="4_mxtnu"]
 [ext_resource type="Script" uid="uid://6i3kqwqy2iso" path="res://add_more_panel.gd" id="5_kurt1"]
-[ext_resource type="StyleBox" uid="uid://ci2kj0c358ah7" path="res://assets/data_example_sell.tres" id="7_eypy5"]
+[ext_resource type="FontFile" uid="uid://8fbpgc4tqo1j" path="res://fonts/montreal/Montreal-Bold.ttf" id="6_kpl8e"]
+[ext_resource type="StyleBox" uid="uid://cjetnu2bp7fb4" path="res://assets/datacard_for_animation.tres" id="7_eypy5"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_87wg0"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eypy5"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3ag6a"]
 bg_color = Color(1, 1, 1, 1)
@@ -34,13 +36,213 @@ corner_radius_top_right = 15
 corner_radius_bottom_right = 15
 corner_radius_bottom_left = 15
 
+[sub_resource type="Animation" id="Animation_eypy5"]
+resource_name = "card_mousehover"
+length = 0.7
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("upperfold/Panel:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(26, 41), Vector2(0.825317, 6.7)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("upperfold/Panel2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(26, 41), Vector2(26, 41), Vector2(13.4564, 1.72412)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("upperfold/Panel3:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(26, 41), Vector2(26, 41), Vector2(26, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("upperfold/Panel4:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(26, 41), Vector2(26, 41), Vector2(38.4564, 1.72412)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("upperfold/Panel5:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(26, 41), Vector2(26, 41), Vector2(51.8253, 6.7)]
+}
+
+[sub_resource type="Animation" id="Animation_7ocsi"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("upperfold/Panel:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.825317, 6.7)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("upperfold/Panel2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(13.4564, 1.72412)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("upperfold/Panel3:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(26, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("upperfold/Panel4:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(38.4564, 1.72412)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("upperfold/Panel5:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(51.8253, 6.7)]
+}
+
+[sub_resource type="Animation" id="Animation_d1sho"]
+resource_name = "card_mousehover_2"
+length = 0.7
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("upperfold/Panel:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(26, 41), Vector2(0.825317, 6.7)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("upperfold/Panel2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(26, 41), Vector2(26, 41), Vector2(13.4564, 1.72412)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("upperfold/Panel3:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(26, 41), Vector2(26, 41), Vector2(26, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("upperfold/Panel4:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(26, 41), Vector2(26, 41), Vector2(38.4564, 1.72412)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("upperfold/Panel5:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(26, 41), Vector2(26, 41), Vector2(51.8253, 6.7)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7ocsi"]
+_data = {
+&"RESET": SubResource("Animation_7ocsi"),
+&"card_mousehover": SubResource("Animation_eypy5"),
+&"card_mousehover_2": SubResource("Animation_d1sho")
+}
+
 [node name="timer" type="Button"]
+z_index = 1
 custom_minimum_size = Vector2(80, 50)
 offset_left = 448.0
 offset_top = 240.0
 offset_right = 528.0
 offset_bottom = 290.0
 theme_override_styles/focus = SubResource("StyleBoxEmpty_87wg0")
+theme_override_styles/hover = SubResource("StyleBoxFlat_eypy5")
 theme_override_styles/normal = SubResource("StyleBoxFlat_3ag6a")
 toggle_mode = true
 text = "00:00"
@@ -48,9 +250,8 @@ script = ExtResource("1_qdhxh")
 
 [node name="Upper" type="Panel" parent="."]
 layout_mode = 0
-offset_left = -90.0
 offset_top = -99.0
-offset_right = 170.0
+offset_right = 80.0
 offset_bottom = -11.0
 theme_override_styles/panel = ExtResource("2_ye2uk")
 script = ExtResource("3_o6fnk")
@@ -59,13 +260,10 @@ script = ExtResource("3_o6fnk")
 layout_mode = 0
 offset_left = 22.0
 offset_top = 7.0
-offset_right = 202.0
+offset_right = 22.0
 offset_bottom = 81.0
 theme_override_constants/separation = 5
 script = ExtResource("4_kpl8e")
-
-[node name="Panel" parent="Upper/HBoxContainer" instance=ExtResource("4_mxtnu")]
-layout_mode = 2
 
 [node name="Button" type="Button" parent="Upper"]
 layout_mode = 1
@@ -106,9 +304,8 @@ text = "+"
 
 [node name="down" type="Panel" parent="."]
 layout_mode = 0
-offset_left = -88.0
 offset_top = 66.0
-offset_right = 172.0
+offset_right = 80.0
 offset_bottom = 146.0
 theme_override_styles/panel = ExtResource("2_ye2uk")
 script = ExtResource("3_o6fnk")
@@ -117,14 +314,10 @@ script = ExtResource("3_o6fnk")
 layout_mode = 0
 offset_left = 21.0
 offset_top = 3.0
-offset_right = 201.0
+offset_right = 21.0
 offset_bottom = 77.0
 theme_override_constants/separation = 5
 script = ExtResource("4_kpl8e")
-
-[node name="Panel" parent="down/HBoxContainer" instance=ExtResource("4_mxtnu")]
-layout_mode = 2
-theme_override_styles/panel = ExtResource("7_eypy5")
 
 [node name="Button" type="Button" parent="down"]
 layout_mode = 1
@@ -163,6 +356,157 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 30
 text = "+"
 
+[node name="Upper stack" type="Label" parent="."]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 2.0
+offset_right = 74.0
+offset_bottom = 16.0
+theme_override_colors/font_color = Color(0, 0, 1, 1)
+theme_override_fonts/font = ExtResource("6_kpl8e")
+theme_override_font_sizes/font_size = 13
+horizontal_alignment = 2
+
+[node name="Down stack" type="Label" parent="."]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 34.0
+offset_right = 74.0
+offset_bottom = 48.0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_fonts/font = ExtResource("6_kpl8e")
+theme_override_font_sizes/font_size = 13
+horizontal_alignment = 2
+
+[node name="upperfold" type="Control" parent="."]
+visible = false
+z_index = -1
+anchors_preset = 0
+offset_left = 2.0
+offset_top = -26.0
+offset_right = 78.0
+offset_bottom = 4.0
+mouse_filter = 2
+
+[node name="Panel" type="Panel" parent="upperfold"]
+layout_mode = 1
+offset_left = 0.825317
+offset_top = 6.7
+offset_right = 25.8253
+offset_bottom = 36.7
+rotation = -0.523598
+pivot_offset = Vector2(12.5, 15)
+mouse_filter = 2
+theme_override_styles/panel = ExtResource("7_eypy5")
+
+[node name="Panel2" type="Panel" parent="upperfold"]
+offset_left = 13.4564
+offset_top = 1.72412
+offset_right = 38.4564
+offset_bottom = 31.7241
+rotation = -0.261799
+pivot_offset = Vector2(12.5, 15)
+mouse_filter = 2
+theme_override_styles/panel = ExtResource("7_eypy5")
+
+[node name="Panel3" type="Panel" parent="upperfold"]
+offset_left = 26.0
+offset_right = 51.0
+offset_bottom = 30.0
+pivot_offset = Vector2(12.5, 15)
+mouse_filter = 2
+theme_override_styles/panel = ExtResource("7_eypy5")
+
+[node name="Panel4" type="Panel" parent="upperfold"]
+offset_left = 38.4564
+offset_top = 1.72412
+offset_right = 63.4564
+offset_bottom = 31.7241
+rotation = 0.261799
+pivot_offset = Vector2(12.5, 15)
+mouse_filter = 2
+theme_override_styles/panel = ExtResource("7_eypy5")
+
+[node name="Panel5" type="Panel" parent="upperfold"]
+offset_left = 51.8253
+offset_top = 6.7
+offset_right = 76.8253
+offset_bottom = 36.7
+rotation = 0.523599
+pivot_offset = Vector2(12.5, 15)
+mouse_filter = 2
+theme_override_styles/panel = ExtResource("7_eypy5")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="upperfold"]
+root_node = NodePath("../..")
+libraries = {
+&"": SubResource("AnimationLibrary_7ocsi")
+}
+
+[node name="downfold" type="Control" parent="."]
+z_index = -1
+layout_mode = 3
+anchors_preset = 0
+offset_left = 3.0
+offset_top = 47.0
+offset_right = 79.0
+offset_bottom = 77.0
+rotation = 3.14159
+pivot_offset = Vector2(38, 15)
+mouse_filter = 2
+
+[node name="Panel" type="Panel" parent="downfold"]
+layout_mode = 1
+offset_left = 26.0
+offset_top = 41.0
+offset_right = 51.0
+offset_bottom = 71.0
+rotation = -0.523598
+pivot_offset = Vector2(12.5, 15)
+mouse_filter = 2
+theme_override_styles/panel = ExtResource("7_eypy5")
+
+[node name="Panel2" type="Panel" parent="downfold"]
+offset_left = 26.0
+offset_top = 41.0
+offset_right = 51.0
+offset_bottom = 71.0
+rotation = -0.261799
+pivot_offset = Vector2(12.5, 15)
+mouse_filter = 2
+theme_override_styles/panel = ExtResource("7_eypy5")
+
+[node name="Panel3" type="Panel" parent="downfold"]
+offset_left = 26.0
+offset_top = 41.0
+offset_right = 51.0
+offset_bottom = 71.0
+pivot_offset = Vector2(12.5, 15)
+mouse_filter = 2
+theme_override_styles/panel = ExtResource("7_eypy5")
+
+[node name="Panel4" type="Panel" parent="downfold"]
+offset_left = 26.0
+offset_top = 41.0
+offset_right = 51.0
+offset_bottom = 71.0
+rotation = 0.261799
+pivot_offset = Vector2(12.5, 15)
+mouse_filter = 2
+theme_override_styles/panel = ExtResource("7_eypy5")
+
+[node name="Panel5" type="Panel" parent="downfold"]
+offset_left = 26.0
+offset_top = 41.0
+offset_right = 51.0
+offset_bottom = 71.0
+rotation = 0.523599
+pivot_offset = Vector2(12.5, 15)
+mouse_filter = 2
+theme_override_styles/panel = ExtResource("7_eypy5")
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
 [connection signal="toggled" from="." to="." method="_on_toggled"]
 [connection signal="resized" from="Upper" to="Upper" method="_on_resized"]
 [connection signal="child_exiting_tree" from="Upper/HBoxContainer" to="Upper/HBoxContainer" method="_on_child_exiting_tree"]
