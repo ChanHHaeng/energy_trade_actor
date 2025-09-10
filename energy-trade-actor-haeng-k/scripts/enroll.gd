@@ -1,14 +1,16 @@
 extends Button
 
 var timelist
-var url
+var buy_url
+var sell_url
 var headers
 var body
 var body_array=[]
 var value_list=[]
 var price_list=[]
 func _ready() -> void:
-	url=Global.postgrest+":3000/"+name
+	buy_url=Global.postgrest+":3000/buy_data"
+	sell_url=Global.postgrest+":3000/sell_data"
 	headers = [
 		"Content-Type: application/json"
 	]
@@ -31,7 +33,7 @@ func _on_pressed() -> void:
 				"date"=Global.date,
 				"building_id"=Global.building_id,
 				"start_time"=time,
-				"bid"=$"../GridContainer".get_child(index+12).text,
+				"buy"=$"../GridContainer".get_child(index+12).text,
 				"price"=$"../GridContainer".get_child(index+24).text
 			}
 		else:
