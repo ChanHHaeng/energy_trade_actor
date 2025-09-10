@@ -47,9 +47,8 @@ func _on_pressed() -> void:
 		body_array.append(body)
 		
 	var body_json=JSON.stringify(body_array)
-	$"../HTTPRequest".request(url,headers,HTTPClient.METHOD_POST,body_json)
-	
-	print("timelist is",timelist)
+	%HTTPRequest_buy.request(buy_url,headers,HTTPClient.METHOD_POST,body_json)
+	%HTTPRequest_sell.request(sell_url,headers,HTTPClient.METHOD_POST,body_json)
 	
 	for i in timelist.duplicate():
 		print("delete",i)
