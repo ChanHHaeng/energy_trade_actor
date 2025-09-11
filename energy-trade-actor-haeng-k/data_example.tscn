@@ -30,7 +30,6 @@ offset_right = 163.0
 offset_bottom = 32.0
 theme_override_font_sizes/font_size = 10
 theme_override_styles/focus = SubResource("StyleBoxEmpty_bsebe")
-text = "23415"
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
@@ -48,7 +47,6 @@ offset_right = 163.0
 offset_bottom = 62.0
 theme_override_font_sizes/font_size = 10
 theme_override_styles/focus = SubResource("StyleBoxEmpty_5ls5o")
-text = "23415"
 
 [node name="Label2" type="Label" parent="."]
 layout_mode = 0
@@ -77,4 +75,6 @@ theme_override_styles/pressed = SubResource("StyleBoxEmpty_0uvsg")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_fpbtu")
 text = "X"
 
+[connection signal="editing_toggled" from="LineEdit" to="." method="_on_line_edit_editing_toggled"]
+[connection signal="editing_toggled" from="LineEdit2" to="." method="_on_line_edit_2_editing_toggled"]
 [connection signal="pressed" from="suicide_Button" to="." method="_on_suicide_button_pressed"]

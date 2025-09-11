@@ -71,3 +71,14 @@ func sortingdata_buy(a,b):
 func check_all_ready():
 	if buy_check and sell_check:
 		$"Panel/Panel/Trade page".setting()
+		
+func show_warring():
+	print("warring!")
+	$warring.visible=true
+	$warring.modulate.a=1.0
+	var tween=create_tween()
+	tween.tween_property($warring, "modulate:a",0.0, 1.0)
+	tween.tween_callback(onwarring_hidden)
+
+func onwarring_hidden():
+	$warring.visible=false

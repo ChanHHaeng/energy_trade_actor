@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://d1gwqkrd33l0v"]
+[gd_scene load_steps=46 format=3 uid="uid://d1gwqkrd33l0v"]
 
 [ext_resource type="ButtonGroup" uid="uid://c23vsaa7035ln" path="res://subthings/menubuttongrout.tres" id="1_0fbet"]
 [ext_resource type="Script" uid="uid://bt2hnocu2gnnm" path="res://scripts/Main.gd" id="1_qtu10"]
@@ -121,6 +121,14 @@ border_color = Color(0.360784, 0.972549, 0.796078, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m4egf"]
 bg_color = Color(0.97, 0.97, 0.97, 1)
 border_color = Color(0.97, 0.97, 0.97, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8jbwv"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0, 0, 0, 1)
 
 [node name="Control" type="Control"]
 process_priority = -1
@@ -1018,7 +1026,6 @@ rounded = true
 script = ExtResource("21_ou021")
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 5.0
 
 [node name="HTTPRequest_buy" type="HTTPRequest" parent="."]
 unique_name_in_owner = true
@@ -1028,6 +1035,16 @@ unique_name_in_owner = true
 
 [node name="HTTPRequest_buildings" type="HTTPRequest" parent="."]
 unique_name_in_owner = true
+
+[node name="warring" type="Panel" parent="."]
+visible = false
+z_index = 1
+layout_mode = 0
+offset_left = 378.0
+offset_top = 275.0
+offset_right = 771.0
+offset_bottom = 380.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_8jbwv")
 
 [connection signal="toggled" from="Panel/HBoxContainer/Trade" to="Panel/HBoxContainer/Trade" method="_on_toggled"]
 [connection signal="toggled" from="Panel/HBoxContainer/Bid" to="Panel/HBoxContainer/Bid" method="_on_toggled"]

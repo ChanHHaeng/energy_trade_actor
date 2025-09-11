@@ -1,7 +1,7 @@
 extends Panel
 
 
-var timetable = {
+@onready var timetable = {
 	6: [0, 0],
 	7: [0, 0],
 	8: [0, 0],
@@ -56,7 +56,7 @@ func setting():
 		if int(i["building_id"])==Global.building_id:
 			timetable[Global.building_id][1]+=1
 	
-	print(timetable)
+	#print(timetable)
 	for i in $GridContainer.get_children():
 		i.add_item(timetable[int(i.name)])
 	for i in $GridContainer2.get_children():

@@ -24,6 +24,7 @@ func _on_toggled(toggled_on: bool) -> void:
 		$upperfold.visible=false
 		$downfold.visible=false
 	if not toggled_on:
+		checking()
 		stacking()
 
 func add_item(array:Array):
@@ -42,6 +43,7 @@ func add_item(array:Array):
 	
 func stacking():
 	upper=len($Upper/HBoxContainer.get_children())
+	print($Upper/HBoxContainer.get_children())
 	down = len($down/HBoxContainer.get_children())
 	if upper==0:
 		$"Upper stack".text=""
@@ -56,6 +58,7 @@ func stacking():
 		$"Down stack".text = str(len($down/HBoxContainer.get_children()))
 	else:
 		$"Down stack".text="9+"
+	get_node("../..").timetable[int(name)]=[upper,down]
 
 
 func _on_mouse_entered() -> void:
@@ -73,3 +76,12 @@ func _on_mouse_exited() -> void:
 	if down!=0 and down!=null:
 		%AnimationPlayer_down.play("RESET")
 		$downfold.visible=false
+		
+		
+func checking():
+	for i in $Upper/HBoxContainer.get_children():
+		if i.amount=="" and i.price=="":
+			print("nodata")
+			i._on_suicide_button_pressed()
+			get_node("../../../../..").show_warring()
+	down = len($down/HBoxContainer.get_children())
