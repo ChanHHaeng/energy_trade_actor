@@ -14,7 +14,8 @@ func _ready() -> void:
 
 
 func _on_toggled(toggled_on: bool) -> void:
-	$Upper.visible=toggled_on
+	$Upper.visible=true
+	$Upper.circularation(toggled_on)
 	$down.visible=toggled_on
 	get_node("../..").react_input(toggled_on,self)
 	if toggled_on:
@@ -43,14 +44,16 @@ func add_item(array:Array):
 	
 func stacking():
 	upper=len($Upper/HBoxContainer.get_children())
-	print($Upper/HBoxContainer.get_children())
 	down = len($down/HBoxContainer.get_children())
 	if upper==0:
 		$"Upper stack".text=""
+		$"Upper stack".visible=false
 	elif upper<9:
+		$"Upper stack".visible=true
 		$"Upper stack".text = str(len($Upper/HBoxContainer.get_children()))
 	else:
 		$"Upper stack".text="9+"
+		$"Upper stack".visible=true
 		
 	if down==0:
 		$"Down stack".text=""

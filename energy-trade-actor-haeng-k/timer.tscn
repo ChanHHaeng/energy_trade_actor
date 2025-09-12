@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://ryurc2muk230"]
+[gd_scene load_steps=21 format=3 uid="uid://ryurc2muk230"]
 
 [ext_resource type="Script" uid="uid://bqp8hlbau316u" path="res://timer.gd" id="1_qdhxh"]
 [ext_resource type="StyleBox" uid="uid://c7vue7jx6lx8n" path="res://themes/greenglass.tres" id="2_ye2uk"]
@@ -21,6 +21,9 @@ border_width_right = 2
 border_width_bottom = 2
 border_color = Color(0, 0, 0, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d1sho"]
+bg_color = Color(0.466667, 0.564706, 0.988235, 1)
+
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mxtnu"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mxtnu"]
@@ -36,6 +39,13 @@ corner_radius_top_left = 15
 corner_radius_top_right = 15
 corner_radius_bottom_right = 15
 corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7ocsi"]
+bg_color = Color(0.466545, 0.563104, 0.988798, 1)
+corner_radius_top_left = 9
+corner_radius_top_right = 9
+corner_radius_bottom_right = 9
+corner_radius_bottom_left = 9
 
 [sub_resource type="Animation" id="Animation_7ocsi"]
 length = 0.001
@@ -313,7 +323,7 @@ layout_mode = 0
 offset_top = -99.0
 offset_right = 80.0
 offset_bottom = -11.0
-theme_override_styles/panel = ExtResource("2_ye2uk")
+theme_override_styles/panel = SubResource("StyleBoxFlat_d1sho")
 script = ExtResource("3_o6fnk")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Upper"]
@@ -418,14 +428,15 @@ text = "+"
 
 [node name="Upper stack" type="Label" parent="."]
 layout_mode = 0
-offset_left = 2.0
-offset_top = 2.0
-offset_right = 74.0
-offset_bottom = 16.0
-theme_override_colors/font_color = Color(0, 0, 1, 1)
+offset_left = 1.0
+offset_top = -8.0
+offset_right = 18.0
+offset_bottom = 9.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("6_kpl8e")
 theme_override_font_sizes/font_size = 13
-horizontal_alignment = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_7ocsi")
+horizontal_alignment = 1
 
 [node name="Down stack" type="Label" parent="."]
 layout_mode = 0
