@@ -4,7 +4,7 @@ var sell_check
 var buy_check
 
 func _ready() -> void:
-	print("root")
+	#print("root")
 	$HTTPRequest_buildings.request_completed.connect(_on_building_completed)
 	var err_build=$HTTPRequest_buildings.request(str(Global.postgrest)+":3000/buildings")
 	%HTTPRequest_buy.request_completed.connect(_buy_completed)
@@ -12,8 +12,7 @@ func _ready() -> void:
 	var buy_err=%HTTPRequest_buy.request(str(Global.postgrest)+":3000/buy_data")
 	var sell_err=%HTTPRequest_sell.request(str(Global.postgrest)+":3000/sell_data")
 	var now=Time.get_datetime_string_from_system()
-	print(now)
-
+	#print(now)
 	
 func _on_building_completed(a,b,c,d):
 	var jsontext=d.get_string_from_utf8()
@@ -22,7 +21,7 @@ func _sell_completed(a,b,c,d):
 	Global.transaction_clear(1)
 	var jsontext=d.get_string_from_utf8()
 	var result=JSON.parse_string(jsontext)
-	print(result)
+	#print(result)
 	Global.sell_data=result.duplicate(true)
 	Global.sell_data.sort_custom(sortingdata_sell)
 	for i in Global.sell_data:
@@ -36,7 +35,7 @@ func _buy_completed(a,b,c,d):
 	Global.transaction_clear(0)
 	var jsontext=d.get_string_from_utf8()
 	var result=JSON.parse_string(jsontext)
-	print(result)
+	#print(result)
 	Global.buy_data=result.duplicate(true)
 	Global.buy_data.sort_custom(sortingdata_buy)
 	for i in Global.buy_data:
@@ -77,6 +76,7 @@ func show_warring():
 	$warring.visible=true
 	$warring.modulate.a=1.0
 	var tween=create_tween()
+	tween.tween_property($warring, "modulate:a",1.0, 1.0)
 	tween.tween_property($warring, "modulate:a",0.0, 1.0)
 	tween.tween_callback(onwarring_hidden)
 

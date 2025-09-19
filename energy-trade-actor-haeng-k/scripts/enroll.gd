@@ -8,17 +8,50 @@ var body
 var body_array=[]
 var value_list=[]
 var price_list=[]
+
+
+var pretable
+var newtable={
+	6: [[], []],
+	7: [[], []],
+	8: [[], []],
+	9: [[], []],
+	10: [[], []],
+	11: [[], []],
+	12: [[], []],
+	13: [[], []],
+	14: [[], []],
+	15: [[], []],
+	16: [[], []],
+	17: [[], []],
+	18: [[], []],
+	19: [[], []],
+	20: [[], []],
+	21: [[], []],
+	22: [[], []],
+	23: [[], []],
+	0: [[], []],
+	1: [[], []],
+	2: [[], []],
+	3: [[], []],
+	4: [[], []],
+	5: [[], []],
+}
+
 func _ready() -> void:
 	buy_url=Global.postgrest+":3000/buy_data"
 	sell_url=Global.postgrest+":3000/sell_data"
 	headers = [
 		"Content-Type: application/json"
 	]
-	#$"../HTTPRequest".request_completed.connect(on_request_completed)
+	$"../data_sending".request_completed.connect(on_request_completed)
 	print($"..".get("timetable"))
 
-#func _on_pressed() -> void:
-	#for i in timelist:
+func _on_pressed() -> void:
+	pretable=$"..".timetable
+	for j in range(12):
+		get_node("../GridContainer").get_child(j).name
+	
 		#var time
 		#if i<18:
 			#time=i+6

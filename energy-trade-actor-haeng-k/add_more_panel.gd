@@ -1,5 +1,6 @@
 extends Button
 
+var disabling=false
 @onready var example=load("res://data_example.tscn")
 @onready var example_buy=load("res://assets/data_example_buy.tres")
 @onready var example_sell=load("res://assets/data_example_sell.tres")

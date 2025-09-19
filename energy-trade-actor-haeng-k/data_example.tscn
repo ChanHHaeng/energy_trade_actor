@@ -1,11 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://cp8w221tlk855"]
+[gd_scene load_steps=12 format=3 uid="uid://cp8w221tlk855"]
 
 [ext_resource type="StyleBox" uid="uid://culdypgrpq6gl" path="res://assets/data_example_buy.tres" id="1_4mnhb"]
 [ext_resource type="Script" uid="uid://c5nffhiuc87op" path="res://data_example.gd" id="1_5ls5o"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bsebe"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5ls5o"]
+[ext_resource type="Script" uid="uid://cs4cme26ngjks" path="res://line_edit.gd" id="3_cie5t"]
+[ext_resource type="FontFile" path="res://fonts/montreal/Montreal.tres" id="3_fpbtu"]
+[ext_resource type="FontFile" uid="uid://csmx1oqbsflns" path="res://fonts/montreal/Montreal-Regular.ttf" id="5_8iv6f"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4mnhb"]
 
@@ -15,58 +14,28 @@
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fpbtu"]
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bsebe"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5ls5o"]
+
 [node name="Panel" type="Panel"]
-custom_minimum_size = Vector2(180, 0)
-offset_right = 189.0
-offset_bottom = 74.0
+offset_right = 141.0
+offset_bottom = 142.0
 theme_override_styles/panel = ExtResource("1_4mnhb")
 script = ExtResource("1_5ls5o")
-
-[node name="LineEdit" type="LineEdit" parent="."]
-layout_mode = 0
-offset_left = 93.0
-offset_top = 8.0
-offset_right = 163.0
-offset_bottom = 32.0
-theme_override_font_sizes/font_size = 10
-theme_override_styles/focus = SubResource("StyleBoxEmpty_bsebe")
-
-[node name="Label" type="Label" parent="."]
-layout_mode = 0
-offset_left = 14.0
-offset_top = 8.0
-offset_right = 54.0
-offset_bottom = 31.0
-text = "amount"
-
-[node name="LineEdit2" type="LineEdit" parent="."]
-layout_mode = 0
-offset_left = 93.0
-offset_top = 38.0
-offset_right = 163.0
-offset_bottom = 62.0
-theme_override_font_sizes/font_size = 10
-theme_override_styles/focus = SubResource("StyleBoxEmpty_5ls5o")
-
-[node name="Label2" type="Label" parent="."]
-layout_mode = 0
-offset_left = 14.0
-offset_top = 38.0
-offset_right = 75.0
-offset_bottom = 61.0
-text = "price"
+metadata/_edit_horizontal_guides_ = [-294.0]
 
 [node name="suicide_Button" type="Button" parent="."]
 layout_mode = 1
-anchors_preset = -1
+anchors_preset = 6
 anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = -12.0
-offset_top = -16.0
-offset_right = -2.0
-offset_bottom = 7.0
+offset_left = -20.0
+offset_top = -71.0
+offset_right = -10.0
+offset_bottom = -48.0
 grow_horizontal = 0
 grow_vertical = 2
 theme_override_styles/focus = SubResource("StyleBoxEmpty_4mnhb")
@@ -75,6 +44,81 @@ theme_override_styles/pressed = SubResource("StyleBoxEmpty_0uvsg")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_fpbtu")
 text = "X"
 
-[connection signal="editing_toggled" from="LineEdit" to="." method="_on_line_edit_editing_toggled"]
-[connection signal="editing_toggled" from="LineEdit2" to="." method="_on_line_edit_2_editing_toggled"]
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -56.5
+offset_top = -52.5
+offset_right = 56.5
+offset_bottom = 52.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="Amount" type="Label" parent="HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 25)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_8iv6f")
+theme_override_font_sizes/font_size = 11
+text = "Amount"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="price" type="Label" parent="HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 25)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_8iv6f")
+theme_override_font_sizes/font_size = 11
+text = "Price"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="total" type="Label" parent="HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 25)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_8iv6f")
+theme_override_font_sizes/font_size = 11
+text = "Total"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="Amount_line" type="LineEdit" parent="HBoxContainer/VBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_fpbtu")
+theme_override_font_sizes/font_size = 13
+theme_override_styles/focus = SubResource("StyleBoxEmpty_bsebe")
+script = ExtResource("3_cie5t")
+
+[node name="price_line" type="LineEdit" parent="HBoxContainer/VBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_fpbtu")
+theme_override_font_sizes/font_size = 13
+theme_override_styles/focus = SubResource("StyleBoxEmpty_5ls5o")
+script = ExtResource("3_cie5t")
+
+[node name="Total_line" type="LineEdit" parent="HBoxContainer/VBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_fpbtu")
+theme_override_font_sizes/font_size = 13
+theme_override_styles/focus = SubResource("StyleBoxEmpty_bsebe")
+script = ExtResource("3_cie5t")
+
 [connection signal="pressed" from="suicide_Button" to="." method="_on_suicide_button_pressed"]
+[connection signal="editing_toggled" from="HBoxContainer/VBoxContainer2/Amount_line" to="." method="_on_line_edit_editing_toggled"]
+[connection signal="editing_toggled" from="HBoxContainer/VBoxContainer2/price_line" to="." method="_on_line_edit_2_editing_toggled"]
+[connection signal="editing_toggled" from="HBoxContainer/VBoxContainer2/Total_line" to="." method="_on_line_edit_editing_toggled"]

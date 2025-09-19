@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://d1gwqkrd33l0v"]
+[gd_scene load_steps=45 format=3 uid="uid://d1gwqkrd33l0v"]
 
 [ext_resource type="ButtonGroup" uid="uid://c23vsaa7035ln" path="res://subthings/menubuttongrout.tres" id="1_0fbet"]
 [ext_resource type="Script" uid="uid://bt2hnocu2gnnm" path="res://scripts/Main.gd" id="1_qtu10"]
@@ -92,8 +92,6 @@ border_color = Color(0, 0, 0, 1)
 [sub_resource type="Theme" id="Theme_3fl80"]
 PopupMenu/colors/font_color = Color(0, 0, 0, 1)
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sky72"]
-
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_eh0v1"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ou021"]
@@ -140,6 +138,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_qtu10")
+metadata/_edit_vertical_guides_ = [-291.0]
 
 [node name="Panel2" type="Panel" parent="."]
 z_index = -1
@@ -425,6 +424,8 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_w5605")
 theme_override_styles/normal = SubResource("StyleBoxFlat_87wg0")
 text = "05:00"
 
+[node name="data_sending" type="HTTPRequest" parent="Panel/Panel/Trade page"]
+
 [node name="Bid page" type="Panel" parent="Panel/Panel"]
 visible = false
 layout_mode = 2
@@ -529,22 +530,6 @@ offset_right = 207.0
 offset_bottom = 23.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "▼"
-
-[node name="bid_data" type="Button" parent="Panel/Panel/Bid page"]
-layout_mode = 0
-offset_left = 865.0
-offset_top = 416.0
-offset_right = 1019.0
-offset_bottom = 466.0
-theme_override_colors/font_disabled_color = Color(0.529067, 0.529067, 0.529067, 1)
-theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_styles/focus = SubResource("StyleBoxEmpty_sky72")
-theme_override_styles/hover = SubResource("StyleBoxFlat_v61lp")
-theme_override_styles/normal = SubResource("StyleBoxFlat_v61lp")
-disabled = true
-text = "enroll"
-script = ExtResource("8_6a6wx")
 
 [node name="HTTPRequest" type="HTTPRequest" parent="Panel/Panel/Bid page"]
 
@@ -1046,6 +1031,35 @@ offset_right = 771.0
 offset_bottom = 380.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_8jbwv")
 
+[node name="Label" type="Label" parent="warring"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -159.5
+offset_top = -14.5
+offset_right = 159.5
+offset_bottom = 14.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Unfilled cells were deleted automatically."
+
+[node name="Label2" type="Label" parent="warring"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -62.0
+offset_right = 62.0
+offset_bottom = 42.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "Warring!"
+
 [connection signal="toggled" from="Panel/HBoxContainer/Trade" to="Panel/HBoxContainer/Trade" method="_on_toggled"]
 [connection signal="toggled" from="Panel/HBoxContainer/Bid" to="Panel/HBoxContainer/Bid" method="_on_toggled"]
 [connection signal="toggled" from="Panel/HBoxContainer/Catalogue" to="Panel/HBoxContainer/Catalogue" method="_on_toggled"]
@@ -1053,7 +1067,6 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_8jbwv")
 [connection signal="visibility_changed" from="Panel/Panel/Trade page" to="Panel/Panel/Trade page" method="_on_visibility_changed"]
 [connection signal="pressed" from="Panel/Panel/Trade page/purchase_data" to="Panel/Panel/Trade page/purchase_data" method="_on_pressed"]
 [connection signal="about_to_popup" from="Panel/Panel/Bid page/MenuButton" to="Panel/Panel/Bid page/MenuButton" method="_on_about_to_popup"]
-[connection signal="pressed" from="Panel/Panel/Bid page/bid_data" to="Panel/Panel/Bid page/bid_data" method="_on_pressed"]
 [connection signal="visibility_changed" from="Panel/Panel/Catalogue page" to="Panel/Panel/Catalogue page" method="_on_visibility_changed"]
 [connection signal="about_to_popup" from="Panel/Panel/Catalogue page/timelist" to="Panel/Panel/Catalogue page/timelist" method="_on_about_to_popup"]
 [connection signal="child_entered_tree" from="Panel/Panel/Catalogue page/optioncontainer" to="Panel/Panel/Catalogue page/optioncontainer" method="_on_child_entered_tree"]
