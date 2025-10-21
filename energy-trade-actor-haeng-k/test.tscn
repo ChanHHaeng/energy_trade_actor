@@ -1,0 +1,40 @@
+[gd_scene load_steps=3 format=3 uid="uid://g5g0pmbct50x"]
+
+[ext_resource type="Script" uid="uid://dfxh3ex1dt1yh" path="res://test.gd" id="1_37kl0"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8uh7m"]
+bg_color = Color(1, 1, 1, 1)
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 107.0
+offset_top = 51.0
+offset_right = 909.0
+offset_bottom = 446.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_8uh7m")
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="Panel"]
+layout_mode = 0
+offset_left = 123.0
+offset_top = 81.0
+offset_right = 635.0
+offset_bottom = 593.0
+script = ExtResource("1_37kl0")
+
+[node name="SubViewport" type="SubViewport" parent="Panel/SubViewportContainer"]
+handle_input_locally = false
+render_target_update_mode = 4
+
+[node name="Panel" type="Panel" parent="Panel/SubViewportContainer/SubViewport"]
+offset_left = 23.0
+offset_top = 16.0
+offset_right = 373.0
+offset_bottom = 281.0

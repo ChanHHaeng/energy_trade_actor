@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://eciptpcxflrn"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8j8vp"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bv00w"]
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+
+[node name="Button" type="Button"]
+offset_left = 145.0
+offset_top = -25.0
+offset_right = 175.0
+offset_bottom = 5.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_8j8vp")
+theme_override_styles/normal = SubResource("StyleBoxFlat_bv00w")

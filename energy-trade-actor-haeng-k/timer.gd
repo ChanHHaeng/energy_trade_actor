@@ -5,22 +5,26 @@ extends Button
 @onready var example_sell=load("res://assets/data_example_sell.tres")
 @onready var example_buy=load("res://assets/data_example_buy.tres")
 
+var cardlen=Global.cardlen
 
 var data=[[],[]]
 var upper
 var down
+
+
+var no_color = Color(0.882, 0.882, 0.882)
+var yes_color = Color(0.48, 0.48, 0.48)
 func _ready() -> void:
-	$Upper.visible=false
-	$down.visible=false
+	$CanvasLayer/Upper.visible=false
+	$CanvasLayer/down.visible=false
 	self.button_group=time_button_group
 
 
 func _on_toggled(toggled_on: bool) -> void:
-	$Upper.circularation(toggled_on)
-	$down.circularation(toggled_on)
+	$CanvasLayer/Upper.circularation(toggled_on)
+	$CanvasLayer/down.circularation(toggled_on)
 	get_node("../..").react_input(toggled_on,self)
 	if toggled_on:
-		print("check!")
 		$"Upper stack".text=""
 		$"Upper stack".visible=false
 		$"Down stack".text=""
@@ -33,38 +37,39 @@ func _on_toggled(toggled_on: bool) -> void:
 
 func add_item(array:Array):
 	data=array
+	#if len(array[0]):
+		#$CanvasLayer/Upper.size.x=80
+	#if len(array[1]):
+		#$CanvasLayer/down.size.x=80
 	for i in range(len(array[0])):
-		#if !$Upper.resize_flag:
-			#await 
-		$Upper.size.x+=180
-		print("upper size changed!")
-		print($Upper.resize_flag)
-		$Upper.size.y=80
-		$"Upper/HBoxContainer".size.x+=180
+		print("timer is ",self.name, "array is ", array)
+		$CanvasLayer/Upper.size_memory.x+=cardlen
+		$CanvasLayer/Upper.size_memory.y=180
+		$CanvasLayer/Upper/HBoxContainer.size.x+=cardlen
 		var examples=example.instantiate()
 		examples.amount=str(array[0][i][0])
 		examples.price=str(array[0][i][1])
-		$"Upper/HBoxContainer".add_child(examples)
+		$CanvasLayer/Upper/HBoxContainer.add_child(examples)
 	for i in range(len(array[1])):
-		$down.size.x+=180
-		$down.size.y=80
-		$"down/HBoxContainer".size.x+=180
+		$CanvasLayer/down.size.x+=cardlen
+		$CanvasLayer/down.size.y=180
+		$CanvasLayer/down/HBoxContainer.size.x+=cardlen
 		var examples=example.instantiate()
 		examples.amount=str(array[1][i][0])
 		examples.price=str(array[1][i][1])
-		examples.add_theme_stylebox_override('panel',example_sell)
-		$"down/HBoxContainer".add_child(examples)
+		examples.get_node("SubViewport/Panel").add_theme_stylebox_override('panel',example_sell)
+		$CanvasLayer/down/HBoxContainer.add_child(examples)
 	stacking()
 	
 func stacking(): #테이블 숫자 세서 stack label에 표시
-	upper=len($Upper/HBoxContainer.get_children())
-	down = len($down/HBoxContainer.get_children())
+	upper=len($CanvasLayer/Upper/HBoxContainer.get_children())
+	down = len($CanvasLayer/down/HBoxContainer.get_children())
 	if upper==0:
 		$"Upper stack".text=""
 		$"Upper stack".visible=false
 	elif upper<9:
 		$"Upper stack".visible=true
-		$"Upper stack".text = str(len($Upper/HBoxContainer.get_children()))
+		$"Upper stack".text = str(len($CanvasLayer/Upper/HBoxContainer.get_children()))
 	else:
 		$"Upper stack".text="9+"
 		$"Upper stack".visible=true
@@ -73,12 +78,12 @@ func stacking(): #테이블 숫자 세서 stack label에 표시
 		$"Down stack".text=""
 		$"Down stack".visible=false
 	elif down<9:
-		$"Down stack".text = str(len($down/HBoxContainer.get_children()))
+		$"Down stack".text = str(len($CanvasLayer/down/HBoxContainer.get_children()))
 		$"Down stack".visible=true
 	else:
 		$"Down stack".text="9+"
 		$"Down stack".visible=true
-	get_node("../..").timetable[int(name)]=[upper,down]
+	#get_node("../..").timetable[int(name)]=[upper,down]
 
 
 func _on_mouse_entered() -> void:
@@ -99,12 +104,19 @@ func _on_mouse_exited() -> void:
 		
 		
 func checking(): ## 빈 테이블 정리
-	for i in $Upper/HBoxContainer.get_children():
+	for i in $CanvasLayer/Upper/HBoxContainer.get_children():
 		if i.amount=="" or i.price=="":
 			i.free()
 			get_node("../../../../..").show_warring()
-	for i in $down/HBoxContainer.get_children():
-		if i.amount=="" or i.price=="":
+	for i in $CanvasLayer/down/HBoxContainer.get_children():
+		if i.amount=="" or i.price=="": 
 			i.free()
 			get_node("../../../../..").show_warring()
-	#down = len($down/HBoxContainer.get_children())
+			
+func reset():
+	for i in $CanvasLayer/Upper/HBoxContainer.get_children():
+		i.queue_free()
+	for i in $CanvasLayer/down/HBoxContainer.get_children():
+		i.queue_free()
+	$CanvasLayer/Upper.resize_flag=true
+	%down.resize_flag=true

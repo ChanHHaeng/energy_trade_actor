@@ -58,3 +58,9 @@ func transaction_clear(serial):
 		1:
 			for i in range(24):
 				transaction_sell[i].clear()
+				
+
+var cardlen = 160
+
+
+var focusing = null

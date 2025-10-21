@@ -9,4 +9,6 @@ func _on_value_changed(value: float) -> void:
 	if value == 0:
 		$"../HBoxContainer/My Page".text="master"
 	else:
-		$"../HBoxContainer/My Page".text="my page"
+		$"../HBoxContainer/My Page".text="my page 😎"
+		
+		

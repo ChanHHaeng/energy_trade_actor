@@ -6,8 +6,9 @@ extends Button
 
 
 func _ready() -> void:
-	if Global.building_id==0 and name=="My Page":
-		self.text="master"
+	if Global.building_id==0 and name=="My Page 😁":
+		print("heeeeeeeeeeeeeeeeeeeeee?")
+		self.text="master 📄"
 	
 	
 func _on_toggled(toggled_on: bool) -> void:

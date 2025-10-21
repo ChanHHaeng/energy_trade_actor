@@ -37,9 +37,11 @@ func react_input(flag:bool,node:Node):
 		self.disconnect("gui_input",_on_gui_input)		
 		
 
-func _on_gui_input(event: InputEvent,node:Node) -> void:
+func _on_gui_input(event: InputEvent,node:Node) -> void: #화면 아무곳이나 누르면 버튼 비활성화 되는 코드
 	if event is InputEventMouseButton and event.is_pressed():
 		node.button_pressed=false
+
+
 
 
 #func _on_visibility_changed() -> void:
@@ -48,7 +50,6 @@ func _on_gui_input(event: InputEvent,node:Node) -> void:
 func setting():
 	#for i in range(24):
 		#timetable.append([0,0])
-	print("sorting!")
 	for i in Global.buy_data:
 		if int(i["building_id"])==Global.building_id:
 			timetable[int(i["start_time"])][0].append([int(i["buy"]),int(i["price"])])
@@ -59,7 +60,18 @@ func setting():
 	
 	#print(timetable)
 	for i in $GridContainer.get_children():
+		#print("timetable is")
+		#print(timetable[int(i.name)])
 		i.add_item(timetable[int(i.name)])
+	
 	for i in $GridContainer2.get_children():
 		i.add_item(timetable[int(i.name)])
 	pass
+
+func resetting():
+	for i in $GridContainer.get_children():
+		#print("timetable is")
+		#print(timetable[int(i.name)])
+		i.add_item(timetable[int(i.name)])
+	for i in $GridContainer2.get_children():
+		i.add_item(timetable[int(i.name)])

@@ -1,124 +1,322 @@
-[gd_scene load_steps=12 format=3 uid="uid://cp8w221tlk855"]
+[gd_scene load_steps=22 format=3 uid="uid://cp8w221tlk855"]
 
 [ext_resource type="StyleBox" uid="uid://culdypgrpq6gl" path="res://assets/data_example_buy.tres" id="1_4mnhb"]
 [ext_resource type="Script" uid="uid://c5nffhiuc87op" path="res://data_example.gd" id="1_5ls5o"]
+[ext_resource type="Shader" uid="uid://l0dytbei4sd" path="res://fake_3d.gdshader" id="1_8iv6f"]
 [ext_resource type="Script" uid="uid://cs4cme26ngjks" path="res://line_edit.gd" id="3_cie5t"]
 [ext_resource type="FontFile" path="res://fonts/montreal/Montreal.tres" id="3_fpbtu"]
 [ext_resource type="FontFile" uid="uid://csmx1oqbsflns" path="res://fonts/montreal/Montreal-Regular.ttf" id="5_8iv6f"]
+[ext_resource type="Texture2D" uid="uid://br5f6p4evdcyk" path="res://assets/realx.svg" id="7_g1htm"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4mnhb"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cie5t"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0uvsg"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fpbtu"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_g1htm"]
+shader = ExtResource("1_8iv6f")
+shader_parameter/rect_size = Vector2(141, 142)
+shader_parameter/fov = 1.0
+shader_parameter/cull_back = false
+shader_parameter/y_rot = 0.0
+shader_parameter/x_rot = 0.0
+shader_parameter/inset = 0.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bsebe"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g1htm"]
+bg_color = Color(1, 1, 1, 1)
+border_width_bottom = 3
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+expand_margin_left = 1.0
+expand_margin_right = 1.0
+
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5ls5o"]
 
-[node name="Panel" type="Panel"]
-offset_right = 141.0
-offset_bottom = 142.0
-theme_override_styles/panel = ExtResource("1_4mnhb")
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p4abo"]
+bg_color = Color(1, 1, 1, 1)
+border_width_bottom = 3
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+expand_margin_left = 1.0
+expand_margin_right = 1.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7wena"]
+bg_color = Color(0.516462, 0.729502, 0.999999, 1)
+border_width_bottom = 3
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+expand_margin_left = 1.0
+expand_margin_right = 1.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_g1htm"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7wena"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8iv6f"]
+bg_color = Color(0.3589, 0.97, 0.796855, 0.376471)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_p4abo"]
+
+[sub_resource type="Animation" id="Animation_8iv6f"]
+resource_name = "Panel_trash"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = false
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [-6.28319, 0.0, 6.28319]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0.1, 0.1)]
+}
+
+[sub_resource type="Animation" id="Animation_g1htm"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_p4abo"]
+resource_name = "wiggle"
+length = 0.3
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [-0.0436332, 0.0436332, -0.0436332]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_p4abo"]
+_data = {
+&"Panel_trash": SubResource("Animation_8iv6f"),
+&"RESET": SubResource("Animation_g1htm"),
+&"wiggle": SubResource("Animation_p4abo")
+}
+
+[node name="Panel" type="SubViewportContainer"]
+material = SubResource("ShaderMaterial_g1htm")
+custom_minimum_size = Vector2(140, 142)
+anchors_preset = -1
+anchor_left = 0.282
+anchor_top = 0.259
+anchor_right = 0.282
+anchor_bottom = 0.259
+offset_left = -322.864
+offset_top = -166.832
+offset_right = -182.864
+offset_bottom = -24.832
+pivot_offset = Vector2(70, 70)
+mouse_filter = 0
 script = ExtResource("1_5ls5o")
 metadata/_edit_horizontal_guides_ = [-294.0]
 
-[node name="suicide_Button" type="Button" parent="."]
-layout_mode = 1
-anchors_preset = 6
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -71.0
-offset_right = -10.0
-offset_bottom = -48.0
-grow_horizontal = 0
-grow_vertical = 2
-theme_override_styles/focus = SubResource("StyleBoxEmpty_4mnhb")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_cie5t")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_0uvsg")
-theme_override_styles/normal = SubResource("StyleBoxEmpty_fpbtu")
-text = "X"
+[node name="SubViewport" type="SubViewport" parent="."]
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(140, 142)
+render_target_update_mode = 4
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
-layout_mode = 1
-anchors_preset = 8
+[node name="Panel" type="Panel" parent="SubViewport"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = ExtResource("1_4mnhb")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="SubViewport/Panel"]
+layout_mode = 2
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -56.5
-offset_top = -52.5
-offset_right = 56.5
-offset_bottom = 52.5
+offset_left = -65.0
+offset_top = -52.0
+offset_right = 66.0
+offset_bottom = 53.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 5
+theme_override_constants/separation = 0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+[node name="VBoxContainer3" type="VBoxContainer" parent="SubViewport/Panel/HBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 15
 
-[node name="Amount" type="Label" parent="HBoxContainer/VBoxContainer"]
+[node name="Amount" type="Label" parent="SubViewport/Panel/HBoxContainer/VBoxContainer3"]
 custom_minimum_size = Vector2(0, 25)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("5_8iv6f")
-theme_override_font_sizes/font_size = 11
+theme_override_font_sizes/font_size = 12
 text = "Amount"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="price" type="Label" parent="HBoxContainer/VBoxContainer"]
+[node name="price" type="Label" parent="SubViewport/Panel/HBoxContainer/VBoxContainer3"]
 custom_minimum_size = Vector2(0, 25)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("5_8iv6f")
-theme_override_font_sizes/font_size = 11
-text = "Price"
+theme_override_font_sizes/font_size = 12
+text = "Price "
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="total" type="Label" parent="HBoxContainer/VBoxContainer"]
+[node name="total" type="Label" parent="SubViewport/Panel/HBoxContainer/VBoxContainer3"]
 custom_minimum_size = Vector2(0, 25)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("5_8iv6f")
-theme_override_font_sizes/font_size = 11
-text = "Total"
+theme_override_font_sizes/font_size = 12
+text = "Total "
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="SubViewport/Panel/HBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 15
 
-[node name="Amount_line" type="LineEdit" parent="HBoxContainer/VBoxContainer2"]
+[node name="Amount" type="Label" parent="SubViewport/Panel/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 25)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_8iv6f")
+theme_override_font_sizes/font_size = 14
+text = "🔋"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="price" type="Label" parent="SubViewport/Panel/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 25)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_8iv6f")
+theme_override_font_sizes/font_size = 14
+text = "🪙"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="total" type="Label" parent="SubViewport/Panel/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 25)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_8iv6f")
+theme_override_font_sizes/font_size = 14
+text = "💵"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="SubViewport/Panel/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="Amount_line" type="LineEdit" parent="SubViewport/Panel/HBoxContainer/VBoxContainer2"]
 unique_name_in_owner = true
 layout_mode = 2
+theme_override_colors/caret_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("3_fpbtu")
-theme_override_font_sizes/font_size = 13
+theme_override_font_sizes/font_size = 12
 theme_override_styles/focus = SubResource("StyleBoxEmpty_bsebe")
+theme_override_styles/normal = SubResource("StyleBoxFlat_g1htm")
+alignment = 1
+caret_blink = true
 script = ExtResource("3_cie5t")
 
-[node name="price_line" type="LineEdit" parent="HBoxContainer/VBoxContainer2"]
+[node name="price_line" type="LineEdit" parent="SubViewport/Panel/HBoxContainer/VBoxContainer2"]
 unique_name_in_owner = true
 layout_mode = 2
+theme_override_colors/caret_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("3_fpbtu")
-theme_override_font_sizes/font_size = 13
+theme_override_font_sizes/font_size = 12
 theme_override_styles/focus = SubResource("StyleBoxEmpty_5ls5o")
+theme_override_styles/normal = SubResource("StyleBoxFlat_p4abo")
+alignment = 1
 script = ExtResource("3_cie5t")
 
-[node name="Total_line" type="LineEdit" parent="HBoxContainer/VBoxContainer2"]
+[node name="Total_line" type="LineEdit" parent="SubViewport/Panel/HBoxContainer/VBoxContainer2"]
 unique_name_in_owner = true
 layout_mode = 2
+theme_override_colors/caret_color = Color(0, 0, 0, 1)
+theme_override_colors/font_uneditable_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("3_fpbtu")
-theme_override_font_sizes/font_size = 13
+theme_override_font_sizes/font_size = 12
 theme_override_styles/focus = SubResource("StyleBoxEmpty_bsebe")
+theme_override_styles/read_only = SubResource("StyleBoxFlat_7wena")
+alignment = 1
+editable = false
 script = ExtResource("3_cie5t")
 
-[connection signal="pressed" from="suicide_Button" to="." method="_on_suicide_button_pressed"]
-[connection signal="editing_toggled" from="HBoxContainer/VBoxContainer2/Amount_line" to="." method="_on_line_edit_editing_toggled"]
-[connection signal="editing_toggled" from="HBoxContainer/VBoxContainer2/price_line" to="." method="_on_line_edit_2_editing_toggled"]
-[connection signal="editing_toggled" from="HBoxContainer/VBoxContainer2/Total_line" to="." method="_on_line_edit_editing_toggled"]
+[node name="suicide_Button" type="Button" parent="SubViewport"]
+unique_name_in_owner = true
+visible = false
+offset_right = 140.0
+offset_bottom = 142.0
+theme_override_colors/icon_disabled_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_focus_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_normal_color = Color(1, 1, 1, 0.392157)
+theme_override_icons/icon = ExtResource("7_g1htm")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_g1htm")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_7wena")
+theme_override_styles/hover = SubResource("StyleBoxFlat_8iv6f")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_p4abo")
+icon_alignment = 1
+expand_icon = true
+
+[node name="Panel" type="Panel" parent="."]
+visible = false
+material = SubResource("ShaderMaterial_g1htm")
+layout_mode = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_p4abo")
+}
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="pressed" from="SubViewport/suicide_Button" to="." method="_on_suicide_button_pressed"]

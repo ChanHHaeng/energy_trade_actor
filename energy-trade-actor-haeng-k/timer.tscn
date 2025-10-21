@@ -1,8 +1,9 @@
-[gd_scene load_steps=23 format=3 uid="uid://ryurc2muk230"]
+[gd_scene load_steps=26 format=3 uid="uid://ryurc2muk230"]
 
 [ext_resource type="FontFile" path="res://fonts/montreal/Montreal.tres" id="1_acuhy"]
 [ext_resource type="Script" uid="uid://bqp8hlbau316u" path="res://timer.gd" id="1_qdhxh"]
 [ext_resource type="StyleBox" uid="uid://dvssdwb2d216f" path="res://assets/upperpanel.tres" id="2_d1sho"]
+[ext_resource type="StyleBox" uid="uid://bvhoqsbi2p7ku" path="res://assets/timer_button.tres" id="2_thfi5"]
 [ext_resource type="Script" uid="uid://bmrcs3v2r0vs5" path="res://upper_down.gd" id="3_o6fnk"]
 [ext_resource type="Script" uid="uid://qbtq388su3fu" path="res://h_box_container.gd" id="4_kpl8e"]
 [ext_resource type="Script" uid="uid://6i3kqwqy2iso" path="res://add_more_panel.gd" id="5_kurt1"]
@@ -10,18 +11,16 @@
 [ext_resource type="FontFile" uid="uid://8fbpgc4tqo1j" path="res://fonts/montreal/Montreal-Bold.ttf" id="6_kpl8e"]
 [ext_resource type="StyleBox" uid="uid://cjetnu2bp7fb4" path="res://assets/datacard_for_animation.tres" id="7_eypy5"]
 [ext_resource type="StyleBox" uid="uid://cikh0lpxyni8b" path="res://assets/datacard_for_animation_down.tres" id="8_7ocsi"]
+[ext_resource type="Texture2D" uid="uid://crlguprvccnbm" path="res://assets/realbin.svg" id="8_rokg3"]
+[ext_resource type="Script" uid="uid://b2ipybg8mvd3f" path="res://bin.gd" id="9_skflu"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_87wg0"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eypy5"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3ag6a"]
-bg_color = Color(1, 1, 1, 1)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mxtnu"]
 
@@ -38,6 +37,9 @@ corner_radius_top_left = 15
 corner_radius_top_right = 15
 corner_radius_bottom_right = 15
 corner_radius_bottom_left = 15
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_skflu"]
+size = Vector2(42, 43)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7ocsi"]
 bg_color = Color(0.686275, 0.756863, 0.992157, 1)
@@ -327,42 +329,49 @@ offset_left = 448.0
 offset_top = 240.0
 offset_right = 528.0
 offset_bottom = 290.0
+theme_override_colors/font_color = Color(0.882353, 0.882353, 0.882353, 1)
+theme_override_colors/font_focus_color = Color(0.882353, 0.882353, 0.882353, 1)
 theme_override_fonts/font = ExtResource("1_acuhy")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_87wg0")
 theme_override_styles/hover = SubResource("StyleBoxFlat_eypy5")
-theme_override_styles/normal = SubResource("StyleBoxFlat_3ag6a")
+theme_override_styles/normal = ExtResource("2_thfi5")
 toggle_mode = true
 text = "00:00"
 script = ExtResource("1_qdhxh")
 
-[node name="Upper" type="Panel" parent="."]
-layout_mode = 0
-offset_top = -197.0
-offset_right = 80.0
-offset_bottom = -17.0
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Upper" type="Panel" parent="CanvasLayer"]
+offset_left = 449.0
+offset_top = 35.0
+offset_right = 529.0
+offset_bottom = 215.0
 theme_override_styles/panel = ExtResource("2_d1sho")
 script = ExtResource("3_o6fnk")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Upper"]
-layout_mode = 0
-offset_left = 22.0
-offset_top = 3.0
-offset_right = 22.0
-offset_bottom = 77.0
-theme_override_constants/separation = 5
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Upper"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_top = -71.0
+offset_bottom = 71.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
 script = ExtResource("4_kpl8e")
 
-[node name="Button" type="Button" parent="Upper"]
+[node name="Button" type="Button" parent="CanvasLayer/Upper"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 1.0
-anchor_top = 0.5
 anchor_right = 1.0
-anchor_bottom = 0.5
 offset_left = -40.0
-offset_top = -15.0
+offset_top = 40.0
 offset_right = -10.0
-offset_bottom = 15.0
+offset_bottom = 140.0
 grow_horizontal = 0
 grow_vertical = 2
 theme_override_font_sizes/font_size = 20
@@ -372,54 +381,75 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_kurt1")
 theme_override_styles/normal = SubResource("StyleBoxFlat_mxtnu")
 script = ExtResource("5_kurt1")
 
-[node name="Label" type="Label" parent="Upper/Button"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -8.5
-offset_top = -23.0
-offset_right = 8.5
-offset_bottom = 19.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 30
-text = "+"
+[node name="Line2D" type="Line2D" parent="CanvasLayer/Upper/Button"]
+position = Vector2(15, 50)
+rotation = -1.5708
+points = PackedVector2Array(0, 0, 6, 0, -6, 0)
+width = 2.0
+default_color = Color(0.133196, 0.133196, 0.133196, 1)
 
-[node name="down" type="Panel" parent="."]
-visible = false
-layout_mode = 0
-offset_top = 61.0
-offset_right = 80.0
-offset_bottom = 141.0
+[node name="Line2D2" type="Line2D" parent="CanvasLayer/Upper/Button"]
+position = Vector2(15, 50)
+points = PackedVector2Array(0, 0, 6, 0, -6, 0)
+width = 2.0
+default_color = Color(0.133333, 0.133333, 0.133333, 1)
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Upper"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -36.0
+offset_top = -36.0
+offset_right = -6.0
+offset_bottom = -6.0
+grow_horizontal = 0
+grow_vertical = 0
+texture = ExtResource("8_rokg3")
+expand_mode = 1
+script = ExtResource("9_skflu")
+
+[node name="Area2D" type="Area2D" parent="CanvasLayer/Upper/TextureRect"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/Upper/TextureRect/Area2D"]
+position = Vector2(14, 13.5)
+shape = SubResource("RectangleShape2D_skflu")
+
+[node name="down" type="Panel" parent="CanvasLayer"]
+unique_name_in_owner = true
+offset_left = 448.0
+offset_top = 301.0
+offset_right = 528.0
+offset_bottom = 481.0
 theme_override_styles/panel = ExtResource("6_acuhy")
 script = ExtResource("3_o6fnk")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="down"]
-layout_mode = 0
-offset_left = 21.0
-offset_top = 3.0
-offset_right = 21.0
-offset_bottom = 77.0
-theme_override_constants/separation = 5
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/down"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_top = -71.0
+offset_bottom = 71.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
 script = ExtResource("4_kpl8e")
 
-[node name="Button" type="Button" parent="down"]
+[node name="Button" type="Button" parent="CanvasLayer/down"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 1.0
-anchor_top = 0.5
 anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -40.0
-offset_top = -15.0
-offset_right = -10.0
-offset_bottom = 15.0
+offset_left = -36.0
+offset_top = 50.0
+offset_right = -6.0
+offset_bottom = 130.0
 grow_horizontal = 0
-grow_vertical = 2
 theme_override_font_sizes/font_size = 20
 theme_override_styles/focus = SubResource("StyleBoxEmpty_mxtnu")
 theme_override_styles/hover = SubResource("StyleBoxFlat_mxtnu")
@@ -427,36 +457,49 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_kurt1")
 theme_override_styles/normal = SubResource("StyleBoxFlat_mxtnu")
 script = ExtResource("5_kurt1")
 
-[node name="Label" type="Label" parent="down/Button"]
+[node name="Line2D" type="Line2D" parent="CanvasLayer/down/Button"]
+position = Vector2(15, 40)
+rotation = -1.5708
+points = PackedVector2Array(0, 0, 6, 0, -6, 0)
+width = 2.0
+default_color = Color(0.133196, 0.133196, 0.133196, 1)
+
+[node name="Line2D2" type="Line2D" parent="CanvasLayer/down/Button"]
+position = Vector2(15, 40)
+points = PackedVector2Array(0, 0, 6, 0, -6, 0)
+width = 2.0
+default_color = Color(0.133333, 0.133333, 0.133333, 1)
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/down"]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -8.5
-offset_top = -23.0
-offset_right = 8.5
-offset_bottom = 19.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 30
-text = "+"
+anchors_preset = -1
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -36.0
+offset_top = -36.0
+offset_right = -6.0
+offset_bottom = -6.0
+grow_horizontal = 0
+grow_vertical = 0
+texture = ExtResource("8_rokg3")
+expand_mode = 1
+script = ExtResource("9_skflu")
 
 [node name="Upper stack" type="Label" parent="."]
 layout_mode = 1
-offset_left = -3.0
-offset_top = -4.0
-offset_right = 19.0
-offset_bottom = 15.0
-pivot_offset = Vector2(11, 8.5)
+offset_top = -9.5
+offset_right = 30.0
+offset_bottom = 9.5
+pivot_offset = Vector2(15, 9.5)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("6_kpl8e")
 theme_override_font_sizes/font_size = 13
 theme_override_styles/normal = SubResource("StyleBoxFlat_7ocsi")
 text = "1"
 horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Down stack" type="Label" parent="."]
 layout_mode = 1
@@ -465,20 +508,22 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -18.0
-offset_top = -16.0
-offset_right = 4.0
-offset_bottom = 3.0
+offset_left = -30.0
+offset_top = -10.0
+offset_bottom = 9.0
 grow_horizontal = 0
 grow_vertical = 0
+pivot_offset = Vector2(15, 9.5)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("6_kpl8e")
 theme_override_font_sizes/font_size = 13
 theme_override_styles/normal = SubResource("StyleBoxFlat_acuhy")
 text = "1"
 horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="upperfold" type="Control" parent="."]
+unique_name_in_owner = true
 visible = false
 z_index = -1
 anchors_preset = 0
@@ -549,6 +594,7 @@ libraries = {
 }
 
 [node name="downfold" type="Control" parent="."]
+unique_name_in_owner = true
 visible = false
 z_index = -1
 layout_mode = 3
@@ -622,11 +668,17 @@ libraries = {
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
 [connection signal="toggled" from="." to="." method="_on_toggled"]
-[connection signal="resized" from="Upper" to="Upper" method="_on_resized"]
-[connection signal="child_entered_tree" from="Upper/HBoxContainer" to="Upper/HBoxContainer" method="_on_child_entered_tree"]
-[connection signal="child_exiting_tree" from="Upper/HBoxContainer" to="Upper/HBoxContainer" method="_on_child_exiting_tree"]
-[connection signal="pressed" from="Upper/Button" to="Upper/Button" method="_on_pressed"]
-[connection signal="resized" from="down" to="down" method="_on_resized"]
-[connection signal="child_entered_tree" from="down/HBoxContainer" to="down/HBoxContainer" method="_on_child_entered_tree"]
-[connection signal="child_exiting_tree" from="down/HBoxContainer" to="down/HBoxContainer" method="_on_child_exiting_tree"]
-[connection signal="pressed" from="down/Button" to="down/Button" method="_on_pressed"]
+[connection signal="resized" from="CanvasLayer/Upper" to="CanvasLayer/Upper" method="_on_resized"]
+[connection signal="child_entered_tree" from="CanvasLayer/Upper/HBoxContainer" to="CanvasLayer/Upper/HBoxContainer" method="_on_child_entered_tree"]
+[connection signal="child_exiting_tree" from="CanvasLayer/Upper/HBoxContainer" to="CanvasLayer/Upper/HBoxContainer" method="_on_child_exiting_tree"]
+[connection signal="pressed" from="CanvasLayer/Upper/Button" to="CanvasLayer/Upper/Button" method="_on_pressed"]
+[connection signal="gui_input" from="CanvasLayer/Upper/TextureRect" to="CanvasLayer/Upper/TextureRect" method="_on_gui_input"]
+[connection signal="mouse_entered" from="CanvasLayer/Upper/TextureRect" to="CanvasLayer/Upper/TextureRect" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/Upper/TextureRect" to="CanvasLayer/Upper/TextureRect" method="_on_mouse_exited"]
+[connection signal="resized" from="CanvasLayer/down" to="CanvasLayer/down" method="_on_resized"]
+[connection signal="child_entered_tree" from="CanvasLayer/down/HBoxContainer" to="CanvasLayer/down/HBoxContainer" method="_on_child_entered_tree"]
+[connection signal="child_exiting_tree" from="CanvasLayer/down/HBoxContainer" to="CanvasLayer/down/HBoxContainer" method="_on_child_exiting_tree"]
+[connection signal="pressed" from="CanvasLayer/down/Button" to="CanvasLayer/down/Button" method="_on_pressed"]
+[connection signal="gui_input" from="CanvasLayer/down/TextureRect" to="CanvasLayer/down/TextureRect" method="_on_gui_input"]
+[connection signal="mouse_entered" from="CanvasLayer/down/TextureRect" to="CanvasLayer/down/TextureRect" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/down/TextureRect" to="CanvasLayer/down/TextureRect" method="_on_mouse_exited"]
