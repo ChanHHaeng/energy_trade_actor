@@ -1,9 +1,16 @@
 extends LineEdit
 
+enum line_model{Amount,price,Total}
+
+@onready var total_line_down=load("res://assets/total_Line_Down.tres")
+
+@export var ops_mode : line_model
 var prev_text=""
-var correct_form
+var correct_form=false
 func _ready() -> void:
 	text_changed.connect(texts_changed)
+	if ops_mode==line_model.Total and get_owner().get_node("../..").ops_mode==1:
+		self.add_theme_stylebox_override("read_only",total_line_down)
 
 func texts_changed(new_text):
 	if text=="":#아무것도 없을때
@@ -13,17 +20,17 @@ func texts_changed(new_text):
 		self.text=prev_text
 		caret_column = text.length()
 		correct_form=false
-	elif self==%Amount_line and int(text)>100: #100을 초과했을 때
+	elif ops_mode==line_model.Amount and int(text)>100: #100을 초과했을 때
 		text="100"
 		prev_text=text
 		correct_form=true
 	else:#올바른 입력
 		prev_text=text
 		correct_form=true
-		if self==%Amount_line:
+		if ops_mode==line_model.Amount:
 			get_owner().amount=self.text
 			caret_column = text.length()
-		elif self==%price_line:
+		elif ops_mode==line_model.price:
 			get_owner().price=self.text
 			caret_column = text.length()
 		#print("hehe")

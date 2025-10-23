@@ -48,9 +48,14 @@ func _ready() -> void:
 	print($"..".get("timetable"))
 
 func _on_pressed() -> void:
-	pretable=$"..".timetable
-	for j in range(12):
-		get_node("../GridContainer").get_child(j).name
+	for i in $"../GridContainer".get_children():
+		i.gain_data()
+	for i in $"../GridContainer2".get_children():
+		i.gain_data()
+	
+	#pretable=$"..".timetable
+	#for j in range(12):
+		#get_node("../GridContainer").get_child(j).name
 	
 		#var time
 		#if i<18:

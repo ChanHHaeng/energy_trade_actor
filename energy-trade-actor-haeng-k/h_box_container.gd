@@ -9,7 +9,7 @@ var yes_color = Color(0.44, 0.44, 0.44)
 
 func _on_child_exiting_tree(node: Node) -> void:
 	await get_tree().process_frame
-	print( get_owner().name," ",get_parent().size_memory," exit")
+	#print( get_owner().name," ",get_parent().size_memory," exit")
 	if len($"../../down/HBoxContainer".get_children())==0 and len($"../../Upper/HBoxContainer".get_children())==0:
 		$"../../..".add_theme_color_override("font_color",no_color)
 	set_anchors_preset(Control.PRESET_CENTER)
@@ -24,9 +24,10 @@ func _on_child_exiting_tree(node: Node) -> void:
 			%downfold.get_child(i).visible=false
 		else:
 			%upperfold.get_child(i).visible=false
-	if len(get_children())!=5:
-		$"../Button".disabling=false
-		$"../Button".visible=true
+	if len(get_children())<5:
+		if get_parent().resize_flag and !get_owner().checkingmode:
+			$"../Button".disabling=false
+			$"../Button".visible=true
 	self.size.x-=cardlen
 	$"..".size.x-=cardlen
 	$"../../..".stacking()
@@ -39,7 +40,7 @@ func _input(event: InputEvent) -> void:
 
 func _on_child_entered_tree(node: Node) -> void:
 	await get_tree().process_frame
-	print( get_owner().name," ",get_parent().size_memory," enter")
+	#print( get_owner().name," ",get_parent().size_memory," enter")
 	$"../../..".add_theme_color_override("font_color",yes_color)
 	$"../../..".queue_redraw()
 	set_anchors_preset(Control.PRESET_CENTER)
@@ -54,6 +55,7 @@ func _on_child_entered_tree(node: Node) -> void:
 			$"../../../downfold".get_child(i).visible=false
 		else:
 			$"../../../upperfold".get_child(i).visible=false
+
 	if len(get_children())==5:
 		$"../Button".disabling=true
 		$"../Button".visible=false

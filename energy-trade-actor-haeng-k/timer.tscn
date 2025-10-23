@@ -342,6 +342,8 @@ script = ExtResource("1_qdhxh")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Upper" type="Panel" parent="CanvasLayer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(17, 17)
 offset_left = 449.0
 offset_top = 35.0
 offset_right = 529.0
@@ -425,6 +427,7 @@ offset_right = 528.0
 offset_bottom = 481.0
 theme_override_styles/panel = ExtResource("6_acuhy")
 script = ExtResource("3_o6fnk")
+ops_mode = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/down"]
 layout_mode = 1

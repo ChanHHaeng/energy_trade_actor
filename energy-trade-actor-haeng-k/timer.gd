@@ -10,7 +10,7 @@ var cardlen=Global.cardlen
 var data=[[],[]]
 var upper
 var down
-
+var checkingmode = false
 
 var no_color = Color(0.882, 0.882, 0.882)
 var yes_color = Color(0.48, 0.48, 0.48)
@@ -25,6 +25,7 @@ func _on_toggled(toggled_on: bool) -> void:
 	$CanvasLayer/down.circularation(toggled_on)
 	get_node("../..").react_input(toggled_on,self)
 	if toggled_on:
+		print(data)
 		$"Upper stack".text=""
 		$"Upper stack".visible=false
 		$"Down stack".text=""
@@ -37,12 +38,11 @@ func _on_toggled(toggled_on: bool) -> void:
 
 func add_item(array:Array):
 	data=array
-	#if len(array[0]):
-		#$CanvasLayer/Upper.size.x=80
-	#if len(array[1]):
-		#$CanvasLayer/down.size.x=80
+	if len(array[0]):
+		$CanvasLayer/Upper.size_memory.x=80
+	if len(array[1]):
+		$CanvasLayer/down.size_memory.x=80
 	for i in range(len(array[0])):
-		print("timer is ",self.name, "array is ", array)
 		$CanvasLayer/Upper.size_memory.x+=cardlen
 		$CanvasLayer/Upper.size_memory.y=180
 		$CanvasLayer/Upper/HBoxContainer.size.x+=cardlen
@@ -51,8 +51,8 @@ func add_item(array:Array):
 		examples.price=str(array[0][i][1])
 		$CanvasLayer/Upper/HBoxContainer.add_child(examples)
 	for i in range(len(array[1])):
-		$CanvasLayer/down.size.x+=cardlen
-		$CanvasLayer/down.size.y=180
+		$CanvasLayer/down.size_memory.x+=cardlen
+		$CanvasLayer/down.size_memory.y=180
 		$CanvasLayer/down/HBoxContainer.size.x+=cardlen
 		var examples=example.instantiate()
 		examples.amount=str(array[1][i][0])
@@ -104,6 +104,7 @@ func _on_mouse_exited() -> void:
 		
 		
 func checking(): ## 빈 테이블 정리
+	checkingmode=true
 	for i in $CanvasLayer/Upper/HBoxContainer.get_children():
 		if i.amount=="" or i.price=="":
 			i.free()
@@ -112,6 +113,8 @@ func checking(): ## 빈 테이블 정리
 		if i.amount=="" or i.price=="": 
 			i.free()
 			get_node("../../../../..").show_warring()
+	await get_tree().process_frame
+	checkingmode=false
 			
 func reset():
 	for i in $CanvasLayer/Upper/HBoxContainer.get_children():
@@ -120,3 +123,9 @@ func reset():
 		i.queue_free()
 	$CanvasLayer/Upper.resize_flag=true
 	%down.resize_flag=true
+	
+func gain_data() -> Array:
+	var new_data=[%Upper.get_data(),%down.get_data()]
+	print(new_data)
+	return new_data
+	

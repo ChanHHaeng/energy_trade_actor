@@ -7,6 +7,7 @@
 [ext_resource type="FontFile" path="res://fonts/montreal/Montreal.tres" id="3_fpbtu"]
 [ext_resource type="FontFile" uid="uid://csmx1oqbsflns" path="res://fonts/montreal/Montreal-Regular.ttf" id="5_8iv6f"]
 [ext_resource type="Texture2D" uid="uid://br5f6p4evdcyk" path="res://assets/realx.svg" id="7_g1htm"]
+[ext_resource type="StyleBox" uid="uid://bcvi8t0vxgaow" path="res://assets/total_Line_Up.tres" id="7_p4abo"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_g1htm"]
 shader = ExtResource("1_8iv6f")
@@ -26,8 +27,6 @@ corner_radius_top_left = 5
 corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
-expand_margin_left = 1.0
-expand_margin_right = 1.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5ls5o"]
 
@@ -38,18 +37,6 @@ corner_radius_top_left = 5
 corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
-expand_margin_left = 1.0
-expand_margin_right = 1.0
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7wena"]
-bg_color = Color(0.516462, 0.729502, 0.999999, 1)
-border_width_bottom = 3
-corner_radius_top_left = 5
-corner_radius_top_right = 5
-corner_radius_bottom_right = 5
-corner_radius_bottom_left = 5
-expand_margin_left = 1.0
-expand_margin_right = 1.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_g1htm"]
 
@@ -152,13 +139,12 @@ offset_top = -166.832
 offset_right = -182.864
 offset_bottom = -24.832
 pivot_offset = Vector2(70, 70)
-mouse_filter = 0
 script = ExtResource("1_5ls5o")
 metadata/_edit_horizontal_guides_ = [-294.0]
 
 [node name="SubViewport" type="SubViewport" parent="."]
+disable_3d = true
 transparent_bg = true
-handle_input_locally = false
 size = Vector2i(140, 142)
 render_target_update_mode = 4
 
@@ -192,8 +178,8 @@ theme_override_constants/separation = 15
 custom_minimum_size = Vector2(0, 25)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("5_8iv6f")
-theme_override_font_sizes/font_size = 12
-text = "Amount"
+theme_override_font_sizes/font_size = 11
+text = " Amount"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -201,8 +187,8 @@ vertical_alignment = 1
 custom_minimum_size = Vector2(0, 25)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("5_8iv6f")
-theme_override_font_sizes/font_size = 12
-text = "Price "
+theme_override_font_sizes/font_size = 11
+text = "Price"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -210,8 +196,8 @@ vertical_alignment = 1
 custom_minimum_size = Vector2(0, 25)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("5_8iv6f")
-theme_override_font_sizes/font_size = 12
-text = "Total "
+theme_override_font_sizes/font_size = 11
+text = "Total"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -243,7 +229,6 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("5_8iv6f")
 theme_override_font_sizes/font_size = 14
 text = "💵"
-horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="SubViewport/Panel/HBoxContainer"]
@@ -274,6 +259,7 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_5ls5o")
 theme_override_styles/normal = SubResource("StyleBoxFlat_p4abo")
 alignment = 1
 script = ExtResource("3_cie5t")
+ops_mode = 1
 
 [node name="Total_line" type="LineEdit" parent="SubViewport/Panel/HBoxContainer/VBoxContainer2"]
 unique_name_in_owner = true
@@ -284,10 +270,11 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("3_fpbtu")
 theme_override_font_sizes/font_size = 12
 theme_override_styles/focus = SubResource("StyleBoxEmpty_bsebe")
-theme_override_styles/read_only = SubResource("StyleBoxFlat_7wena")
+theme_override_styles/read_only = ExtResource("7_p4abo")
 alignment = 1
 editable = false
 script = ExtResource("3_cie5t")
+ops_mode = 2
 
 [node name="suicide_Button" type="Button" parent="SubViewport"]
 unique_name_in_owner = true

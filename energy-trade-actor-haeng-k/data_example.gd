@@ -2,18 +2,16 @@ extends Control
 
 
 @onready var amount_line=%Amount_line
-@export var angle_x_max: float = 15.0
-@export var angle_y_max: float = 15.0
 @onready var price_line=%price_line
+
 var following_mouse: bool = false
 @onready var collision_shape = $Area2D/CollisionShape2D
-var velocity: Vector2
 var last_pos: Vector2
 var tween_hover: Tween
 var tween_handle: Tween
 var tween_rot
 var tween_replace : Tween
-
+@onready var sub_viewport: SubViewport = $SubViewport
 var oscillator_velocity: float = 0.0
 @export var velocity_multiplier: float = 2.0
 @export var spring: float = 150.0
@@ -65,9 +63,11 @@ func _ready() -> void:
 	#collision_shape.set_deferred("disabled", true)
 	material=material.duplicate()
 	await get_tree().process_frame
+	%Amount_line.connect("focus_entered", func():
+		print("LineEdit got focus")
+	)
 
 func _process(delta: float) -> void:
-	#rotate_velocity(delta)
 	follow_mouse(delta)
 	
 
@@ -78,22 +78,21 @@ func _on_suicide_button_pressed() -> void:
 
 
 
+
 func _on_gui_input(event: InputEvent) -> void:
 	handle_mouse_click(event)
-	if following_mouse: return
-	if not event is InputEventMouseMotion: return
-	var mouse_pos: Vector2 = get_local_mouse_position()
 	
 func handle_mouse_click(event: InputEvent) -> void:
+	
 	if not event is InputEventMouseButton: return
 	if event.button_index != MOUSE_BUTTON_LEFT: return
-	if get_child(0).get_viewport().gui_get_focus_owner() is LineEdit:
-		return
 	if event.is_pressed():
+		print(sub_viewport.gui_get_focus_owner())
 		following_mouse = true
 		Global.focusing=self
 		origin=self.position
 		self.z_index=1
+		
 	else:
 		following_mouse = false
 		self.z_index=0

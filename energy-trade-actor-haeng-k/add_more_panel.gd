@@ -20,3 +20,7 @@ func _on_pressed() -> void:
 	$"../HBoxContainer".set_anchors_preset(Control.PRESET_CENTER)
 	$"../HBoxContainer".set_offsets_preset(Control.PRESET_CENTER)
 	examples.presentation()
+	if len($"../HBoxContainer".get_children())!=5:
+		self.disabling=false
+		self.visible=true
+	
