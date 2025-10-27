@@ -43,8 +43,6 @@ func _ready() -> void:
 func _on_resized() -> void:
 	 ##체크 지점
 	if resize_flag:
-		if get_owner().name=="8":
-			print("changed: ", self.size)
 		size_memory=self.size
 		position_memory=self.position
 

@@ -19,7 +19,7 @@ var displacement: float = 0.0
 @export var damp: float = 10.0
 
 
-
+var move_impossible = false
 var bin_activated=false
 
 var origin:Vector2
@@ -64,7 +64,10 @@ func _ready() -> void:
 	material=material.duplicate()
 	await get_tree().process_frame
 	%Amount_line.connect("focus_entered", func():
-		print("LineEdit got focus")
+		move_impossible=true
+	)
+	%Amount_line.connect("focus_exited", func():
+		move_impossible=false
 	)
 
 func _process(delta: float) -> void:

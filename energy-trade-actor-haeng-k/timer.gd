@@ -25,7 +25,7 @@ func _on_toggled(toggled_on: bool) -> void:
 	$CanvasLayer/down.circularation(toggled_on)
 	get_node("../..").react_input(toggled_on,self)
 	if toggled_on:
-		print(data)
+		#print(data)
 		$"Upper stack".text=""
 		$"Upper stack".visible=false
 		$"Down stack".text=""
@@ -126,6 +126,6 @@ func reset():
 	
 func gain_data() -> Array:
 	var new_data=[%Upper.get_data(),%down.get_data()]
+	print(self.name , "data is! vvvv")
 	print(new_data)
 	return new_data
-	

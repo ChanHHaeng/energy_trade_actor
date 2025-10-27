@@ -49,6 +49,7 @@ func _ready() -> void:
 
 func _on_pressed() -> void:
 	for i in $"../GridContainer".get_children():
+		#i.name
 		i.gain_data()
 	for i in $"../GridContainer2".get_children():
 		i.gain_data()
