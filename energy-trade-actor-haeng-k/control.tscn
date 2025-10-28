@@ -413,8 +413,6 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_w5605")
 theme_override_styles/normal = SubResource("StyleBoxFlat_87wg0")
 text = "05:00"
 
-[node name="data_sending" type="HTTPRequest" parent="Panel/Panel/Trade page"]
-
 [node name="purchase_data" type="Button" parent="Panel/Panel/Trade page"]
 layout_mode = 0
 offset_left = 709.0
@@ -466,6 +464,10 @@ offset_right = 142.0
 offset_bottom = 46.0
 theme_override_font_sizes/font_size = 25
 text = "🔄"
+
+[node name="data_sending" type="HTTPRequest" parent="Panel/Panel/Trade page"]
+
+[node name="data_sending2" type="HTTPRequest" parent="Panel/Panel/Trade page"]
 
 [node name="Bid page" type="Panel" parent="Panel/Panel"]
 visible = false

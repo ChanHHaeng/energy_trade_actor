@@ -5,7 +5,9 @@ var buy_url
 var sell_url
 var headers
 var body
-var body_array=[]
+var body_array_buy=[]
+var body_array_sell=[]
+var body_array_del=[]
 var value_list=[]
 var price_list=[]
 
@@ -48,46 +50,63 @@ func _ready() -> void:
 	print($"..".get("timetable"))
 
 func _on_pressed() -> void:
+	newtable=$"..".timetable.duplicate(true)
+	var instance_table={}
 	for i in $"../GridContainer".get_children():
-		#i.name
-		i.gain_data()
+		instance_table[int(i.name)]=i.gain_data()
 	for i in $"../GridContainer2".get_children():
-		i.gain_data()
+		instance_table[int(i.name)]=i.gain_data()
+	var focus=compare_table(instance_table)
+
 	
-	#pretable=$"..".timetable
-	#for j in range(12):
-		#get_node("../GridContainer").get_child(j).name
 	
-		#var time
-		#if i<18:
-			#time=i+6
-		#else:
-			#time=i-18
-		#var index=i
-		#if i>=12:
-			#index+=24
-		#var body
-		#if get_parent().name=="Bid page":
-			#body= {
-				#"date"=Global.date,
-				#"building_id"=Global.building_id,
-				#"start_time"=time,
-				#"buy"=$"../GridContainer".get_child(index+12).text,
-				#"price"=$"../GridContainer".get_child(index+24).text
-			#}
-		#else:
-			#body= {
-				#"date"=Global.date,
-				#"building_id"=Global.building_id,
-				#"start_time"=time,
-				#"purchase"=$"../GridContainer".get_child(index+12).text,
-				#"price"=$"../GridContainer".get_child(index+24).text
-			#}
-		#body_array.append(body)
+	for i in focus:
+		
+		##제거 부분
+		var delete_body
+		body={
+			"date"=Global.date,
+			"building_id"=Global.building_id,
+			"start_time"=i
+		}
+		body_array_del.append(body)
+	var body_json_del=JSON.stringify(body_array_del)
+	$"../data_sending".request(buy_url,headers,HTTPClient.METHOD_DELETE,body_json_del)
+	$"../data_sending2".request(buy_url,headers,HTTPClient.METHOD_DELETE,body_json_del)
+		
+		
+		
+	for i in focus:
+		
+		##삽입 부분 
+		var sector=focus[i]
+		for j in sector[0]:
+			var body
+			body = {
+				"date"=Global.date,
+				"building_id"=Global.building_id,
+				"start_time"=i,
+				"buy"=j[0],
+				"price"=j[1]
+			}
+			body_array_buy.append(body)
+			
+			
+		for j in sector[1]:
+			var body
+			body = {
+				"date"=Global.date,
+				"building_id"=Global.building_id,
+				"start_time"=i,
+				"sell"=j[0],
+				"price"=j[1]
+			}
+			body_array_sell.append(body)
 		#
-	#var body_json=JSON.stringify(body_array)
-	#%HTTPRequest_buy.request(buy_url,headers,HTTPClient.METHOD_POST,body_json)
-	#%HTTPRequest_sell.request(sell_url,headers,HTTPClient.METHOD_POST,body_json)
+	var body_json_buy=JSON.stringify(body_array_buy)
+	var body_json_sell=JSON.stringify(body_array_sell)
+	%HTTPRequest_buy.request(buy_url,headers,HTTPClient.METHOD_POST,body_json_buy)
+	%HTTPRequest_sell.request(sell_url,headers,HTTPClient.METHOD_POST,body_json_sell)
 	#
 	#for i in timelist.duplicate():
 		#print("delete",i)
@@ -117,3 +136,12 @@ func on_request_completed(result, response_code, headers, jsonbody):
 	#
 	#self.disabled=false
 			
+
+func compare_table(instance_table:Dictionary) ->Dictionary:
+	var bowl={}
+	for i in range(24):
+		if instance_table[i]!=newtable[i]: #변화 부분 발견
+			bowl[i]=instance_table[i]
+	
+	return bowl
+	

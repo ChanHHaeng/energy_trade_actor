@@ -35,7 +35,7 @@ func _buy_completed(a,b,c,d):
 	Global.transaction_clear(0)
 	var jsontext=d.get_string_from_utf8()
 	var result=JSON.parse_string(jsontext)
-	#print(result)
+	#print(result)s
 	Global.buy_data=result.duplicate(true)
 	Global.buy_data.sort_custom(sortingdata_buy)
 	for i in Global.buy_data:
