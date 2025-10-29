@@ -46,7 +46,11 @@ func _ready() -> void:
 	headers = [
 		"Content-Type: application/json"
 	]
-	$"../data_sending".request_completed.connect(on_request_completed)
+	
+	%data_sending_buy.request_completed.connect(on_request_completed)
+	%data_sending_sell.request_completed.connect(on_request_completed)
+	%data_removing_buy.request_completed.connect(on_request_del_completed)
+	%data_removing_sell.request_completed.connect(on_request_del_completed)
 	print($"..".get("timetable"))
 
 func _on_pressed() -> void:
@@ -57,25 +61,17 @@ func _on_pressed() -> void:
 	for i in $"../GridContainer2".get_children():
 		instance_table[int(i.name)]=i.gain_data()
 	var focus=compare_table(instance_table)
-
+	var focus_str=",".join(PackedStringArray(focus.keys()))
+	print(focus_str)
 	
+	var new_buy_url=buy_url+("?building_id=eq.%d&start_time=in.(%s)" % [Global.building_id, focus_str])
+	var new_sell_url=sell_url+("?building_id=eq.%d&start_time=in.(%s)" % [Global.building_id, focus_str])
 	
-	for i in focus:
-		
-		##제거 부분
-		var delete_body
-		body={
-			"date"=Global.date,
-			"building_id"=Global.building_id,
-			"start_time"=i
-		}
-		body_array_del.append(body)
 	var body_json_del=JSON.stringify(body_array_del)
-	$"../data_sending".request(buy_url,headers,HTTPClient.METHOD_DELETE,body_json_del)
-	$"../data_sending2".request(buy_url,headers,HTTPClient.METHOD_DELETE,body_json_del)
-		
-		
-		
+	%data_removing_buy.request(new_buy_url,headers,HTTPClient.METHOD_DELETE)
+	%data_removing_sell.request(new_sell_url,headers,HTTPClient.METHOD_DELETE)
+	
+	
 	for i in focus:
 		
 		##삽입 부분 
@@ -105,8 +101,8 @@ func _on_pressed() -> void:
 		#
 	var body_json_buy=JSON.stringify(body_array_buy)
 	var body_json_sell=JSON.stringify(body_array_sell)
-	%HTTPRequest_buy.request(buy_url,headers,HTTPClient.METHOD_POST,body_json_buy)
-	%HTTPRequest_sell.request(sell_url,headers,HTTPClient.METHOD_POST,body_json_sell)
+	%data_sending_buy.request(buy_url,headers,HTTPClient.METHOD_POST,body_json_buy)
+	%data_sending_sell.request(sell_url,headers,HTTPClient.METHOD_POST,body_json_sell)
 	#
 	#for i in timelist.duplicate():
 		#print("delete",i)
@@ -122,7 +118,15 @@ func on_request_completed(result, response_code, headers, jsonbody):
 	print("헤더:",headers)
 	var bodytext=jsonbody.get_string_from_utf8()
 	print(bodytext)
-	
+
+
+func on_request_del_completed(result, response_code, headers, jsonbody):
+	print("del succiied!")
+	print("상태코드",result)
+	print("http 상태코드",response_code)
+	print("헤더:",headers)
+	var bodytext=jsonbody.get_string_from_utf8()
+	print(bodytext)
 #func  disabling():
 	#for i in timelist:
 		#var index=i

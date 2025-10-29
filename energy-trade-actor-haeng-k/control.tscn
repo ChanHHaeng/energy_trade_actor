@@ -465,9 +465,17 @@ offset_bottom = 46.0
 theme_override_font_sizes/font_size = 25
 text = "🔄"
 
-[node name="data_sending" type="HTTPRequest" parent="Panel/Panel/Trade page"]
+[node name="data_removing_buy" type="HTTPRequest" parent="Panel/Panel/Trade page"]
+unique_name_in_owner = true
 
-[node name="data_sending2" type="HTTPRequest" parent="Panel/Panel/Trade page"]
+[node name="data_removing_sell" type="HTTPRequest" parent="Panel/Panel/Trade page"]
+unique_name_in_owner = true
+
+[node name="data_sending_buy" type="HTTPRequest" parent="Panel/Panel/Trade page"]
+unique_name_in_owner = true
+
+[node name="data_sending_sell" type="HTTPRequest" parent="Panel/Panel/Trade page"]
+unique_name_in_owner = true
 
 [node name="Bid page" type="Panel" parent="Panel/Panel"]
 visible = false
