@@ -16,6 +16,7 @@ var resize_flag=true
 
 
 func _ready() -> void:
+	##초기에 사이즈 작아지게 하는 코드
 	if ops_mode==1:
 		await get_tree().process_frame
 		self.position=get_node("../..").global_position+Vector2(0,70)
@@ -44,8 +45,11 @@ func _on_resized() -> void:
 	 ##체크 지점
 	if resize_flag:
 		size_memory=self.size
-		position_memory=self.position
-
+		#position_memory=self.position
+		anchor_left=0.5
+		anchor_right=0.5
+		pivot_offset.x=size.x/2
+		position.x=get_viewport_rect().size.x/2
 func circularation(flag:bool):
 	if !self.visible:
 		self.visible=true

@@ -69,6 +69,7 @@ func _on_pressed() -> void:
 	
 	var body_json_del=JSON.stringify(body_array_del)
 	%data_removing_buy.request(new_buy_url,headers,HTTPClient.METHOD_DELETE)
+	#await
 	%data_removing_sell.request(new_sell_url,headers,HTTPClient.METHOD_DELETE)
 	
 	
@@ -118,7 +119,6 @@ func on_request_completed(result, response_code, headers, jsonbody):
 	print("헤더:",headers)
 	var bodytext=jsonbody.get_string_from_utf8()
 	print(bodytext)
-
 
 func on_request_del_completed(result, response_code, headers, jsonbody):
 	print("del succiied!")
