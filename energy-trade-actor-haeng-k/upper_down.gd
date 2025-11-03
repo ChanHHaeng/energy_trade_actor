@@ -21,14 +21,16 @@ func _ready() -> void:
 		await get_tree().process_frame
 		self.position=get_node("../..").global_position+Vector2(0,70)
 		position_memory=self.position
+		position_memory.x= (get_viewport_rect().size.x / 2)-(self.size.x/2)
 		downposition=get_node("../..").global_position+Vector2(70,40)
-		
+	
 	else:
 		await get_tree().process_frame
 		self.position=get_node("../..").global_position-Vector2(0,200)
 		position_memory=self.position
+		position_memory.x= (get_viewport_rect().size.x / 2)-(self.size.x/2)
 		upposition=get_node("../..").global_position
-	
+		
 	resize_flag=false ##내부 설정
 	self.size=Vector2(17,17)
 	if ops_mode==1:
@@ -44,12 +46,13 @@ func _ready() -> void:
 func _on_resized() -> void:
 	 ##체크 지점
 	if resize_flag:
+		print("resized!")
 		size_memory=self.size
-		#position_memory=self.position
-		anchor_left=0.5
-		anchor_right=0.5
-		pivot_offset.x=size.x/2
-		position.x=get_viewport_rect().size.x/2
+		#if len($HBoxContainer.get_children())==0:
+			#set_zero()
+		position.x= (get_viewport_rect().size.x / 2)-(self.size.x/2)
+		position_memory=self.position
+			
 func circularation(flag:bool):
 	if !self.visible:
 		self.visible=true
@@ -101,7 +104,10 @@ func circularation(flag:bool):
 		squareing.tween_callback(func ():
 			resize_flag=true
 			$HBoxContainer.visible=true
-			$Button.visible=!$Button.disabling
+			if len($HBoxContainer.get_children())<5:
+				$Button.visible=true
+			else:
+				$Button.visible=!$Button.disabling
 			$TextureRect.visible=true
 			)
 			
@@ -110,3 +116,17 @@ func get_data() -> Array:
 	for i in get_child(0).get_children():
 		dish.append([int(i.amount),int(i.price)])
 	return dish
+
+
+#func set_zero():
+	#if ops_mode==1:
+		#await get_tree().process_frame
+		#self.position=get_node("../..").global_position+Vector2(0,70)
+		#position_memory=self.position
+		#downposition=get_node("../..").global_position+Vector2(70,40)
+	#
+	#else:
+		#await get_tree().process_frame
+		#self.position=get_node("../..").global_position-Vector2(0,200)
+		#position_memory=self.position
+		#upposition=get_node("../..").global_position
