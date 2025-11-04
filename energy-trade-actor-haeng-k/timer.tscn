@@ -344,7 +344,7 @@ script = ExtResource("1_qdhxh")
 [node name="Upper" type="Panel" parent="CanvasLayer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(17, 17)
-anchors_preset = -1
+anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -40.0

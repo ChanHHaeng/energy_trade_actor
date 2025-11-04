@@ -39,6 +39,7 @@ func _input(event: InputEvent) -> void:
 			#await get_tree().process_frame
 
 func _on_child_entered_tree(node: Node) -> void:
+	print(get_node("../../.."))
 	await get_tree().process_frame
 	#print( get_owner().name," ",get_parent().size_memory," enter")
 	$"../../..".add_theme_color_override("font_color",yes_color)
@@ -46,6 +47,7 @@ func _on_child_entered_tree(node: Node) -> void:
 	set_anchors_preset(Control.PRESET_CENTER)
 	set_offsets_preset(Control.PRESET_CENTER)
 	for i in range(len(get_children())):
+		
 		if get_parent().name=="down":
 			$"../../../downfold".get_child(i).visible=true
 		else:

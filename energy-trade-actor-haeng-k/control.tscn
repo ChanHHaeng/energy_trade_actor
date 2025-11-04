@@ -244,6 +244,7 @@ offset_bottom = 615.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_sky72")
 
 [node name="Trade page" type="Panel" parent="Panel/Panel"]
+visible = false
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_g31lc")
 script = ExtResource("6_2pj6v")
@@ -882,6 +883,10 @@ grow_horizontal = 2
 grow_vertical = 0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Bid"
+
+[node name="data_searching_buy" type="HTTPRequest" parent="Panel/Panel/Catalogue page"]
+
+[node name="data_searching_sell" type="HTTPRequest" parent="Panel/Panel/Catalogue page"]
 
 [node name="My Page page" type="Panel" parent="Panel/Panel"]
 visible = false

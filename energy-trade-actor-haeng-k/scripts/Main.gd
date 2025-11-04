@@ -3,6 +3,8 @@ extends Control
 var sell_check
 var buy_check
 
+var data_ready=false
+
 func _ready() -> void:
 	#print("root")
 	$HTTPRequest_buildings.request_completed.connect(_on_building_completed)
@@ -68,7 +70,8 @@ func sortingdata_buy(a,b):
 
 func check_all_ready():
 	if buy_check and sell_check:
-		$"Panel/Panel/Trade page".setting()
+		data_ready=true
+		
 		
 func show_warring():
 	print("warring!")

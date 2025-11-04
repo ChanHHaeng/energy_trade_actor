@@ -24,9 +24,9 @@ func dataset() ->void:
 	root=create_item()
 	var results
 	if self.name=="purchase":
-		results=Global.purchase_data
+		results=Global.buy_data
 	else:
-		results=Global.bid_data
+		results=Global.sell_data
 	for result in results:
 		if (int(result["start_time"]) in %optioncontainer.timeoption) or len(%optioncontainer.timeoption)==0:
 			if %optioncontainer.value_min<=result[str(self.name)] and result[str(self.name)]<=%optioncontainer.value_max:
