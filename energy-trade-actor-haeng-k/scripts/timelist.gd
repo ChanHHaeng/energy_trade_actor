@@ -5,7 +5,7 @@ extends MenuButton
 
 func _ready() -> void:
 	get_popup().max_size.y=150
-	get_popup().add_theme_stylebox_override('panel',glass)
+	#get_popup().add_theme_stylebox_override('panel',glass)
 	get_popup().connect("index_pressed", Callable(self, "_on_index_pressed"))
 	get_popup().hide_on_checkable_item_selection = false
 	
@@ -22,6 +22,7 @@ func _on_index_pressed(index: int) -> void:
 		#$"../optioncontainer".get_node(get_popup().get_item_text(index)).queue_free()
 		var nodename=get_popup().get_item_text(index)
 		nodename= nodename.replace(":","_")
+		print(nodename)
 		#print(nodename)
 		#print($"../optioncontainer".get_node(nodename))
 		$"../optioncontainer".get_node(nodename).queue_free()

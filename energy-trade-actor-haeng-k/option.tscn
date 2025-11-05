@@ -22,8 +22,9 @@ corner_radius_bottom_left = 15
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_l82yo"]
 
 [node name="option" type="Label"]
-offset_right = 3.0
+offset_right = 75.0
 offset_bottom = 24.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_styles/normal = SubResource("StyleBoxFlat_ndaot")
 text = "1234"
 script = ExtResource("1_cd5v0")
@@ -40,6 +41,10 @@ offset_top = -15.5
 offset_bottom = 15.5
 grow_horizontal = 0
 grow_vertical = 2
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
 theme_override_styles/focus = SubResource("StyleBoxEmpty_cd5v0")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_rtwqn")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_slay5")

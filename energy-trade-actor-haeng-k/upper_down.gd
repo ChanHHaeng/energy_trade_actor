@@ -58,12 +58,10 @@ func circularation(flag:bool):
 		self.visible=true
 
 	if !flag:
-		#print("작아지기 : ", $Button.visible)
 		$HBoxContainer.visible=false
 		$Button.visible=false
 		$TextureRect.visible=false
 		await get_tree().process_frame
-		#print("작아지기 2:", $Button.visible)
 		var circling=create_tween()
 		circling.tween_callback(func ():
 			resize_flag=false)		

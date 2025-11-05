@@ -340,6 +340,7 @@ text = "00:00"
 script = ExtResource("1_qdhxh")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="Upper" type="Panel" parent="CanvasLayer"]
 unique_name_in_owner = true
@@ -426,6 +427,7 @@ shape = SubResource("RectangleShape2D_skflu")
 
 [node name="down" type="Panel" parent="CanvasLayer"]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(17, 17)
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5

@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://d1gwqkrd33l0v"]
+[gd_scene load_steps=57 format=3 uid="uid://d1gwqkrd33l0v"]
 
 [ext_resource type="ButtonGroup" uid="uid://c23vsaa7035ln" path="res://subthings/menubuttongrout.tres" id="1_0fbet"]
 [ext_resource type="Script" uid="uid://bt2hnocu2gnnm" path="res://scripts/Main.gd" id="1_qtu10"]
@@ -18,6 +18,7 @@
 [ext_resource type="Script" uid="uid://ct1kv1ug7ngtt" path="res://pages.gd" id="14_g31lc"]
 [ext_resource type="Script" uid="uid://dwtkxrat3xd2y" path="res://tree.gd" id="15_knq72"]
 [ext_resource type="Script" uid="uid://b4l27jbqu7u11" path="res://my_page_page.gd" id="18_m4egf"]
+[ext_resource type="Script" uid="uid://d2283tcch2tou" path="res://check_box.gd" id="18_v61lp"]
 [ext_resource type="Script" uid="uid://bilujbdcxnnpp" path="res://master.gd" id="19_kuuv8"]
 [ext_resource type="Script" uid="uid://ds1aer3hhjmc0" path="res://scripts/timelist_master.gd" id="20_kuuv8"]
 [ext_resource type="Script" uid="uid://c624y8ii38rqn" path="res://globalbuild.gd" id="21_ou021"]
@@ -97,14 +98,48 @@ corner_radius_bottom_left = 3
 [sub_resource type="Theme" id="Theme_3fl80"]
 PopupMenu/colors/font_color = Color(0, 0, 0, 1)
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_eh0v1"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8jbwv"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ou021"]
-bg_color = Color(0.3589, 0.97, 0.796855, 0.345098)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_858bn"]
+bg_color = Color(0.321569, 0.956863, 0.780392, 0.917647)
 border_width_left = 1
 border_width_top = 1
 border_width_right = 1
-border_color = Color(0.3589, 0.97, 0.796855, 0.345098)
+border_color = Color(0.360784, 0.972549, 0.796078, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dgp6r"]
+bg_color = Color(0.321569, 0.956863, 0.780392, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_color = Color(0.360784, 0.972549, 0.796078, 1)
+
+[sub_resource type="Theme" id="Theme_8jbwv"]
+MenuButton/colors/font_hover_color = Color(0, 0, 0, 1)
+MenuButton/styles/focus = SubResource("StyleBoxEmpty_8jbwv")
+MenuButton/styles/hover = ExtResource("2_kbped")
+MenuButton/styles/pressed = SubResource("StyleBoxFlat_858bn")
+PopupMenu/colors/font_color = Color(1, 1, 1, 1)
+PopupMenu/colors/font_hover_color = Color(0, 0, 0, 1)
+PopupMenu/styles/hover = SubResource("StyleBoxFlat_dgp6r")
+PopupMenu/styles/panel = ExtResource("2_kbped")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_eh0v1"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w5605"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ou021"]
+bg_color = Color(0.360784, 0.968627, 0.796078, 0.952941)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_color = Color(0.360784, 0.968627, 0.796078, 0.905882)
 corner_radius_top_left = 3
 corner_radius_top_right = 3
 corner_radius_bottom_right = 3
@@ -120,6 +155,33 @@ border_color = Color(0.360784, 0.972549, 0.796078, 1)
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ou021"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3fl80"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dgp6r"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3ag6a"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Theme" id="Theme_v61lp"]
+CheckBox/styles/focus = SubResource("StyleBoxEmpty_dgp6r")
+CheckBox/styles/hover = SubResource("StyleBoxFlat_3ag6a")
+CheckBox/styles/hover_pressed = SubResource("StyleBoxFlat_3ag6a")
+CheckBox/styles/normal = SubResource("StyleBoxFlat_3ag6a")
+CheckBox/styles/pressed = SubResource("StyleBoxFlat_3ag6a")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_v61lp"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b3rfh"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m4egf"]
 bg_color = Color(0.97, 0.97, 0.97, 1)
@@ -586,7 +648,6 @@ text = "▼"
 [node name="HTTPRequest" type="HTTPRequest" parent="Panel/Panel/Bid page"]
 
 [node name="Catalogue page" type="Panel" parent="Panel/Panel"]
-visible = false
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_g31lc")
 script = ExtResource("11_xvdhi")
@@ -597,9 +658,10 @@ offset_left = 25.0
 offset_top = 17.0
 offset_right = 234.0
 offset_bottom = 48.0
+theme = SubResource("Theme_8jbwv")
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_styles/normal = ExtResource("2_kbped")
-text = "select times"
+text = "select times ⏱️"
 flat = false
 icon_alignment = 2
 item_count = 24
@@ -692,67 +754,20 @@ text = "▼"
 [node name="optioncontainer" type="GridContainer" parent="Panel/Panel/Catalogue page"]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = 24.0
-offset_top = 52.0
-offset_right = 1015.0
-offset_bottom = 92.0
+offset_left = 25.0
+offset_top = 54.0
+offset_right = 1016.0
+offset_bottom = 94.0
 columns = 8
 script = ExtResource("13_oq4si")
-
-[node name="values" type="Control" parent="Panel/Panel/Catalogue page"]
-anchors_preset = 0
-offset_left = 271.0
-offset_top = 18.0
-offset_right = 556.0
-offset_bottom = 48.0
-
-[node name="min amount" type="LineEdit" parent="Panel/Panel/Catalogue page/values"]
-layout_mode = 0
-offset_right = 120.0
-offset_bottom = 31.0
-theme_override_colors/font_placeholder_color = Color(0.384314, 0.384314, 0.384314, 1)
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_styles/normal = ExtResource("2_kbped")
-script = ExtResource("12_eh0v1")
-
-[node name="max amount" type="LineEdit" parent="Panel/Panel/Catalogue page/values"]
-layout_mode = 0
-offset_left = 150.0
-offset_right = 270.0
-offset_bottom = 31.0
-theme_override_colors/font_placeholder_color = Color(0.384314, 0.384314, 0.384314, 1)
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_styles/normal = ExtResource("2_kbped")
-script = ExtResource("12_eh0v1")
-
-[node name="insert" type="Button" parent="Panel/Panel/Catalogue page/values"]
-layout_mode = 0
-offset_left = 288.0
-offset_right = 318.0
-offset_bottom = 31.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_styles/focus = SubResource("StyleBoxEmpty_eh0v1")
-theme_override_styles/normal = ExtResource("2_kbped")
-disabled = true
-text = "V"
-script = ExtResource("13_am1vj")
-
-[node name="Label" type="Label" parent="Panel/Panel/Catalogue page/values"]
-layout_mode = 0
-offset_left = 129.0
-offset_top = 4.0
-offset_right = 139.0
-offset_bottom = 27.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "~"
 
 [node name="prices" type="Control" parent="Panel/Panel/Catalogue page"]
 layout_mode = 3
 anchors_preset = 0
-offset_left = 624.0
-offset_top = 18.0
-offset_right = 945.0
-offset_bottom = 48.0
+offset_left = 258.0
+offset_top = 17.0
+offset_right = 579.0
+offset_bottom = 47.0
 
 [node name="min price" type="LineEdit" parent="Panel/Panel/Catalogue page/prices"]
 layout_mode = 0
@@ -775,14 +790,18 @@ script = ExtResource("12_eh0v1")
 
 [node name="insert" type="Button" parent="Panel/Panel/Catalogue page/prices"]
 layout_mode = 0
-offset_left = 288.0
-offset_right = 318.0
+offset_left = 289.0
+offset_top = 1.0
+offset_right = 319.0
 offset_bottom = 31.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
 theme_override_styles/focus = SubResource("StyleBoxEmpty_eh0v1")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_w5605")
+theme_override_styles/hover = ExtResource("2_kbped")
 theme_override_styles/normal = ExtResource("2_kbped")
 disabled = true
-text = "V"
+text = "✔"
 script = ExtResource("13_am1vj")
 
 [node name="Label" type="Label" parent="Panel/Panel/Catalogue page/prices"]
@@ -794,7 +813,7 @@ offset_bottom = 27.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "~"
 
-[node name="Purchase_sect" type="Panel" parent="Panel/Panel/Catalogue page"]
+[node name="buy_sect" type="Panel" parent="Panel/Panel/Catalogue page"]
 layout_mode = 0
 offset_left = 29.0
 offset_top = 105.0
@@ -803,12 +822,20 @@ offset_bottom = 463.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_uchyk")
 script = ExtResource("14_g31lc")
 
-[node name="purchase" type="Tree" parent="Panel/Panel/Catalogue page/Purchase_sect"]
-layout_mode = 0
-offset_left = 23.0
-offset_top = 31.0
-offset_right = 465.0
-offset_bottom = 317.0
+[node name="buy" type="Tree" parent="Panel/Panel/Catalogue page/buy_sect"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -228.0
+offset_top = -143.0
+offset_right = 228.0
+offset_bottom = 143.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_colors/title_button_color = Color(0, 0, 0, 1)
 theme_override_colors/font_selected_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hovered_color = Color(0, 0, 0, 1)
@@ -824,22 +851,22 @@ hide_root = true
 select_mode = 1
 script = ExtResource("15_knq72")
 
-[node name="Label" type="Label" parent="Panel/Panel/Catalogue page/Purchase_sect"]
+[node name="Label" type="Label" parent="Panel/Panel/Catalogue page/buy_sect"]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -36.0
+offset_left = -14.5
 offset_top = -23.0
-offset_right = 36.0
+offset_right = 14.5
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "purchase"
+text = "buy"
 
-[node name="Bidpage_sect" type="Panel" parent="Panel/Panel/Catalogue page"]
+[node name="sell_sect" type="Panel" parent="Panel/Panel/Catalogue page"]
 layout_mode = 0
 offset_left = 545.0
 offset_top = 106.0
@@ -848,12 +875,20 @@ offset_bottom = 464.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_uchyk")
 script = ExtResource("14_g31lc")
 
-[node name="bid" type="Tree" parent="Panel/Panel/Catalogue page/Bidpage_sect"]
-layout_mode = 0
-offset_left = 23.0
-offset_top = 31.0
-offset_right = 465.0
-offset_bottom = 317.0
+[node name="sell" type="Tree" parent="Panel/Panel/Catalogue page/sell_sect"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -228.0
+offset_top = -143.0
+offset_right = 228.0
+offset_bottom = 143.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_colors/title_button_color = Color(0, 0, 0, 1)
 theme_override_colors/font_selected_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hovered_color = Color(0, 0, 0, 1)
@@ -868,25 +903,49 @@ column_titles_visible = true
 hide_root = true
 select_mode = 1
 script = ExtResource("15_knq72")
+ops_mode = 1
 
-[node name="Label" type="Label" parent="Panel/Panel/Catalogue page/Bidpage_sect"]
+[node name="Label" type="Label" parent="Panel/Panel/Catalogue page/sell_sect"]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -12.5
+offset_left = -13.0
 offset_top = -23.0
-offset_right = 12.5
+offset_right = 13.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Bid"
+text = "sell"
 
 [node name="data_searching_buy" type="HTTPRequest" parent="Panel/Panel/Catalogue page"]
 
 [node name="data_searching_sell" type="HTTPRequest" parent="Panel/Panel/Catalogue page"]
+
+[node name="CheckBox" type="Button" parent="Panel/Panel/Catalogue page"]
+layout_mode = 0
+offset_left = 735.0
+offset_top = 16.0
+offset_right = 765.0
+offset_bottom = 46.0
+focus_mode = 0
+theme = SubResource("Theme_v61lp")
+theme_override_colors/font_hover_pressed_color = Color(0.556863, 0.556863, 0.556863, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0.556953, 0.556953, 0.556953, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+theme_override_styles/focus = SubResource("StyleBoxEmpty_v61lp")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_b3rfh")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_3ag6a")
+theme_override_styles/hover = SubResource("StyleBoxFlat_3ag6a")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_3ag6a")
+theme_override_styles/normal = SubResource("StyleBoxFlat_3ag6a")
+toggle_mode = true
+text = "✓"
+script = ExtResource("18_v61lp")
 
 [node name="My Page page" type="Panel" parent="Panel/Panel"]
 visible = false
@@ -1127,15 +1186,18 @@ text = "Warring!"
 [connection signal="visibility_changed" from="Panel/Panel/Catalogue page" to="Panel/Panel/Catalogue page" method="_on_visibility_changed"]
 [connection signal="about_to_popup" from="Panel/Panel/Catalogue page/timelist" to="Panel/Panel/Catalogue page/timelist" method="_on_about_to_popup"]
 [connection signal="child_entered_tree" from="Panel/Panel/Catalogue page/optioncontainer" to="Panel/Panel/Catalogue page/optioncontainer" method="_on_child_entered_tree"]
-[connection signal="child_entered_tree" from="Panel/Panel/Catalogue page/optioncontainer" to="Panel/Panel/Catalogue page/Purchase_sect" method="_on_optioncontainer_child_entered_tree"]
-[connection signal="child_entered_tree" from="Panel/Panel/Catalogue page/optioncontainer" to="Panel/Panel/Catalogue page/Bidpage_sect" method="_on_optioncontainer_child_entered_tree"]
+[connection signal="child_entered_tree" from="Panel/Panel/Catalogue page/optioncontainer" to="Panel/Panel/Catalogue page/buy_sect" method="_on_optioncontainer_child_entered_tree"]
+[connection signal="child_entered_tree" from="Panel/Panel/Catalogue page/optioncontainer" to="Panel/Panel/Catalogue page/sell_sect" method="_on_optioncontainer_child_entered_tree"]
 [connection signal="child_exiting_tree" from="Panel/Panel/Catalogue page/optioncontainer" to="Panel/Panel/Catalogue page/timelist" method="_on_optioncontainer_child_exiting_tree"]
 [connection signal="child_exiting_tree" from="Panel/Panel/Catalogue page/optioncontainer" to="Panel/Panel/Catalogue page/optioncontainer" method="_on_child_exiting_tree"]
-[connection signal="child_exiting_tree" from="Panel/Panel/Catalogue page/optioncontainer" to="Panel/Panel/Catalogue page/Purchase_sect" method="_on_optioncontainer_child_exiting_tree"]
-[connection signal="child_exiting_tree" from="Panel/Panel/Catalogue page/optioncontainer" to="Panel/Panel/Catalogue page/Bidpage_sect" method="_on_optioncontainer_child_exiting_tree"]
-[connection signal="pressed" from="Panel/Panel/Catalogue page/values/insert" to="Panel/Panel/Catalogue page/values/insert" method="_on_pressed"]
+[connection signal="child_exiting_tree" from="Panel/Panel/Catalogue page/optioncontainer" to="Panel/Panel/Catalogue page/buy_sect" method="_on_optioncontainer_child_exiting_tree"]
+[connection signal="child_exiting_tree" from="Panel/Panel/Catalogue page/optioncontainer" to="Panel/Panel/Catalogue page/sell_sect" method="_on_optioncontainer_child_exiting_tree"]
 [connection signal="pressed" from="Panel/Panel/Catalogue page/prices/insert" to="Panel/Panel/Catalogue page/prices/insert" method="_on_pressed"]
-[connection signal="column_title_clicked" from="Panel/Panel/Catalogue page/Purchase_sect/purchase" to="Panel/Panel/Catalogue page/Purchase_sect/purchase" method="_on_column_title_clicked"]
+[connection signal="column_title_clicked" from="Panel/Panel/Catalogue page/buy_sect/buy" to="Panel/Panel/Catalogue page/buy_sect/buy" method="_on_column_title_clicked"]
+[connection signal="request_completed" from="Panel/Panel/Catalogue page/data_searching_buy" to="Panel/Panel/Catalogue page" method="_on_data_searching_buy_request_completed_buy"]
+[connection signal="request_completed" from="Panel/Panel/Catalogue page/data_searching_sell" to="Panel/Panel/Catalogue page" method="_on_data_searching_sell_request_completed_sell"]
+[connection signal="mouse_entered" from="Panel/Panel/Catalogue page/CheckBox" to="Panel/Panel/Catalogue page/CheckBox" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Panel/Panel/Catalogue page/CheckBox" to="Panel/Panel/Catalogue page/CheckBox" method="_on_mouse_exited"]
 [connection signal="visibility_changed" from="Panel/Panel/My Page page" to="Panel/Panel/My Page page" method="_on_visibility_changed"]
 [connection signal="visibility_changed" from="Panel/Panel/My Page page/Master" to="Panel/Panel/My Page page/Master" method="_on_visibility_changed"]
 [connection signal="child_entered_tree" from="Panel/Panel/My Page page/Master/ScrollContainer/HBoxContainer/bidContainer" to="Panel/Panel/My Page page/Master/ScrollContainer/HBoxContainer/bidContainer" method="_on_child_entered_tree"]

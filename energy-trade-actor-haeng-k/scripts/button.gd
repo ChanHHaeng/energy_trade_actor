@@ -12,7 +12,6 @@ func _ready() -> void:
 	
 	
 func _on_toggled(toggled_on: bool) -> void:
-	print(self.button_group)
 	get_node("../../Panel/"+self.name+" page").visible=toggled_on
 	#if not toggled_on:
 		#get_node("../../Panel/"+self.name+" page").get_child(0).

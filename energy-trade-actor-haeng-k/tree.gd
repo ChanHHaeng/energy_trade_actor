@@ -1,6 +1,7 @@
 extends Tree
 
-
+enum OpsMode{buy,sell}
+@export var ops_mode:OpsMode
 #var sorting_column
 var root
 func _ready() -> void:
@@ -10,9 +11,9 @@ func _ready() -> void:
 	set_column_custom_minimum_width(1,30)
 	set_column_title(2,"time")
 	set_column_custom_minimum_width(2,60)
-	set_column_title(3,"amount")
+	set_column_title(3,"amount(kw)")
 	set_column_custom_minimum_width(3,60)
-	set_column_title(4,"price")
+	set_column_title(4,"price(₩)")
 	set_column_custom_minimum_width(4,100)
 	y_sort_enabled=true
 	
@@ -23,12 +24,13 @@ func dataset() ->void:
 	clear()
 	root=create_item()
 	var results
-	if self.name=="purchase":
+	if self.ops_mode==0:
 		results=Global.buy_data
 	else:
 		results=Global.sell_data
 	for result in results:
 		if (int(result["start_time"]) in %optioncontainer.timeoption) or len(%optioncontainer.timeoption)==0:
+			
 			if %optioncontainer.value_min<=result[str(self.name)] and result[str(self.name)]<=%optioncontainer.value_max:
 				if %optioncontainer.price_min<=result["price"] and result["price"]<=%optioncontainer.price_max:
 					var item=create_item(root)
@@ -37,9 +39,9 @@ func dataset() ->void:
 					item.set_text_alignment(1,HORIZONTAL_ALIGNMENT_CENTER)
 					item.set_text(2,str(int(result["start_time"])))
 					item.set_text_alignment(2,HORIZONTAL_ALIGNMENT_CENTER)
-					item.set_text(3,str(result[str(self.name)]))
+					item.set_text(3,str(int(result[str(self.name)])))
 					item.set_text_alignment(3,HORIZONTAL_ALIGNMENT_CENTER)
-					item.set_text(4,str(result["price"]))
+					item.set_text(4,str(int(result["price"])))
 					item.set_text_alignment(4,HORIZONTAL_ALIGNMENT_CENTER)
 
 

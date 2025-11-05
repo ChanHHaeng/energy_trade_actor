@@ -69,8 +69,6 @@ func setting():
 
 func resetting():
 	for i in $GridContainer.get_children():
-		#print("timetable is")
-		#print(timetable[int(i.name)])
 		i.add_item(timetable[int(i.name)])
 	for i in $GridContainer2.get_children():
 		i.add_item(timetable[int(i.name)])
