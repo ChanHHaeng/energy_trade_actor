@@ -54,6 +54,10 @@ func _ready() -> void:
 	print($"..".get("timetable"))
 
 func _on_pressed() -> void:
+	#if $"../../../../enrolling".show_select() :
+		#pass
+	#else:
+		#return
 	newtable=$"..".timetable.duplicate(true)
 	var instance_table={}
 	for i in $"../GridContainer".get_children():
@@ -69,7 +73,6 @@ func _on_pressed() -> void:
 	
 	var body_json_del=JSON.stringify(body_array_del)
 	%data_removing_buy.request(new_buy_url,headers,HTTPClient.METHOD_DELETE)
-	#await
 	%data_removing_sell.request(new_sell_url,headers,HTTPClient.METHOD_DELETE)
 	
 	

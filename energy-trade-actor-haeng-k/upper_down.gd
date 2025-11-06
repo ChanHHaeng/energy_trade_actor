@@ -19,16 +19,18 @@ func _ready() -> void:
 	##초기에 사이즈 작아지게 하는 코드
 	if ops_mode==1:
 		await get_tree().process_frame
-		self.position=get_node("../..").global_position+Vector2(0,70)
+		self.position=get_node("../..").global_position+Vector2(0,60)
 		position_memory=self.position
 		position_memory.x= (get_viewport_rect().size.x / 2)-(self.size.x/2)
+		position_memory.y=400
 		downposition=get_node("../..").global_position+Vector2(70,40)
 	
 	else:
 		await get_tree().process_frame
-		self.position=get_node("../..").global_position-Vector2(0,200)
+		self.position=get_node("../..").global_position-Vector2(0,210)
 		position_memory=self.position
 		position_memory.x= (get_viewport_rect().size.x / 2)-(self.size.x/2)
+		position_memory.y=100
 		upposition=get_node("../..").global_position
 		
 	resize_flag=false ##내부 설정
@@ -51,6 +53,10 @@ func _on_resized() -> void:
 		#if len($HBoxContainer.get_children())==0:
 			#set_zero()
 		position.x= (get_viewport_rect().size.x / 2)-(self.size.x/2)
+		if ops_mode==0:
+			position.y=100
+		else:
+			position.y=400
 		position_memory=self.position
 			
 func circularation(flag:bool):

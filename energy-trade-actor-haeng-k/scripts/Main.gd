@@ -40,7 +40,7 @@ func _buy_completed(a,b,c,d):
 	check_all_ready()
 
 
-func sortingdata_sell(a,b):
+func sortingdata_sell(a,b): ##내림차순
 	if a["price"]<b["price"]:
 		return true
 	elif a["price"]>b["price"]:
@@ -50,7 +50,7 @@ func sortingdata_sell(a,b):
 	else:
 		return false
 		
-func sortingdata_buy(a,b):
+func sortingdata_buy(a,b): ##내림차순
 	if a["price"]<b["price"]:
 		return false
 	elif a["price"]>b["price"]:
@@ -76,5 +76,8 @@ func show_warring():
 	tween.tween_property($warring, "modulate:a",0.0, 1.0)
 	tween.tween_callback(onwarring_hidden)
 
+
+
+	
 func onwarring_hidden():
 	$warring.visible=false

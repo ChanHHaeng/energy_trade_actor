@@ -43,7 +43,7 @@ func add_item(array:Array):
 		$CanvasLayer/down.size_memory.x=80
 	for i in range(len(array[0])):
 		$CanvasLayer/Upper.size_memory.x+=cardlen
-		$CanvasLayer/Upper.size_memory.y=180
+		$CanvasLayer/Upper.size_memory.y=200
 		$CanvasLayer/Upper/HBoxContainer.size.x+=cardlen
 		var examples=example.instantiate()
 		examples.amount=str(array[0][i][0])
@@ -51,7 +51,7 @@ func add_item(array:Array):
 		$CanvasLayer/Upper/HBoxContainer.add_child(examples)
 	for i in range(len(array[1])):
 		$CanvasLayer/down.size_memory.x+=cardlen
-		$CanvasLayer/down.size_memory.y=180
+		$CanvasLayer/down.size_memory.y=200
 		$CanvasLayer/down/HBoxContainer.size.x+=cardlen
 		var examples=example.instantiate()
 		examples.amount=str(array[1][i][0])

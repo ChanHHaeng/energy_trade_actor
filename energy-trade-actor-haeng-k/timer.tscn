@@ -340,7 +340,6 @@ text = "00:00"
 script = ExtResource("1_qdhxh")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="Upper" type="Panel" parent="CanvasLayer"]
 unique_name_in_owner = true
@@ -349,11 +348,10 @@ anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -40.0
-offset_top = 35.0
+offset_top = 21.0
 offset_right = 40.0
-offset_bottom = 215.0
+offset_bottom = 221.0
 grow_horizontal = 2
-grow_vertical = 2
 theme_override_styles/panel = ExtResource("2_d1sho")
 script = ExtResource("3_o6fnk")
 
@@ -425,16 +423,30 @@ script = ExtResource("9_skflu")
 position = Vector2(14, 13.5)
 shape = SubResource("RectangleShape2D_skflu")
 
+[node name="Label" type="Label" parent="CanvasLayer/Upper"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -27.0
+offset_right = 27.0
+offset_bottom = 23.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 13
+text = "buy 🪫"
+horizontal_alignment = 1
+
 [node name="down" type="Panel" parent="CanvasLayer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(17, 17)
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -40.448
+offset_left = -40.0
 offset_top = 301.0
-offset_right = 39.552
-offset_bottom = 481.0
+offset_right = 40.0
+offset_bottom = 501.0
 theme_override_styles/panel = ExtResource("6_acuhy")
 script = ExtResource("3_o6fnk")
 ops_mode = 1
@@ -499,6 +511,20 @@ grow_vertical = 0
 texture = ExtResource("8_rokg3")
 expand_mode = 1
 script = ExtResource("9_skflu")
+
+[node name="Label" type="Label" parent="CanvasLayer/down"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -27.0
+offset_right = 27.0
+offset_bottom = 23.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 13
+text = "sell 🪙"
+horizontal_alignment = 1
 
 [node name="Upper stack" type="Label" parent="."]
 layout_mode = 1
