@@ -1,0 +1,105 @@
+[gd_scene load_steps=5 format=3 uid="uid://b73dwwc1p720r"]
+
+[sub_resource type="Animation" id="Animation_o7ff3"]
+resource_name = "new_animation"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Line2D:points")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [PackedVector2Array(10, 108, 120, 108, 120, 283, 10, 283, 10, 103), PackedVector2Array(65, 60, 65, 140, 65, 250, 65, 331, 65, 60), PackedVector2Array(120, 108, 10, 108, 10, 283, 120, 283, 120, 103)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Polygon2D:polygon")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1.03526, 1, 1),
+"update": 0,
+"values": [PackedVector2Array(10, 108, 120, 108, 120, 283, 10, 283, 10, 103), PackedVector2Array(65, 60, 65, 140, 65, 250, 65, 331, 65, 60), PackedVector2Array(120, 108, 10, 108, 10, 283, 120, 283, 120, 103)]
+}
+
+[sub_resource type="Animation" id="Animation_utm2i"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Line2D:points")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [PackedVector2Array(10, 108, 120, 108, 120, 283, 10, 283, 10, 103)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Polygon2D:polygon")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [PackedVector2Array(10, 108, 120, 108, 120, 283, 10, 283, 10, 103)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_i3gys"]
+_data = {
+&"RESET": SubResource("Animation_utm2i"),
+&"new_animation": SubResource("Animation_o7ff3")
+}
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pvio1"]
+bg_color = Color(0.937255, 0.952941, 0.964706, 1)
+border_width_left = 2
+border_width_top = 3
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_size = 2
+shadow_offset = Vector2(0, 1)
+
+[node name="Node" type="Node"]
+
+[node name="Line2D" type="Line2D" parent="."]
+position = Vector2(380, 4)
+points = PackedVector2Array(10, 108, 120, 108, 120, 283, 10, 283, 10, 103)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_i3gys")
+}
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+position = Vector2(114, -3)
+polygon = PackedVector2Array(10, 108, 120, 108, 120, 283, 10, 283, 10, 103)
+
+[node name="Label" type="Label" parent="Polygon2D"]
+offset_left = 16.0
+offset_top = 135.0
+offset_right = 112.0
+offset_bottom = 158.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "hello, world!"
+
+[node name="Panel" type="Panel" parent="."]
+offset_left = 167.0
+offset_top = 354.0
+offset_right = 973.0
+offset_bottom = 555.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_pvio1")

@@ -3,7 +3,7 @@
 [ext_resource type="FontFile" path="res://fonts/montreal/Montreal.tres" id="1_acuhy"]
 [ext_resource type="Script" uid="uid://bqp8hlbau316u" path="res://timer.gd" id="1_qdhxh"]
 [ext_resource type="StyleBox" uid="uid://dvssdwb2d216f" path="res://assets/upperpanel.tres" id="2_d1sho"]
-[ext_resource type="StyleBox" uid="uid://bvhoqsbi2p7ku" path="res://assets/timer_button.tres" id="2_thfi5"]
+[ext_resource type="StyleBox" uid="uid://c7m5yrqtb23se" path="res://assets/timer_button_2.tres" id="2_skflu"]
 [ext_resource type="Script" uid="uid://bmrcs3v2r0vs5" path="res://upper_down.gd" id="3_o6fnk"]
 [ext_resource type="Script" uid="uid://qbtq388su3fu" path="res://h_box_container.gd" id="4_kpl8e"]
 [ext_resource type="Script" uid="uid://6i3kqwqy2iso" path="res://add_more_panel.gd" id="5_kurt1"]
@@ -43,27 +43,19 @@ size = Vector2(42, 43)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7ocsi"]
 bg_color = Color(0.686275, 0.756863, 0.992157, 1)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-border_color = Color(0, 0, 0, 1)
-corner_radius_top_left = 9
-corner_radius_top_right = 9
-corner_radius_bottom_right = 9
-corner_radius_bottom_left = 9
+border_color = Color(0.847474, 0.847474, 0.847474, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_acuhy"]
 bg_color = Color(0.972549, 0.662745, 0.717647, 1)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
 border_color = Color(0, 0, 0, 1)
-corner_radius_top_left = 9
-corner_radius_top_right = 9
-corner_radius_bottom_right = 9
-corner_radius_bottom_left = 9
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
 
 [sub_resource type="Animation" id="Animation_7ocsi"]
 length = 0.001
@@ -330,11 +322,11 @@ offset_top = 240.0
 offset_right = 528.0
 offset_bottom = 290.0
 theme_override_colors/font_color = Color(0.882353, 0.882353, 0.882353, 1)
-theme_override_colors/font_focus_color = Color(0.882353, 0.882353, 0.882353, 1)
+theme_override_colors/font_focus_color = Color(0.47451, 0.215686, 0.698039, 1)
 theme_override_fonts/font = ExtResource("1_acuhy")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_87wg0")
 theme_override_styles/hover = SubResource("StyleBoxFlat_eypy5")
-theme_override_styles/normal = ExtResource("2_thfi5")
+theme_override_styles/normal = ExtResource("2_skflu")
 toggle_mode = true
 text = "00:00"
 script = ExtResource("1_qdhxh")
@@ -528,9 +520,10 @@ horizontal_alignment = 1
 
 [node name="Upper stack" type="Label" parent="."]
 layout_mode = 1
-offset_top = -9.5
-offset_right = 30.0
-offset_bottom = 9.5
+offset_left = 14.0
+offset_top = 54.0
+offset_right = 36.0
+offset_bottom = 74.0
 pivot_offset = Vector2(15, 9.5)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("6_kpl8e")
@@ -547,9 +540,10 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -30.0
-offset_top = -10.0
-offset_bottom = 9.0
+offset_left = -35.0
+offset_top = 4.0
+offset_right = -13.0
+offset_bottom = 24.0
 grow_horizontal = 0
 grow_vertical = 0
 pivot_offset = Vector2(15, 9.5)
@@ -703,6 +697,13 @@ root_node = NodePath("../..")
 libraries = {
 &"": SubResource("AnimationLibrary_7ocsi")
 }
+
+[node name="Line2D" type="Line2D" parent="."]
+visible = false
+position = Vector2(-1, 0)
+points = PackedVector2Array(53, 7, 53, 44)
+width = 1.0
+default_color = Color(0.813258, 0.813258, 0.813257, 1)
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
