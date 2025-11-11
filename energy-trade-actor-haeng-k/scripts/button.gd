@@ -6,12 +6,11 @@ extends Button
 
 
 func _ready() -> void:
-	if Global.building_id==0 and name=="My Page 😁":
+	if Global.building_id==0 and name=="My Page":
 		print("heeeeeeeeeeeeeeeeeeeeee?")
 		self.text="master 📄"
 	
 	
 func _on_toggled(toggled_on: bool) -> void:
 	get_node("../../Panel/"+self.name+" page").visible=toggled_on
-	#if not toggled_on:
-		#get_node("../../Panel/"+self.name+" page").get_child(0).
+	

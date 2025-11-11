@@ -1,4 +1,15 @@
 extends Panel
+var glassplate:StyleBoxFlat=load("res://assets/glassplate.tres").duplicate()
+
+var _skew:float
+@export_range(0.0,10.0,0.1) var skew:float:
+	set(value):
+		_skew=value
+		if glassplate:
+			var glassplate_skew=glassplate.skew
+			glassplate_skew.x=value
+			glassplate.skew=glassplate_skew
+			self.add_theme_stylebox_override("panel", glassplate)
 
 
 @onready var timetable = {
@@ -101,3 +112,23 @@ func timetable_clear():
 	4: [[], []],
 	5: [[], []],
 }
+
+
+func change_window():
+	pass
+	$"../Catalogue page".scale=Vector2(0.5,0.5)
+	$"../My Page page".scale=Vector2(0.5,0.5)
+	$"../Catalogue page".visible=true
+	$"../My Page page".visible=true
+	$"../Catalogue page".z_index=2
+	$"../My Page page".z_index=2
+	$"../Catalogue page".position.y-=300
+	$"../My Page page".position.y+=300
+	var tween=create_tween()
+	tween.parallel().tween_property(self,"scale",Vector2(0.5,0.5),0.2)
+	tween.tween_callback(
+		func ():
+			%Blur.visible=true
+			self.z_index=2
+	)
+	#tween.parallel().tween_property(self.position,)

@@ -1,9 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://g5g0pmbct50x"]
-
-[ext_resource type="Script" uid="uid://dfxh3ex1dt1yh" path="res://test.gd" id="1_37kl0"]
+[gd_scene load_steps=3 format=3 uid="uid://b7bc71a4fd25a"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8uh7m"]
 bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="GDScript" id="GDScript_mf4mk"]
+script/source = "extends SubViewportContainer
+
+func _draw() -> void:
+	draw_rect(Rect2(0,0,170,170),Color.RED,false,10,true)
+"
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -27,7 +32,7 @@ offset_left = 123.0
 offset_top = 81.0
 offset_right = 635.0
 offset_bottom = 593.0
-script = ExtResource("1_37kl0")
+script = SubResource("GDScript_mf4mk")
 
 [node name="SubViewport" type="SubViewport" parent="Panel/SubViewportContainer"]
 handle_input_locally = false

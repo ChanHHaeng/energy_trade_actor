@@ -12,9 +12,6 @@ var tween_handle: Tween
 var tween_rot
 var tween_replace : Tween
 @onready var sub_viewport: SubViewport = $SubViewport
-var oscillator_velocity: float = 0.0
-@export var velocity_multiplier: float = 2.0
-@export var spring: float = 150.0
 var displacement: float = 0.0 
 @export var damp: float = 10.0
 
