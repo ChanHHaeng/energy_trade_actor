@@ -115,20 +115,30 @@ func timetable_clear():
 
 
 func change_window():
-	pass
-	$"../Catalogue page".scale=Vector2(0.5,0.5)
-	$"../My Page page".scale=Vector2(0.5,0.5)
-	$"../Catalogue page".visible=true
-	$"../My Page page".visible=true
-	$"../Catalogue page".z_index=2
-	$"../My Page page".z_index=2
-	$"../Catalogue page".position.y-=300
-	$"../My Page page".position.y+=300
+	var catalogue_page=get_node("../Catalogue page")
+	var my_page=get_node("../My Page page")
+	var magni=Vector2(0.7,0.7)
+	var range=800
+	catalogue_page.scale=magni
+	my_page.scale=magni
+	catalogue_page.visible=true
+	my_page.visible=true
+	catalogue_page.z_index=2
+	my_page.z_index=2
+	catalogue_page.position.x+=range
+	my_page.position.x-=range
 	var tween=create_tween()
-	tween.parallel().tween_property(self,"scale",Vector2(0.5,0.5),0.2)
+	tween.parallel().tween_property(self,"scale",magni,0.2)
 	tween.tween_callback(
 		func ():
 			%Blur.visible=true
 			self.z_index=2
+			await get_tree().create_timer(0.4).timeout
+			var tween2=create_tween()
+			tween2.parallel().tween_property(my_page,"position",my_page.position-Vector2(400,0),0.1)
+			my_page.position=Vector2(1216,16)
+			tween2.parallel().tween_property(my_page,"position",Vector2(816,16),0.3)
+			tween2.parallel().tween_property(self,"position",Vector2(-784,16),0.4)
+			tween2.parallel().tween_property(catalogue_page,"position",Vector2(16,16),0.4)
 	)
 	#tween.parallel().tween_property(self.position,)

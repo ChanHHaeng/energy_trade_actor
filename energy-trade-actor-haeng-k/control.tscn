@@ -1,4 +1,4 @@
-[gd_scene load_steps=76 format=3 uid="uid://d1gwqkrd33l0v"]
+[gd_scene load_steps=77 format=3 uid="uid://d1gwqkrd33l0v"]
 
 [ext_resource type="ButtonGroup" uid="uid://c23vsaa7035ln" path="res://subthings/menubuttongrout.tres" id="1_0fbet"]
 [ext_resource type="Script" uid="uid://bt2hnocu2gnnm" path="res://scripts/Main.gd" id="1_qtu10"]
@@ -8,6 +8,7 @@
 [ext_resource type="StyleBox" uid="uid://coboi5x8fymw5" path="res://assets/lightglass.tres" id="3_3fl80"]
 [ext_resource type="Script" uid="uid://ctctxhhpa3vtw" path="res://trade_page.gd" id="6_2pj6v"]
 [ext_resource type="Script" uid="uid://c5kopll4xx0h8" path="res://scripts/menu_button.gd" id="6_fj5cn"]
+[ext_resource type="Script" uid="uid://cvcoix4xqlmyc" path="res://main.gd" id="7_5axgr"]
 [ext_resource type="PackedScene" uid="uid://ryurc2muk230" path="res://timer.tscn" id="7_858bn"]
 [ext_resource type="StyleBox" uid="uid://btlmdfn6phpik" path="res://assets/glassplate.tres" id="7_w5605"]
 [ext_resource type="Script" uid="uid://oh3t85n5p215" path="res://scripts/enroll.gd" id="8_6a6wx"]
@@ -352,6 +353,7 @@ offset_top = 93.0
 offset_right = 1124.0
 offset_bottom = 615.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_sky72")
+script = ExtResource("7_5axgr")
 
 [node name="Trade page" type="Panel" parent="Panel/Panel"]
 layout_mode = 2
@@ -1344,6 +1346,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_wfgqd")
 text = "No"
 
 [node name="Timer" type="Timer" parent="enrolling"]
+unique_name_in_owner = true
 wait_time = 5.0
 
 [node name="Blur" type="ColorRect" parent="."]
