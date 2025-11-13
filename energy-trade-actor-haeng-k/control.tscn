@@ -1,13 +1,11 @@
-[gd_scene load_steps=77 format=3 uid="uid://d1gwqkrd33l0v"]
+[gd_scene load_steps=71 format=3 uid="uid://d1gwqkrd33l0v"]
 
 [ext_resource type="ButtonGroup" uid="uid://c23vsaa7035ln" path="res://subthings/menubuttongrout.tres" id="1_0fbet"]
 [ext_resource type="Script" uid="uid://bt2hnocu2gnnm" path="res://scripts/Main.gd" id="1_qtu10"]
 [ext_resource type="Shader" uid="uid://c6c6l0aw14s8q" path="res://background.gdshader" id="2_2pj6v"]
 [ext_resource type="Script" uid="uid://b2vti33dpxp2l" path="res://scripts/button.gd" id="2_62e2m"]
 [ext_resource type="StyleBox" uid="uid://c7vue7jx6lx8n" path="res://themes/greenglass.tres" id="2_kbped"]
-[ext_resource type="StyleBox" uid="uid://coboi5x8fymw5" path="res://assets/lightglass.tres" id="3_3fl80"]
 [ext_resource type="Script" uid="uid://ctctxhhpa3vtw" path="res://trade_page.gd" id="6_2pj6v"]
-[ext_resource type="Script" uid="uid://c5kopll4xx0h8" path="res://scripts/menu_button.gd" id="6_fj5cn"]
 [ext_resource type="Script" uid="uid://cvcoix4xqlmyc" path="res://main.gd" id="7_5axgr"]
 [ext_resource type="PackedScene" uid="uid://ryurc2muk230" path="res://timer.tscn" id="7_858bn"]
 [ext_resource type="StyleBox" uid="uid://btlmdfn6phpik" path="res://assets/glassplate.tres" id="7_w5605"]
@@ -15,7 +13,6 @@
 [ext_resource type="Script" uid="uid://cba30pmeknb32" path="res://reset.gd" id="9_8jbwv"]
 [ext_resource type="Script" uid="uid://bygtdoyvtfkh4" path="res://scripts/timelist.gd" id="11_pxugv"]
 [ext_resource type="Script" uid="uid://cl06736yiiluv" path="res://catalogue_page.gd" id="11_xvdhi"]
-[ext_resource type="StyleBox" uid="uid://mnf8au5isesm" path="res://assets/glassplate_skewed.tres" id="12_87wg0"]
 [ext_resource type="Script" uid="uid://bxj5qautppjun" path="res://min_value.gd" id="12_eh0v1"]
 [ext_resource type="Script" uid="uid://dq7iia31evatj" path="res://insert.gd" id="13_am1vj"]
 [ext_resource type="Script" uid="uid://bo0i1ccdb4mg" path="res://optioncontainer.gd" id="13_oq4si"]
@@ -47,18 +44,7 @@ shader_parameter/bottom_color = Color(0.4, 0.882353, 0.862745, 1)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jkes7"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ee4bf"]
-
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0fbet"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2pj6v"]
-bg_color = Color(0.18, 0.99, 0.82, 0.74)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_color = Color(0.360784, 0.972549, 0.796078, 1)
-corner_radius_top_left = 30
-corner_radius_top_right = 30
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5axgr"]
 
@@ -106,9 +92,6 @@ corner_radius_top_left = 3
 corner_radius_top_right = 3
 corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
-
-[sub_resource type="Theme" id="Theme_3fl80"]
-PopupMenu/colors/font_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8jbwv"]
 
@@ -294,24 +277,6 @@ button_group = ExtResource("1_0fbet")
 text = "Trade"
 script = ExtResource("2_62e2m")
 
-[node name="Bid" type="Button" parent="Panel/HBoxContainer"]
-visible = false
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
-theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
-theme_override_colors/font_color = Color(0.447059, 0.447059, 0.447059, 1)
-theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
-theme_override_styles/focus = SubResource("StyleBoxEmpty_ee4bf")
-theme_override_styles/hover = ExtResource("2_kbped")
-theme_override_styles/pressed = ExtResource("2_kbped")
-theme_override_styles/normal = ExtResource("3_3fl80")
-toggle_mode = true
-button_group = ExtResource("1_0fbet")
-text = "Bid
-"
-script = ExtResource("2_62e2m")
-
 [node name="Catalogue" type="Button" parent="Panel/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
@@ -321,13 +286,14 @@ theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 22
 theme_override_styles/focus = SubResource("StyleBoxEmpty_0fbet")
-theme_override_styles/hover = SubResource("StyleBoxFlat_2pj6v")
+theme_override_styles/hover = ExtResource("2_kbped")
 theme_override_styles/pressed = ExtResource("2_kbped")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_5axgr")
 toggle_mode = true
 button_group = ExtResource("1_0fbet")
 text = "Catalogue"
 script = ExtResource("2_62e2m")
+page_num = 1
 
 [node name="My Page" type="Button" parent="Panel/HBoxContainer"]
 layout_mode = 2
@@ -345,6 +311,7 @@ toggle_mode = true
 button_group = ExtResource("1_0fbet")
 text = "My Page"
 script = ExtResource("2_62e2m")
+page_num = 2
 
 [node name="Panel" type="Panel" parent="Panel"]
 layout_mode = 0
@@ -572,117 +539,6 @@ unique_name_in_owner = true
 
 [node name="data_sending_sell" type="HTTPRequest" parent="Panel/Panel/Trade page"]
 unique_name_in_owner = true
-
-[node name="Bid page" type="Panel" parent="Panel/Panel"]
-visible = false
-layout_mode = 2
-offset_left = 16.0
-offset_top = 16.0
-offset_right = 1076.0
-offset_bottom = 506.0
-theme_override_styles/panel = ExtResource("12_87wg0")
-
-[node name="MenuButton" type="MenuButton" parent="Panel/Panel/Bid page"]
-layout_mode = 0
-offset_left = 25.0
-offset_top = 57.0
-offset_right = 234.0
-offset_bottom = 81.0
-theme = SubResource("Theme_3fl80")
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_styles/hover = ExtResource("2_kbped")
-theme_override_styles/pressed = ExtResource("2_kbped")
-theme_override_styles/normal = ExtResource("2_kbped")
-text = "select bid times"
-flat = false
-item_count = 24
-popup/item_0/text = "06:00 ~ 07:00"
-popup/item_0/checkable = 1
-popup/item_0/id = 0
-popup/item_1/text = "07:00 ~ 08:00"
-popup/item_1/checkable = 1
-popup/item_1/id = 1
-popup/item_2/text = "08:00 ~ 09:00"
-popup/item_2/checkable = 1
-popup/item_2/id = 2
-popup/item_3/text = "09:00 ~ 10:00"
-popup/item_3/checkable = 1
-popup/item_3/id = 3
-popup/item_4/text = "10:00 ~ 11:00"
-popup/item_4/checkable = 1
-popup/item_4/id = 4
-popup/item_5/text = "11:00 ~ 12:00"
-popup/item_5/checkable = 1
-popup/item_5/id = 5
-popup/item_6/text = "12:00 ~ 13:00"
-popup/item_6/checkable = 1
-popup/item_6/id = 6
-popup/item_7/text = "13:00 ~ 14:00"
-popup/item_7/checkable = 1
-popup/item_7/id = 7
-popup/item_8/text = "14:00 ~ 15:00"
-popup/item_8/checkable = 1
-popup/item_8/id = 8
-popup/item_9/text = "15:00 ~ 16:00"
-popup/item_9/checkable = 1
-popup/item_9/id = 9
-popup/item_10/text = "16:00 ~ 17:00"
-popup/item_10/checkable = 1
-popup/item_10/id = 10
-popup/item_11/text = "17:00 ~ 18:00"
-popup/item_11/checkable = 1
-popup/item_11/id = 11
-popup/item_12/text = "18:00 ~ 19:00"
-popup/item_12/checkable = 1
-popup/item_12/id = 12
-popup/item_13/text = "19:00 ~ 20:00"
-popup/item_13/checkable = 1
-popup/item_13/id = 13
-popup/item_14/text = "20:00 ~ 21:00"
-popup/item_14/checkable = 1
-popup/item_14/id = 14
-popup/item_15/text = "21:00 ~ 22:00"
-popup/item_15/checkable = 1
-popup/item_15/id = 15
-popup/item_16/text = "22:00 ~ 23:00"
-popup/item_16/checkable = 1
-popup/item_16/id = 16
-popup/item_17/text = "23:00 ~ 24:00"
-popup/item_17/checkable = 1
-popup/item_17/id = 17
-popup/item_18/text = "00:00 ~ 01:00"
-popup/item_18/checkable = 1
-popup/item_18/id = 18
-popup/item_19/text = "01:00 ~ 02:00"
-popup/item_19/checkable = 1
-popup/item_19/id = 19
-popup/item_20/text = "02:00 ~ 03:00"
-popup/item_20/checkable = 1
-popup/item_20/id = 20
-popup/item_21/text = "03:00 ~ 04:00"
-popup/item_21/checkable = 1
-popup/item_21/id = 21
-popup/item_22/text = "04:00 ~ 05:00"
-popup/item_22/checkable = 1
-popup/item_22/id = 22
-popup/item_23/text = "05:00 ~ 06:00"
-popup/item_23/checkable = 1
-popup/item_23/id = 23
-script = ExtResource("6_fj5cn")
-
-[node name="PopupMenu" type="PopupMenu" parent="Panel/Panel/Bid page/MenuButton"]
-item_count = 1
-item_0/id = 0
-
-[node name="blacktriangle" type="Label" parent="Panel/Panel/Bid page/MenuButton"]
-layout_mode = 0
-offset_left = 191.0
-offset_right = 207.0
-offset_bottom = 23.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "▼"
-
-[node name="HTTPRequest" type="HTTPRequest" parent="Panel/Panel/Bid page"]
 
 [node name="Catalogue page" type="Panel" parent="Panel/Panel"]
 visible = false
@@ -1362,13 +1218,11 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [connection signal="toggled" from="Panel/HBoxContainer/Trade" to="Panel/HBoxContainer/Trade" method="_on_toggled"]
-[connection signal="toggled" from="Panel/HBoxContainer/Bid" to="Panel/HBoxContainer/Bid" method="_on_toggled"]
 [connection signal="toggled" from="Panel/HBoxContainer/Catalogue" to="Panel/HBoxContainer/Catalogue" method="_on_toggled"]
 [connection signal="toggled" from="Panel/HBoxContainer/My Page" to="Panel/HBoxContainer/My Page" method="_on_toggled"]
 [connection signal="visibility_changed" from="Panel/Panel/Trade page" to="Panel/Panel/Trade page" method="_on_visibility_changed"]
 [connection signal="pressed" from="Panel/Panel/Trade page/purchase_data" to="Panel/Panel/Trade page/purchase_data" method="_on_pressed"]
 [connection signal="pressed" from="Panel/Panel/Trade page/reset" to="Panel/Panel/Trade page/reset" method="_on_pressed"]
-[connection signal="about_to_popup" from="Panel/Panel/Bid page/MenuButton" to="Panel/Panel/Bid page/MenuButton" method="_on_about_to_popup"]
 [connection signal="visibility_changed" from="Panel/Panel/Catalogue page" to="Panel/Panel/Catalogue page" method="_on_visibility_changed"]
 [connection signal="about_to_popup" from="Panel/Panel/Catalogue page/timelist" to="Panel/Panel/Catalogue page/timelist" method="_on_about_to_popup"]
 [connection signal="child_entered_tree" from="Panel/Panel/Catalogue page/optioncontainer" to="Panel/Panel/Catalogue page/optioncontainer" method="_on_child_entered_tree"]
