@@ -3,8 +3,11 @@
 [resource]
 bg_color = Color(0, 1, 0.871, 1)
 border_width_left = 1
-border_width_top = 1
+border_width_top = 2
 border_width_right = 1
 border_color = Color(0.769814, 1, 0.945524, 1)
 corner_radius_top_left = 15
 corner_radius_top_right = 15
+shadow_color = Color(0, 0, 0, 0.294118)
+shadow_size = 2
+shadow_offset = Vector2(0, -2)
