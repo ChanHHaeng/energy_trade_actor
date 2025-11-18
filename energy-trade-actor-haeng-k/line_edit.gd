@@ -9,8 +9,8 @@ var prev_text=""
 var correct_form=false
 func _ready() -> void:
 	text_changed.connect(texts_changed)
-	if ops_mode==line_model.Total and get_owner().get_node("../..").ops_mode==1:
-		self.add_theme_stylebox_override("read_only",total_line_down)
+	#if ops_mode==line_model.Total and get_owner().get_node("../..").ops_mode==1:
+		#self.add_theme_stylebox_override("read_only",total_line_down)
 
 func texts_changed(new_text):
 	if text=="":#아무것도 없을때

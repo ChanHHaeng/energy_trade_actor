@@ -1,4 +1,4 @@
-[gd_scene load_steps=71 format=3 uid="uid://d1gwqkrd33l0v"]
+[gd_scene load_steps=74 format=3 uid="uid://d1gwqkrd33l0v"]
 
 [ext_resource type="ButtonGroup" uid="uid://c23vsaa7035ln" path="res://subthings/menubuttongrout.tres" id="1_0fbet"]
 [ext_resource type="Script" uid="uid://bt2hnocu2gnnm" path="res://scripts/Main.gd" id="1_qtu10"]
@@ -13,6 +13,7 @@
 [ext_resource type="Script" uid="uid://cba30pmeknb32" path="res://reset.gd" id="9_8jbwv"]
 [ext_resource type="Script" uid="uid://bygtdoyvtfkh4" path="res://scripts/timelist.gd" id="11_pxugv"]
 [ext_resource type="Script" uid="uid://cl06736yiiluv" path="res://catalogue_page.gd" id="11_xvdhi"]
+[ext_resource type="StyleBox" uid="uid://c81oocjp1nep5" path="res://assets/upperpanel2.tres" id="12_3ag6a"]
 [ext_resource type="Script" uid="uid://bxj5qautppjun" path="res://min_value.gd" id="12_eh0v1"]
 [ext_resource type="Script" uid="uid://dq7iia31evatj" path="res://insert.gd" id="13_am1vj"]
 [ext_resource type="Script" uid="uid://bo0i1ccdb4mg" path="res://optioncontainer.gd" id="13_oq4si"]
@@ -46,9 +47,13 @@ shader_parameter/bottom_color = Color(0.4, 0.882353, 0.862745, 1)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0fbet"]
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gqja0"]
+
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5axgr"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_62e2m"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_n8v1s"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wfgqd"]
 
@@ -97,16 +102,16 @@ shadow_color = Color(0, 0, 0, 0.294118)
 shadow_size = 2
 shadow_offset = Vector2(0, 2)
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8jbwv"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7bdvj"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_858bn"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q6xdd"]
 bg_color = Color(0.321569, 0.956863, 0.780392, 0.917647)
 border_width_left = 1
 border_width_top = 1
 border_width_right = 1
 border_color = Color(0.360784, 0.972549, 0.796078, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dgp6r"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lqmkq"]
 bg_color = Color(0.321569, 0.956863, 0.780392, 1)
 border_width_left = 1
 border_width_top = 1
@@ -115,12 +120,12 @@ border_color = Color(0.360784, 0.972549, 0.796078, 1)
 
 [sub_resource type="Theme" id="Theme_8jbwv"]
 MenuButton/colors/font_hover_color = Color(0, 0, 0, 1)
-MenuButton/styles/focus = SubResource("StyleBoxEmpty_8jbwv")
+MenuButton/styles/focus = SubResource("StyleBoxEmpty_7bdvj")
 MenuButton/styles/hover = ExtResource("2_kbped")
-MenuButton/styles/pressed = SubResource("StyleBoxFlat_858bn")
+MenuButton/styles/pressed = SubResource("StyleBoxFlat_q6xdd")
 PopupMenu/colors/font_color = Color(1, 1, 1, 1)
 PopupMenu/colors/font_hover_color = Color(0, 0, 0, 1)
-PopupMenu/styles/hover = SubResource("StyleBoxFlat_dgp6r")
+PopupMenu/styles/hover = SubResource("StyleBoxFlat_lqmkq")
 PopupMenu/styles/panel = ExtResource("2_kbped")
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_eh0v1"]
@@ -158,9 +163,9 @@ border_color = Color(0.360784, 0.972549, 0.796078, 1)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3fl80"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dgp6r"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_il8ev"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3ag6a"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l62jy"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 border_width_left = 1
 border_width_top = 1
@@ -169,11 +174,11 @@ border_width_bottom = 1
 border_color = Color(0, 0, 0, 1)
 
 [sub_resource type="Theme" id="Theme_v61lp"]
-CheckBox/styles/focus = SubResource("StyleBoxEmpty_dgp6r")
-CheckBox/styles/hover = SubResource("StyleBoxFlat_3ag6a")
-CheckBox/styles/hover_pressed = SubResource("StyleBoxFlat_3ag6a")
-CheckBox/styles/normal = SubResource("StyleBoxFlat_3ag6a")
-CheckBox/styles/pressed = SubResource("StyleBoxFlat_3ag6a")
+CheckBox/styles/focus = SubResource("StyleBoxEmpty_il8ev")
+CheckBox/styles/hover = SubResource("StyleBoxFlat_l62jy")
+CheckBox/styles/hover_pressed = SubResource("StyleBoxFlat_l62jy")
+CheckBox/styles/normal = SubResource("StyleBoxFlat_l62jy")
+CheckBox/styles/pressed = SubResource("StyleBoxFlat_l62jy")
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_v61lp"]
 
@@ -290,7 +295,7 @@ theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 22
 theme_override_styles/focus = SubResource("StyleBoxEmpty_0fbet")
-theme_override_styles/hover = ExtResource("2_kbped")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_gqja0")
 theme_override_styles/pressed = ExtResource("2_kbped")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_5axgr")
 toggle_mode = true
@@ -308,7 +313,7 @@ theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 22
 theme_override_styles/focus = SubResource("StyleBoxEmpty_62e2m")
-theme_override_styles/hover = ExtResource("2_kbped")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_n8v1s")
 theme_override_styles/pressed = ExtResource("2_kbped")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_wfgqd")
 toggle_mode = true
@@ -552,7 +557,7 @@ offset_top = 16.0
 offset_right = 1076.0
 offset_bottom = 506.0
 pivot_offset = Vector2(530, 245)
-theme_override_styles/panel = ExtResource("7_w5605")
+theme_override_styles/panel = ExtResource("12_3ag6a")
 script = ExtResource("11_xvdhi")
 
 [node name="timelist" type="MenuButton" parent="Panel/Panel/Catalogue page"]
@@ -880,7 +885,7 @@ offset_top = 16.0
 offset_right = 1076.0
 offset_bottom = 506.0
 pivot_offset = Vector2(530, 245)
-theme_override_styles/panel = ExtResource("7_w5605")
+theme_override_styles/panel = ExtResource("12_3ag6a")
 script = ExtResource("18_m4egf")
 
 [node name="Master" type="Panel" parent="Panel/Panel/My Page page"]

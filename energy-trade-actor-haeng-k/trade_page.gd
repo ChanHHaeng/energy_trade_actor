@@ -43,9 +43,9 @@ var _skew:float
 
 func react_input(flag:bool,node:Node):
 	if flag:
-		self.connect("gui_input",_on_gui_input.bind(node))
+		%Blur.connect("gui_input",_on_gui_input.bind(node))
 	elif !flag:
-		self.disconnect("gui_input",_on_gui_input)		
+		%Blur.disconnect("gui_input",_on_gui_input)		
 		
 
 func _on_gui_input(event: InputEvent,node:Node) -> void: #화면 아무곳이나 누르면 버튼 비활성화 되는 코드

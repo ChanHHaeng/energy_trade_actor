@@ -21,37 +21,43 @@ func _ready() -> void:
 
 
 func _on_toggled(toggled_on: bool) -> void:
-	$CanvasLayer/Upper.circularation(toggled_on)
-	$CanvasLayer/down.circularation(toggled_on)
+	#$CanvasLayer/Upper.circularation(toggled_on)
+	#$CanvasLayer/down.circularation(toggled_on)
 	get_node("../..").react_input(toggled_on,self)
 	if toggled_on:
-		$"Upper stack".text=""
-		$"Upper stack".visible=false
+		get_node("../../../../../Blur").visible=true
+		%Upper.visible=true
+		#%down.visible=true
+		#$"Upper stack".text=""
+		#$"Upper stack".visible=false
 		$"Down stack".text=""
 		$"Down stack".visible=false
 		$upperfold.visible=false
 		$downfold.visible=false
 	if not toggled_on:
+		%Upper.visible=false
+		#%down.visible=false
 		checking()
 		stacking()
+		get_node("../../../../../Blur").visible=false
 
 func add_item(array:Array):
 	data=array
-	if len(array[0]):
-		$CanvasLayer/Upper.size_memory.x=80
-	if len(array[1]):
-		$CanvasLayer/down.size_memory.x=80
+	#if len(array[0]):
+		#$CanvasLayer/Upper.size_memory.x=80
+	#if len(array[1]):
+		#$CanvasLayer/down.size_memory.x=80
 	for i in range(len(array[0])):
-		$CanvasLayer/Upper.size_memory.x+=cardlen
-		$CanvasLayer/Upper.size_memory.y=200
+		#$CanvasLayer/Upper.size_memory.x+=cardlen
+		#$CanvasLayer/Upper.size_memory.y=200
 		$CanvasLayer/Upper/HBoxContainer.size.x+=cardlen
 		var examples=example.instantiate()
 		examples.amount=str(array[0][i][0])
 		examples.price=str(array[0][i][1])
 		$CanvasLayer/Upper/HBoxContainer.add_child(examples)
 	for i in range(len(array[1])):
-		$CanvasLayer/down.size_memory.x+=cardlen
-		$CanvasLayer/down.size_memory.y=200
+		#$CanvasLayer/down.size_memory.x+=cardlen
+		#$CanvasLayer/down.size_memory.y=200
 		$CanvasLayer/down/HBoxContainer.size.x+=cardlen
 		var examples=example.instantiate()
 		examples.amount=str(array[1][i][0])
@@ -63,26 +69,26 @@ func add_item(array:Array):
 func stacking(): #테이블 숫자 세서 stack label에 표시
 	upper=len($CanvasLayer/Upper/HBoxContainer.get_children())
 	down = len($CanvasLayer/down/HBoxContainer.get_children())
-	if upper==0:
-		$"Upper stack".text=""
-		$"Upper stack".visible=false
-	elif upper<9:
-		$"Upper stack".visible=true
-		$"Upper stack".text = str(len($CanvasLayer/Upper/HBoxContainer.get_children()))
-	else:
-		$"Upper stack".text="9+"
-		$"Upper stack".visible=true
+	#if upper==0:
+		#$"Upper stack".text="0"
+		#$"Upper stack".visible=true
+	#elif upper<9:
+		#$"Upper stack".visible=true
+		#$"Upper stack".text = str(len($CanvasLayer/Upper/HBoxContainer.get_children()))
+	#else:
+		#$"Upper stack".text="9+"
+		#$"Upper stack".visible=true
 		
-	if down==0:
+	if down==0 and upper==0:
 		$"Down stack".text=""
 		$"Down stack".visible=false
-	elif down<9:
-		$"Down stack".text = str(len($CanvasLayer/down/HBoxContainer.get_children()))
+	elif down<9 or upper<9:
+		$"Down stack".text = str(len($CanvasLayer/down/HBoxContainer.get_children())+len($CanvasLayer/Upper/HBoxContainer.get_children()))
 		$"Down stack".visible=true
 	else:
 		$"Down stack".text="9+"
 		$"Down stack".visible=true
-	#get_node("../..").timetable[int(name)]=[upper,down]
+	get_node("../..").timetable[int(name)]=[upper,down]
 
 
 func _on_mouse_entered() -> void:
@@ -120,8 +126,8 @@ func reset():
 		i.queue_free()
 	for i in $CanvasLayer/down/HBoxContainer.get_children():
 		i.queue_free()
-	$CanvasLayer/Upper.resize_flag=true
-	%down.resize_flag=true
+	#$CanvasLayer/Upper.resize_flag=true
+	#%down.resize_flag=true
 	
 func gain_data() -> Array:
 	var new_data=[%Upper.get_data(),%down.get_data()]

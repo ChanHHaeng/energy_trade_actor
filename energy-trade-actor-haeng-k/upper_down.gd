@@ -6,8 +6,8 @@ enum OpsMode{Upper, Down}
 @onready var size_memory=self.size
 @onready var position_memory=self.position
 
-var upposition=Vector2(448,250)
-var downposition=Vector2(448,34)
+#var upposition=Vector2(448,250)
+#var downposition=Vector2(448,34)
 
 var upperpnel : StyleBoxFlat =load("res://assets/upperpanel.tres")
 var downerpnel:StyleBoxFlat =load("res://assets/downpanel.tres")
@@ -19,26 +19,26 @@ func _ready() -> void:
 	##초기에 사이즈 작아지게 하는 코드
 	if ops_mode==1:
 		await get_tree().process_frame
-		self.position=get_node("../..").global_position+Vector2(0,60)
+		#self.position=get_node("../..").global_position+Vector2(0,60)
 		position_memory=self.position
 		position_memory.x= (get_viewport_rect().size.x / 2)-(self.size.x/2)
 		position_memory.y=400
-		downposition=get_node("../..").global_position+Vector2(70,40)
+		#downposition=get_node("../..").global_position+Vector2(70,40)
 	
 	else:
 		await get_tree().process_frame
-		self.position=get_node("../..").global_position-Vector2(0,210)
+		#self.position=get_node("../..").global_position-Vector2(0,210)
 		position_memory=self.position
 		position_memory.x= (get_viewport_rect().size.x / 2)-(self.size.x/2)
 		position_memory.y=100
-		upposition=get_node("../..").global_position
+		#upposition=get_node("../..").global_position
 		
 	resize_flag=false ##내부 설정
 	self.size=Vector2(17,17)
-	if ops_mode==1:
-		self.position=downposition
-	elif ops_mode==0:
-		self.position=upposition
+	#if ops_mode==1:
+		#self.position=downposition
+	#elif ops_mode==0:
+		#self.position=upposition
 	$HBoxContainer.visible=false
 	$Button.visible=false
 	$TextureRect.visible=false
@@ -52,11 +52,11 @@ func _on_resized() -> void:
 		size_memory=self.size
 		#if len($HBoxContainer.get_children())==0:
 			#set_zero()
-		position.x= (get_viewport_rect().size.x / 2)-(self.size.x/2)
-		if ops_mode==0:
-			position.y=100
-		else:
-			position.y=400
+		#position.x= (get_viewport_rect().size.x / 2)-(self.size.x/2)
+		#if ops_mode==0:
+			#position.y=100
+		#else:
+			#position.y=400
 		position_memory=self.position
 			
 func circularation(flag:bool):
@@ -72,14 +72,14 @@ func circularation(flag:bool):
 		circling.tween_callback(func ():
 			resize_flag=false)		
 		circling.parallel().tween_property(self,"size",Vector2(17,17),0.25)
-		if self.name=="down":
-			circling.parallel().tween_property(self,"position",downposition,0.25)
+		#if self.name=="down":
+			#circling.parallel().tween_property(self,"position",downposition,0.25)
 			#circling.parallel().tween_property(downerpnel,"corner_radius_top_left",44,0.25)
 			#circling.parallel().tween_property(downerpnel,"corner_radius_top_right",44,0.25)
 			#circling.parallel().tween_property(downerpnel,"corner_radius_bottom_left",44,0.25)
 			#circling.parallel().tween_property(downerpnel,"corner_radius_bottom_right",44,0.25)
-		else:
-			circling.parallel().tween_property(self,"position",upposition,0.25)
+		#else:
+			#circling.parallel().tween_property(self,"position",upposition,0.25)
 			#circling.parallel().tween_property(upperpnel,"corner_radius_top_left",44,0.25)
 			#circling.parallel().tween_property(upperpnel,"corner_radius_top_right",44,0.25)
 			#circling.parallel().tween_property(upperpnel,"corner_radius_bottom_left",44,0.25)
