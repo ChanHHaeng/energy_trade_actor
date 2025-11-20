@@ -127,13 +127,6 @@ func follow_mouse(delta: float) -> void:
 	global_position = (mouse_pos - (size*scale/2.0))
 		
 	#get_node("SubViewport/Panel").modulate.a=(180-abs(self.position.y))/140
-
-
-func presentation():
-	var fold=create_tween().set_parallel(true)
-	#material.set_shader_parameter("y_rot", 180)
-	#fold.tween_property(material, "shader_parameter/y_rot", 0, 0.5)
-	#queue_redraw()
 	
 #func _draw() -> void:
 	#draw_rect(Rect2(0,0,30,30),Color.RED,true,10,true)
@@ -147,8 +140,8 @@ func normalmode():
 	%suicide_Button.visible=false
 	
 	
-	
-	
+func presentation():
+	$AnimationPlayer.play("Panel_trash")
 	
 	
 	

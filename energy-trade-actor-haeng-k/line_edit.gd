@@ -24,6 +24,10 @@ func texts_changed(new_text):
 		text="100"
 		prev_text=text
 		correct_form=true
+	elif ops_mode==line_model.price and int(text)>1000:
+		text="1000"
+		prev_text=text
+		correct_form=true
 	else:#올바른 입력
 		prev_text=text
 		correct_form=true

@@ -8,113 +8,84 @@ extends Button
 var cardlen=Global.cardlen
 
 var data=[[],[]]
-var upper
-var down
+var buy_amount
+var sell_amount
 var checkingmode = false
 
 var no_color = Color(0.882, 0.882, 0.882)
 var yes_color = Color(0.48, 0.48, 0.48)
 func _ready() -> void:
-	$CanvasLayer/Upper.visible=false
-	$CanvasLayer/down.visible=false
+	%"data plate".visible=false
 	self.button_group=time_button_group
 
-
 func _on_toggled(toggled_on: bool) -> void:
-	#$CanvasLayer/Upper.circularation(toggled_on)
-	#$CanvasLayer/down.circularation(toggled_on)
 	get_node("../..").react_input(toggled_on,self)
 	if toggled_on:
 		get_node("../../../../../Blur").visible=true
-		%Upper.visible=true
-		#%down.visible=true
-		#$"Upper stack".text=""
-		#$"Upper stack".visible=false
-		$"Down stack".text=""
-		$"Down stack".visible=false
+		$CanvasLayer.visible=true
+		%"data plate".visible=true
+		%"total stack".text=""
+		%"total stack".visible=false
 		$upperfold.visible=false
 		$downfold.visible=false
 	if not toggled_on:
-		%Upper.visible=false
-		#%down.visible=false
+		$CanvasLayer.visible=false
+		%"data plate".visible=false
 		checking()
 		stacking()
 		get_node("../../../../../Blur").visible=false
 
 func add_item(array:Array):
 	data=array
-	#if len(array[0]):
-		#$CanvasLayer/Upper.size_memory.x=80
-	#if len(array[1]):
-		#$CanvasLayer/down.size_memory.x=80
 	for i in range(len(array[0])):
-		#$CanvasLayer/Upper.size_memory.x+=cardlen
-		#$CanvasLayer/Upper.size_memory.y=200
-		$CanvasLayer/Upper/HBoxContainer.size.x+=cardlen
 		var examples=example.instantiate()
 		examples.amount=str(array[0][i][0])
 		examples.price=str(array[0][i][1])
-		$CanvasLayer/Upper/HBoxContainer.add_child(examples)
+		%buyDataContainer.add_child(examples)
 	for i in range(len(array[1])):
-		#$CanvasLayer/down.size_memory.x+=cardlen
-		#$CanvasLayer/down.size_memory.y=200
-		$CanvasLayer/down/HBoxContainer.size.x+=cardlen
 		var examples=example.instantiate()
 		examples.amount=str(array[1][i][0])
 		examples.price=str(array[1][i][1])
 		examples.get_node("SubViewport/Panel").add_theme_stylebox_override('panel',example_sell)
-		$CanvasLayer/down/HBoxContainer.add_child(examples)
+		%sellDataContainer.add_child(examples)
 	stacking()
 	
 func stacking(): #테이블 숫자 세서 stack label에 표시
-	upper=len($CanvasLayer/Upper/HBoxContainer.get_children())
-	down = len($CanvasLayer/down/HBoxContainer.get_children())
-	#if upper==0:
-		#$"Upper stack".text="0"
-		#$"Upper stack".visible=true
-	#elif upper<9:
-		#$"Upper stack".visible=true
-		#$"Upper stack".text = str(len($CanvasLayer/Upper/HBoxContainer.get_children()))
-	#else:
-		#$"Upper stack".text="9+"
-		#$"Upper stack".visible=true
-		
-	if down==0 and upper==0:
-		$"Down stack".text=""
-		$"Down stack".visible=false
-	elif down<9 or upper<9:
-		$"Down stack".text = str(len($CanvasLayer/down/HBoxContainer.get_children())+len($CanvasLayer/Upper/HBoxContainer.get_children()))
-		$"Down stack".visible=true
+	buy_amount = len(%buyDataContainer.get_children())
+	sell_amount = len(%sellDataContainer.get_children())
+	if buy_amount+sell_amount==0:
+		%"total stack".text=""
+		%"total stack".visible=false
 	else:
-		$"Down stack".text="9+"
-		$"Down stack".visible=true
-	get_node("../..").timetable[int(name)]=[upper,down]
+		%"total stack".text = str(buy_amount+sell_amount)
+		%"total stack".visible=true
+	get_node("../..").timetable[int(name)]=[buy_amount,sell_amount]
 
 
 func _on_mouse_entered() -> void:
-	if upper!=0 and upper!=null and !self.button_pressed:
+	if buy_amount!=0 and buy_amount!=null and !self.button_pressed:
 		$upperfold.visible=true
 		%AnimationPlayer_up.play("card_mousehover")
-	if down!=0 and down!=null and !self.button_pressed:
+	if sell_amount!=0 and sell_amount!=null and !self.button_pressed:
 		$downfold.visible=true
 		%AnimationPlayer_down.play("card_mousehover_down")
 
 func _on_mouse_exited() -> void:
-	if upper!=0 and upper!=null:
+	if buy_amount!=0 and buy_amount!=null:
 		%AnimationPlayer_up.play("RESET")
 		$upperfold.visible=false
-	if down!=0 and down!=null:
+	if sell_amount!=0 and sell_amount!=null:
 		%AnimationPlayer_down.play("RESET")
 		$downfold.visible=false
 		
 		
 func checking(): ## 빈 테이블 정리
 	checkingmode=true
-	for i in $CanvasLayer/Upper/HBoxContainer.get_children():
+	for i in %buyDataContainer.get_children():
 		if i.amount=="" or i.price=="":
 			i.free()
 			get_node("../../../../..").show_warring()
-	for i in $CanvasLayer/down/HBoxContainer.get_children():
+	for i in %sellDataContainer.get_children():
 		if i.amount=="" or i.price=="": 
 			i.free()
 			get_node("../../../../..").show_warring()
@@ -122,13 +93,11 @@ func checking(): ## 빈 테이블 정리
 	checkingmode=false
 			
 func reset():
-	for i in $CanvasLayer/Upper/HBoxContainer.get_children():
+	for i in %buyDataContainer.get_children():
 		i.queue_free()
-	for i in $CanvasLayer/down/HBoxContainer.get_children():
+	for i in %sellDataContainer.get_children():
 		i.queue_free()
-	#$CanvasLayer/Upper.resize_flag=true
-	#%down.resize_flag=true
 	
 func gain_data() -> Array:
-	var new_data=[%Upper.get_data(),%down.get_data()]
+	var new_data=[%buyDataContainer.get_data(),%sellDataContainer.get_data()]
 	return new_data

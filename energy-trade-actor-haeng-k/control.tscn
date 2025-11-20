@@ -1,4 +1,4 @@
-[gd_scene load_steps=74 format=3 uid="uid://d1gwqkrd33l0v"]
+[gd_scene load_steps=73 format=3 uid="uid://d1gwqkrd33l0v"]
 
 [ext_resource type="ButtonGroup" uid="uid://c23vsaa7035ln" path="res://subthings/menubuttongrout.tres" id="1_0fbet"]
 [ext_resource type="Script" uid="uid://bt2hnocu2gnnm" path="res://scripts/Main.gd" id="1_qtu10"]
@@ -77,14 +77,6 @@ shadow_offset = Vector2(0, 6)
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kpl8e"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_w5605"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_87wg0"]
-bg_color = Color(1, 1, 1, 1)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6a6wx"]
 
@@ -433,7 +425,6 @@ text = "18:00"
 [node name="19" parent="Panel/Panel/Trade page/GridContainer2" instance=ExtResource("7_858bn")]
 layout_mode = 2
 theme_override_styles/focus = SubResource("StyleBoxEmpty_w5605")
-theme_override_styles/normal = SubResource("StyleBoxFlat_87wg0")
 text = "19:00"
 
 [node name="20" parent="Panel/Panel/Trade page/GridContainer2" instance=ExtResource("7_858bn")]

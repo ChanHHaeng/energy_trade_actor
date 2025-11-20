@@ -141,4 +141,3 @@ func change_window():
 			tween2.parallel().tween_property(self,"position",Vector2(-784,16),0.4)
 			tween2.parallel().tween_property(catalogue_page,"position",Vector2(16,16),0.4)
 	)
-	#tween.parallel().tween_property(self.position,)

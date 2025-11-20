@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://ryurc2muk230"]
+[gd_scene load_steps=39 format=3 uid="uid://ryurc2muk230"]
 
 [ext_resource type="FontFile" path="res://fonts/montreal/Montreal.tres" id="1_acuhy"]
 [ext_resource type="Script" uid="uid://bqp8hlbau316u" path="res://timer.gd" id="1_qdhxh"]
@@ -10,9 +10,11 @@
 [ext_resource type="FontFile" uid="uid://8fbpgc4tqo1j" path="res://fonts/montreal/Montreal-Bold.ttf" id="6_kpl8e"]
 [ext_resource type="StyleBox" uid="uid://cjetnu2bp7fb4" path="res://assets/datacard_for_animation.tres" id="7_eypy5"]
 [ext_resource type="StyleBox" uid="uid://cikh0lpxyni8b" path="res://assets/datacard_for_animation_down.tres" id="8_7ocsi"]
+[ext_resource type="Script" uid="uid://cyfpltyv3f8yn" path="res://button_container.gd" id="8_mc83r"]
 [ext_resource type="Texture2D" uid="uid://crlguprvccnbm" path="res://assets/realbin.svg" id="8_rokg3"]
 [ext_resource type="ButtonGroup" uid="uid://dteas0jhp1j5p" path="res://assets/buysellgroup.tres" id="9_ph1h4"]
 [ext_resource type="Script" uid="uid://b2ipybg8mvd3f" path="res://bin.gd" id="9_skflu"]
+[ext_resource type="Shader" uid="uid://b0t4tqmbyh2gk" path="res://timer.gdshader" id="12_11as0"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_87wg0"]
 
@@ -21,22 +23,6 @@ corner_radius_top_left = 5
 corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mxtnu"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mxtnu"]
-bg_color = Color(1, 1, 1, 1)
-corner_radius_top_left = 15
-corner_radius_top_right = 15
-corner_radius_bottom_right = 15
-corner_radius_bottom_left = 15
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kurt1"]
-bg_color = Color(0.707967, 0.707967, 0.707966, 1)
-corner_radius_top_left = 15
-corner_radius_top_right = 15
-corner_radius_bottom_right = 15
-corner_radius_bottom_left = 15
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_skflu"]
 size = Vector2(42, 43)
@@ -53,13 +39,48 @@ size = Vector2(42, 43)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_eqm1h"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7ocsi"]
-bg_color = Color(0.686275, 0.756863, 0.992157, 1)
-border_color = Color(0.847474, 0.847474, 0.847474, 1)
-corner_radius_top_left = 2
-corner_radius_top_right = 2
-corner_radius_bottom_right = 2
-corner_radius_bottom_left = 2
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_11as0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mxtnu"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7jrio"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_f7no2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mc83r"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ph1h4"]
+bg_color = Color(0, 0, 0, 0)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7jrio"]
+shader = ExtResource("12_11as0")
+shader_parameter/length = 200.0
+shader_parameter/thickness = 26.854
+shader_parameter/aa = 3.0
+shader_parameter/Color = Color(0.933333, 0.901961, 0.827451, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mxtnu"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kurt1"]
+bg_color = Color(0.707967, 0.707967, 0.707966, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_acuhy"]
 bg_color = Color(0, 1, 0.870588, 1)
@@ -344,12 +365,12 @@ theme_override_styles/normal = ExtResource("2_skflu")
 toggle_mode = true
 text = "00:00"
 script = ExtResource("1_qdhxh")
-metadata/_edit_horizontal_guides_ = [600.0, 345.0, 110.0]
+metadata/_edit_horizontal_guides_ = [600.0, 110.0]
 metadata/_edit_vertical_guides_ = [48.0, 1108.0]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="Upper" type="Panel" parent="CanvasLayer"]
+[node name="data plate" type="Panel" parent="CanvasLayer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(17, 17)
 anchors_preset = 8
@@ -365,52 +386,9 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = ExtResource("4_skflu")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Upper"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_top = -71.0
-offset_bottom = 71.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/separation = 20
-script = ExtResource("4_kpl8e")
-
-[node name="Button" type="Button" parent="CanvasLayer/Upper"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -116.0
-offset_top = 77.0
-offset_right = -86.0
-offset_bottom = 177.0
-grow_horizontal = 0
-grow_vertical = 2
-theme_override_font_sizes/font_size = 20
-theme_override_styles/focus = SubResource("StyleBoxEmpty_mxtnu")
-theme_override_styles/hover = SubResource("StyleBoxFlat_mxtnu")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_kurt1")
-theme_override_styles/normal = SubResource("StyleBoxFlat_mxtnu")
-script = ExtResource("5_kurt1")
-
-[node name="Line2D" type="Line2D" parent="CanvasLayer/Upper/Button"]
-position = Vector2(15, 50)
-rotation = -1.5708
-points = PackedVector2Array(0, 0, 6, 0, -6, 0)
-width = 2.0
-default_color = Color(0.133196, 0.133196, 0.133196, 1)
-
-[node name="Line2D2" type="Line2D" parent="CanvasLayer/Upper/Button"]
-position = Vector2(15, 50)
-points = PackedVector2Array(0, 0, 6, 0, -6, 0)
-width = 2.0
-default_color = Color(0.133333, 0.133333, 0.133333, 1)
-
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Upper"]
+[node name="trash" type="TextureRect" parent="CanvasLayer/data plate"]
+unique_name_in_owner = true
+visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 1.0
@@ -427,37 +405,30 @@ texture = ExtResource("8_rokg3")
 expand_mode = 1
 script = ExtResource("9_skflu")
 
-[node name="Area2D" type="Area2D" parent="CanvasLayer/Upper/TextureRect"]
+[node name="Area2D" type="Area2D" parent="CanvasLayer/data plate/trash"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/Upper/TextureRect/Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/data plate/trash/Area2D"]
 position = Vector2(14, 13.5)
 shape = SubResource("RectangleShape2D_skflu")
 
-[node name="Label" type="Label" parent="CanvasLayer/Upper"]
+[node name="Button Container" type="HBoxContainer" parent="CanvasLayer/data plate"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -27.0
-offset_right = 27.0
-offset_bottom = 23.0
+offset_left = -466.0
+offset_top = 20.0
+offset_right = 466.0
+offset_bottom = 60.0
 grow_horizontal = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 13
-horizontal_alignment = 1
-
-[node name="Button Container" type="HBoxContainer" parent="CanvasLayer/Upper"]
-layout_mode = 0
-offset_left = 38.0
-offset_top = 21.0
-offset_right = 970.0
-offset_bottom = 61.0
 theme_override_constants/separation = 0
 alignment = 1
+script = ExtResource("8_mc83r")
 
-[node name="Button2" type="Button" parent="CanvasLayer/Upper/Button Container"]
+[node name="Buy_Button" type="Button" parent="CanvasLayer/data plate/Button Container"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 22
 theme_override_styles/focus = SubResource("StyleBoxEmpty_skflu")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_mc83r")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_11as0")
@@ -466,9 +437,10 @@ button_pressed = true
 button_group = ExtResource("9_ph1h4")
 text = "Buy"
 
-[node name="Button3" type="Button" parent="CanvasLayer/Upper/Button Container"]
+[node name="Sell_Button" type="Button" parent="CanvasLayer/data plate/Button Container"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 22
 theme_override_styles/focus = SubResource("StyleBoxEmpty_ph1h4")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_7jrio")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_eqm1h")
@@ -476,6 +448,226 @@ toggle_mode = true
 button_group = ExtResource("9_ph1h4")
 text = "Sell
 "
+
+[node name="Buy_plate" type="Panel" parent="CanvasLayer/data plate"]
+layout_mode = 0
+offset_left = 34.0
+offset_top = 60.0
+offset_right = 966.0
+offset_bottom = 367.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_11as0")
+
+[node name="buyDataContainer" type="HBoxContainer" parent="CanvasLayer/data plate/Buy_plate"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -445.0
+offset_top = -102.0
+offset_right = 445.0
+offset_bottom = 102.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 40
+script = ExtResource("4_kpl8e")
+
+[node name="input_button" type="Button" parent="CanvasLayer/data plate/Buy_plate"]
+z_index = 2
+layout_mode = 2
+offset_left = 22.0
+offset_top = 51.0
+offset_right = 168.0
+offset_bottom = 255.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+size_flags_stretch_ratio = 0.0
+theme_override_font_sizes/font_size = 20
+theme_override_styles/focus = SubResource("StyleBoxEmpty_mxtnu")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_7jrio")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_f7no2")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_mc83r")
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("5_kurt1")
+linecolor = Color(0.827451, 0.827451, 0.827451, 1)
+
+[node name="Circle" type="Panel" parent="CanvasLayer/data plate/Buy_plate/input_button"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -25.0
+offset_top = -25.0
+offset_right = 25.0
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ph1h4")
+
+[node name="Line2D" type="Line2D" parent="CanvasLayer/data plate/Buy_plate/input_button"]
+points = PackedVector2Array(73, 86, 73, 118)
+width = 6.0
+default_color = Color(0.133196, 0.133196, 0.133196, 1)
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="Line2D2" type="Line2D" parent="CanvasLayer/data plate/Buy_plate/input_button"]
+points = PackedVector2Array(89, 102, 57, 102)
+width = 6.0
+default_color = Color(0.133333, 0.133333, 0.133333, 1)
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="ColorRect2" type="ColorRect" parent="CanvasLayer/data plate/Buy_plate"]
+material = SubResource("ShaderMaterial_7jrio")
+layout_mode = 0
+offset_left = 207.0
+offset_top = 30.0
+offset_right = 448.0
+offset_bottom = 70.0
+rotation = 1.5708
+
+[node name="ColorRect3" type="ColorRect" parent="CanvasLayer/data plate/Buy_plate"]
+material = SubResource("ShaderMaterial_7jrio")
+layout_mode = 0
+offset_left = 393.0
+offset_top = 30.0
+offset_right = 634.0
+offset_bottom = 70.0
+rotation = 1.5708
+
+[node name="ColorRect4" type="ColorRect" parent="CanvasLayer/data plate/Buy_plate"]
+material = SubResource("ShaderMaterial_7jrio")
+layout_mode = 0
+offset_left = 579.0
+offset_top = 30.0
+offset_right = 820.0
+offset_bottom = 70.0
+rotation = 1.5708
+
+[node name="ColorRect5" type="ColorRect" parent="CanvasLayer/data plate/Buy_plate"]
+material = SubResource("ShaderMaterial_7jrio")
+layout_mode = 0
+offset_left = 765.0
+offset_top = 30.0
+offset_right = 1006.0
+offset_bottom = 70.0
+rotation = 1.5708
+
+[node name="Sell_plate" type="Panel" parent="CanvasLayer/data plate"]
+visible = false
+layout_mode = 0
+offset_left = 34.0
+offset_top = 60.0
+offset_right = 966.0
+offset_bottom = 367.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_11as0")
+
+[node name="sellDataContainer" type="HBoxContainer" parent="CanvasLayer/data plate/Sell_plate"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -445.0
+offset_top = -102.0
+offset_right = 445.0
+offset_bottom = 102.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 40
+script = ExtResource("4_kpl8e")
+mode = 1
+
+[node name="input_button" type="Button" parent="CanvasLayer/data plate/Sell_plate"]
+z_index = 2
+offset_left = 22.0
+offset_top = 51.0
+offset_right = 168.0
+offset_bottom = 255.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+size_flags_stretch_ratio = 0.0
+theme_override_font_sizes/font_size = 20
+theme_override_styles/focus = SubResource("StyleBoxEmpty_mxtnu")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_7jrio")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_f7no2")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_mc83r")
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("5_kurt1")
+mode = 1
+linecolor = Color(0.82606, 0.82606, 0.82606, 1)
+
+[node name="Circle" type="Panel" parent="CanvasLayer/data plate/Sell_plate/input_button"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -25.0
+offset_top = -25.0
+offset_right = 25.0
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ph1h4")
+
+[node name="Line2D" type="Line2D" parent="CanvasLayer/data plate/Sell_plate/input_button"]
+points = PackedVector2Array(73, 86, 73, 118)
+width = 6.0
+default_color = Color(0.133196, 0.133196, 0.133196, 1)
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="Line2D2" type="Line2D" parent="CanvasLayer/data plate/Sell_plate/input_button"]
+points = PackedVector2Array(89, 102, 57, 102)
+width = 6.0
+default_color = Color(0.133333, 0.133333, 0.133333, 1)
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="ColorRect2" type="ColorRect" parent="CanvasLayer/data plate/Sell_plate"]
+material = SubResource("ShaderMaterial_7jrio")
+offset_left = 207.0
+offset_top = 30.0
+offset_right = 448.0
+offset_bottom = 70.0
+rotation = 1.5708
+
+[node name="ColorRect3" type="ColorRect" parent="CanvasLayer/data plate/Sell_plate"]
+material = SubResource("ShaderMaterial_7jrio")
+offset_left = 393.0
+offset_top = 30.0
+offset_right = 634.0
+offset_bottom = 70.0
+rotation = 1.5708
+
+[node name="ColorRect4" type="ColorRect" parent="CanvasLayer/data plate/Sell_plate"]
+material = SubResource("ShaderMaterial_7jrio")
+offset_left = 579.0
+offset_top = 30.0
+offset_right = 820.0
+offset_bottom = 70.0
+rotation = 1.5708
+
+[node name="ColorRect5" type="ColorRect" parent="CanvasLayer/data plate/Sell_plate"]
+material = SubResource("ShaderMaterial_7jrio")
+offset_left = 765.0
+offset_top = 30.0
+offset_right = 1006.0
+offset_bottom = 70.0
+rotation = 1.5708
 
 [node name="down" type="Panel" parent="CanvasLayer"]
 unique_name_in_owner = true
@@ -566,23 +758,8 @@ theme_override_font_sizes/font_size = 13
 text = "sell 🪙"
 horizontal_alignment = 1
 
-[node name="Upper stack" type="Label" parent="."]
-visible = false
-layout_mode = 1
-offset_left = -36.0
-offset_top = 58.0
-offset_right = -14.0
-offset_bottom = 78.0
-pivot_offset = Vector2(15, 9.5)
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("6_kpl8e")
-theme_override_font_sizes/font_size = 13
-theme_override_styles/normal = SubResource("StyleBoxFlat_7ocsi")
-text = "0"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Down stack" type="Label" parent="."]
+[node name="total stack" type="Label" parent="."]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -751,13 +928,20 @@ libraries = {
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
 [connection signal="toggled" from="." to="." method="_on_toggled"]
-[connection signal="resized" from="CanvasLayer/Upper" to="CanvasLayer/Upper" method="_on_resized"]
-[connection signal="child_entered_tree" from="CanvasLayer/Upper/HBoxContainer" to="CanvasLayer/Upper/HBoxContainer" method="_on_child_entered_tree"]
-[connection signal="child_exiting_tree" from="CanvasLayer/Upper/HBoxContainer" to="CanvasLayer/Upper/HBoxContainer" method="_on_child_exiting_tree"]
-[connection signal="pressed" from="CanvasLayer/Upper/Button" to="CanvasLayer/Upper/Button" method="_on_pressed"]
-[connection signal="gui_input" from="CanvasLayer/Upper/TextureRect" to="CanvasLayer/Upper/TextureRect" method="_on_gui_input"]
-[connection signal="mouse_entered" from="CanvasLayer/Upper/TextureRect" to="CanvasLayer/Upper/TextureRect" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="CanvasLayer/Upper/TextureRect" to="CanvasLayer/Upper/TextureRect" method="_on_mouse_exited"]
+[connection signal="resized" from="CanvasLayer/data plate" to="CanvasLayer/data plate" method="_on_resized"]
+[connection signal="gui_input" from="CanvasLayer/data plate/trash" to="CanvasLayer/data plate/trash" method="_on_gui_input"]
+[connection signal="mouse_entered" from="CanvasLayer/data plate/trash" to="CanvasLayer/data plate/trash" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/data plate/trash" to="CanvasLayer/data plate/trash" method="_on_mouse_exited"]
+[connection signal="toggled" from="CanvasLayer/data plate/Button Container/Buy_Button" to="CanvasLayer/data plate/Button Container" method="_on_buy_button_toggled"]
+[connection signal="toggled" from="CanvasLayer/data plate/Button Container/Sell_Button" to="CanvasLayer/data plate/Button Container" method="_on_sell_button_toggled"]
+[connection signal="child_entered_tree" from="CanvasLayer/data plate/Buy_plate/buyDataContainer" to="CanvasLayer/data plate/Buy_plate/buyDataContainer" method="_on_child_entered_tree"]
+[connection signal="child_exiting_tree" from="CanvasLayer/data plate/Buy_plate/buyDataContainer" to="CanvasLayer/data plate/Buy_plate/buyDataContainer" method="_on_child_exiting_tree"]
+[connection signal="item_rect_changed" from="CanvasLayer/data plate/Buy_plate/input_button" to="CanvasLayer/data plate/Buy_plate/input_button" method="_on_item_rect_changed"]
+[connection signal="pressed" from="CanvasLayer/data plate/Buy_plate/input_button" to="CanvasLayer/data plate/Buy_plate/input_button" method="_on_pressed"]
+[connection signal="child_entered_tree" from="CanvasLayer/data plate/Sell_plate/sellDataContainer" to="CanvasLayer/data plate/Sell_plate/sellDataContainer" method="_on_child_entered_tree"]
+[connection signal="child_exiting_tree" from="CanvasLayer/data plate/Sell_plate/sellDataContainer" to="CanvasLayer/data plate/Sell_plate/sellDataContainer" method="_on_child_exiting_tree"]
+[connection signal="item_rect_changed" from="CanvasLayer/data plate/Sell_plate/input_button" to="CanvasLayer/data plate/Sell_plate/input_button" method="_on_item_rect_changed"]
+[connection signal="pressed" from="CanvasLayer/data plate/Sell_plate/input_button" to="CanvasLayer/data plate/Sell_plate/input_button" method="_on_pressed"]
 [connection signal="resized" from="CanvasLayer/down" to="CanvasLayer/down" method="_on_resized"]
 [connection signal="child_entered_tree" from="CanvasLayer/down/HBoxContainer" to="CanvasLayer/down/HBoxContainer" method="_on_child_entered_tree"]
 [connection signal="child_exiting_tree" from="CanvasLayer/down/HBoxContainer" to="CanvasLayer/down/HBoxContainer" method="_on_child_exiting_tree"]
