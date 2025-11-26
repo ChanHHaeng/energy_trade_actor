@@ -1,4 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://b73dwwc1p720r"]
+[gd_scene load_steps=7 format=3 uid="uid://b73dwwc1p720r"]
+
+[ext_resource type="Shader" uid="uid://crik74lgw6paf" path="res://assets/plan.gdshader" id="1_utm2i"]
 
 [sub_resource type="Animation" id="Animation_utm2i"]
 length = 0.001
@@ -75,6 +77,12 @@ corner_radius_bottom_left = 20
 shadow_size = 2
 shadow_offset = Vector2(0, 1)
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_utm2i"]
+shader = ExtResource("1_utm2i")
+shader_parameter/base_color = Color(0.5, 0.55, 0.56, 1)
+shader_parameter/highlight_strength = 0.0
+shader_parameter/resolution = Vector2(443, 231)
+
 [node name="Node" type="Node"]
 
 [node name="Line2D" type="Line2D" parent="."]
@@ -104,3 +112,10 @@ offset_top = 354.0
 offset_right = 973.0
 offset_bottom = 555.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_pvio1")
+
+[node name="metal" type="Panel" parent="."]
+material = SubResource("ShaderMaterial_utm2i")
+offset_left = 662.0
+offset_top = 68.0
+offset_right = 1105.0
+offset_bottom = 299.0

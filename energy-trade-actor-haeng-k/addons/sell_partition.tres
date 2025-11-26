@@ -1,0 +1,12 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://c7xdvw7aar56s"]
+
+[ext_resource type="Shader" uid="uid://b0t4tqmbyh2gk" path="res://timer.gdshader" id="1_0g0m4"]
+
+[resource]
+shader = ExtResource("1_0g0m4")
+shader_parameter/length = 200.0
+shader_parameter/thickness = 26.854
+shader_parameter/aa = 3.0
+shader_parameter/fill_color = Color(1, 1, 1, 1)
+shader_parameter/line_color = Color(0, 0, 0, 1)
+shader_parameter/line_width = 2.0

@@ -116,7 +116,7 @@ func handle_mouse_click(event: InputEvent) -> void:
 		
 func follow_mouse(delta: float) -> void:
 	if not following_mouse: return
-	if get_child(0).get_viewport().gui_get_focus_owner() is LineEdit: return
+	if get_child(0).get_viewport().gui_get_focus_owner() is LineEdit or get_child(0).get_viewport().gui_get_focus_owner() is Button: return
 	var mouse_pos: Vector2 = get_global_mouse_position()
 	if bin_activated:
 		self.scale=Vector2(0.5,0.5)

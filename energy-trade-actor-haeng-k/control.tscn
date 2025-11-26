@@ -1,4 +1,4 @@
-[gd_scene load_steps=73 format=3 uid="uid://d1gwqkrd33l0v"]
+[gd_scene load_steps=72 format=3 uid="uid://d1gwqkrd33l0v"]
 
 [ext_resource type="ButtonGroup" uid="uid://c23vsaa7035ln" path="res://subthings/menubuttongrout.tres" id="1_0fbet"]
 [ext_resource type="Script" uid="uid://bt2hnocu2gnnm" path="res://scripts/Main.gd" id="1_qtu10"]
@@ -36,7 +36,7 @@ bg_color = Color(1, 1, 1, 1)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_w5605"]
 shader = ExtResource("2_2pj6v")
-shader_parameter/top_color = Color(0.164706, 0.176471, 0.588235, 1)
+shader_parameter/top_color = Color(0.486275, 0.690196, 0.901961, 1)
 shader_parameter/bottom_color = Color(0.4, 0.882353, 0.862745, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b3rfh"]
@@ -56,23 +56,6 @@ shader_parameter/bottom_color = Color(0.4, 0.882353, 0.862745, 1)
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_n8v1s"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wfgqd"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sky72"]
-content_margin_left = 16.0
-content_margin_top = 16.0
-content_margin_right = 16.0
-content_margin_bottom = 16.0
-bg_color = Color(0, 1, 0.871, 1)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-border_color = Color(0.768627, 1, 0.945098, 1)
-corner_radius_bottom_right = 30
-corner_radius_bottom_left = 30
-shadow_color = Color(0, 0, 0, 0.1)
-shadow_size = 10
-shadow_offset = Vector2(0, 6)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kpl8e"]
 
@@ -253,9 +236,9 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_b3rfh")
 z_index = 1
 layout_mode = 0
 offset_left = 32.0
-offset_top = 30.0
+offset_top = 2.0
 offset_right = 1124.0
-offset_bottom = 94.0
+offset_bottom = 95.0
 theme_override_constants/separation = 3
 
 [node name="Trade" type="Button" parent="Panel/HBoxContainer"]
@@ -314,13 +297,12 @@ text = "My Page"
 script = ExtResource("2_62e2m")
 page_num = 2
 
-[node name="Panel" type="Panel" parent="Panel"]
-layout_mode = 0
+[node name="Panel" type="Control" parent="Panel"]
+anchors_preset = 0
 offset_left = 32.0
 offset_top = 93.0
 offset_right = 1124.0
 offset_bottom = 615.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_sky72")
 script = ExtResource("7_5axgr")
 
 [node name="Trade page" type="Panel" parent="Panel/Panel"]
@@ -1071,7 +1053,7 @@ unique_name_in_owner = true
 
 [node name="warring" type="Panel" parent="."]
 visible = false
-z_index = 1
+z_index = 2
 layout_mode = 0
 offset_left = 378.0
 offset_top = 275.0

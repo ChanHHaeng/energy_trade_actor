@@ -1,4 +1,4 @@
-extends Panel
+extends Control
 
 enum page{Trade,Catalogue,MyPage}
 signal tweenend
@@ -83,6 +83,7 @@ func change_window(pages:page,nextpage:page):
 		if i==nextpage:
 			pagearray[(i+1)%3].position.x=16
 			pagearray[(i+2)%3].position.x=16
+			pagearray[i].z_index=0
 		else:
 			pagearray[i].scale=Vector2(1,1)
 			pagearray[i].visible=false

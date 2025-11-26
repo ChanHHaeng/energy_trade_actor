@@ -94,4 +94,4 @@ func get_data() -> Array:
 
 
 func button_position():
-	input_button.position=Vector2(22,51)+(Vector2(186,0)*len(get_children()))
+	input_button.position=Vector2(26,57.5)+(Vector2(186,0)*len(get_children()))
