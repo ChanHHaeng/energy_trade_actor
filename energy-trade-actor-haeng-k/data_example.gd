@@ -58,7 +58,7 @@ func _ready() -> void:
 	#price_line.text=_price
 	#price_line.prev_text=_amount
 	#collision_shape.set_deferred("disabled", true)
-	material=material.duplicate()
+	#material=material.duplicate()
 	await get_tree().process_frame
 	%Amount_line.connect("focus_entered", func():
 		move_impossible=true

@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://cp8w221tlk855"]
+[gd_scene load_steps=29 format=3 uid="uid://cp8w221tlk855"]
 
 [ext_resource type="StyleBox" uid="uid://culdypgrpq6gl" path="res://assets/data_example_buy.tres" id="1_4mnhb"]
 [ext_resource type="Script" uid="uid://c5nffhiuc87op" path="res://data_example.gd" id="1_5ls5o"]
@@ -9,56 +9,54 @@
 [ext_resource type="Texture2D" uid="uid://br5f6p4evdcyk" path="res://assets/realx.svg" id="7_g1htm"]
 [ext_resource type="StyleBox" uid="uid://bcvi8t0vxgaow" path="res://assets/total_Line_Up.tres" id="7_p4abo"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_g1htm"]
-shader = ExtResource("1_8iv6f")
-shader_parameter/rect_size = Vector2(141, 142)
-shader_parameter/fov = 1.0
-shader_parameter/cull_back = false
-shader_parameter/y_rot = 0.0
-shader_parameter/x_rot = 0.0
-shader_parameter/inset = 0.0
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_p4abo"]
+blend_mode = 1
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bsebe"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g1htm"]
-bg_color = Color(1, 1, 1, 1)
-border_width_bottom = 3
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p4abo"]
+bg_color = Color(1, 1, 1, 0.192157)
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
 corner_radius_top_left = 5
 corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
+shadow_color = Color(0.678944, 0.678944, 0.678944, 1)
+shadow_size = 2
+shadow_offset = Vector2(0, -1)
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_7wena"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5ls5o"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p4abo"]
-bg_color = Color(1, 1, 1, 1)
-border_width_bottom = 3
-corner_radius_top_left = 5
-corner_radius_top_right = 5
-corner_radius_bottom_right = 5
-corner_radius_bottom_left = 5
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_5i1eh"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_opmh4"]
-bg_color = Color(0.999971, 0.476399, 0.491032, 1)
-border_width_left = 3
-border_width_top = 3
-border_width_right = 3
-border_width_bottom = 3
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5i1eh"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7wena"]
+bg_color = Color(1, 1, 1, 1)
+border_width_top = 1
 border_color = Color(1, 1, 1, 1)
 corner_radius_top_left = 30
 corner_radius_top_right = 30
 corner_radius_bottom_right = 30
 corner_radius_bottom_left = 30
+shadow_color = Color(0.374139, 0.374139, 0.374139, 0.6)
+shadow_size = 1
+shadow_offset = Vector2(0, 1)
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5i1eh"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7wena"]
-bg_color = Color(1, 0.6, 0.6, 0.568627)
-border_color = Color(1, 1, 1, 0)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_opmh4"]
+bg_color = Color(0.864675, 0.864675, 0.864675, 1)
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
 corner_radius_top_left = 30
 corner_radius_top_right = 30
 corner_radius_bottom_right = 30
 corner_radius_bottom_left = 30
+expand_margin_bottom = 1.0
+shadow_color = Color(0.374139, 0.374139, 0.374139, 0.6)
+shadow_offset = Vector2(0, -1)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_g1htm"]
 
@@ -68,6 +66,21 @@ corner_radius_bottom_left = 30
 bg_color = Color(0.3589, 0.97, 0.796855, 0.376471)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_p4abo"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_opmh4"]
+blend_mode = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5i1eh"]
+bg_color = Color(0.6, 0.6, 0.6, 0.0862745)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_g1htm"]
+shader = ExtResource("1_8iv6f")
+shader_parameter/rect_size = Vector2(141, 142)
+shader_parameter/fov = 1.0
+shader_parameter/cull_back = false
+shader_parameter/y_rot = 0.0
+shader_parameter/x_rot = 0.0
+shader_parameter/inset = 0.0
 
 [sub_resource type="Animation" id="Animation_8iv6f"]
 resource_name = "Panel_trash"
@@ -106,7 +119,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0, 0.15, 0.3),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(0.1, 1), Vector2(0.1, 1), Vector2(1, 1)]
+"values": [Vector2(0, 1), Vector2(0, 1), Vector2(1, 1)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -115,7 +128,7 @@ tracks/3/path = NodePath("SubViewport/Back:visible")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.17),
+"times": PackedFloat32Array(0, 0.15),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [true, false]
@@ -209,7 +222,6 @@ _data = {
 }
 
 [node name="Panel" type="SubViewportContainer"]
-material = SubResource("ShaderMaterial_g1htm")
 custom_minimum_size = Vector2(156, 214)
 anchors_preset = -1
 anchor_left = 0.282
@@ -232,6 +244,7 @@ size = Vector2i(156, 214)
 render_target_update_mode = 4
 
 [node name="Panel" type="Panel" parent="SubViewport"]
+material = SubResource("CanvasItemMaterial_p4abo")
 custom_minimum_size = Vector2(136, 194)
 anchors_preset = 8
 anchor_left = 0.5
@@ -248,28 +261,32 @@ pivot_offset = Vector2(73, 102)
 theme_override_styles/panel = ExtResource("1_4mnhb")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="SubViewport/Panel"]
-layout_mode = 2
+layout_mode = 1
+anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -65.0
-offset_top = -68.0
-offset_right = 66.0
-offset_bottom = 95.0
+offset_top = -81.0
+offset_right = 59.0
+offset_bottom = 82.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 0
+theme_override_constants/separation = 5
 
 [node name="VBoxContainer3" type="VBoxContainer" parent="SubViewport/Panel/HBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
 theme_override_constants/separation = 15
 
 [node name="Amount" type="Label" parent="SubViewport/Panel/HBoxContainer/VBoxContainer3"]
 custom_minimum_size = Vector2(0, 25)
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("5_8iv6f")
-theme_override_font_sizes/font_size = 11
+theme_override_font_sizes/font_size = 15
 text = " Amount"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -277,8 +294,9 @@ vertical_alignment = 1
 [node name="price" type="Label" parent="SubViewport/Panel/HBoxContainer/VBoxContainer3"]
 custom_minimum_size = Vector2(0, 25)
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("5_8iv6f")
-theme_override_font_sizes/font_size = 11
+theme_override_font_sizes/font_size = 15
 text = "Price"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -286,13 +304,15 @@ vertical_alignment = 1
 [node name="total" type="Label" parent="SubViewport/Panel/HBoxContainer/VBoxContainer3"]
 custom_minimum_size = Vector2(0, 25)
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("5_8iv6f")
-theme_override_font_sizes/font_size = 11
+theme_override_font_sizes/font_size = 15
 text = "Total"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="SubViewport/Panel/HBoxContainer"]
+visible = false
 layout_mode = 2
 theme_override_constants/separation = 15
 
@@ -324,6 +344,8 @@ vertical_alignment = 1
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="SubViewport/Panel/HBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
 theme_override_constants/separation = 15
 
 [node name="Amount_line" type="LineEdit" parent="SubViewport/Panel/HBoxContainer/VBoxContainer2"]
@@ -334,13 +356,14 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("3_fpbtu")
 theme_override_font_sizes/font_size = 12
 theme_override_styles/focus = SubResource("StyleBoxEmpty_bsebe")
-theme_override_styles/normal = SubResource("StyleBoxFlat_g1htm")
+theme_override_styles/normal = SubResource("StyleBoxFlat_p4abo")
 alignment = 1
 caret_blink = true
 script = ExtResource("3_cie5t")
 
 [node name="price_line" type="LineEdit" parent="SubViewport/Panel/HBoxContainer/VBoxContainer2"]
 unique_name_in_owner = true
+material = SubResource("CanvasItemMaterial_7wena")
 layout_mode = 2
 theme_override_colors/caret_color = Color(0, 0, 0, 1)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
@@ -367,29 +390,23 @@ editable = false
 script = ExtResource("3_cie5t")
 ops_mode = 2
 
-[node name="Panel" type="Panel" parent="SubViewport/Panel"]
-layout_mode = 0
-offset_left = 121.0
-offset_top = -10.0
-offset_right = 146.0
-offset_bottom = 15.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_opmh4")
-
-[node name="Button" type="Button" parent="SubViewport/Panel"]
+[node name="suicide_Button" type="Button" parent="SubViewport/Panel"]
+material = SubResource("CanvasItemMaterial_5i1eh")
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -12.0
-offset_top = -7.0
-offset_right = 7.0
-offset_bottom = 12.0
+offset_left = -23.0
+offset_top = 5.0
+offset_right = -4.0
+offset_bottom = 24.0
 grow_horizontal = 0
 theme_override_styles/focus = SubResource("StyleBoxEmpty_5i1eh")
 theme_override_styles/hover = SubResource("StyleBoxFlat_7wena")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_opmh4")
 theme_override_styles/normal = SubResource("StyleBoxFlat_7wena")
 
-[node name="Label" type="Label" parent="SubViewport/Panel/Button"]
+[node name="Label" type="Label" parent="SubViewport/Panel/suicide_Button"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -426,13 +443,31 @@ expand_icon = true
 
 [node name="Back" type="Panel" parent="SubViewport"]
 visible = false
+material = SubResource("CanvasItemMaterial_opmh4")
+custom_minimum_size = Vector2(136, 194)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -68.0
+offset_top = -97.0
+offset_right = 68.0
+offset_bottom = 97.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(73, 102)
+theme_override_styles/panel = ExtResource("1_4mnhb")
+
+[node name="Panel2" type="Panel" parent="SubViewport"]
+visible = false
+z_index = -1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-pivot_offset = Vector2(73, 102)
-theme_override_styles/panel = ExtResource("1_4mnhb")
+theme_override_styles/panel = SubResource("StyleBoxFlat_5i1eh")
 
 [node name="Panel" type="Panel" parent="."]
 visible = false
@@ -447,4 +482,5 @@ libraries = {
 [connection signal="gui_input" from="." to="." method="_on_gui_input"]
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="pressed" from="SubViewport/Panel/suicide_Button" to="." method="_on_suicide_button_pressed"]
 [connection signal="pressed" from="SubViewport/suicide_Button" to="." method="_on_suicide_button_pressed"]

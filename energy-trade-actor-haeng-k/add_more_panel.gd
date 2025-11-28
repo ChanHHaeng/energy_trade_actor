@@ -16,9 +16,9 @@ var disabling=false
 var count=0
 func _on_pressed() -> void:
 	var examples=example.instantiate()
-	if mode==1:
-		examples.get_node("SubViewport/Panel").add_theme_stylebox_override('panel',example_sell)
-		examples.get_node("SubViewport/Back").add_theme_stylebox_override('panel',example_sell)
+	#if mode==1:
+		#examples.get_node("SubViewport/Panel").add_theme_stylebox_override('panel',example_sell)
+		#examples.get_node("SubViewport/Back").add_theme_stylebox_override('panel',example_sell)
 	examples.name=str(count+1)
 	count+=1
 	#%trash.disabbled()
@@ -29,7 +29,8 @@ func _on_pressed() -> void:
 		self.visible=true
 	
 func _draw() -> void:
-	draw_dotted_rect(Rect2(Vector2(0,0),self.size),linecolor, false ,30, 28, 2)
+	#draw_dotted_rect(Rect2(Vector2(0,0),self.size),linecolor, false ,30, 28, 2)
+	pass
 
 
 func draw_dotted_rect(rect: Rect2, color: Color, filled: bool = false, dot_size: float = 4.0, gap: float = 4.0, width:int=1) -> void:

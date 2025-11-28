@@ -4,6 +4,7 @@ var sell_check
 var buy_check
 
 var data_ready=false
+@onready var Trade_page = get_node("Panel/Core/Trade page")
 
 func _ready() -> void:
 	$HTTPRequest_buildings.request_completed.connect(_on_building_completed)
@@ -64,8 +65,8 @@ func sortingdata_buy(a,b): ##내림차순
 func check_all_ready():
 	if buy_check and sell_check:
 		data_ready=true
-		if $"Panel/Panel/Trade page".visible:
-			$"Panel/Panel/Trade page".setting()
+		if Trade_page.visible:
+			Trade_page.setting()
 		
 func show_warring():
 	print("warring!")

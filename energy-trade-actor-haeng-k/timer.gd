@@ -12,8 +12,8 @@ var buy_amount
 var sell_amount
 var checkingmode = false
 
-var no_color = Color(0.882, 0.882, 0.882)
-var yes_color = Color(0.48, 0.48, 0.48)
+var no_color = Color(0.8, 0.8, 0.8)
+var yes_color = Color(0.1, 0.1, 0.1)
 func _ready() -> void:
 	%"data plate".visible=false
 	self.button_group=time_button_group
