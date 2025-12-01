@@ -5,6 +5,7 @@
 [ext_resource type="Shader" uid="uid://l0dytbei4sd" path="res://fake_3d.gdshader" id="1_8iv6f"]
 [ext_resource type="Script" uid="uid://cs4cme26ngjks" path="res://line_edit.gd" id="3_cie5t"]
 [ext_resource type="FontFile" path="res://fonts/montreal/Montreal.tres" id="3_fpbtu"]
+[ext_resource type="StyleBox" uid="uid://bfptmptf6rnkx" path="res://assets/data_input.tres" id="5_7wena"]
 [ext_resource type="FontFile" uid="uid://csmx1oqbsflns" path="res://fonts/montreal/Montreal-Regular.ttf" id="5_8iv6f"]
 [ext_resource type="Texture2D" uid="uid://br5f6p4evdcyk" path="res://assets/realx.svg" id="7_g1htm"]
 [ext_resource type="StyleBox" uid="uid://bcvi8t0vxgaow" path="res://assets/total_Line_Up.tres" id="7_p4abo"]
@@ -13,18 +14,6 @@
 blend_mode = 1
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bsebe"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p4abo"]
-bg_color = Color(1, 1, 1, 0.192157)
-border_width_bottom = 2
-border_color = Color(1, 1, 1, 1)
-corner_radius_top_left = 5
-corner_radius_top_right = 5
-corner_radius_bottom_right = 5
-corner_radius_bottom_left = 5
-shadow_color = Color(0.678944, 0.678944, 0.678944, 1)
-shadow_size = 2
-shadow_offset = Vector2(0, -1)
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_7wena"]
 
@@ -356,7 +345,7 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("3_fpbtu")
 theme_override_font_sizes/font_size = 12
 theme_override_styles/focus = SubResource("StyleBoxEmpty_bsebe")
-theme_override_styles/normal = SubResource("StyleBoxFlat_p4abo")
+theme_override_styles/normal = ExtResource("5_7wena")
 alignment = 1
 caret_blink = true
 script = ExtResource("3_cie5t")
@@ -370,7 +359,7 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("3_fpbtu")
 theme_override_font_sizes/font_size = 12
 theme_override_styles/focus = SubResource("StyleBoxEmpty_5ls5o")
-theme_override_styles/normal = SubResource("StyleBoxFlat_p4abo")
+theme_override_styles/normal = ExtResource("5_7wena")
 alignment = 1
 script = ExtResource("3_cie5t")
 ops_mode = 1

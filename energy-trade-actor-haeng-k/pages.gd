@@ -1,4 +1,4 @@
-extends Panel
+extends Control
 
 
 func _on_optioncontainer_child_entered_tree(node: Node) -> void:

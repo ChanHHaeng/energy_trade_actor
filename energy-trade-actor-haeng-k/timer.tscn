@@ -38,10 +38,13 @@ bg_color = Color(1, 1, 1, 0.47451)
 border_width_top = 2
 border_color = Color(1, 1, 1, 1)
 border_blend = true
-corner_radius_top_left = 20
-corner_radius_top_right = 20
-corner_radius_bottom_right = 20
-corner_radius_bottom_left = 20
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+shadow_color = Color(0.788235, 0.788235, 0.788235, 0.239216)
+shadow_size = 1
+shadow_offset = Vector2(0, 2)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3qjk2"]
 
@@ -410,6 +413,7 @@ metadata/_edit_horizontal_guides_ = [600.0, 110.0]
 metadata/_edit_vertical_guides_ = [48.0, 1108.0, -70.0]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="data plate" type="Panel" parent="CanvasLayer"]
 unique_name_in_owner = true
@@ -664,6 +668,7 @@ mode = 1
 
 [node name="input_button" type="Button" parent="CanvasLayer/data plate/Sell_plate"]
 z_index = 2
+layout_mode = 0
 offset_left = 26.0
 offset_top = 57.5
 offset_right = 162.0
@@ -714,6 +719,7 @@ begin_cap_mode = 2
 end_cap_mode = 2
 
 [node name="Line2D" type="Line2D" parent="CanvasLayer/data plate/Sell_plate"]
+visible = false
 points = PackedVector2Array(187, 46, 187, 260)
 width = 3.0
 default_color = Color(0.377919, 0.377919, 0.377919, 1)
@@ -721,6 +727,7 @@ begin_cap_mode = 2
 end_cap_mode = 2
 
 [node name="Line2D2" type="Line2D" parent="CanvasLayer/data plate/Sell_plate"]
+visible = false
 points = PackedVector2Array(373, 46, 373, 260)
 width = 4.0
 default_color = Color(0.377919, 0.377919, 0.377919, 1)
@@ -728,6 +735,7 @@ begin_cap_mode = 2
 end_cap_mode = 2
 
 [node name="Line2D3" type="Line2D" parent="CanvasLayer/data plate/Sell_plate"]
+visible = false
 points = PackedVector2Array(559, 46, 559, 260)
 width = 3.0
 default_color = Color(0.377919, 0.377919, 0.377919, 1)
@@ -735,6 +743,7 @@ begin_cap_mode = 2
 end_cap_mode = 2
 
 [node name="Line2D4" type="Line2D" parent="CanvasLayer/data plate/Sell_plate"]
+visible = false
 points = PackedVector2Array(745, 46, 745, 260)
 width = 4.0
 default_color = Color(0.377919, 0.377919, 0.377919, 1)

@@ -1,8 +1,12 @@
 extends Button
 
 
-var checkbox_normal=load("res://themes/checkbox_normal.tres")
+var checkbox_normal=load("res://themes/checkbox_back.tres")
 var checkbox_selected = load("res://themes/checkbox_selected.tres")
+
+@onready var border=get_node("border")
+@onready var background=get_node("border/background")
+@onready var toggle=get_node("border/background/toggle")
 
 func _on_mouse_entered() -> void:
 	#$Label.add_theme_color_override("font_color",Color(0.173, 0.0, 0.886))
@@ -20,12 +24,13 @@ func _on_mouse_exited() -> void:
 
 func _on_toggled(toggled_on: bool) -> void:
 	if toggled_on:
-		$Panel/Panel.position.x=22
-		$Panel.add_theme_stylebox_override("panel",checkbox_selected)
+		toggle.position.x=30
+		#background.add_theme_stylebox_override("panel",checkbox_selected)
 	else:
-		$Panel.add_theme_stylebox_override("panel",checkbox_normal)
-		$Panel/Panel.position.x=3
+		toggle.position.x=2
+		#background.add_theme_stylebox_override("panel",checkbox_normal)
 	
+	#데이터 분류 모드
 	%buy.onlymine=toggled_on
 	%sell.onlymine=toggled_on
 	%buy.dataset()

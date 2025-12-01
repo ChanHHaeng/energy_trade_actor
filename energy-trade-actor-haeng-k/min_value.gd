@@ -4,7 +4,7 @@ var prev_text=""
 var correct_form=false
 var value:int
 func _ready() -> void:
-	placeholder_text=self.name
+	#placeholder_text=self.name
 	text_changed.connect(texts_changed)
 	
 	## 7<X 가 발동하지 않는중

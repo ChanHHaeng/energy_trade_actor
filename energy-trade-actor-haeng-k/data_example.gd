@@ -67,8 +67,8 @@ func _ready() -> void:
 		move_impossible=false
 	)
 
-func _process(delta: float) -> void:
-	follow_mouse(delta)
+#func _process(delta: float) -> void:
+	#follow_mouse(delta)
 	
 
 
@@ -79,8 +79,8 @@ func _on_suicide_button_pressed() -> void:
 
 
 
-func _on_gui_input(event: InputEvent) -> void:
-	handle_mouse_click(event)
+#func _on_gui_input(event: InputEvent) -> void:
+	#handle_mouse_click(event)
 	
 func handle_mouse_click(event: InputEvent) -> void:
 	

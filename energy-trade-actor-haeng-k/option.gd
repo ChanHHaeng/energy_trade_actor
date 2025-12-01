@@ -1,12 +1,15 @@
-extends Label
+extends Button
 
 enum options {
 	time,
-	values,
-	prices
+	value,
+	price
 }
 
 var status:options
 
-func _on_suicide_button_pressed() -> void:
+
+
+
+func _on_pressed() -> void:
 	queue_free()

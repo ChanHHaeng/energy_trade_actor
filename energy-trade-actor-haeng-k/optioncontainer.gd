@@ -19,11 +19,11 @@ func _on_child_entered_tree(node: Node) -> void:
 			value_min=$"../values/insert".min
 			value_max=$"../values/insert".max
 		2:
-			price_min=$"../prices/insert".min
-			if $"../prices/insert".max==0:
+			price_min=$"../price/insert".min
+			if $"../price/insert".max==0:
 				price_max=10000000
 			else:
-				price_max=$"../prices/insert".max
+				price_max=$"../price/insert".max
 			
 	
 

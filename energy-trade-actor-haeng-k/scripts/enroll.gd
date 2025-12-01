@@ -11,6 +11,8 @@ var body_array_del=[]
 var value_list=[]
 var price_list=[]
 
+signal enrollsig(boolean)
+
 
 var pretable
 var newtable={
@@ -54,10 +56,15 @@ func _ready() -> void:
 	print($"..".get("timetable"))
 
 func _on_pressed() -> void:
-	#if $"../../../../enrolling".show_select() :
-		#pass
-	#else:
-		#return
+	%enrolling.show_select()
+	var result= await enrollsig
+	
+	if result:
+		pass
+	else:
+		return
+	
+	
 	newtable=$"..".timetable.duplicate(true)
 	var instance_table={}
 	for i in $"../GridContainer".get_children():
@@ -130,6 +137,7 @@ func on_request_del_completed(result, response_code, headers, jsonbody):
 	print("헤더:",headers)
 	var bodytext=jsonbody.get_string_from_utf8()
 	print(bodytext)
+	
 #func  disabling():
 	#for i in timelist:
 		#var index=i
@@ -152,3 +160,10 @@ func compare_table(instance_table:Dictionary) ->Dictionary:
 	
 	return bowl
 	
+
+
+
+
+
+func _on_enrolling_enrollsig(boolean: bool) -> void:
+	enrollsig.emit(boolean)
