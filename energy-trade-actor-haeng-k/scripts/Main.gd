@@ -7,29 +7,29 @@ var data_ready=false
 @onready var Trade_page = get_node("Panel/Core/Trade page")
 
 func _ready() -> void:
-	$HTTPRequest_buildings.request_completed.connect(_on_building_completed)
-	var err_build=$HTTPRequest_buildings.request(str(Global.postgrest)+":3000/buildings")
+	var _err_build=$HTTPRequest_buildings.request(str(Global.postgrest)+":3000/buildings")
 	%HTTPRequest_buy.request_completed.connect(_buy_completed)
 	%HTTPRequest_sell.request_completed.connect(_sell_completed)
-	var buy_err=%HTTPRequest_buy.request(str(Global.postgrest)+":3000/buy_data")
-	var sell_err=%HTTPRequest_sell.request(str(Global.postgrest)+":3000/sell_data")
-	var now=Time.get_datetime_string_from_system()
+	var _buy_err=%HTTPRequest_buy.request(str(Global.postgrest)+":3000/buy_data")
+	var _sell_err=%HTTPRequest_sell.request(str(Global.postgrest)+":3000/sell_data")
+	var _now=Time.get_datetime_string_from_system()
 	
-func _on_building_completed(a,b,c,d):
-	var jsontext=d.get_string_from_utf8()
+
 	
-func _sell_completed(a,b,c,d):
+func _sell_completed(_a,_b,_c,d):
 	Global.transaction_clear(1)
+	print("sell comple!")
 	var jsontext=d.get_string_from_utf8()
 	var result=JSON.parse_string(jsontext)
 	Global.sell_data=result.duplicate(true)
 	Global.sell_data.sort_custom(sortingdata_sell)
 	for i in Global.sell_data:
-		Global.transaction_sell[int(i["start_time"])].append([i["sell"],i["price"],int(i["building_id"])])
+		if i["date"]==Global.date:
+			Global.transaction_sell[int(i["start_time"])].append([i["sell"],i["price"],int(i["building_id"])])
 	sell_check=true
 	check_all_ready()
 	
-func _buy_completed(a,b,c,d):
+func _buy_completed(_a,_b,_c,d):
 	Global.transaction_clear(0)
 	var jsontext=d.get_string_from_utf8()
 	var result=JSON.parse_string(jsontext)
@@ -41,7 +41,7 @@ func _buy_completed(a,b,c,d):
 	check_all_ready()
 
 
-func sortingdata_sell(a,b): ##내림차순
+func sortingdata_sell(a,b): ##오름차순
 	if a["price"]<b["price"]:
 		return true
 	elif a["price"]>b["price"]:

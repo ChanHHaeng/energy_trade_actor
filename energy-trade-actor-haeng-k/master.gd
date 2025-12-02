@@ -1,52 +1,83 @@
-extends Panel
+extends Control
 
 
 @onready var userbox=load("res://userbox.tscn")
 
-func _ready() -> void:
-	self.visible=false
-	var now=Time.get_datetime_string_from_system()
+#func _ready() -> void:
+	#self.visible=false
+	#var now=Time.get_datetime_string_from_system()
 
-func _on_visibility_changed() -> void:
-	if Global.building_id==0:
-		$Label.text="Hello, Master!"
-	else:
-		$Label.text="Hello, User "+str(Global.building_id)+"! \nCheck your transaction result!"
-	if is_visible_in_tree():
-		Global.matching_result.clear()
-		var flag=true
-		for k in range(24): #시간별 탐색
-			var j = 0 # j:purchase 전용 단위
-			if len(Global.transaction_purchase[k])>0 and len(Global.transaction_bid[k])>0: #거래 가능 여부 확인
-				#print("time is", k)
-				#print(Global.transaction_purchase[k])
-				#print(Global.transaction_bid[k])
-				for i in len(Global.transaction_bid[k]):
-					while(Global.transaction_bid[k][i][0]>0 and j<len(Global.transaction_purchase[k])): 
-						if Global.transaction_purchase[k][j][1]>=Global.transaction_bid[k][i][1]: #거래 가능 (매칭 성사)
-							if Global.transaction_purchase[k][j][0]>Global.transaction_bid[k][i][0]:
-								Global.matching_result.append([Global.transaction_purchase[k][j][2],Global.transaction_bid[k][i][2],Global.transaction_bid[k][i][0],(Global.transaction_purchase[k][j][1]+Global.transaction_bid[k][i][1])/2,k])
-								Global.transaction_purchase[k][j][0]-=Global.transaction_bid[k][i][0]
-								Global.transaction_bid[k][i][0]=0
-							elif Global.transaction_purchase[k][j][0]<=Global.transaction_bid[k][i][0]:
-								Global.matching_result.append([j,i,Global.transaction_purchase[k][j][0],(Global.transaction_purchase[k][j][1]+Global.transaction_bid[k][i][1])/2,k])
-								Global.transaction_bid[k][i][0]-=Global.transaction_purchase[k][j][0]
-								Global.transaction_purchase[k][j][0]=0
-								j+=1
-						else:
-							flag=false
-							break
-					if !flag:
-						break
+func transactioning() -> void:
+	print("master mode on")
+	Global.matching_result.clear()
+	#print(Global.transaction_sell[7])
+	for k in range(24): #시간별 탐색
+		var i = 0 # i:판매 전용 단위
+		var j = 0 # j:구매 전용 단위
+		if (i<len(Global.transaction_sell[k]) and j<len(Global.transaction_buy[k])):
+			pass
+		else:continue
+		var sell_amount=Global.transaction_sell[k][i][0]
+		var buy_amount=Global.transaction_buy[k][j][0]
+		while(i<len(Global.transaction_sell[k]) and j<len(Global.transaction_buy[k])): #0: 양 1: 가격
+			if sell_amount==0:
+				sell_amount=Global.transaction_sell[k][i][0]
+			if buy_amount==0:
+				buy_amount=Global.transaction_buy[k][j][0]
 			
-		print(Global.matching_result)
-		for i in %bidContainer.get_children():
-			i.queue_free()
-			
-		for i in Global.matching_result:
-			var ub=userbox.instantiate()
-			ub.naming(i[0],i[1],i[2],i[3],i[4])
-			%bidContainer.add_child(ub)
+			if Global.transaction_sell[k][i][1]>Global.transaction_buy[k][j][1]:
+				break #판매>구매인 상태. 이후 거래는 의미없음.
+			#매수 확인 및 포인터 이동
+			if sell_amount==buy_amount:#상호 거래량이 동일한 경우
+				var middleGround=lerp(Global.transaction_sell[k][i][1],Global.transaction_buy[k][j][1],0.5)
+				Global.matching_result.append([
+					Global.date,
+					k,
+					middleGround,
+					sell_amount,
+					Global.transaction_buy[k][j][2],
+					Global.transaction_sell[k][i][2],
+					]) #날짜, 시간, 가격, 거래량, 구매자, 판매자
+				j+=1
+				i+=1
+				sell_amount=0
+				buy_amount=0
+				
+			elif sell_amount<buy_amount:#구매>판매일경우
+				var middleGround=lerp(Global.transaction_sell[k][i][1],Global.transaction_buy[k][j][1],0.5)
+				Global.matching_result.append([
+					Global.date,
+					k,
+					middleGround,
+					sell_amount,
+					Global.transaction_buy[k][j][2],
+					Global.transaction_sell[k][i][2],
+					]) #날짜, 시간, 가격, 거래량, 구매자, 판매자
+				buy_amount-=sell_amount #구매-판매
+				sell_amount=0
+				i+=1
+				
+				
+			elif sell_amount>buy_amount:#판매>구매일경우
+				var middleGround=lerp(Global.transaction_sell[k][i][1],Global.transaction_buy[k][j][1],0.5)
+				Global.matching_result.append([
+					Global.date,
+					k,
+					buy_amount,
+					middleGround,
+					Global.transaction_buy[k][j][2],
+					Global.transaction_sell[k][i][2],
+					]) #날짜, 시간, 가격, 거래량, 구매자, 판매자
+				sell_amount-=buy_amount
+				buy_amount=0
+				j+=1
+	
+	#print(Global.matching_result)
+	$"Master tree".dataset()
+		#for i in Global.matching_result:
+			#var ub=userbox.instantiate()
+			#ub.naming(i[0],i[1],i[2],i[3],i[4])
+			#%bidContainer.add_child(ub)
 			#var ub=userbox.instantiate()
 			#ub.custom_minimum_size.y+=20
 			#%purchaseContainer.add_child(ub)

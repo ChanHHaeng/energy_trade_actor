@@ -5,6 +5,7 @@ enum OpsMode{buy,sell}
 #var sorting_column
 var root
 var onlymine=false
+var onlytoday=false
 var save=[]
 
 var datebool=true
@@ -43,17 +44,18 @@ func dataset() ->void:
 			if %optioncontainer.value_min<=result[str(self.name)] and result[str(self.name)]<=%optioncontainer.value_max:
 				if %optioncontainer.price_min<=result["price"] and result["price"]<=%optioncontainer.price_max:
 					if !onlymine or int(result["building_id"])==Global.building_id:
-						save.append(result)
-						var item=create_item(root)
-						item.set_text(0,result["date"])
-						item.set_text(1,str(int(result["building_id"])))
-						item.set_text_alignment(1,HORIZONTAL_ALIGNMENT_CENTER)
-						item.set_text(2,str(int(result["start_time"])))
-						item.set_text_alignment(2,HORIZONTAL_ALIGNMENT_CENTER)
-						item.set_text(3,str(int(result[str(self.name)])))
-						item.set_text_alignment(3,HORIZONTAL_ALIGNMENT_CENTER)
-						item.set_text(4,str(int(result["price"])))
-						item.set_text_alignment(4,HORIZONTAL_ALIGNMENT_CENTER)
+						if !onlytoday or result["date"]==Global.date:
+							save.append(result)
+							var item=create_item(root)
+							item.set_text(0,result["date"])
+							item.set_text(1,str(int(result["building_id"])))
+							item.set_text_alignment(1,HORIZONTAL_ALIGNMENT_CENTER)
+							item.set_text(2,str(int(result["start_time"])))
+							item.set_text_alignment(2,HORIZONTAL_ALIGNMENT_CENTER)
+							item.set_text(3,str(int(result[str(self.name)])))
+							item.set_text_alignment(3,HORIZONTAL_ALIGNMENT_CENTER)
+							item.set_text(4,str(int(result["price"])))
+							item.set_text_alignment(4,HORIZONTAL_ALIGNMENT_CENTER)
 
 
 

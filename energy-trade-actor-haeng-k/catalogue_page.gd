@@ -49,19 +49,23 @@ func sortingdata_buy(a,b):
 		return false
 
 
-func _on_data_searching_sell_request_completed_sell(result: int, response_code: int, headers: PackedStringArray, body: PackedByteArray) -> void:
+func _on_data_searching_sell_request_completed_sell(result: int, response_code: int,
+ headers: PackedStringArray, body: PackedByteArray) -> void:
 	var jsontext=body.get_string_from_utf8()
 	var results=JSON.parse_string(jsontext)
 	Global.sell_data=results.duplicate(true)
 	Global.sell_data.sort_custom(sortingdata_sell)
+	Global.transaction_clear(1)
 	for i in Global.sell_data:
 		Global.transaction_sell[int(i["start_time"])].append([i["sell"],i["price"],int(i["building_id"])])	
 
 
-func _on_data_searching_buy_request_completed_buy(result: int, response_code: int, headers: PackedStringArray, body: PackedByteArray) -> void:
+func _on_data_searching_buy_request_completed_buy(result: int, response_code: int,
+ headers: PackedStringArray, body: PackedByteArray) -> void:
 	var jsontext=body.get_string_from_utf8()
 	var results=JSON.parse_string(jsontext)
 	Global.buy_data=results.duplicate(true)
 	Global.buy_data.sort_custom(sortingdata_buy)
+	Global.transaction_clear(0)
 	for i in Global.buy_data:
 		Global.transaction_buy[int(i["start_time"])].append([i["buy"],i["price"],int(i["building_id"])])

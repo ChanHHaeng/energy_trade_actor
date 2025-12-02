@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://ryurc2muk230"]
+[gd_scene load_steps=40 format=3 uid="uid://ryurc2muk230"]
 
 [ext_resource type="FontFile" path="res://fonts/montreal/Montreal.tres" id="1_acuhy"]
 [ext_resource type="Script" uid="uid://bqp8hlbau316u" path="res://timer.gd" id="1_qdhxh"]
@@ -6,7 +6,6 @@
 [ext_resource type="Script" uid="uid://qbtq388su3fu" path="res://h_box_container.gd" id="4_kpl8e"]
 [ext_resource type="StyleBox" uid="uid://c81oocjp1nep5" path="res://assets/upperpanel2.tres" id="4_skflu"]
 [ext_resource type="Script" uid="uid://6i3kqwqy2iso" path="res://add_more_panel.gd" id="5_kurt1"]
-[ext_resource type="StyleBox" uid="uid://dn6p1oj7w841s" path="res://assets/downpanel.tres" id="6_acuhy"]
 [ext_resource type="FontFile" uid="uid://8fbpgc4tqo1j" path="res://fonts/montreal/Montreal-Bold.ttf" id="6_kpl8e"]
 [ext_resource type="StyleBox" uid="uid://cjetnu2bp7fb4" path="res://assets/datacard_for_animation.tres" id="7_eypy5"]
 [ext_resource type="StyleBox" uid="uid://cikh0lpxyni8b" path="res://assets/datacard_for_animation_down.tres" id="8_7ocsi"]
@@ -15,13 +14,13 @@
 [ext_resource type="ButtonGroup" uid="uid://dteas0jhp1j5p" path="res://assets/buysellgroup.tres" id="9_ph1h4"]
 [ext_resource type="Script" uid="uid://b2ipybg8mvd3f" path="res://bin.gd" id="9_skflu"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_87wg0"]
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eypy5"]
 corner_radius_top_left = 5
 corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_87wg0"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_mc83r"]
 blend_mode = 1
@@ -31,7 +30,7 @@ size = Vector2(42, 43)
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_eqm1h"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_skflu"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_11as0"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mc83r"]
 bg_color = Color(1, 1, 1, 0.47451)
@@ -48,13 +47,13 @@ shadow_offset = Vector2(0, 2)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3qjk2"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_11as0"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_skflu"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ph1h4"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_eqm1h"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ws6qj"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_eqm1h"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ph1h4"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ph1h4"]
 blend_mode = 1
@@ -70,14 +69,14 @@ corner_radius_bottom_left = 20
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_f7no2"]
 blend_mode = 1
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mxtnu"]
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eqm1h"]
 bg_color = Color(0.294118, 0.294118, 0.294118, 0.301961)
 corner_radius_top_left = 10
 corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mxtnu"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ph1h4"]
 bg_color = Color(0, 0, 0, 0)
@@ -111,20 +110,6 @@ corner_radius_bottom_left = 20
 shadow_color = Color(0, 0, 0, 0.247059)
 shadow_size = 1
 shadow_offset = Vector2(0, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mxtnu"]
-bg_color = Color(1, 1, 1, 1)
-corner_radius_top_left = 15
-corner_radius_top_right = 15
-corner_radius_bottom_right = 15
-corner_radius_bottom_left = 15
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kurt1"]
-bg_color = Color(0.707967, 0.707967, 0.707966, 1)
-corner_radius_top_left = 15
-corner_radius_top_right = 15
-corner_radius_bottom_right = 15
-corner_radius_bottom_left = 15
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_acuhy"]
 bg_color = Color(0, 1, 0.870588, 1)
@@ -403,9 +388,9 @@ offset_bottom = 290.0
 theme_override_colors/font_color = Color(0.720467, 0.720468, 0.720467, 1)
 theme_override_colors/font_focus_color = Color(0.47451, 0.215686, 0.698039, 1)
 theme_override_fonts/font = ExtResource("1_acuhy")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_87wg0")
-theme_override_styles/hover = SubResource("StyleBoxFlat_eypy5")
 theme_override_styles/normal = ExtResource("2_skflu")
+theme_override_styles/hover = SubResource("StyleBoxFlat_eypy5")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_87wg0")
 toggle_mode = true
 text = "00:00"
 script = ExtResource("1_qdhxh")
@@ -413,7 +398,6 @@ metadata/_edit_horizontal_guides_ = [600.0, 110.0]
 metadata/_edit_vertical_guides_ = [48.0, 1108.0, -70.0]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="data plate" type="Panel" parent="CanvasLayer"]
 unique_name_in_owner = true
@@ -476,17 +460,17 @@ script = ExtResource("8_mc83r")
 material = SubResource("CanvasItemMaterial_eqm1h")
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
-theme_override_colors/font_hover_color = Color(0.360784, 0.360784, 0.360784, 1)
 theme_override_colors/font_color = Color(0.359069, 0.359069, 0.359069, 1)
 theme_override_colors/font_focus_color = Color(0, 0, 0, 0)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0.360784, 0.360784, 0.360784, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 22
-theme_override_styles/focus = SubResource("StyleBoxEmpty_skflu")
-theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_mc83r")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_3qjk2")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_mc83r")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_11as0")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_mc83r")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_3qjk2")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_mc83r")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_skflu")
 toggle_mode = true
 button_pressed = true
 button_group = ExtResource("9_ph1h4")
@@ -495,17 +479,17 @@ text = "Buy"
 [node name="Sell_Button" type="Button" parent="CanvasLayer/data plate/Button Container"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
-theme_override_colors/font_hover_color = Color(0.360784, 0.360784, 0.360784, 1)
 theme_override_colors/font_color = Color(0.360784, 0.360784, 0.360784, 1)
 theme_override_colors/font_focus_color = Color(0, 0, 0, 0)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0.360784, 0.360784, 0.360784, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 22
-theme_override_styles/focus = SubResource("StyleBoxEmpty_ph1h4")
-theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_mc83r")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_ws6qj")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_mc83r")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_eqm1h")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_mc83r")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_ws6qj")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_mc83r")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ph1h4")
 toggle_mode = true
 button_group = ExtResource("9_ph1h4")
 text = "Sell
@@ -548,7 +532,7 @@ script = ExtResource("4_kpl8e")
 
 [node name="input_button" type="Button" parent="CanvasLayer/data plate/Buy_plate"]
 z_index = 2
-layout_mode = 2
+layout_mode = 0
 offset_left = 26.0
 offset_top = 57.5
 offset_right = 162.0
@@ -557,10 +541,10 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 size_flags_stretch_ratio = 0.0
 theme_override_font_sizes/font_size = 20
-theme_override_styles/focus = SubResource("StyleBoxEmpty_mxtnu")
-theme_override_styles/hover = SubResource("StyleBoxFlat_eqm1h")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_eqm1h")
 theme_override_styles/normal = SubResource("StyleBoxFlat_eqm1h")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_eqm1h")
+theme_override_styles/hover = SubResource("StyleBoxFlat_eqm1h")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_mxtnu")
 icon_alignment = 1
 expand_icon = true
 script = ExtResource("5_kurt1")
@@ -677,10 +661,10 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 size_flags_stretch_ratio = 0.0
 theme_override_font_sizes/font_size = 20
-theme_override_styles/focus = SubResource("StyleBoxEmpty_mxtnu")
-theme_override_styles/hover = SubResource("StyleBoxFlat_eqm1h")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_eqm1h")
 theme_override_styles/normal = SubResource("StyleBoxFlat_eqm1h")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_eqm1h")
+theme_override_styles/hover = SubResource("StyleBoxFlat_eqm1h")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_mxtnu")
 icon_alignment = 1
 expand_icon = true
 script = ExtResource("5_kurt1")
@@ -759,95 +743,6 @@ offset_top = 66.0
 offset_right = 966.0
 offset_bottom = 379.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_7jrio")
-
-[node name="down" type="Panel" parent="CanvasLayer"]
-unique_name_in_owner = true
-visible = false
-custom_minimum_size = Vector2(17, 17)
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -554.0
-offset_top = 330.0
-offset_right = 562.0
-offset_bottom = 625.0
-grow_horizontal = 2
-theme_override_styles/panel = ExtResource("6_acuhy")
-
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/down"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_top = -71.0
-offset_bottom = 71.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/separation = 20
-script = ExtResource("4_kpl8e")
-
-[node name="Button" type="Button" parent="CanvasLayer/down"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -36.0
-offset_top = 50.0
-offset_right = -6.0
-offset_bottom = 130.0
-grow_horizontal = 0
-theme_override_font_sizes/font_size = 20
-theme_override_styles/focus = SubResource("StyleBoxEmpty_mxtnu")
-theme_override_styles/hover = SubResource("StyleBoxFlat_mxtnu")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_kurt1")
-theme_override_styles/normal = SubResource("StyleBoxFlat_mxtnu")
-script = ExtResource("5_kurt1")
-
-[node name="Line2D" type="Line2D" parent="CanvasLayer/down/Button"]
-position = Vector2(15, 40)
-rotation = -1.5708
-points = PackedVector2Array(0, 0, 6, 0, -6, 0)
-width = 2.0
-default_color = Color(0.133196, 0.133196, 0.133196, 1)
-
-[node name="Line2D2" type="Line2D" parent="CanvasLayer/down/Button"]
-position = Vector2(15, 40)
-points = PackedVector2Array(0, 0, 6, 0, -6, 0)
-width = 2.0
-default_color = Color(0.133333, 0.133333, 0.133333, 1)
-
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/down"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -36.0
-offset_top = -36.0
-offset_right = -6.0
-offset_bottom = -6.0
-grow_horizontal = 0
-grow_vertical = 0
-texture = ExtResource("8_rokg3")
-expand_mode = 1
-script = ExtResource("9_skflu")
-
-[node name="Label" type="Label" parent="CanvasLayer/down"]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -27.0
-offset_right = 27.0
-offset_bottom = 23.0
-grow_horizontal = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 13
-text = "sell 🪙"
-horizontal_alignment = 1
 
 [node name="total stack" type="Label" parent="."]
 unique_name_in_owner = true
@@ -946,7 +841,6 @@ libraries = {
 unique_name_in_owner = true
 visible = false
 z_index = -1
-layout_mode = 3
 anchors_preset = 0
 offset_left = 2.0
 offset_top = 46.0
@@ -1033,10 +927,3 @@ libraries = {
 [connection signal="child_exiting_tree" from="CanvasLayer/data plate/Sell_plate/sellDataContainer" to="CanvasLayer/data plate/Sell_plate/sellDataContainer" method="_on_child_exiting_tree"]
 [connection signal="item_rect_changed" from="CanvasLayer/data plate/Sell_plate/input_button" to="CanvasLayer/data plate/Sell_plate/input_button" method="_on_item_rect_changed"]
 [connection signal="pressed" from="CanvasLayer/data plate/Sell_plate/input_button" to="CanvasLayer/data plate/Sell_plate/input_button" method="_on_pressed"]
-[connection signal="resized" from="CanvasLayer/down" to="CanvasLayer/down" method="_on_resized"]
-[connection signal="child_entered_tree" from="CanvasLayer/down/HBoxContainer" to="CanvasLayer/down/HBoxContainer" method="_on_child_entered_tree"]
-[connection signal="child_exiting_tree" from="CanvasLayer/down/HBoxContainer" to="CanvasLayer/down/HBoxContainer" method="_on_child_exiting_tree"]
-[connection signal="pressed" from="CanvasLayer/down/Button" to="CanvasLayer/down/Button" method="_on_pressed"]
-[connection signal="gui_input" from="CanvasLayer/down/TextureRect" to="CanvasLayer/down/TextureRect" method="_on_gui_input"]
-[connection signal="mouse_entered" from="CanvasLayer/down/TextureRect" to="CanvasLayer/down/TextureRect" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="CanvasLayer/down/TextureRect" to="CanvasLayer/down/TextureRect" method="_on_mouse_exited"]

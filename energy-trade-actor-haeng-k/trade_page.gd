@@ -118,15 +118,15 @@ func change_window():
 	var catalogue_page=get_node("../Catalogue page")
 	var my_page=get_node("../My Page page")
 	var magni=Vector2(0.7,0.7)
-	var range=800
+	var length=800
 	catalogue_page.scale=magni
 	my_page.scale=magni
 	catalogue_page.visible=true
 	my_page.visible=true
 	catalogue_page.z_index=2
 	my_page.z_index=2
-	catalogue_page.position.x+=range
-	my_page.position.x-=range
+	catalogue_page.position.x+=length
+	my_page.position.x-=length
 	var tween=create_tween()
 	tween.parallel().tween_property(self,"scale",magni,0.2)
 	tween.tween_callback(
