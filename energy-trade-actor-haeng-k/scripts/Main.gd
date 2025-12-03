@@ -18,7 +18,6 @@ func _ready() -> void:
 	
 func _sell_completed(_a,_b,_c,d):
 	Global.transaction_clear(1)
-	print("sell comple!")
 	var jsontext=d.get_string_from_utf8()
 	var result=JSON.parse_string(jsontext)
 	Global.sell_data=result.duplicate(true)
@@ -36,7 +35,8 @@ func _buy_completed(_a,_b,_c,d):
 	Global.buy_data=result.duplicate(true)
 	Global.buy_data.sort_custom(sortingdata_buy)
 	for i in Global.buy_data:
-		Global.transaction_buy[int(i["start_time"])].append([i["buy"],i["price"],int(i["building_id"])])
+		if i["date"]==Global.date:
+			Global.transaction_buy[int(i["start_time"])].append([i["buy"],i["price"],int(i["building_id"])])
 	buy_check=true
 	check_all_ready()
 

@@ -8,7 +8,6 @@ extends Control
 	#var now=Time.get_datetime_string_from_system()
 
 func transactioning() -> void:
-	print("master mode on")
 	Global.matching_result.clear()
 	#print(Global.transaction_sell[7])
 	for k in range(24): #시간별 탐색
@@ -16,7 +15,8 @@ func transactioning() -> void:
 		var j = 0 # j:구매 전용 단위
 		if (i<len(Global.transaction_sell[k]) and j<len(Global.transaction_buy[k])):
 			pass
-		else:continue
+		else:
+			continue
 		var sell_amount=Global.transaction_sell[k][i][0]
 		var buy_amount=Global.transaction_buy[k][j][0]
 		while(i<len(Global.transaction_sell[k]) and j<len(Global.transaction_buy[k])): #0: 양 1: 가격

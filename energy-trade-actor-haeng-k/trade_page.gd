@@ -39,7 +39,8 @@ var _skew:float
 	5: [[], []],
 }
 
-
+func activate():
+	print("go")
 
 func react_input(flag:bool,node:Node):
 	if flag:

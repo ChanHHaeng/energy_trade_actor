@@ -13,6 +13,7 @@ func _on_toggled(toggled_on: bool) -> void:
 	if toggled_on:
 		core.change_window(core.nowpage,self.page_num)
 		core.nowpage=self.page_num
+		core.activate_window(page_num)
 		%menu_plate.position.x=self.page_num*364
 		%menu_plate.origin.x=self.page_num*364
 		self.disabled=true

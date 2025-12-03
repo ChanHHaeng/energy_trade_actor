@@ -92,3 +92,7 @@ func change_window(pages:page,nextpage:page):
 	var endtween=create_tween()
 	endtween.tween_property(pagearray[nextpage],"scale",Vector2(1,1),0.2)
 	print("go")
+
+func activate_window(next:page):
+	get_child(next).activate()
+	

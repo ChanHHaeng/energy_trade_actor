@@ -3,6 +3,7 @@ extends MenuButton
 @onready var glass=load("res://themes/greenglass.tres")
 @onready var optionscene=load("res://option.tscn")
 
+
 func _ready() -> void:
 	get_popup().max_size.y=150
 	get_popup().connect("index_pressed", Callable(self, "_on_index_pressed"))
@@ -11,6 +12,7 @@ func _ready() -> void:
 func _on_index_pressed(index: int) -> void:
 	get_popup().set_item_checked(index, !get_popup().is_item_checked(index))
 	if get_popup().is_item_checked(index):
+		
 		var option=optionscene.instantiate()
 		option.text="  "+get_popup().get_item_text(index)
 		option.name=get_popup().get_item_text(index)
@@ -18,7 +20,6 @@ func _on_index_pressed(index: int) -> void:
 		option.status=0
 		$"../optioncontainer".add_child(option)
 	elif !get_popup().is_item_checked(index):
-		#$"../optioncontainer".get_node(get_popup().get_item_text(index)).queue_free()
 		var nodename=get_popup().get_item_text(index)
 		nodename= nodename.replace(":","_")
 		print(nodename)
@@ -26,3 +27,8 @@ func _on_index_pressed(index: int) -> void:
 
 func _on_optioncontainer_child_exiting_tree(node: Node) -> void:
 	get_popup().set_item_checked(Global.TimeSlots.find(node.name),false)
+
+
+#func _on_about_to_popup() -> void:
+	#get_popup().maximize_disabled=false
+	get_popup().max_size.y=200

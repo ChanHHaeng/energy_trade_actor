@@ -14,7 +14,7 @@ var price_max=10000000
 func _on_child_entered_tree(node: Node) -> void:
 	match node.status:
 		0:
-			timeoption.append(int(str(node.name)[1]))
+			timeoption.append(int(str(node.name).substr(0,2)))
 		1:
 			value_min=$"../values/insert".min
 			value_max=$"../values/insert".max
@@ -31,7 +31,7 @@ func _on_child_entered_tree(node: Node) -> void:
 func _on_child_exiting_tree(node: Node) -> void:
 	match node.status:
 		0:
-			timeoption.erase(int(str(node.name)[1]))
+			timeoption.erase(int(str(node.name).substr(0,2)))
 		1:
 			value_min=0
 			value_max=1000000
