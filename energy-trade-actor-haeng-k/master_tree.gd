@@ -34,7 +34,10 @@ func dataset() ->void:
 	root=create_item()
 	var condtable=[0,1,4,5]
 	var valuetable=[2,3]
-	for result in Global.matching_result:
+	for result in Global.matching_result: #데이터 필터링 이후 입력
+		if Global.building_id!=0:
+			if result[4]!=Global.building_id and result[5]!=Global.building_id:
+				continue
 		var condflag=true
 		for i in condtable:
 			if str(result[i]) in fullcond[i] or len(fullcond[i])==0:
@@ -48,6 +51,7 @@ func dataset() ->void:
 				break
 		if !condflag:
 			continue
+			
 		var item=create_item(root)
 		item.set_text(0,str(result[0]))
 		item.set_text_alignment(0,HORIZONTAL_ALIGNMENT_CENTER)
@@ -59,10 +63,19 @@ func dataset() ->void:
 		item.set_text_alignment(3,HORIZONTAL_ALIGNMENT_CENTER)
 		item.set_text(4,"House number "+str(result[4]))
 		item.set_text_alignment(4,HORIZONTAL_ALIGNMENT_CENTER)
+		if result[4]==Global.building_id:
+			item.set_custom_color(4,Color.BLACK)
+			print("there?")
 		item.set_text(5,"House number "+str(result[5]))
 		item.set_text_alignment(5,HORIZONTAL_ALIGNMENT_CENTER)
-	
-	for result in Global.matching_result:
+		if result[5]==Global.building_id:
+			print("here!")
+			item.set_custom_color(5,Color.BLACK)
+	for result in Global.matching_result: #데이터 중복 검사 및 필터링 등록
+		if Global.building_id!=0:
+			if result[4]!=Global.building_id and result[5]!=Global.building_id:
+				continue
+		
 		var datemenu:PopupMenu= $Popups.get_child(0)
 		var frommenu:PopupMenu=$Popups.get_child(4)
 		var tomenu:PopupMenu=$Popups.get_child(5)

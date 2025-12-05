@@ -15,15 +15,15 @@ var amountbool=true
 var pricebool=true
 
 func _ready() -> void:
-	set_column_title(0,"date")
+	set_column_title(0,"Date")
 	set_column_custom_minimum_width(0,100)
-	set_column_title(1,"building_id")
+	set_column_title(1,"Building_id")
 	set_column_custom_minimum_width(1,30)
-	set_column_title(2,"time")
+	set_column_title(2,"Time")
 	set_column_custom_minimum_width(2,60)
-	set_column_title(3,"amount(kw)")
+	set_column_title(3,"Amount(kw)")
 	set_column_custom_minimum_width(3,60)
-	set_column_title(4,"price(₩)")
+	set_column_title(4,"Price(₩)")
 	set_column_custom_minimum_width(4,100)
 	y_sort_enabled=true
 	

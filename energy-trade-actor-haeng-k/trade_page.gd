@@ -40,7 +40,8 @@ var _skew:float
 }
 
 func activate():
-	print("go")
+	if $"../../..".data_ready:
+		setting()
 
 func react_input(flag:bool,node:Node):
 	if flag:
@@ -53,12 +54,6 @@ func _on_gui_input(event: InputEvent,node:Node) -> void: #화면 아무곳이나
 	if event is InputEventMouseButton and event.is_pressed():
 		node.button_pressed=false
 
-
-
-
-func _on_visibility_changed() -> void:
-	if visible and $"../../..".data_ready:
-		setting()
 	
 func setting():
 	timetable_clear()

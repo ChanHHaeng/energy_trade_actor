@@ -28,7 +28,9 @@ var _amount: String = ""
 		if amount_line:          # null 체크
 			amount_line.text = value
 			amount_line.prev_text=value
-			amount_line.correct_form=true
+			if value.is_valid_int():
+				amount_line.correct_form=true
+				amount_line.totalcheck()
 	get:
 		if amount_line:
 			return amount_line.text
@@ -41,7 +43,10 @@ var _price : String =""
 		if price_line:          # null 체크
 			price_line.text = value
 			price_line.prev_text=value
-			price_line.correct_form=true
+			if value.is_valid_int():
+				price_line.correct_form=true
+				price_line.totalcheck()
+				
 	get:
 		if price_line:
 			return price_line.text

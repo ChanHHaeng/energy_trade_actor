@@ -12,7 +12,7 @@ var matching_result=[]
 
 var date="2025-08-07"
 
-var building_id=30
+var building_id=12
 
 var now=13
 

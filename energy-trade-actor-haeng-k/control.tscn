@@ -1,4 +1,4 @@
-[gd_scene load_steps=87 format=4 uid="uid://d1gwqkrd33l0v"]
+[gd_scene load_steps=94 format=4 uid="uid://d1gwqkrd33l0v"]
 
 [ext_resource type="ButtonGroup" uid="uid://c23vsaa7035ln" path="res://subthings/menubuttongrout.tres" id="1_0fbet"]
 [ext_resource type="Script" uid="uid://bt2hnocu2gnnm" path="res://scripts/Main.gd" id="1_qtu10"]
@@ -1515,6 +1515,90 @@ shadow_offset = Vector2(0, 1)
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_gqja0"]
 
+[sub_resource type="ImageTexture" id="ImageTexture_jkes7"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gqja0"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(1, 1, 1, 0.4)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+corner_detail = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n8v1s"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(1, 1, 1, 0.75)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+corner_detail = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q6xdd"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.75, 0.75, 0.75, 0.75)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+corner_detail = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lqmkq"]
+content_margin_left = 4.0
+content_margin_top = 0.0
+content_margin_right = 4.0
+content_margin_bottom = 0.0
+bg_color = Color(0.1, 0.1, 0.1, 0.6)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+corner_detail = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_il8ev"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(1, 1, 1, 0.75)
+draw_center = false
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+
+[sub_resource type="Theme" id="Theme_l62jy"]
+VScrollBar/icons/decrement = SubResource("ImageTexture_jkes7")
+VScrollBar/icons/decrement_highlight = SubResource("ImageTexture_jkes7")
+VScrollBar/icons/decrement_pressed = SubResource("ImageTexture_jkes7")
+VScrollBar/icons/increment = SubResource("ImageTexture_jkes7")
+VScrollBar/icons/increment_highlight = SubResource("ImageTexture_jkes7")
+VScrollBar/icons/increment_pressed = SubResource("ImageTexture_jkes7")
+VScrollBar/styles/grabber = SubResource("StyleBoxFlat_gqja0")
+VScrollBar/styles/grabber_highlight = SubResource("StyleBoxFlat_n8v1s")
+VScrollBar/styles/grabber_pressed = SubResource("StyleBoxFlat_q6xdd")
+VScrollBar/styles/scroll = SubResource("StyleBoxFlat_lqmkq")
+VScrollBar/styles/scroll_focus = SubResource("StyleBoxFlat_il8ev")
+
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8v3ii"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3fl80"]
@@ -2265,6 +2349,7 @@ offset_right = 242.5
 offset_bottom = 152.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = SubResource("Theme_l62jy")
 theme_override_colors/title_button_color = Color(0, 0, 0, 1)
 theme_override_colors/guide_color = Color(1, 1, 1, 0.466667)
 theme_override_colors/font_selected_color = Color(0, 0, 0, 1)
@@ -2386,20 +2471,22 @@ script = ExtResource("19_kuuv8")
 
 [node name="Master tree" type="Tree" parent="Panel/Core/My Page page/Page"]
 unique_name_in_owner = true
+editor_description = "master-310, 140"
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -494.5
+offset_left = -494.0
 offset_top = -105.0
-offset_right = 494.5
-offset_bottom = 208.0
+offset_right = 495.0
+offset_bottom = 205.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_jkes7")
 theme_override_constants/draw_guides = 0
+theme_override_font_sizes/font_size = 16
 columns = 6
 column_titles_visible = true
 allow_reselect = true
@@ -2479,11 +2566,11 @@ size = Vector2i(173, 100)
 script = ExtResource("28_jkes7")
 status = 5
 
-[node name="Label" type="Label" parent="Panel/Core/My Page page/Page"]
+[node name="Welcome" type="Label" parent="Panel/Core/My Page page/Page"]
 layout_mode = 0
 offset_left = 27.0
 offset_top = 22.0
-offset_right = 228.0
+offset_right = 256.0
 offset_bottom = 64.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 30
@@ -2679,7 +2766,6 @@ grow_vertical = 2
 [connection signal="mouse_exited" from="Panel/Menu_Container/My Page" to="Panel/Menu_Container/My Page" method="_on_mouse_exited"]
 [connection signal="toggled" from="Panel/Menu_Container/My Page" to="Panel/Menu_Container/My Page" method="_on_toggled"]
 [connection signal="gui_input" from="Panel/Runway/menu_plate" to="Panel/Runway/menu_plate" method="_on_gui_input"]
-[connection signal="visibility_changed" from="Panel/Core/Trade page" to="Panel/Core/Trade page" method="_on_visibility_changed"]
 [connection signal="pressed" from="Panel/Core/Trade page/purchase_data" to="Panel/Core/Trade page/purchase_data" method="_on_pressed"]
 [connection signal="pressed" from="Panel/Core/Trade page/reset" to="Panel/Core/Trade page/reset" method="_on_pressed"]
 [connection signal="visibility_changed" from="Panel/Core/Catalogue page" to="Panel/Core/Catalogue page" method="_on_visibility_changed"]

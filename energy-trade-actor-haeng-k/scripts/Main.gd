@@ -24,7 +24,7 @@ func _sell_completed(_a,_b,_c,d):
 	Global.sell_data.sort_custom(sortingdata_sell)
 	for i in Global.sell_data:
 		if i["date"]==Global.date:
-			Global.transaction_sell[int(i["start_time"])].append([i["sell"],i["price"],int(i["building_id"])])
+			Global.transaction_sell[int(i["start_time"])].append([i["sell"],i["price"],int(i["building_id"]),false])
 	sell_check=true
 	check_all_ready()
 	
@@ -36,7 +36,7 @@ func _buy_completed(_a,_b,_c,d):
 	Global.buy_data.sort_custom(sortingdata_buy)
 	for i in Global.buy_data:
 		if i["date"]==Global.date:
-			Global.transaction_buy[int(i["start_time"])].append([i["buy"],i["price"],int(i["building_id"])])
+			Global.transaction_buy[int(i["start_time"])].append([i["buy"],i["price"],int(i["building_id"]),false])
 	buy_check=true
 	check_all_ready()
 

@@ -40,8 +40,9 @@ func texts_changed(new_text):
 		#print("hehe")
 		#print(get_owner().amount, " and " , get_owner().price)
 	#$"../insert".possible_check()
-	
-	
+	totalcheck()
+
+func totalcheck():
 	if %Amount_line.correct_form and %price_line.correct_form:
 		totalling()
 

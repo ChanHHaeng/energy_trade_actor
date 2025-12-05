@@ -7,8 +7,8 @@ enum page{Trade,Catalogue,MyPage}
 func _ready() -> void:
 	if Global.building_id==0 and name=="My Page":
 		print("heeeeeeeeeeeeeeeeeeeeee?")
-		self.text="master 📄"
-	
+		self.text="Master"
+
 func _on_toggled(toggled_on: bool) -> void:
 	if toggled_on:
 		core.change_window(core.nowpage,self.page_num)

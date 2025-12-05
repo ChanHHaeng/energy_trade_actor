@@ -9,7 +9,6 @@ extends Control
 
 func transactioning() -> void:
 	Global.matching_result.clear()
-	#print(Global.transaction_sell[7])
 	for k in range(24): #시간별 탐색
 		var i = 0 # i:판매 전용 단위
 		var j = 0 # j:구매 전용 단위

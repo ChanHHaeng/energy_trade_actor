@@ -80,8 +80,9 @@ func _on_pressed() -> void:
 	
 	var body_json_del=JSON.stringify(body_array_del)
 	%data_removing_buy.request(new_buy_url,headers,HTTPClient.METHOD_DELETE)
+	await %data_removing_buy.request_completed
 	%data_removing_sell.request(new_sell_url,headers,HTTPClient.METHOD_DELETE)
-	
+	await %data_removing_sell.request_completed
 	
 	for i in focus:
 		
@@ -113,7 +114,10 @@ func _on_pressed() -> void:
 	var body_json_buy=JSON.stringify(body_array_buy)
 	var body_json_sell=JSON.stringify(body_array_sell)
 	%data_sending_buy.request(buy_url,headers,HTTPClient.METHOD_POST,body_json_buy)
+	await %data_sending_buy.request_completed
 	%data_sending_sell.request(sell_url,headers,HTTPClient.METHOD_POST,body_json_sell)
+	await %data_sending_sell.request_completed
+	
 	#
 	#for i in timelist.duplicate():
 		#print("delete",i)

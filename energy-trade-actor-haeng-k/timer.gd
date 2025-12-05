@@ -32,6 +32,7 @@ func _on_toggled(toggled_on: bool) -> void:
 		$CanvasLayer.visible=false
 		%"data plate".visible=false
 		checking()
+		duplicate_sum()
 		stacking()
 		get_node("../../../../../Blur").visible=false
 
@@ -46,7 +47,6 @@ func add_item(array:Array):
 		var examples=example.instantiate()
 		examples.amount=str(array[1][i][0])
 		examples.price=str(array[1][i][1])
-		examples.get_node("SubViewport/Panel").add_theme_stylebox_override('panel',example_sell)
 		%sellDataContainer.add_child(examples)
 	stacking()
 	
@@ -91,7 +91,19 @@ func checking(): ## 빈 테이블 정리
 			get_node("../../../../..").show_warring()
 	await get_tree().process_frame
 	checkingmode=false
+
+func duplicate_sum():
+	for i in len(%buyDataContainer.get_children()):
+		for j in range(i+1,len(%buyDataContainer.get_children()),1):
+			if %buyDataContainer.get_child(i).price== %buyDataContainer.get_child(j).price:
+				%buyDataContainer.get_child(i).amount=str(int(%buyDataContainer.get_child(i).amount)+int(%buyDataContainer.get_child(j).amount))
+				%buyDataContainer.get_child(j).queue_free()
+				await get_tree().process_frame
+				
+				return await duplicate_sum()
 			
+		
+
 func reset():
 	for i in %buyDataContainer.get_children():
 		i.queue_free()

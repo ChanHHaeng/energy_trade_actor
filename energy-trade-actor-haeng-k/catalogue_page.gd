@@ -28,7 +28,7 @@ func _on_data_searching_buy_request_completed(result: int, response_code: int, h
 	Global.buy_data.sort_custom(sortingdata_buy)
 	for i in Global.buy_data:
 		if i["date"]==Global.date:
-			Global.transaction_buy[int(i["start_time"])].append([i["buy"],i["price"],int(i["building_id"])])
+			Global.transaction_buy[int(i["start_time"])].append([i["buy"],i["price"],int(i["building_id"]),false])
 		
 		
 		
@@ -63,7 +63,7 @@ func _on_data_searching_sell_request_completed_sell(result: int, response_code: 
 	Global.transaction_clear(1)
 	for i in Global.sell_data:
 		if i["date"]==Global.date:
-			Global.transaction_sell[int(i["start_time"])].append([i["sell"],i["price"],int(i["building_id"])])	
+			Global.transaction_sell[int(i["start_time"])].append([i["sell"],i["price"],int(i["building_id"]),false])	
 
 
 func _on_data_searching_buy_request_completed_buy(result: int, response_code: int,
@@ -75,4 +75,4 @@ func _on_data_searching_buy_request_completed_buy(result: int, response_code: in
 	Global.transaction_clear(0)
 	for i in Global.buy_data:
 		if i["date"]==Global.date:
-			Global.transaction_buy[int(i["start_time"])].append([i["buy"],i["price"],int(i["building_id"])])
+			Global.transaction_buy[int(i["start_time"])].append([i["buy"],i["price"],int(i["building_id"]),false])
