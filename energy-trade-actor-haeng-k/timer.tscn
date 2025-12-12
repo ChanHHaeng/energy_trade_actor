@@ -1175,7 +1175,6 @@ libraries = {
 
 [node name="buy_token" type="Control" parent="."]
 unique_name_in_owner = true
-visible = false
 z_index = -1
 layout_mode = 1
 anchors_preset = 7
@@ -1193,60 +1192,60 @@ mouse_filter = 2
 
 [node name="node" type="ColorRect" parent="buy_token"]
 z_index = 1
-custom_minimum_size = Vector2(8, 8)
+custom_minimum_size = Vector2(8, 2)
 layout_mode = 2
 offset_left = 8.0
 offset_top = 1.0
 offset_right = 16.0
-offset_bottom = 9.0
+offset_bottom = 3.0
 pivot_offset = Vector2(4, 4)
 mouse_filter = 2
 color = Color(0.0826735, 0.59988, 1, 1)
 
 [node name="node2" type="ColorRect" parent="buy_token"]
 z_index = 1
-custom_minimum_size = Vector2(8, 8)
+custom_minimum_size = Vector2(8, 2)
 layout_mode = 2
 offset_left = 22.0
 offset_top = 1.0
 offset_right = 30.0
-offset_bottom = 9.0
+offset_bottom = 3.0
 pivot_offset = Vector2(4, 4)
 mouse_filter = 2
 color = Color(0.0826735, 0.59988, 1, 1)
 
 [node name="node3" type="ColorRect" parent="buy_token"]
 z_index = 1
-custom_minimum_size = Vector2(8, 8)
+custom_minimum_size = Vector2(8, 2)
 layout_mode = 2
 offset_left = 36.0
 offset_top = 1.0
 offset_right = 44.0
-offset_bottom = 9.0
+offset_bottom = 3.0
 pivot_offset = Vector2(4, 4)
 mouse_filter = 2
 color = Color(0.0826735, 0.59988, 1, 1)
 
 [node name="node4" type="ColorRect" parent="buy_token"]
 z_index = 1
-custom_minimum_size = Vector2(8, 8)
+custom_minimum_size = Vector2(8, 2)
 layout_mode = 2
 offset_left = 50.0
 offset_top = 1.0
 offset_right = 58.0
-offset_bottom = 9.0
+offset_bottom = 3.0
 pivot_offset = Vector2(4, 4)
 mouse_filter = 2
 color = Color(0.0826735, 0.59988, 1, 1)
 
 [node name="node5" type="ColorRect" parent="buy_token"]
 z_index = 1
-custom_minimum_size = Vector2(8, 8)
+custom_minimum_size = Vector2(8, 2)
 layout_mode = 2
 offset_left = 64.0
 offset_top = 1.0
 offset_right = 72.0
-offset_bottom = 9.0
+offset_bottom = 3.0
 pivot_offset = Vector2(4, 4)
 mouse_filter = 2
 color = Color(0.0826735, 0.59988, 1, 1)
@@ -1261,37 +1260,37 @@ anchor_bottom = 0.5
 offset_left = -32.0
 offset_top = -3.0
 offset_right = 32.0
-offset_bottom = 5.0
+offset_bottom = -1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 6
 
 [node name="base" type="ColorRect" parent="buy_token/buybaseContainer"]
-custom_minimum_size = Vector2(8, 8)
+custom_minimum_size = Vector2(8, 2)
 layout_mode = 2
 mouse_filter = 2
 color = Color(0.585062, 0.585062, 0.585062, 1)
 
 [node name="base2" type="ColorRect" parent="buy_token/buybaseContainer"]
-custom_minimum_size = Vector2(8, 8)
+custom_minimum_size = Vector2(8, 2)
 layout_mode = 2
 mouse_filter = 2
 color = Color(0.585062, 0.585062, 0.585062, 1)
 
 [node name="base3" type="ColorRect" parent="buy_token/buybaseContainer"]
-custom_minimum_size = Vector2(8, 8)
+custom_minimum_size = Vector2(8, 2)
 layout_mode = 2
 mouse_filter = 2
 color = Color(0.585062, 0.585062, 0.585062, 1)
 
 [node name="base4" type="ColorRect" parent="buy_token/buybaseContainer"]
-custom_minimum_size = Vector2(8, 8)
+custom_minimum_size = Vector2(8, 2)
 layout_mode = 2
 mouse_filter = 2
 color = Color(0.585062, 0.585062, 0.585062, 1)
 
 [node name="base5" type="ColorRect" parent="buy_token/buybaseContainer"]
-custom_minimum_size = Vector2(8, 8)
+custom_minimum_size = Vector2(8, 2)
 layout_mode = 2
 mouse_filter = 2
 color = Color(0.585062, 0.585062, 0.585062, 1)
