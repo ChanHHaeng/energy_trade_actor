@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://ryurc2muk230"]
+[gd_scene load_steps=43 format=3 uid="uid://ryurc2muk230"]
 
 [ext_resource type="FontFile" path="res://fonts/montreal/Montreal.tres" id="1_acuhy"]
 [ext_resource type="Script" uid="uid://bqp8hlbau316u" path="res://timer.gd" id="1_qdhxh"]
@@ -73,6 +73,13 @@ blend_mode = 1
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eqm1h"]
 bg_color = Color(0.294118, 0.294118, 0.294118, 0.301961)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_skflu"]
+bg_color = Color(0.294118, 0.294118, 0.294118, 0.403922)
 corner_radius_top_left = 10
 corner_radius_top_right = 10
 corner_radius_bottom_right = 10
@@ -243,6 +250,126 @@ tracks/9/keys = {
 "update": 0,
 "values": [Vector2(50.8253, -6.75963)]
 }
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("buy_token/node2:scale")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("buy_token/node3:scale")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("buy_token/node4:scale")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("buy_token/node5:scale")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("buy_token/node:scale")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("sell_token/node:scale")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("sell_token/node2:scale")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/17/type = "value"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("sell_token/node3:scale")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/18/type = "value"
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/path = NodePath("sell_token/node4:scale")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/19/type = "value"
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/path = NodePath("sell_token/node5:scale")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_eypy5"]
 resource_name = "card_mousehover"
@@ -371,11 +498,141 @@ tracks/4/keys = {
 "values": [Vector2(26, -41), Vector2(50.8253, -6.75963)]
 }
 
+[sub_resource type="Animation" id="Animation_ph1h4"]
+resource_name = "step_progress_down"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sell_token/node:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("sell_token/node2:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 0), Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("sell_token/node3:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 0), Vector2(1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("sell_token/node4:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 0), Vector2(1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("sell_token/node5:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 0), Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_skflu"]
+resource_name = "step_progress_up"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("buy_token/node:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("buy_token/node2:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 0), Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("buy_token/node3:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 0), Vector2(1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("buy_token/node4:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 0), Vector2(1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("buy_token/node5:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 0), Vector2(1, 1)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_7ocsi"]
 _data = {
 &"RESET": SubResource("Animation_7ocsi"),
 &"card_mousehover": SubResource("Animation_eypy5"),
-&"card_mousehover_down": SubResource("Animation_d1sho")
+&"card_mousehover_down": SubResource("Animation_d1sho"),
+&"step_progress_down": SubResource("Animation_ph1h4"),
+&"step_progress_up": SubResource("Animation_skflu")
 }
 
 [node name="timer" type="Button"]
@@ -385,6 +642,7 @@ offset_left = 448.0
 offset_top = 240.0
 offset_right = 528.0
 offset_bottom = 290.0
+mouse_default_cursor_shape = 2
 theme_override_colors/font_color = Color(0.720467, 0.720468, 0.720467, 1)
 theme_override_colors/font_focus_color = Color(0.47451, 0.215686, 0.698039, 1)
 theme_override_fonts/font = ExtResource("1_acuhy")
@@ -461,6 +719,8 @@ script = ExtResource("8_mc83r")
 material = SubResource("CanvasItemMaterial_eqm1h")
 layout_mode = 2
 size_flags_horizontal = 3
+focus_mode = 0
+mouse_default_cursor_shape = 2
 theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(0.360784, 0.360784, 0.360784, 1)
 theme_override_colors/font_color = Color(0.359069, 0.359069, 0.359069, 1)
@@ -480,6 +740,8 @@ text = "Buy"
 [node name="Sell_Button" type="Button" parent="CanvasLayer/data plate/Button Container"]
 layout_mode = 2
 size_flags_horizontal = 3
+focus_mode = 0
+mouse_default_cursor_shape = 2
 theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(0.360784, 0.360784, 0.360784, 1)
 theme_override_colors/font_color = Color(0.360784, 0.360784, 0.360784, 1)
@@ -541,10 +803,11 @@ offset_bottom = 251.5
 size_flags_horizontal = 4
 size_flags_vertical = 4
 size_flags_stretch_ratio = 0.0
+mouse_default_cursor_shape = 2
 theme_override_font_sizes/font_size = 20
 theme_override_styles/focus = SubResource("StyleBoxEmpty_mxtnu")
 theme_override_styles/hover = SubResource("StyleBoxFlat_eqm1h")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_eqm1h")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_skflu")
 theme_override_styles/normal = SubResource("StyleBoxFlat_eqm1h")
 icon_alignment = 1
 expand_icon = true
@@ -661,6 +924,7 @@ offset_bottom = 251.5
 size_flags_horizontal = 4
 size_flags_vertical = 4
 size_flags_stretch_ratio = 0.0
+mouse_default_cursor_shape = 2
 theme_override_font_sizes/font_size = 20
 theme_override_styles/focus = SubResource("StyleBoxEmpty_mxtnu")
 theme_override_styles/hover = SubResource("StyleBoxFlat_eqm1h")
@@ -832,7 +1096,6 @@ mouse_filter = 2
 theme_override_styles/panel = ExtResource("7_eypy5")
 
 [node name="AnimationPlayer_up" type="AnimationPlayer" parent="upperfold"]
-unique_name_in_owner = true
 root_node = NodePath("../..")
 libraries = {
 &"": SubResource("AnimationLibrary_7ocsi")
@@ -903,13 +1166,267 @@ mouse_filter = 2
 theme_override_styles/panel = ExtResource("8_7ocsi")
 
 [node name="AnimationPlayer_down" type="AnimationPlayer" parent="downfold"]
-unique_name_in_owner = true
 root_node = NodePath("../..")
 libraries = {
 &"": SubResource("AnimationLibrary_7ocsi")
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="buy_token" type="Control" parent="."]
+unique_name_in_owner = true
+visible = false
+z_index = -1
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = 6.0
+offset_right = 40.0
+offset_bottom = 14.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+
+[node name="node" type="ColorRect" parent="buy_token"]
+z_index = 1
+custom_minimum_size = Vector2(8, 8)
+layout_mode = 2
+offset_left = 8.0
+offset_top = 1.0
+offset_right = 16.0
+offset_bottom = 9.0
+pivot_offset = Vector2(4, 4)
+mouse_filter = 2
+color = Color(0.0826735, 0.59988, 1, 1)
+
+[node name="node2" type="ColorRect" parent="buy_token"]
+z_index = 1
+custom_minimum_size = Vector2(8, 8)
+layout_mode = 2
+offset_left = 22.0
+offset_top = 1.0
+offset_right = 30.0
+offset_bottom = 9.0
+pivot_offset = Vector2(4, 4)
+mouse_filter = 2
+color = Color(0.0826735, 0.59988, 1, 1)
+
+[node name="node3" type="ColorRect" parent="buy_token"]
+z_index = 1
+custom_minimum_size = Vector2(8, 8)
+layout_mode = 2
+offset_left = 36.0
+offset_top = 1.0
+offset_right = 44.0
+offset_bottom = 9.0
+pivot_offset = Vector2(4, 4)
+mouse_filter = 2
+color = Color(0.0826735, 0.59988, 1, 1)
+
+[node name="node4" type="ColorRect" parent="buy_token"]
+z_index = 1
+custom_minimum_size = Vector2(8, 8)
+layout_mode = 2
+offset_left = 50.0
+offset_top = 1.0
+offset_right = 58.0
+offset_bottom = 9.0
+pivot_offset = Vector2(4, 4)
+mouse_filter = 2
+color = Color(0.0826735, 0.59988, 1, 1)
+
+[node name="node5" type="ColorRect" parent="buy_token"]
+z_index = 1
+custom_minimum_size = Vector2(8, 8)
+layout_mode = 2
+offset_left = 64.0
+offset_top = 1.0
+offset_right = 72.0
+offset_bottom = 9.0
+pivot_offset = Vector2(4, 4)
+mouse_filter = 2
+color = Color(0.0826735, 0.59988, 1, 1)
+
+[node name="buybaseContainer" type="HBoxContainer" parent="buy_token"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -32.0
+offset_top = -3.0
+offset_right = 32.0
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 6
+
+[node name="base" type="ColorRect" parent="buy_token/buybaseContainer"]
+custom_minimum_size = Vector2(8, 8)
+layout_mode = 2
+mouse_filter = 2
+color = Color(0.585062, 0.585062, 0.585062, 1)
+
+[node name="base2" type="ColorRect" parent="buy_token/buybaseContainer"]
+custom_minimum_size = Vector2(8, 8)
+layout_mode = 2
+mouse_filter = 2
+color = Color(0.585062, 0.585062, 0.585062, 1)
+
+[node name="base3" type="ColorRect" parent="buy_token/buybaseContainer"]
+custom_minimum_size = Vector2(8, 8)
+layout_mode = 2
+mouse_filter = 2
+color = Color(0.585062, 0.585062, 0.585062, 1)
+
+[node name="base4" type="ColorRect" parent="buy_token/buybaseContainer"]
+custom_minimum_size = Vector2(8, 8)
+layout_mode = 2
+mouse_filter = 2
+color = Color(0.585062, 0.585062, 0.585062, 1)
+
+[node name="base5" type="ColorRect" parent="buy_token/buybaseContainer"]
+custom_minimum_size = Vector2(8, 8)
+layout_mode = 2
+mouse_filter = 2
+color = Color(0.585062, 0.585062, 0.585062, 1)
+
+[node name="AnimationPlayer_up" type="AnimationPlayer" parent="buy_token"]
+unique_name_in_owner = true
+root_node = NodePath("../..")
+libraries = {
+&"": SubResource("AnimationLibrary_7ocsi")
+}
+
+[node name="sell_token" type="Control" parent="."]
+unique_name_in_owner = true
+visible = false
+z_index = -1
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = 22.0
+offset_right = 40.0
+offset_bottom = 30.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+
+[node name="node" type="ColorRect" parent="sell_token"]
+z_index = 1
+custom_minimum_size = Vector2(8, 8)
+layout_mode = 2
+offset_left = 8.0
+offset_right = 16.0
+offset_bottom = 8.0
+pivot_offset = Vector2(4, 4)
+mouse_filter = 2
+color = Color(1, 0.27065, 0.411049, 1)
+
+[node name="node2" type="ColorRect" parent="sell_token"]
+z_index = 1
+custom_minimum_size = Vector2(8, 8)
+layout_mode = 2
+offset_left = 22.0
+offset_right = 30.0
+offset_bottom = 8.0
+pivot_offset = Vector2(4, 4)
+mouse_filter = 2
+color = Color(1, 0.27065, 0.411049, 1)
+
+[node name="node3" type="ColorRect" parent="sell_token"]
+z_index = 1
+custom_minimum_size = Vector2(8, 8)
+layout_mode = 2
+offset_left = 36.0
+offset_right = 44.0
+offset_bottom = 8.0
+pivot_offset = Vector2(4, 4)
+mouse_filter = 2
+color = Color(1, 0.27065, 0.411049, 1)
+
+[node name="node4" type="ColorRect" parent="sell_token"]
+z_index = 1
+custom_minimum_size = Vector2(8, 8)
+layout_mode = 2
+offset_left = 50.0
+offset_right = 58.0
+offset_bottom = 8.0
+pivot_offset = Vector2(4, 4)
+mouse_filter = 2
+color = Color(1, 0.27065, 0.411049, 1)
+
+[node name="node5" type="ColorRect" parent="sell_token"]
+z_index = 1
+custom_minimum_size = Vector2(8, 8)
+layout_mode = 2
+offset_left = 64.0
+offset_right = 72.0
+offset_bottom = 8.0
+pivot_offset = Vector2(4, 4)
+mouse_filter = 2
+color = Color(1, 0.27065, 0.411049, 1)
+
+[node name="sellbaseContainer" type="HBoxContainer" parent="sell_token"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -27.0
+offset_top = -3.0
+offset_right = 27.0
+offset_bottom = 3.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 6
+
+[node name="base" type="ColorRect" parent="sell_token/sellbaseContainer"]
+custom_minimum_size = Vector2(8, 8)
+layout_mode = 2
+mouse_filter = 2
+color = Color(0.585062, 0.585062, 0.585062, 1)
+
+[node name="base2" type="ColorRect" parent="sell_token/sellbaseContainer"]
+custom_minimum_size = Vector2(8, 8)
+layout_mode = 2
+mouse_filter = 2
+color = Color(0.585062, 0.585062, 0.585062, 1)
+
+[node name="base3" type="ColorRect" parent="sell_token/sellbaseContainer"]
+custom_minimum_size = Vector2(8, 8)
+layout_mode = 2
+mouse_filter = 2
+color = Color(0.585062, 0.585062, 0.585062, 1)
+
+[node name="base4" type="ColorRect" parent="sell_token/sellbaseContainer"]
+custom_minimum_size = Vector2(8, 8)
+layout_mode = 2
+mouse_filter = 2
+color = Color(0.585062, 0.585062, 0.585062, 1)
+
+[node name="base5" type="ColorRect" parent="sell_token/sellbaseContainer"]
+custom_minimum_size = Vector2(8, 8)
+layout_mode = 2
+mouse_filter = 2
+color = Color(0.585062, 0.585062, 0.585062, 1)
+
+[node name="AnimationPlayer_down" type="AnimationPlayer" parent="sell_token"]
+unique_name_in_owner = true
+root_node = NodePath("../..")
+libraries = {
+&"": SubResource("AnimationLibrary_7ocsi")
+}
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

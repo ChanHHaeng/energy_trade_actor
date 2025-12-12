@@ -1,2 +1,4 @@
 postgrest.conf
 postgrest.exe
+backup.dump
+docker-compose.yaml

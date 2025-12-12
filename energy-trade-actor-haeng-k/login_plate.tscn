@@ -1,0 +1,189 @@
+[gd_scene load_steps=13 format=3 uid="uid://by7rbycly4ksu"]
+
+[ext_resource type="Texture2D" uid="uid://dg2nq4xaylk3u" path="res://assets/person.svg" id="1_0s8po"]
+[ext_resource type="Script" uid="uid://d3cpa564qkeef" path="res://login_plate.gd" id="1_fwafv"]
+[ext_resource type="Texture2D" uid="uid://dotwbrs6lmdhd" path="res://assets/lock.svg" id="2_j1gjw"]
+[ext_resource type="Script" uid="uid://dccfqxnku4skf" path="res://login_button.gd" id="3_j1gjw"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_elohf"]
+bg_color = Color(0.901961, 0.901961, 0.901961, 0.835294)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+shadow_color = Color(0, 0, 0, 0.133333)
+shadow_size = 10
+shadow_offset = Vector2(0, 10)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j1gjw"]
+bg_color = Color(0, 0.14902, 0.301961, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0s8po"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0s8po"]
+content_margin_left = 10.0
+content_margin_right = 10.0
+bg_color = Color(0.223529, 0.317647, 0.45098, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_j1gjw"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fwafv"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nftow"]
+bg_color = Color(1, 1, 1, 0.635294)
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+expand_margin_left = 3.0
+expand_margin_right = 3.0
+expand_margin_bottom = 3.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fwafv"]
+bg_color = Color(0.593134, 0.593134, 0.593134, 0.635294)
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+
+[node name="login_plate" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_fwafv")
+
+[node name="main" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -200.0
+offset_right = 250.0
+offset_bottom = 200.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_elohf")
+
+[node name="Login" type="Label" parent="main"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -132.0
+offset_right = 133.0
+offset_bottom = 134.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0.14902, 0.301961, 1)
+theme_override_font_sizes/font_size = 50
+text = "Login"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="main"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.55
+anchor_right = 0.5
+anchor_bottom = 0.55
+offset_left = -147.5
+offset_top = -67.5
+offset_right = 147.5
+offset_bottom = 67.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 15
+
+[node name="HBoxContainer" type="HBoxContainer" parent="main/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Panel" type="Panel" parent="main/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_j1gjw")
+
+[node name="TextureRect" type="TextureRect" parent="main/VBoxContainer/HBoxContainer/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_0s8po")
+expand_mode = 1
+
+[node name="username" type="LineEdit" parent="main/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxEmpty_0s8po")
+theme_override_styles/normal = SubResource("StyleBoxFlat_0s8po")
+placeholder_text = "ID"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="main/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Panel" type="Panel" parent="main/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_j1gjw")
+
+[node name="TextureRect" type="TextureRect" parent="main/VBoxContainer/HBoxContainer2/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_j1gjw")
+expand_mode = 1
+
+[node name="Password" type="LineEdit" parent="main/VBoxContainer/HBoxContainer2"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxEmpty_j1gjw")
+theme_override_styles/normal = SubResource("StyleBoxFlat_0s8po")
+placeholder_text = "Password"
+shortcut_keys_enabled = false
+middle_mouse_paste_enabled = false
+secret = true
+secret_character = "*"
+
+[node name="LoginButton" type="Button" parent="."]
+z_index = -1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.807
+anchor_right = 0.5
+anchor_bottom = 0.807
+offset_left = -200.0
+offset_top = 1.06396
+offset_right = 200.0
+offset_bottom = 62.064
+grow_horizontal = 2
+grow_vertical = 0
+focus_mode = 0
+theme_override_colors/font_hover_color = Color(0, 0.14902, 0.301961, 1)
+theme_override_colors/font_color = Color(0, 0.14902, 0.301961, 1)
+theme_override_font_sizes/font_size = 23
+theme_override_styles/focus = SubResource("StyleBoxEmpty_fwafv")
+theme_override_styles/hover = SubResource("StyleBoxFlat_nftow")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_fwafv")
+theme_override_styles/normal = SubResource("StyleBoxFlat_nftow")
+text = "Login"
+script = ExtResource("3_j1gjw")
+
+[node name="login_request" type="HTTPRequest" parent="."]
+
+[connection signal="pressed" from="LoginButton" to="LoginButton" method="_on_pressed"]
+[connection signal="request_completed" from="login_request" to="LoginButton" method="_on_login_request_request_completed"]

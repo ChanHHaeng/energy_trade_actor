@@ -1,4 +1,4 @@
-[gd_scene load_steps=94 format=4 uid="uid://d1gwqkrd33l0v"]
+[gd_scene load_steps=102 format=4 uid="uid://d1gwqkrd33l0v"]
 
 [ext_resource type="ButtonGroup" uid="uid://c23vsaa7035ln" path="res://subthings/menubuttongrout.tres" id="1_0fbet"]
 [ext_resource type="Script" uid="uid://bt2hnocu2gnnm" path="res://scripts/Main.gd" id="1_qtu10"]
@@ -11,6 +11,7 @@
 [ext_resource type="StyleBox" uid="uid://btlmdfn6phpik" path="res://assets/glassplate.tres" id="7_w5605"]
 [ext_resource type="Script" uid="uid://oh3t85n5p215" path="res://scripts/enroll.gd" id="8_6a6wx"]
 [ext_resource type="Script" uid="uid://cba30pmeknb32" path="res://reset.gd" id="9_8jbwv"]
+[ext_resource type="Shader" uid="uid://b05dntw7igo37" path="res://3DButton.gdshader" id="10_n8v1s"]
 [ext_resource type="Script" uid="uid://bygtdoyvtfkh4" path="res://scripts/timelist.gd" id="11_pxugv"]
 [ext_resource type="Script" uid="uid://cl06736yiiluv" path="res://catalogue_page.gd" id="11_xvdhi"]
 [ext_resource type="Script" uid="uid://bxj5qautppjun" path="res://min_value.gd" id="12_eh0v1"]
@@ -34,6 +35,7 @@
 [ext_resource type="Script" uid="uid://br1j4xnp1wasu" path="res://master_popup_value.gd" id="30_jkes7"]
 [ext_resource type="Shader" uid="uid://dd2kk0radhd2e" path="res://blur.gdshader" id="31_b3rfh"]
 [ext_resource type="Script" uid="uid://di4okid76wvd1" path="res://master_tree.gd" id="31_gqja0"]
+[ext_resource type="PackedScene" uid="uid://by7rbycly4ksu" path="res://login_plate.tscn" id="35_gqja0"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6a6wx"]
 bg_color = Color(1, 1, 1, 1)
@@ -71,21 +73,70 @@ shader_parameter/bottom_color = Color(0.4, 0.882353, 0.862745, 1)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_w5605"]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7bdvj"]
+shader = ExtResource("10_n8v1s")
+shader_parameter/top_highlight = Color(1, 1, 1, 0.12)
+shader_parameter/bottom_shadow = Color(0, 0, 0, 0.18)
+shader_parameter/edge_px = 80.0
+
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6a6wx"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v61lp"]
-bg_color = Color(0.322, 0.958, 0.779, 1)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
+bg_color = Color(0, 1, 0.870588, 1)
 border_color = Color(0.231968, 0.866489, 0.696942, 1)
 corner_radius_top_left = 3
 corner_radius_top_right = 3
 corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
-shadow_color = Color(0, 0, 0, 0.294118)
+shadow_color = Color(0.187176, 0.187176, 0.187176, 0.286275)
 shadow_size = 2
-shadow_offset = Vector2(0, 2)
+shadow_offset = Vector2(0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8v3ii"]
+bg_color = Color(0.129558, 0.129559, 0.129558, 1)
+border_color = Color(0.231968, 0.866489, 0.696942, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+shadow_color = Color(0.187176, 0.187176, 0.187176, 0.286275)
+shadow_size = 2
+shadow_offset = Vector2(0, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_n8v1s"]
+shader = ExtResource("10_n8v1s")
+shader_parameter/top_highlight = Color(1, 1, 1, 0.12)
+shader_parameter/bottom_shadow = Color(0, 0, 0, 0.18)
+shader_parameter/edge_px = 80.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8jbwv"]
+bg_color = Color(0.670588, 0.670588, 0.670588, 1)
+border_width_left = 1
+border_width_top = 2
+border_width_right = 1
+border_color = Color(0.670588, 0.670588, 0.670588, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_858bn"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5axgr"]
+bg_color = Color(0.360784, 0.972549, 0.796078, 0.686275)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wfgqd"]
+bg_color = Color(0.831373, 0, 0, 0.686275)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7bdvj"]
 
@@ -1513,8 +1564,6 @@ shadow_color = Color(0, 0, 0, 0.254902)
 shadow_size = 1
 shadow_offset = Vector2(0, 1)
 
-[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_gqja0"]
-
 [sub_resource type="ImageTexture" id="ImageTexture_jkes7"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gqja0"]
@@ -1602,6 +1651,8 @@ VScrollBar/styles/scroll_focus = SubResource("StyleBoxFlat_il8ev")
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8v3ii"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3fl80"]
+content_margin_left = 9.0
+content_margin_top = 5.0
 bg_color = Color(0.894118, 1, 0.956863, 0.137255)
 border_width_top = 2
 border_color = Color(1, 1, 1, 1)
@@ -1613,38 +1664,23 @@ corner_radius_bottom_left = 20
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ou021"]
 
-[sub_resource type="Theme" id="Theme_jkes7"]
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_gqja0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_olwrp"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_chp0b"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2xhs3"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_olwrp"]
+bg_color = Color(1, 1, 1, 0.286275)
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_n8v1s"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8jbwv"]
-bg_color = Color(0.67069, 0.67069, 0.67069, 0.529412)
-border_width_left = 1
-border_width_top = 2
-border_width_right = 1
-border_color = Color(0.670588, 0.670588, 0.670588, 1)
-corner_radius_top_left = 15
-corner_radius_top_right = 15
-corner_radius_bottom_right = 15
-corner_radius_bottom_left = 15
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_858bn"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5axgr"]
-bg_color = Color(0.360784, 0.972549, 0.796078, 0.686275)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color(0, 0, 0, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wfgqd"]
-bg_color = Color(0.831373, 0, 0, 0.686275)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color(0, 0, 0, 1)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_b3rfh"]
 shader = ExtResource("31_b3rfh")
@@ -1677,9 +1713,12 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_b3rfh")
 
 [node name="Menu_Container" type="HBoxContainer" parent="Panel"]
 z_index = 1
-layout_mode = 0
-offset_left = 32.0
-offset_right = 1124.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.502
+anchor_right = 0.502
+offset_left = -546.304
+offset_right = 545.696
 offset_bottom = 90.0
 theme_override_constants/separation = 0
 
@@ -1688,6 +1727,7 @@ unique_name_in_owner = true
 editor_description = "모양은 핑계가 될 수 없다"
 layout_mode = 2
 size_flags_horizontal = 3
+mouse_default_cursor_shape = 2
 theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
@@ -1711,6 +1751,7 @@ script = ExtResource("2_62e2m")
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
+mouse_default_cursor_shape = 2
 theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
@@ -1733,6 +1774,7 @@ page_num = 1
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
+mouse_default_cursor_shape = 2
 theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
@@ -1754,9 +1796,9 @@ page_num = 2
 [node name="Runway" type="Control" parent="Panel"]
 anchors_preset = 0
 offset_left = 64.0
-offset_top = 15.0
+offset_top = 17.0
 offset_right = 1093.0
-offset_bottom = 76.0
+offset_bottom = 78.0
 mouse_filter = 2
 
 [node name="menu_plate" type="Panel" parent="Panel/Runway"]
@@ -1816,7 +1858,6 @@ text = "07:00"
 
 [node name="8" parent="Panel/Core/Trade page/GridContainer" instance=ExtResource("7_858bn")]
 layout_mode = 2
-theme_override_colors/font_focus_color = Color(0.48, 0.48, 0.48, 1)
 theme_override_font_sizes/font_size = 16
 theme_override_styles/focus = SubResource("StyleBoxEmpty_kpl8e")
 text = "08:00"
@@ -1828,17 +1869,14 @@ text = "09:00"
 
 [node name="10" parent="Panel/Core/Trade page/GridContainer" instance=ExtResource("7_858bn")]
 layout_mode = 2
-theme_override_styles/focus = SubResource("StyleBoxEmpty_kpl8e")
 text = "10:00"
 
 [node name="11" parent="Panel/Core/Trade page/GridContainer" instance=ExtResource("7_858bn")]
 layout_mode = 2
-theme_override_styles/focus = SubResource("StyleBoxEmpty_kpl8e")
 text = "11:00"
 
 [node name="12" parent="Panel/Core/Trade page/GridContainer" instance=ExtResource("7_858bn")]
 layout_mode = 2
-theme_override_styles/focus = SubResource("StyleBoxEmpty_kpl8e")
 text = "12:00"
 
 [node name="13" parent="Panel/Core/Trade page/GridContainer" instance=ExtResource("7_858bn")]
@@ -1937,11 +1975,13 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_w5605")
 text = "05:00"
 
 [node name="purchase_data" type="Button" parent="Panel/Core/Trade page"]
+material = SubResource("ShaderMaterial_7bdvj")
 layout_mode = 0
 offset_left = 709.0
 offset_top = 417.0
 offset_right = 863.0
 offset_bottom = 467.0
+mouse_default_cursor_shape = 2
 theme_override_colors/font_disabled_color = Color(0.53, 0.53, 0.53, 1)
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
@@ -1949,25 +1989,31 @@ theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 22
 theme_override_styles/focus = SubResource("StyleBoxEmpty_6a6wx")
 theme_override_styles/hover = SubResource("StyleBoxFlat_v61lp")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_8v3ii")
 theme_override_styles/normal = SubResource("StyleBoxFlat_v61lp")
-text = "Enroll "
 script = ExtResource("8_6a6wx")
 
 [node name="Label" type="Label" parent="Panel/Core/Trade page/purchase_data"]
-layout_mode = 0
-offset_left = 111.0
-offset_top = 10.0
-offset_right = 145.0
-offset_bottom = 45.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 25
-text = "📝"
+text = "enroll"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="reset" type="Button" parent="Panel/Core/Trade page"]
+material = SubResource("ShaderMaterial_n8v1s")
 layout_mode = 0
 offset_left = 890.0
 offset_top = 417.0
 offset_right = 1044.0
 offset_bottom = 467.0
+mouse_default_cursor_shape = 2
 theme_override_colors/font_disabled_color = Color(0.53, 0.53, 0.53, 1)
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
@@ -1976,17 +2022,20 @@ theme_override_font_sizes/font_size = 22
 theme_override_styles/focus = SubResource("StyleBoxEmpty_6a6wx")
 theme_override_styles/hover = SubResource("StyleBoxFlat_v61lp")
 theme_override_styles/normal = SubResource("StyleBoxFlat_v61lp")
-text = "Reset "
 script = ExtResource("9_8jbwv")
 
 [node name="Label" type="Label" parent="Panel/Core/Trade page/reset"]
-layout_mode = 0
-offset_left = 108.0
-offset_top = 11.0
-offset_right = 142.0
-offset_bottom = 46.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 25
-text = "🔄"
+text = "Reset"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="data_removing_buy" type="HTTPRequest" parent="Panel/Core/Trade page"]
 unique_name_in_owner = true
@@ -1999,6 +2048,89 @@ unique_name_in_owner = true
 
 [node name="data_sending_sell" type="HTTPRequest" parent="Panel/Core/Trade page"]
 unique_name_in_owner = true
+
+[node name="enrolling" type="Panel" parent="Panel/Core/Trade page"]
+unique_name_in_owner = true
+visible = false
+z_index = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -154.0
+offset_top = -48.0
+offset_right = 239.0
+offset_bottom = 45.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_8jbwv")
+script = ExtResource("26_858bn")
+
+[node name="Label" type="Label" parent="Panel/Core/Trade page/enrolling"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -159.5
+offset_top = -14.5
+offset_right = 159.5
+offset_bottom = 14.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Are you really going to enroll the trade?"
+
+[node name="Label2" type="Label" parent="Panel/Core/Trade page/enrolling"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -62.0
+offset_right = 62.0
+offset_bottom = 42.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "Enrolling..."
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/Core/Trade page/enrolling"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -75.5
+offset_top = -31.0
+offset_right = 76.5
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 60
+
+[node name="Yes" type="Button" parent="Panel/Core/Trade page/enrolling/HBoxContainer"]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_858bn")
+theme_override_styles/normal = SubResource("StyleBoxFlat_5axgr")
+text = "Yes"
+
+[node name="No" type="Button" parent="Panel/Core/Trade page/enrolling/HBoxContainer"]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_858bn")
+theme_override_styles/normal = SubResource("StyleBoxFlat_wfgqd")
+text = "No"
+
+[node name="Timer" type="Timer" parent="Panel/Core/Trade page/enrolling"]
+unique_name_in_owner = true
+wait_time = 5.0
 
 [node name="Catalogue page" type="Panel" parent="Panel/Core"]
 visible = false
@@ -2146,6 +2278,7 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_3chmk")
 theme_override_styles/normal = ExtResource("17_5axgr")
 placeholder_text = "Min price"
 alignment = 1
+virtual_keyboard_type = 2
 script = ExtResource("12_eh0v1")
 
 [node name="max price" type="LineEdit" parent="Panel/Core/Catalogue page/price"]
@@ -2336,7 +2469,6 @@ script = ExtResource("14_g31lc")
 
 [node name="buy" type="Tree" parent="Panel/Core/Catalogue page/sector container/buy_sect"]
 unique_name_in_owner = true
-material = SubResource("CanvasItemMaterial_gqja0")
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -2387,7 +2519,7 @@ offset_bottom = 24.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "buy"
+text = "Buy"
 
 [node name="sell_sect" type="Control" parent="Panel/Core/Catalogue page/sector container"]
 custom_minimum_size = Vector2(485, 304)
@@ -2447,7 +2579,7 @@ offset_bottom = 24.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "sell"
+text = "Sell"
 
 [node name="My Page page" type="Panel" parent="Panel/Core"]
 visible = false
@@ -2484,9 +2616,14 @@ offset_right = 495.0
 offset_bottom = 205.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = SubResource("Theme_jkes7")
+theme = SubResource("Theme_l62jy")
 theme_override_constants/draw_guides = 0
 theme_override_font_sizes/font_size = 16
+theme_override_styles/title_button_hover = ExtResource("16_jkes7")
+theme_override_styles/title_button_pressed = ExtResource("16_jkes7")
+theme_override_styles/title_button_normal = SubResource("StyleBoxEmpty_olwrp")
+theme_override_styles/panel = SubResource("StyleBoxFlat_3fl80")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_chp0b")
 columns = 6
 column_titles_visible = true
 allow_reselect = true
@@ -2567,6 +2704,7 @@ script = ExtResource("28_jkes7")
 status = 5
 
 [node name="Welcome" type="Label" parent="Panel/Core/My Page page/Page"]
+unique_name_in_owner = true
 layout_mode = 0
 offset_left = 27.0
 offset_top = 22.0
@@ -2593,6 +2731,17 @@ offset_left = -85.0
 offset_right = -35.0
 offset_bottom = 26.0
 script = ExtResource("29_3ag6a")
+
+[node name="Button" type="Button" parent="Panel"]
+layout_mode = 1
+anchors_preset = -1
+offset_left = 1076.0
+offset_top = 20.0
+offset_right = 1136.0
+offset_bottom = 80.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_2xhs3")
+theme_override_styles/hover = SubResource("StyleBoxFlat_olwrp")
+theme_override_styles/normal = SubResource("StyleBoxFlat_olwrp")
 
 [node name="Timer" type="Timer" parent="."]
 
@@ -2646,104 +2795,6 @@ theme_override_colors/font_color = Color(1, 0, 0, 1)
 theme_override_font_sizes/font_size = 45
 text = "Warring!"
 
-[node name="enrolling" type="Panel" parent="."]
-unique_name_in_owner = true
-visible = false
-z_index = 1
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -196.5
-offset_top = -52.5
-offset_right = 196.5
-offset_bottom = 52.5
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_8jbwv")
-script = ExtResource("26_858bn")
-
-[node name="Label" type="Label" parent="enrolling"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -159.5
-offset_top = -14.5
-offset_right = 159.5
-offset_bottom = 14.5
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Are you really going to enroll the trade?"
-
-[node name="Label2" type="Label" parent="enrolling"]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -62.0
-offset_right = 62.0
-offset_bottom = 42.0
-grow_horizontal = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 30
-text = "Enrolling..."
-
-[node name="Label3" type="Label" parent="enrolling"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 150.5
-offset_top = -16.5
-offset_right = 178.5
-offset_bottom = 12.5
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-
-[node name="HBoxContainer" type="HBoxContainer" parent="enrolling"]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -75.5
-offset_top = -31.0
-offset_right = 76.5
-offset_bottom = -8.0
-grow_horizontal = 2
-grow_vertical = 0
-theme_override_constants/separation = 60
-
-[node name="Yes" type="Button" parent="enrolling/HBoxContainer"]
-custom_minimum_size = Vector2(60, 0)
-layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_styles/focus = SubResource("StyleBoxEmpty_858bn")
-theme_override_styles/normal = SubResource("StyleBoxFlat_5axgr")
-text = "Yes"
-
-[node name="No" type="Button" parent="enrolling/HBoxContainer"]
-custom_minimum_size = Vector2(60, 0)
-layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_styles/focus = SubResource("StyleBoxEmpty_858bn")
-theme_override_styles/normal = SubResource("StyleBoxFlat_wfgqd")
-text = "No"
-
-[node name="Timer" type="Timer" parent="enrolling"]
-unique_name_in_owner = true
-wait_time = 5.0
-
 [node name="Blur" type="ColorRect" parent="."]
 unique_name_in_owner = true
 visible = false
@@ -2755,6 +2806,11 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="login_plate" parent="." instance=ExtResource("35_gqja0")]
+visible = false
+z_index = 3
+layout_mode = 1
 
 [connection signal="mouse_entered" from="Panel/Menu_Container/Trade" to="Panel/Menu_Container/Trade" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="Panel/Menu_Container/Trade" to="Panel/Menu_Container/Trade" method="_on_mouse_exited"]
@@ -2768,6 +2824,9 @@ grow_vertical = 2
 [connection signal="gui_input" from="Panel/Runway/menu_plate" to="Panel/Runway/menu_plate" method="_on_gui_input"]
 [connection signal="pressed" from="Panel/Core/Trade page/purchase_data" to="Panel/Core/Trade page/purchase_data" method="_on_pressed"]
 [connection signal="pressed" from="Panel/Core/Trade page/reset" to="Panel/Core/Trade page/reset" method="_on_pressed"]
+[connection signal="enrollsig" from="Panel/Core/Trade page/enrolling" to="Panel/Core/Trade page/purchase_data" method="_on_enrolling_enrollsig"]
+[connection signal="pressed" from="Panel/Core/Trade page/enrolling/HBoxContainer/Yes" to="Panel/Core/Trade page/enrolling" method="_on_yes_pressed"]
+[connection signal="pressed" from="Panel/Core/Trade page/enrolling/HBoxContainer/No" to="Panel/Core/Trade page/enrolling" method="_on_no_pressed"]
 [connection signal="visibility_changed" from="Panel/Core/Catalogue page" to="Panel/Core/Catalogue page" method="_on_visibility_changed"]
 [connection signal="about_to_popup" from="Panel/Core/Catalogue page/timelist" to="Panel/Core/Catalogue page/timelist" method="_on_about_to_popup"]
 [connection signal="child_entered_tree" from="Panel/Core/Catalogue page/optioncontainer" to="Panel/Core/Catalogue page/optioncontainer" method="_on_child_entered_tree"]
@@ -2802,6 +2861,3 @@ grow_vertical = 2
 [connection signal="index_pressed" from="Panel/Core/My Page page/Page/Master tree/Popups/to_menu" to="Panel/Core/My Page page/Page/Master tree/Popups/to_menu" method="_on_index_pressed"]
 [connection signal="value_changed" from="Panel/Globalbuild" to="Panel/Globalbuild" method="_on_value_changed"]
 [connection signal="pressed" from="Panel/Globalbuild/test" to="Panel/Globalbuild/test" method="_on_pressed"]
-[connection signal="enrollsig" from="enrolling" to="Panel/Core/Trade page/purchase_data" method="_on_enrolling_enrollsig"]
-[connection signal="pressed" from="enrolling/HBoxContainer/Yes" to="enrolling" method="_on_yes_pressed"]
-[connection signal="pressed" from="enrolling/HBoxContainer/No" to="enrolling" method="_on_no_pressed"]

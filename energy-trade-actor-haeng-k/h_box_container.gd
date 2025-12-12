@@ -18,9 +18,9 @@ func _on_child_exiting_tree(node: Node) -> void:
 	#fold쪽 카드 펼쳐지는 갯수
 	for i in range(5):
 		if self.mode==0:
-			%upperfold.get_child(i).visible=i<len(get_children())
+			%buy_token.get_child(i).visible=i<len(get_children())
 		elif self.mode==1:
-			%downfold.get_child(i).visible=i<len(get_children())
+			%sell_token.get_child(i).visible=i<len(get_children())
 	button_position()
 	# check도중에 버튼 사라지는 것 방지
 	if len(get_children())<5:
@@ -46,9 +46,9 @@ func _on_child_entered_tree(node: Node) -> void:
 	#fold쪽 카드 펼쳐지는 갯수
 	for i in range(5):
 		if self.mode==0:
-			%upperfold.get_child(i).visible=i<len(get_children())
+			%buy_token.get_child(i).visible=i<len(get_children())
 		elif self.mode==1:
-			%downfold.get_child(i).visible=i<len(get_children())
+			%sell_token.get_child(i).visible=i<len(get_children())
 	button_position()
 	if len(get_children())==5:
 		input_button.disabling=true

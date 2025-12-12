@@ -64,19 +64,19 @@ func stacking(): #테이블 숫자 세서 stack label에 표시
 
 func _on_mouse_entered() -> void:
 	if buy_amount!=0 and buy_amount!=null and !self.button_pressed:
-		$upperfold.visible=true
-		%AnimationPlayer_up.play("card_mousehover")
+		%buy_token.visible=true
+		%AnimationPlayer_up.play("step_progress_up")
 	if sell_amount!=0 and sell_amount!=null and !self.button_pressed:
-		$downfold.visible=true
-		%AnimationPlayer_down.play("card_mousehover_down")
+		%sell_token.visible=true
+		%AnimationPlayer_down.play("step_progress_down")
 
 func _on_mouse_exited() -> void:
 	if buy_amount!=0 and buy_amount!=null:
 		%AnimationPlayer_up.play("RESET")
-		$upperfold.visible=false
+		%buy_token.visible=false
 	if sell_amount!=0 and sell_amount!=null:
 		%AnimationPlayer_down.play("RESET")
-		$downfold.visible=false
+		%sell_token.visible=false
 		
 		
 func checking(): ## 빈 테이블 정리

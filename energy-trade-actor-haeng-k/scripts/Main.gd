@@ -10,11 +10,25 @@ func _ready() -> void:
 	var _err_build=$HTTPRequest_buildings.request(str(Global.postgrest)+":3000/buildings")
 	%HTTPRequest_buy.request_completed.connect(_buy_completed)
 	%HTTPRequest_sell.request_completed.connect(_sell_completed)
+	$login_plate.activate()
+	
+	var _now=Time.get_datetime_string_from_system()
+	$login_plate.certified.connect(activate)
+	
+	
+func activate():
+	%Welcome.text="hello, "+name_return(Global.building_id)+"!"
 	var _buy_err=%HTTPRequest_buy.request(str(Global.postgrest)+":3000/buy_data")
 	var _sell_err=%HTTPRequest_sell.request(str(Global.postgrest)+":3000/sell_data")
-	var _now=Time.get_datetime_string_from_system()
 	
-
+	
+	
+func name_return(number:int):
+	if number==0:
+		return "manager"
+	else:
+		return "user%02d" %number
+		
 	
 func _sell_completed(_a,_b,_c,d):
 	Global.transaction_clear(1)
