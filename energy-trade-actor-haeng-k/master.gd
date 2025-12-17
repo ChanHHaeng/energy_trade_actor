@@ -3,9 +3,6 @@ extends Control
 
 @onready var userbox=load("res://userbox.tscn")
 
-#func _ready() -> void:
-	#self.visible=false
-	#var now=Time.get_datetime_string_from_system()
 
 func transactioning() -> void:
 	Global.matching_result.clear()
@@ -71,15 +68,4 @@ func transactioning() -> void:
 				buy_amount=0
 				j+=1
 	
-	#print(Global.matching_result)
 	$"Master tree".dataset()
-		#for i in Global.matching_result:
-			#var ub=userbox.instantiate()
-			#ub.naming(i[0],i[1],i[2],i[3],i[4])
-			#%bidContainer.add_child(ub)
-			#var ub=userbox.instantiate()
-			#ub.custom_minimum_size.y+=20
-			#%purchaseContainer.add_child(ub)
-		#for i in range(len(Global.purchase_data)):
-			#var ub=userbox.instantiate()
-			#%bidContainer.add_child(ub)

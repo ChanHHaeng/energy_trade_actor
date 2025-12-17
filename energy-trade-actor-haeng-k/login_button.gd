@@ -35,5 +35,5 @@ func _on_pressed() -> void:
 	print(response_body_instance)
 	
 	if len(response_body_instance)==1:##로그인 성공 이후 기점
-		Global.building_id=response_body_instance[0]["building_id"]
+		Global.building_id=int(response_body_instance[0]["building_id"])
 		get_owner().certification()

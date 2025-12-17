@@ -9,8 +9,4 @@ func _ready() -> void:
 
 
 func activate():
-	print("go")
-	
-func _on_visibility_changed() -> void:
-	if visible:
-		$Page.transactioning()
+	$Page.transactioning()

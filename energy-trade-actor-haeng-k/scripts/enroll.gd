@@ -92,7 +92,7 @@ func _on_pressed() -> void:
 			var body
 			body = {
 				"date"=Global.date,
-				"building_id"=Global.building_id,
+				"building_id"=str(Global.building_id),
 				"start_time"=i,
 				"buy"=j[0],
 				"price"=j[1]
@@ -104,7 +104,7 @@ func _on_pressed() -> void:
 			var body
 			body = {
 				"date"=Global.date,
-				"building_id"=Global.building_id,
+				"building_id"=str(Global.building_id),
 				"start_time"=i,
 				"sell"=j[0],
 				"price"=j[1]
@@ -128,8 +128,10 @@ func _on_pressed() -> void:
 	
 	
 func on_request_completed(result, response_code, headers, jsonbody):
-	print("상태코드",result)
-	print("http 상태코드",response_code)
+	print("상태코드: ",result)
+	print("http 상태코드: ",response_code)
+	#print(Global.date)
+	#print()
 	print("헤더:",headers)
 	var bodytext=jsonbody.get_string_from_utf8()
 	print(bodytext)

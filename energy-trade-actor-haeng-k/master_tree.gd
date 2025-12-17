@@ -64,7 +64,7 @@ func dataset() ->void:
 		item.set_text(4,"House number "+str(result[4]))
 		item.set_text_alignment(4,HORIZONTAL_ALIGNMENT_CENTER)
 		if result[4]==Global.building_id:
-			item.set_custom_color(4,Color.BLACK)
+			item.set_custom_color(4,Color.BLUE) ## 파란 계열로 변경하면 될듯
 			print("there?")
 		item.set_text(5,"House number "+str(result[5]))
 		item.set_text_alignment(5,HORIZONTAL_ALIGNMENT_CENTER)

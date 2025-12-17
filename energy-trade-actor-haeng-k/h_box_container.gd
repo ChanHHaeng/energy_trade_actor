@@ -54,36 +54,31 @@ func _on_child_entered_tree(node: Node) -> void:
 		input_button.disabling=true
 		input_button.visible=false
 		
-#비활성화 모드
-func _draw() -> void:
-	if %trash.acting:
-		for i in get_children():
-			draw_dotted_rect(Rect2(i.position.x-5,i.position.y-3,150,150),Color.RED,false,3)
 		
 #도트 사각형 그려주는 코드
-func draw_dotted_rect(rect: Rect2, color: Color, filled: bool = false, dot_size: float = 4.0, gap: float = 4.0) -> void:
-	if filled:
-		draw_rect(rect, color, true)
-		return
-	
-	var start = rect.position
-	var end = rect.position + rect.size
-
-	# 위쪽 라인
-	for x in range(start.x, end.x, int(dot_size + gap)):
-		draw_line(Vector2(x, start.y), Vector2(min(x + dot_size, end.x), start.y), color, 1)
-
-	# 아래쪽 라인
-	for x in range(start.x, end.x, int(dot_size + gap)):
-		draw_line(Vector2(x, end.y), Vector2(min(x + dot_size, end.x), end.y), color, 1)
-
-	# 왼쪽 라인
-	for y in range(start.y, end.y, int(dot_size + gap)):
-		draw_line(Vector2(start.x, y), Vector2(start.x, min(y + dot_size, end.y)), color, 1)
-
-	# 오른쪽 라인
-	for y in range(start.y, end.y, int(dot_size + gap)):
-		draw_line(Vector2(end.x, y), Vector2(end.x, min(y + dot_size, end.y)), color, 1)
+#func draw_dotted_rect(rect: Rect2, color: Color, filled: bool = false, dot_size: float = 4.0, gap: float = 4.0) -> void:
+	#if filled:
+		#draw_rect(rect, color, true)
+		#return
+	#
+	#var start = rect.position
+	#var end = rect.position + rect.size
+#
+	## 위쪽 라인
+	#for x in range(start.x, end.x, int(dot_size + gap)):
+		#draw_line(Vector2(x, start.y), Vector2(min(x + dot_size, end.x), start.y), color, 1)
+#
+	## 아래쪽 라인
+	#for x in range(start.x, end.x, int(dot_size + gap)):
+		#draw_line(Vector2(x, end.y), Vector2(min(x + dot_size, end.x), end.y), color, 1)
+#
+	## 왼쪽 라인
+	#for y in range(start.y, end.y, int(dot_size + gap)):
+		#draw_line(Vector2(start.x, y), Vector2(start.x, min(y + dot_size, end.y)), color, 1)
+#
+	## 오른쪽 라인
+	#for y in range(start.y, end.y, int(dot_size + gap)):
+		#draw_line(Vector2(end.x, y), Vector2(end.x, min(y + dot_size, end.y)), color, 1)
 
 #데이터를 dish로 추출
 func get_data() -> Array:

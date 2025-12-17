@@ -19,8 +19,8 @@ func possible_check():
 
 
 func _on_pressed() -> void:
-	if $"../../optioncontainer".get_node(str(get_parent().name)):
-		$"../../optioncontainer".get_node(str(get_parent().name)).free()
+	if %optioncontainer.get_node(str(get_parent().name)):
+		%optioncontainer.get_node(str(get_parent().name)).free()
 	var option=optionscene.instantiate()
 	option.name=get_parent().name ##price 라는 이름의 가격 조건을 저장한 노드 생성
 	if max==0:
@@ -31,7 +31,7 @@ func _on_pressed() -> void:
 		option.text=" ₩ "+str(min)+" ~ ₩ "+str(max)
 	option.custom_minimum_size.x=option.get_minimum_size().x+30
 	option.status=option.options[str(option.name)]
-	$"../../optioncontainer".add_child(option)
+	%optioncontainer.add_child(option)
 	$"../min price".value=0
 	$"../min price".text=""
 	$"../max price".value=0

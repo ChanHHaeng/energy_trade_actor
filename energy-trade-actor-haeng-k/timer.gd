@@ -5,8 +5,6 @@ extends Button
 @onready var example_sell=load("res://assets/data_example_sell.tres")
 @onready var example_buy=load("res://assets/data_example_buy.tres")
 
-var cardlen=Global.cardlen
-
 var data=[[],[]]
 var buy_amount
 var sell_amount
@@ -38,6 +36,8 @@ func _on_toggled(toggled_on: bool) -> void:
 
 func add_item(array:Array):
 	data=array
+	print("here is bug, time is "+self.name)
+	print(array)
 	for i in range(len(array[0])):
 		var examples=example.instantiate()
 		examples.amount=str(array[0][i][0])
@@ -59,22 +59,24 @@ func stacking(): #테이블 숫자 세서 stack label에 표시
 	else:
 		%"total stack".text = str(buy_amount+sell_amount)
 		%"total stack".visible=true
-	get_node("../..").timetable[int(name)]=[buy_amount,sell_amount]
+	
+	
+	#get_node("../..").timetable[int(name)]=[buy_amount,sell_amount]
 
 
 func _on_mouse_entered() -> void:
-	if buy_amount!=0 and buy_amount!=null and !self.button_pressed:
+	if !self.button_pressed and buy_amount+sell_amount!=0:
+		#await get_tree().create_timer(0.1).timeout
 		%buy_token.visible=true
-		%AnimationPlayer_up.play("step_progress_up")
-	if sell_amount!=0 and sell_amount!=null and !self.button_pressed:
 		%sell_token.visible=true
+		%AnimationPlayer_up.play("step_progress_up")
+		await %AnimationPlayer_up.animation_finished
 		%AnimationPlayer_down.play("step_progress_down")
 
 func _on_mouse_exited() -> void:
-	if buy_amount!=0 and buy_amount!=null:
+	if buy_amount+sell_amount!=0:
 		%AnimationPlayer_up.play("RESET")
 		%buy_token.visible=false
-	if sell_amount!=0 and sell_amount!=null:
 		%AnimationPlayer_down.play("RESET")
 		%sell_token.visible=false
 		

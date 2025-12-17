@@ -15,7 +15,7 @@ var date="2025-08-07"
 var building_id=12
 
 var now=13
-
+var testmode=true
 
 var TimeSlots = [
 	"06_00 ~ 07_00",

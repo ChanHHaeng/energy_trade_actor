@@ -18,12 +18,12 @@ func _on_index_pressed(index: int) -> void:
 		option.name=get_popup().get_item_text(index)
 		option.custom_minimum_size.x=option.get_minimum_size().x+30
 		option.status=0
-		$"../optioncontainer".add_child(option)
+		%optioncontainer.add_child(option)
 	elif !get_popup().is_item_checked(index):
 		var nodename=get_popup().get_item_text(index)
 		nodename= nodename.replace(":","_")
 		print(nodename)
-		$"../optioncontainer".get_node(nodename).queue_free()
+		%optioncontainer.get_node(nodename).queue_free()
 
 func _on_optioncontainer_child_exiting_tree(node: Node) -> void:
 	get_popup().set_item_checked(Global.TimeSlots.find(node.name),false)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=102 format=4 uid="uid://d1gwqkrd33l0v"]
+[gd_scene load_steps=116 format=4 uid="uid://d1gwqkrd33l0v"]
 
 [ext_resource type="ButtonGroup" uid="uid://c23vsaa7035ln" path="res://subthings/menubuttongrout.tres" id="1_0fbet"]
 [ext_resource type="Script" uid="uid://bt2hnocu2gnnm" path="res://scripts/Main.gd" id="1_qtu10"]
@@ -18,6 +18,7 @@
 [ext_resource type="Script" uid="uid://dq7iia31evatj" path="res://insert.gd" id="13_am1vj"]
 [ext_resource type="StyleBox" uid="uid://8cb5fuc60cis" path="res://assets/popupglass.tres" id="13_b3rfh"]
 [ext_resource type="Script" uid="uid://bo0i1ccdb4mg" path="res://optioncontainer.gd" id="13_oq4si"]
+[ext_resource type="PackedScene" uid="uid://4neluqg20tvg" path="res://enroll_icon.tscn" id="14_7bdvj"]
 [ext_resource type="Script" uid="uid://ct1kv1ug7ngtt" path="res://pages.gd" id="14_g31lc"]
 [ext_resource type="Script" uid="uid://dwtkxrat3xd2y" path="res://tree.gd" id="15_knq72"]
 [ext_resource type="StyleBox" uid="uid://rbxi0u6abdd" path="res://assets/glass_grabber.tres" id="16_jkes7"]
@@ -27,7 +28,9 @@
 [ext_resource type="StyleBox" uid="uid://cbecyhct2h3r1" path="res://themes/checkbox_back.tres" id="19_dgp6r"]
 [ext_resource type="Script" uid="uid://bilujbdcxnnpp" path="res://master.gd" id="19_kuuv8"]
 [ext_resource type="StyleBox" uid="uid://bcvi8t0vxgaow" path="res://assets/total_Line_Up.tres" id="19_wfgqd"]
+[ext_resource type="Texture2D" uid="uid://cwxmf38mlhjtb" path="res://assets/blacktriangle.png" id="21_lqmkq"]
 [ext_resource type="Script" uid="uid://c624y8ii38rqn" path="res://globalbuild.gd" id="21_ou021"]
+[ext_resource type="Texture2D" uid="uid://c4625vjn4igcx" path="res://assets/2320_check-mark.png" id="24_il8ev"]
 [ext_resource type="Script" uid="uid://46stehkynqji" path="res://enrolling.gd" id="26_858bn"]
 [ext_resource type="Script" uid="uid://cl6sgfbbwths0" path="res://menu_activate.gd" id="28_jkes7"]
 [ext_resource type="Script" uid="uid://c101o26gc0p73" path="res://test.gd" id="29_3ag6a"]
@@ -36,6 +39,9 @@
 [ext_resource type="Shader" uid="uid://dd2kk0radhd2e" path="res://blur.gdshader" id="31_b3rfh"]
 [ext_resource type="Script" uid="uid://di4okid76wvd1" path="res://master_tree.gd" id="31_gqja0"]
 [ext_resource type="PackedScene" uid="uid://by7rbycly4ksu" path="res://login_plate.tscn" id="35_gqja0"]
+[ext_resource type="Texture2D" uid="uid://dg2nq4xaylk3u" path="res://assets/person.svg" id="38_il8ev"]
+[ext_resource type="Script" uid="uid://2edfp77um6eo" path="res://profile_toggle.gd" id="39_l62jy"]
+[ext_resource type="Script" uid="uid://vpscxkwoa5c0" path="res://logout.gd" id="40_8v3ii"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6a6wx"]
 bg_color = Color(1, 1, 1, 1)
@@ -49,9 +55,13 @@ shader_parameter/bottom_color = Color(0.4, 0.882353, 0.862745, 1)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_uchyk"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_q6xdd"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_n7sq5"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jkes7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_q6xdd"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3dain"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0fbet"]
 
@@ -67,7 +77,7 @@ shader_parameter/bottom_color = Color(0.4, 0.882353, 0.862745, 1)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_n8v1s"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wfgqd"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_onbiu"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kpl8e"]
 
@@ -75,7 +85,7 @@ shader_parameter/bottom_color = Color(0.4, 0.882353, 0.862745, 1)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_7bdvj"]
 shader = ExtResource("10_n8v1s")
-shader_parameter/top_highlight = Color(1, 1, 1, 0.12)
+shader_parameter/top_highlight = Color(0.588235, 0.588235, 0.588235, 0.121569)
 shader_parameter/bottom_shadow = Color(0, 0, 0, 0.18)
 shader_parameter/edge_px = 80.0
 
@@ -105,15 +115,15 @@ shadow_offset = Vector2(0, 1)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_n8v1s"]
 shader = ExtResource("10_n8v1s")
-shader_parameter/top_highlight = Color(1, 1, 1, 0.12)
+shader_parameter/top_highlight = Color(0.588235, 0.588235, 0.588235, 0.121569)
 shader_parameter/bottom_shadow = Color(0, 0, 0, 0.18)
 shader_parameter/edge_px = 80.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8jbwv"]
-bg_color = Color(0.670588, 0.670588, 0.670588, 1)
+bg_color = Color(1, 1, 1, 1)
 border_width_left = 1
-border_width_top = 2
 border_width_right = 1
+border_width_bottom = 2
 border_color = Color(0.670588, 0.670588, 0.670588, 1)
 corner_radius_top_left = 15
 corner_radius_top_right = 15
@@ -122,21 +132,37 @@ corner_radius_bottom_left = 15
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_858bn"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5axgr"]
-bg_color = Color(0.360784, 0.972549, 0.796078, 0.686275)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color(0, 0, 0, 1)
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wfgqd"]
-bg_color = Color(0.831373, 0, 0, 0.686275)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.808998, 0.808998, 0.808998, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3chmk"]
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5axgr"]
+bg_color = Color(0.223529, 0.384314, 0.792157, 1)
 border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f5pai"]
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7bdvj"]
 
@@ -1672,13 +1698,48 @@ corner_radius_bottom_left = 20
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2xhs3"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_olwrp"]
-bg_color = Color(1, 1, 1, 0.286275)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3dain"]
+content_margin_left = 5.0
+content_margin_right = 5.0
+content_margin_bottom = 3.0
+bg_color = Color(0.627451, 0.788235, 0.929412, 1)
 border_color = Color(0, 0, 0, 1)
 corner_radius_top_left = 50
 corner_radius_top_right = 50
 corner_radius_bottom_right = 50
 corner_radius_bottom_left = 50
+shadow_color = Color(0.424041, 0.428814, 0.466733, 0.239216)
+shadow_size = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_olwrp"]
+content_margin_left = 5.0
+content_margin_right = 5.0
+content_margin_bottom = 3.0
+bg_color = Color(0.627451, 0.788235, 0.929412, 1)
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2xhs3"]
+bg_color = Color(0.306923, 0.306923, 0.306923, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+shadow_color = Color(0, 0, 0, 0.294118)
+shadow_size = 1
+shadow_offset = Vector2(0, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_udbhq"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_chp0b"]
+draw_center = false
+border_width_top = 1
+border_color = Color(0, 0, 0, 1)
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_n8v1s"]
 
@@ -1714,19 +1775,20 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_b3rfh")
 [node name="Menu_Container" type="HBoxContainer" parent="Panel"]
 z_index = 1
 layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.502
-anchor_right = 0.502
-offset_left = -546.304
-offset_right = 545.696
-offset_bottom = 90.0
-theme_override_constants/separation = 0
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -400.0
+offset_right = 400.0
+offset_bottom = 110.0
+grow_horizontal = 2
+theme_override_constants/separation = 220
 
 [node name="Trade" type="Button" parent="Panel/Menu_Container"]
 unique_name_in_owner = true
 editor_description = "모양은 핑계가 될 수 없다"
+custom_minimum_size = Vector2(120, 0)
 layout_mode = 2
-size_flags_horizontal = 3
 mouse_default_cursor_shape = 2
 theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
@@ -1735,11 +1797,11 @@ theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 22
 theme_override_styles/focus = SubResource("StyleBoxEmpty_uchyk")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_q6xdd")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_n7sq5")
 theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_jkes7")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_jkes7")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_jkes7")
-theme_override_styles/normal = SubResource("StyleBoxEmpty_jkes7")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_q6xdd")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_3dain")
 disabled = true
 toggle_mode = true
 button_pressed = true
@@ -1749,8 +1811,8 @@ script = ExtResource("2_62e2m")
 
 [node name="Catalogue" type="Button" parent="Panel/Menu_Container"]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(120, 0)
 layout_mode = 2
-size_flags_horizontal = 3
 mouse_default_cursor_shape = 2
 theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
@@ -1772,8 +1834,8 @@ page_num = 1
 
 [node name="My Page" type="Button" parent="Panel/Menu_Container"]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(120, 0)
 layout_mode = 2
-size_flags_horizontal = 3
 mouse_default_cursor_shape = 2
 theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
@@ -1786,7 +1848,7 @@ theme_override_styles/disabled = SubResource("StyleBoxEmpty_l62jy")
 theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_n8v1s")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_n8v1s")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_n8v1s")
-theme_override_styles/normal = SubResource("StyleBoxEmpty_wfgqd")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_onbiu")
 toggle_mode = true
 button_group = ExtResource("1_0fbet")
 text = "My Page"
@@ -1795,17 +1857,17 @@ page_num = 2
 
 [node name="Runway" type="Control" parent="Panel"]
 anchors_preset = 0
-offset_left = 64.0
-offset_top = 17.0
-offset_right = 1093.0
-offset_bottom = 78.0
+offset_left = 136.0
+offset_top = 22.0
+offset_right = 1016.0
+offset_bottom = 88.0
 mouse_filter = 2
 
 [node name="menu_plate" type="Panel" parent="Panel/Runway"]
 unique_name_in_owner = true
 layout_mode = 0
-offset_right = 300.0
-offset_bottom = 60.0
+offset_right = 200.0
+offset_bottom = 66.0
 mouse_filter = 2
 theme_override_styles/panel = ExtResource("7_w5605")
 script = ExtResource("6_b3rfh")
@@ -1826,6 +1888,7 @@ grow_vertical = 2
 script = ExtResource("7_5axgr")
 
 [node name="Trade page" type="Panel" parent="Panel/Core"]
+visible = false
 layout_mode = 0
 offset_left = 16.0
 offset_top = 16.0
@@ -1896,7 +1959,6 @@ text = "15:00"
 
 [node name="16" parent="Panel/Core/Trade page/GridContainer" instance=ExtResource("7_858bn")]
 layout_mode = 2
-theme_override_styles/focus = SubResource("StyleBoxEmpty_kpl8e")
 text = "16:00"
 
 [node name="17" parent="Panel/Core/Trade page/GridContainer" instance=ExtResource("7_858bn")]
@@ -2052,17 +2114,17 @@ unique_name_in_owner = true
 [node name="enrolling" type="Panel" parent="Panel/Core/Trade page"]
 unique_name_in_owner = true
 visible = false
-z_index = 1
+z_index = 10
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -154.0
-offset_top = -48.0
-offset_right = 239.0
-offset_bottom = 45.0
+offset_left = 172.0
+offset_top = -39.0
+offset_right = 512.0
+offset_bottom = 151.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_8jbwv")
@@ -2075,13 +2137,14 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -159.5
-offset_top = -14.5
-offset_right = 159.5
-offset_bottom = 14.5
+offset_left = -142.0
+offset_top = 18.0
+offset_right = 106.0
+offset_bottom = 36.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 13
 text = "Are you really going to enroll the trade?"
 
 [node name="Label2" type="Label" parent="Panel/Core/Trade page/enrolling"]
@@ -2089,12 +2152,13 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -62.0
-offset_right = 62.0
-offset_bottom = 42.0
+offset_left = -142.0
+offset_top = 76.0
+offset_right = -30.0
+offset_bottom = 107.0
 grow_horizontal = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 22
 text = "Enrolling..."
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Panel/Core/Trade page/enrolling"]
@@ -2104,33 +2168,50 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -75.5
-offset_top = -31.0
-offset_right = 76.5
-offset_bottom = -8.0
+offset_left = 25.0
+offset_top = -41.0
+offset_right = 155.0
+offset_bottom = -14.0
 grow_horizontal = 2
 grow_vertical = 0
-theme_override_constants/separation = 60
-
-[node name="Yes" type="Button" parent="Panel/Core/Trade page/enrolling/HBoxContainer"]
-custom_minimum_size = Vector2(60, 0)
-layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_styles/focus = SubResource("StyleBoxEmpty_858bn")
-theme_override_styles/normal = SubResource("StyleBoxFlat_5axgr")
-text = "Yes"
+theme_override_constants/separation = 10
 
 [node name="No" type="Button" parent="Panel/Core/Trade page/enrolling/HBoxContainer"]
 custom_minimum_size = Vector2(60, 0)
 layout_mode = 2
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_styles/focus = SubResource("StyleBoxEmpty_858bn")
+theme_override_styles/hover = SubResource("StyleBoxFlat_wfgqd")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_3chmk")
 theme_override_styles/normal = SubResource("StyleBoxFlat_wfgqd")
 text = "No"
+
+[node name="Yes" type="Button" parent="Panel/Core/Trade page/enrolling/HBoxContainer"]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_858bn")
+theme_override_styles/hover = SubResource("StyleBoxFlat_5axgr")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_f5pai")
+theme_override_styles/normal = SubResource("StyleBoxFlat_5axgr")
+text = "Yes"
 
 [node name="Timer" type="Timer" parent="Panel/Core/Trade page/enrolling"]
 unique_name_in_owner = true
 wait_time = 5.0
+
+[node name="enroll_icon" parent="Panel/Core/Trade page/enrolling" instance=ExtResource("14_7bdvj")]
+layout_mode = 0
+offset_left = 28.0
+offset_top = 23.0
+offset_right = 78.0
+offset_bottom = 73.0
 
 [node name="Catalogue page" type="Panel" parent="Panel/Core"]
 visible = false
@@ -2242,22 +2323,25 @@ auto_translate_mode = 1
 mode = 1
 max_size = Vector2i(32768, 150)
 
-[node name="blacktriangle" type="Label" parent="Panel/Core/Catalogue page/timelist"]
+[node name="blacktriangle" type="TextureRect" parent="Panel/Core/Catalogue page/timelist"]
 layout_mode = 0
 offset_left = 191.0
-offset_top = 3.0
-offset_right = 207.0
-offset_bottom = 26.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "▼"
+offset_top = 12.0
+offset_right = 202.0
+offset_bottom = 22.0
+texture = ExtResource("21_lqmkq")
+expand_mode = 1
 
-[node name="optioncontainer" type="GridContainer" parent="Panel/Core/Catalogue page"]
-unique_name_in_owner = true
+[node name="ScrollContainer" type="ScrollContainer" parent="Panel/Core/Catalogue page"]
 layout_mode = 0
 offset_left = 25.0
 offset_top = 54.0
-offset_right = 744.0
+offset_right = 637.0
 offset_bottom = 138.0
+
+[node name="optioncontainer" type="GridContainer" parent="Panel/Core/Catalogue page/ScrollContainer"]
+unique_name_in_owner = true
+layout_mode = 2
 columns = 4
 script = ExtResource("13_oq4si")
 
@@ -2308,7 +2392,8 @@ theme_override_styles/hover = ExtResource("19_wfgqd")
 theme_override_styles/pressed = ExtResource("17_5axgr")
 theme_override_styles/normal = ExtResource("19_wfgqd")
 disabled = true
-text = "✔"
+icon = ExtResource("24_il8ev")
+expand_icon = true
 script = ExtResource("13_am1vj")
 
 [node name="Label" type="Label" parent="Panel/Core/Catalogue page/price"]
@@ -2582,7 +2667,6 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Sell"
 
 [node name="My Page page" type="Panel" parent="Panel/Core"]
-visible = false
 layout_mode = 0
 offset_left = 16.0
 offset_top = 16.0
@@ -2617,6 +2701,8 @@ offset_bottom = 205.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_l62jy")
+theme_override_colors/title_button_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_constants/draw_guides = 0
 theme_override_font_sizes/font_size = 16
 theme_override_styles/title_button_hover = ExtResource("16_jkes7")
@@ -2732,16 +2818,64 @@ offset_right = -35.0
 offset_bottom = 26.0
 script = ExtResource("29_3ag6a")
 
-[node name="Button" type="Button" parent="Panel"]
+[node name="profile_toggle" type="Button" parent="Panel"]
 layout_mode = 1
 anchors_preset = -1
-offset_left = 1076.0
-offset_top = 20.0
-offset_right = 1136.0
-offset_bottom = 80.0
+offset_left = 1069.0
+offset_top = 25.0
+offset_right = 1129.0
+offset_bottom = 85.0
 theme_override_styles/focus = SubResource("StyleBoxEmpty_2xhs3")
-theme_override_styles/hover = SubResource("StyleBoxFlat_olwrp")
+theme_override_styles/hover = SubResource("StyleBoxFlat_3dain")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_3dain")
 theme_override_styles/normal = SubResource("StyleBoxFlat_olwrp")
+icon = ExtResource("38_il8ev")
+expand_icon = true
+script = ExtResource("39_l62jy")
+
+[node name="profile" type="Panel" parent="Panel/profile_toggle"]
+visible = false
+z_index = 1
+layout_mode = 0
+offset_left = -113.0
+offset_top = 67.0
+offset_right = 67.0
+offset_bottom = 137.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_2xhs3")
+
+[node name="ID" type="Label" parent="Panel/profile_toggle/profile"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -39.5
+offset_right = 39.5
+offset_bottom = 35.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 22
+text = "user01"
+horizontal_alignment = 1
+
+[node name="Logout" type="Button" parent="Panel/profile_toggle/profile"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -90.0
+offset_top = -35.0
+offset_right = 90.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(1, 0.054902, 0, 1)
+theme_override_font_sizes/font_size = 16
+theme_override_styles/focus = SubResource("StyleBoxEmpty_udbhq")
+theme_override_styles/hover = SubResource("StyleBoxFlat_chp0b")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_chp0b")
+theme_override_styles/normal = SubResource("StyleBoxFlat_chp0b")
+text = "Logout"
+script = ExtResource("40_8v3ii")
 
 [node name="Timer" type="Timer" parent="."]
 
@@ -2808,6 +2942,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="login_plate" parent="." instance=ExtResource("35_gqja0")]
+unique_name_in_owner = true
 visible = false
 z_index = 3
 layout_mode = 1
@@ -2825,17 +2960,17 @@ layout_mode = 1
 [connection signal="pressed" from="Panel/Core/Trade page/purchase_data" to="Panel/Core/Trade page/purchase_data" method="_on_pressed"]
 [connection signal="pressed" from="Panel/Core/Trade page/reset" to="Panel/Core/Trade page/reset" method="_on_pressed"]
 [connection signal="enrollsig" from="Panel/Core/Trade page/enrolling" to="Panel/Core/Trade page/purchase_data" method="_on_enrolling_enrollsig"]
-[connection signal="pressed" from="Panel/Core/Trade page/enrolling/HBoxContainer/Yes" to="Panel/Core/Trade page/enrolling" method="_on_yes_pressed"]
 [connection signal="pressed" from="Panel/Core/Trade page/enrolling/HBoxContainer/No" to="Panel/Core/Trade page/enrolling" method="_on_no_pressed"]
+[connection signal="pressed" from="Panel/Core/Trade page/enrolling/HBoxContainer/Yes" to="Panel/Core/Trade page/enrolling" method="_on_yes_pressed"]
 [connection signal="visibility_changed" from="Panel/Core/Catalogue page" to="Panel/Core/Catalogue page" method="_on_visibility_changed"]
 [connection signal="about_to_popup" from="Panel/Core/Catalogue page/timelist" to="Panel/Core/Catalogue page/timelist" method="_on_about_to_popup"]
-[connection signal="child_entered_tree" from="Panel/Core/Catalogue page/optioncontainer" to="Panel/Core/Catalogue page/optioncontainer" method="_on_child_entered_tree"]
-[connection signal="child_entered_tree" from="Panel/Core/Catalogue page/optioncontainer" to="Panel/Core/Catalogue page/sector container/buy_sect" method="_on_optioncontainer_child_entered_tree"]
-[connection signal="child_entered_tree" from="Panel/Core/Catalogue page/optioncontainer" to="Panel/Core/Catalogue page/sector container/sell_sect" method="_on_optioncontainer_child_entered_tree"]
-[connection signal="child_exiting_tree" from="Panel/Core/Catalogue page/optioncontainer" to="Panel/Core/Catalogue page/timelist" method="_on_optioncontainer_child_exiting_tree"]
-[connection signal="child_exiting_tree" from="Panel/Core/Catalogue page/optioncontainer" to="Panel/Core/Catalogue page/optioncontainer" method="_on_child_exiting_tree"]
-[connection signal="child_exiting_tree" from="Panel/Core/Catalogue page/optioncontainer" to="Panel/Core/Catalogue page/sector container/buy_sect" method="_on_optioncontainer_child_exiting_tree"]
-[connection signal="child_exiting_tree" from="Panel/Core/Catalogue page/optioncontainer" to="Panel/Core/Catalogue page/sector container/sell_sect" method="_on_optioncontainer_child_exiting_tree"]
+[connection signal="child_entered_tree" from="Panel/Core/Catalogue page/ScrollContainer/optioncontainer" to="Panel/Core/Catalogue page/ScrollContainer/optioncontainer" method="_on_child_entered_tree"]
+[connection signal="child_entered_tree" from="Panel/Core/Catalogue page/ScrollContainer/optioncontainer" to="Panel/Core/Catalogue page/sector container/buy_sect" method="_on_optioncontainer_child_entered_tree"]
+[connection signal="child_entered_tree" from="Panel/Core/Catalogue page/ScrollContainer/optioncontainer" to="Panel/Core/Catalogue page/sector container/sell_sect" method="_on_optioncontainer_child_entered_tree"]
+[connection signal="child_exiting_tree" from="Panel/Core/Catalogue page/ScrollContainer/optioncontainer" to="Panel/Core/Catalogue page/timelist" method="_on_optioncontainer_child_exiting_tree"]
+[connection signal="child_exiting_tree" from="Panel/Core/Catalogue page/ScrollContainer/optioncontainer" to="Panel/Core/Catalogue page/ScrollContainer/optioncontainer" method="_on_child_exiting_tree"]
+[connection signal="child_exiting_tree" from="Panel/Core/Catalogue page/ScrollContainer/optioncontainer" to="Panel/Core/Catalogue page/sector container/buy_sect" method="_on_optioncontainer_child_exiting_tree"]
+[connection signal="child_exiting_tree" from="Panel/Core/Catalogue page/ScrollContainer/optioncontainer" to="Panel/Core/Catalogue page/sector container/sell_sect" method="_on_optioncontainer_child_exiting_tree"]
 [connection signal="pressed" from="Panel/Core/Catalogue page/price/insert" to="Panel/Core/Catalogue page/price/insert" method="_on_pressed"]
 [connection signal="request_completed" from="Panel/Core/Catalogue page/data_searching_buy" to="Panel/Core/Catalogue page" method="_on_data_searching_buy_request_completed_buy"]
 [connection signal="request_completed" from="Panel/Core/Catalogue page/data_searching_sell" to="Panel/Core/Catalogue page" method="_on_data_searching_sell_request_completed_sell"]
@@ -2849,7 +2984,6 @@ layout_mode = 1
 [connection signal="item_selected" from="Panel/Core/Catalogue page/sector container/buy_sect/buy" to="Panel/Core/Catalogue page/sector container/buy_sect/buy" method="_on_item_selected"]
 [connection signal="column_title_clicked" from="Panel/Core/Catalogue page/sector container/sell_sect/sell" to="Panel/Core/Catalogue page/sector container/sell_sect/sell" method="_on_column_title_clicked"]
 [connection signal="item_selected" from="Panel/Core/Catalogue page/sector container/sell_sect/sell" to="Panel/Core/Catalogue page/sector container/sell_sect/sell" method="_on_item_selected"]
-[connection signal="visibility_changed" from="Panel/Core/My Page page" to="Panel/Core/My Page page" method="_on_visibility_changed"]
 [connection signal="column_title_clicked" from="Panel/Core/My Page page/Page/Master tree" to="Panel/Core/My Page page/Page/Master tree" method="_on_column_title_clicked"]
 [connection signal="index_pressed" from="Panel/Core/My Page page/Page/Master tree/Popups/date_menu" to="Panel/Core/My Page page/Page/Master tree/Popups/date_menu" method="_on_index_pressed"]
 [connection signal="index_pressed" from="Panel/Core/My Page page/Page/Master tree/Popups/time_menu" to="Panel/Core/My Page page/Page/Master tree/Popups/time_menu" method="_on_index_pressed"]
@@ -2861,3 +2995,5 @@ layout_mode = 1
 [connection signal="index_pressed" from="Panel/Core/My Page page/Page/Master tree/Popups/to_menu" to="Panel/Core/My Page page/Page/Master tree/Popups/to_menu" method="_on_index_pressed"]
 [connection signal="value_changed" from="Panel/Globalbuild" to="Panel/Globalbuild" method="_on_value_changed"]
 [connection signal="pressed" from="Panel/Globalbuild/test" to="Panel/Globalbuild/test" method="_on_pressed"]
+[connection signal="pressed" from="Panel/profile_toggle" to="Panel/profile_toggle" method="_on_pressed"]
+[connection signal="pressed" from="Panel/profile_toggle/profile/Logout" to="Panel/profile_toggle/profile/Logout" method="_on_pressed"]

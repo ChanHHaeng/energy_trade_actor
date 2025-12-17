@@ -10,10 +10,17 @@ func _ready() -> void:
 	var _err_build=$HTTPRequest_buildings.request(str(Global.postgrest)+":3000/buildings")
 	%HTTPRequest_buy.request_completed.connect(_buy_completed)
 	%HTTPRequest_sell.request_completed.connect(_sell_completed)
-	$login_plate.activate()
+	
 	
 	var _now=Time.get_datetime_string_from_system()
 	$login_plate.certified.connect(activate)
+	
+	#테스트 모드 코드!! 출시할때 꼭 삭제할것!!!
+	if not Global.testmode:
+		$login_plate.activate()
+	elif Global.testmode:
+		activate()
+		
 	
 	
 func activate():
@@ -34,6 +41,7 @@ func _sell_completed(_a,_b,_c,d):
 	Global.transaction_clear(1)
 	var jsontext=d.get_string_from_utf8()
 	var result=JSON.parse_string(jsontext)
+	Global.sell_data.clear()
 	Global.sell_data=result.duplicate(true)
 	Global.sell_data.sort_custom(sortingdata_sell)
 	for i in Global.sell_data:
@@ -46,6 +54,7 @@ func _buy_completed(_a,_b,_c,d):
 	Global.transaction_clear(0)
 	var jsontext=d.get_string_from_utf8()
 	var result=JSON.parse_string(jsontext)
+	Global.buy_data.clear()
 	Global.buy_data=result.duplicate(true)
 	Global.buy_data.sort_custom(sortingdata_buy)
 	for i in Global.buy_data:
@@ -79,6 +88,8 @@ func sortingdata_buy(a,b): ##내림차순
 func check_all_ready():
 	if buy_check and sell_check:
 		data_ready=true
+		buy_check=false
+		sell_check=false
 		if Trade_page.visible:
 			Trade_page.setting()
 		

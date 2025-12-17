@@ -15,9 +15,9 @@ func _on_child_entered_tree(node: Node) -> void:
 	match node.status:
 		0:
 			timeoption.append(int(str(node.name).substr(0,2)))
-		1:
-			value_min=$"../values/insert".min
-			value_max=$"../values/insert".max
+		#1: # value의 삭제로 죽은 코드
+			#value_min=$"../values/insert".min
+			#value_max=$"../values/insert".max
 		2:
 			price_min=$"../price/insert".min
 			if $"../price/insert".max==0:

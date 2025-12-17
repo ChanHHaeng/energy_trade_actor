@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://ryurc2muk230"]
+[gd_scene load_steps=38 format=3 uid="uid://ryurc2muk230"]
 
 [ext_resource type="FontFile" path="res://fonts/montreal/Montreal.tres" id="1_acuhy"]
 [ext_resource type="Script" uid="uid://bqp8hlbau316u" path="res://timer.gd" id="1_qdhxh"]
@@ -10,9 +10,7 @@
 [ext_resource type="StyleBox" uid="uid://cjetnu2bp7fb4" path="res://assets/datacard_for_animation.tres" id="7_eypy5"]
 [ext_resource type="StyleBox" uid="uid://cikh0lpxyni8b" path="res://assets/datacard_for_animation_down.tres" id="8_7ocsi"]
 [ext_resource type="Script" uid="uid://cyfpltyv3f8yn" path="res://button_container.gd" id="8_mc83r"]
-[ext_resource type="Texture2D" uid="uid://crlguprvccnbm" path="res://assets/realbin.svg" id="8_rokg3"]
 [ext_resource type="ButtonGroup" uid="uid://dteas0jhp1j5p" path="res://assets/buysellgroup.tres" id="9_ph1h4"]
-[ext_resource type="Script" uid="uid://b2ipybg8mvd3f" path="res://bin.gd" id="9_skflu"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_87wg0"]
 
@@ -24,9 +22,6 @@ corner_radius_bottom_left = 5
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_mc83r"]
 blend_mode = 1
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_skflu"]
-size = Vector2(42, 43)
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_eqm1h"]
 
@@ -99,24 +94,6 @@ corner_radius_bottom_left = 50
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_11as0"]
 blend_mode = 1
-
-[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_7jrio"]
-blend_mode = 1
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7jrio"]
-bg_color = Color(1, 1, 1, 0)
-border_width_left = 4
-border_width_top = 4
-border_width_right = 4
-border_width_bottom = 4
-border_color = Color(1, 1, 1, 1)
-corner_radius_top_left = 20
-corner_radius_top_right = 20
-corner_radius_bottom_right = 20
-corner_radius_bottom_left = 20
-shadow_color = Color(0, 0, 0, 0.247059)
-shadow_size = 1
-shadow_offset = Vector2(0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_acuhy"]
 bg_color = Color(0, 1, 0.870588, 1)
@@ -260,7 +237,7 @@ tracks/10/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(1, 1)]
+"values": [Vector2(0, 1)]
 }
 tracks/11/type = "value"
 tracks/11/imported = false
@@ -272,7 +249,7 @@ tracks/11/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(1, 1)]
+"values": [Vector2(0, 1)]
 }
 tracks/12/type = "value"
 tracks/12/imported = false
@@ -284,7 +261,7 @@ tracks/12/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(1, 1)]
+"values": [Vector2(0, 1)]
 }
 tracks/13/type = "value"
 tracks/13/imported = false
@@ -296,7 +273,7 @@ tracks/13/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(1, 1)]
+"values": [Vector2(0, 1)]
 }
 tracks/14/type = "value"
 tracks/14/imported = false
@@ -308,7 +285,7 @@ tracks/14/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(1, 1)]
+"values": [Vector2(0, 1)]
 }
 tracks/15/type = "value"
 tracks/15/imported = false
@@ -320,7 +297,7 @@ tracks/15/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(1, 1)]
+"values": [Vector2(0, 1)]
 }
 tracks/16/type = "value"
 tracks/16/imported = false
@@ -332,7 +309,7 @@ tracks/16/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(1, 1)]
+"values": [Vector2(0, 1)]
 }
 tracks/17/type = "value"
 tracks/17/imported = false
@@ -344,7 +321,7 @@ tracks/17/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(1, 1)]
+"values": [Vector2(0, 1)]
 }
 tracks/18/type = "value"
 tracks/18/imported = false
@@ -356,7 +333,7 @@ tracks/18/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(1, 1)]
+"values": [Vector2(0, 1)]
 }
 tracks/19/type = "value"
 tracks/19/imported = false
@@ -368,7 +345,7 @@ tracks/19/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(1, 1)]
+"values": [Vector2(0, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_eypy5"]
@@ -500,7 +477,6 @@ tracks/4/keys = {
 
 [sub_resource type="Animation" id="Animation_ph1h4"]
 resource_name = "step_progress_down"
-length = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -508,10 +484,10 @@ tracks/0/path = NodePath("sell_token/node:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1),
+"times": PackedFloat32Array(0, 0.2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(0, 0), Vector2(1, 1)]
+"values": [Vector2(0, 1), Vector2(1, 1)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -520,10 +496,10 @@ tracks/1/path = NodePath("sell_token/node2:scale")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2),
+"times": PackedFloat32Array(0, 0.2, 0.4),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(0, 0), Vector2(0, 0), Vector2(1, 1)]
+"values": [Vector2(0, 1), Vector2(0, 1), Vector2(1, 1)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -532,10 +508,10 @@ tracks/2/path = NodePath("sell_token/node3:scale")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.3),
+"times": PackedFloat32Array(0, 0.4, 0.6),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(0, 0), Vector2(0, 0), Vector2(1, 1)]
+"values": [Vector2(0, 1), Vector2(0, 1), Vector2(1, 1)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -544,10 +520,10 @@ tracks/3/path = NodePath("sell_token/node4:scale")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.3, 0.4),
+"times": PackedFloat32Array(0, 0.6, 0.8),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(0, 0), Vector2(0, 0), Vector2(1, 1)]
+"values": [Vector2(0, 1), Vector2(0, 1), Vector2(1, 1)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
@@ -556,10 +532,10 @@ tracks/4/path = NodePath("sell_token/node5:scale")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.4, 0.5),
+"times": PackedFloat32Array(0, 0.8, 1),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(0, 0), Vector2(0, 0), Vector2(1, 1)]
+"values": [Vector2(0, 1), Vector2(0, 1), Vector2(1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_skflu"]
@@ -575,7 +551,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(0, 0), Vector2(1, 1)]
+"values": [Vector2(0, 1), Vector2(1, 1)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -587,7 +563,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(0, 0), Vector2(0, 0), Vector2(1, 1)]
+"values": [Vector2(0, 1), Vector2(0, 1), Vector2(1, 1)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -599,7 +575,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0, 0.2, 0.3),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(0, 0), Vector2(0, 0), Vector2(1, 1)]
+"values": [Vector2(0, 1), Vector2(0, 1), Vector2(1, 1)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -611,7 +587,7 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0, 0.3, 0.4),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(0, 0), Vector2(0, 0), Vector2(1, 1)]
+"values": [Vector2(0, 1), Vector2(0, 1), Vector2(1, 1)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
@@ -623,7 +599,7 @@ tracks/4/keys = {
 "times": PackedFloat32Array(0, 0.4, 0.5),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(0, 0), Vector2(0, 0), Vector2(1, 1)]
+"values": [Vector2(0, 1), Vector2(0, 1), Vector2(1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_7ocsi"]
@@ -652,8 +628,6 @@ theme_override_styles/normal = ExtResource("2_skflu")
 toggle_mode = true
 text = "00:00"
 script = ExtResource("1_qdhxh")
-metadata/_edit_horizontal_guides_ = [600.0, 110.0]
-metadata/_edit_vertical_guides_ = [48.0, 1108.0, -70.0]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 visible = false
@@ -675,31 +649,6 @@ offset_bottom = 235.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = ExtResource("4_skflu")
-
-[node name="trash" type="TextureRect" parent="CanvasLayer/data plate"]
-unique_name_in_owner = true
-visible = false
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -36.0
-offset_top = -36.0
-offset_right = -6.0
-offset_bottom = -6.0
-grow_horizontal = 0
-grow_vertical = 0
-texture = ExtResource("8_rokg3")
-expand_mode = 1
-script = ExtResource("9_skflu")
-
-[node name="Area2D" type="Area2D" parent="CanvasLayer/data plate/trash"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/data plate/trash/Area2D"]
-position = Vector2(14, 13.5)
-shape = SubResource("RectangleShape2D_skflu")
 
 [node name="Button Container" type="HBoxContainer" parent="CanvasLayer/data plate"]
 layout_mode = 1
@@ -999,16 +948,6 @@ default_color = Color(0.377919, 0.377919, 0.377919, 1)
 begin_cap_mode = 2
 end_cap_mode = 2
 
-[node name="Border_plate" type="Panel" parent="CanvasLayer/data plate"]
-visible = false
-material = SubResource("CanvasItemMaterial_7jrio")
-layout_mode = 0
-offset_left = 28.0
-offset_top = 66.0
-offset_right = 966.0
-offset_bottom = 379.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_7jrio")
-
 [node name="total stack" type="Label" parent="."]
 unique_name_in_owner = true
 layout_mode = 1
@@ -1175,6 +1114,7 @@ libraries = {
 
 [node name="buy_token" type="Control" parent="."]
 unique_name_in_owner = true
+visible = false
 z_index = -1
 layout_mode = 1
 anchors_preset = 7
@@ -1191,106 +1131,108 @@ grow_vertical = 0
 mouse_filter = 2
 
 [node name="node" type="ColorRect" parent="buy_token"]
+visible = false
 z_index = 1
 custom_minimum_size = Vector2(8, 2)
 layout_mode = 2
-offset_left = 8.0
+offset_left = 7.0
 offset_top = 1.0
-offset_right = 16.0
+offset_right = 17.0
 offset_bottom = 3.0
-pivot_offset = Vector2(4, 4)
+scale = Vector2(1e-05, 1)
 mouse_filter = 2
 color = Color(0.0826735, 0.59988, 1, 1)
 
 [node name="node2" type="ColorRect" parent="buy_token"]
+visible = false
 z_index = 1
 custom_minimum_size = Vector2(8, 2)
 layout_mode = 2
-offset_left = 22.0
+offset_left = 21.0
 offset_top = 1.0
-offset_right = 30.0
+offset_right = 31.0
 offset_bottom = 3.0
-pivot_offset = Vector2(4, 4)
+scale = Vector2(1e-05, 1)
 mouse_filter = 2
 color = Color(0.0826735, 0.59988, 1, 1)
 
 [node name="node3" type="ColorRect" parent="buy_token"]
+visible = false
 z_index = 1
 custom_minimum_size = Vector2(8, 2)
 layout_mode = 2
-offset_left = 36.0
+offset_left = 35.0
 offset_top = 1.0
-offset_right = 44.0
+offset_right = 45.0
 offset_bottom = 3.0
-pivot_offset = Vector2(4, 4)
+scale = Vector2(1e-05, 1)
 mouse_filter = 2
 color = Color(0.0826735, 0.59988, 1, 1)
 
 [node name="node4" type="ColorRect" parent="buy_token"]
+visible = false
 z_index = 1
 custom_minimum_size = Vector2(8, 2)
 layout_mode = 2
-offset_left = 50.0
+offset_left = 49.0
 offset_top = 1.0
-offset_right = 58.0
+offset_right = 59.0
 offset_bottom = 3.0
-pivot_offset = Vector2(4, 4)
+scale = Vector2(1e-05, 1)
 mouse_filter = 2
 color = Color(0.0826735, 0.59988, 1, 1)
 
 [node name="node5" type="ColorRect" parent="buy_token"]
+visible = false
 z_index = 1
 custom_minimum_size = Vector2(8, 2)
 layout_mode = 2
-offset_left = 64.0
+offset_left = 63.0
 offset_top = 1.0
-offset_right = 72.0
+offset_right = 73.0
 offset_bottom = 3.0
-pivot_offset = Vector2(4, 4)
+scale = Vector2(1e-05, 1)
 mouse_filter = 2
 color = Color(0.0826735, 0.59988, 1, 1)
 
 [node name="buybaseContainer" type="HBoxContainer" parent="buy_token"]
 layout_mode = 1
-anchors_preset = 8
+anchors_preset = 5
 anchor_left = 0.5
-anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -32.0
-offset_top = -3.0
-offset_right = 32.0
-offset_bottom = -1.0
+offset_left = -33.0
+offset_top = 1.0
+offset_right = 33.0
+offset_bottom = 3.0
 grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/separation = 6
+theme_override_constants/separation = 4
 
 [node name="base" type="ColorRect" parent="buy_token/buybaseContainer"]
-custom_minimum_size = Vector2(8, 2)
+custom_minimum_size = Vector2(10, 2)
 layout_mode = 2
 mouse_filter = 2
 color = Color(0.585062, 0.585062, 0.585062, 1)
 
 [node name="base2" type="ColorRect" parent="buy_token/buybaseContainer"]
-custom_minimum_size = Vector2(8, 2)
+custom_minimum_size = Vector2(10, 2)
 layout_mode = 2
 mouse_filter = 2
 color = Color(0.585062, 0.585062, 0.585062, 1)
 
 [node name="base3" type="ColorRect" parent="buy_token/buybaseContainer"]
-custom_minimum_size = Vector2(8, 2)
+custom_minimum_size = Vector2(10, 2)
 layout_mode = 2
 mouse_filter = 2
 color = Color(0.585062, 0.585062, 0.585062, 1)
 
 [node name="base4" type="ColorRect" parent="buy_token/buybaseContainer"]
-custom_minimum_size = Vector2(8, 2)
+custom_minimum_size = Vector2(10, 2)
 layout_mode = 2
 mouse_filter = 2
 color = Color(0.585062, 0.585062, 0.585062, 1)
 
 [node name="base5" type="ColorRect" parent="buy_token/buybaseContainer"]
-custom_minimum_size = Vector2(8, 2)
+custom_minimum_size = Vector2(10, 2)
 layout_mode = 2
 mouse_filter = 2
 color = Color(0.585062, 0.585062, 0.585062, 1)
@@ -1301,6 +1243,7 @@ root_node = NodePath("../..")
 libraries = {
 &"": SubResource("AnimationLibrary_7ocsi")
 }
+speed_scale = 1.5
 
 [node name="sell_token" type="Control" parent="."]
 unique_name_in_owner = true
@@ -1321,57 +1264,57 @@ grow_vertical = 0
 mouse_filter = 2
 
 [node name="node" type="ColorRect" parent="sell_token"]
+visible = false
 z_index = 1
-custom_minimum_size = Vector2(8, 8)
 layout_mode = 2
-offset_left = 8.0
-offset_right = 16.0
-offset_bottom = 8.0
-pivot_offset = Vector2(4, 4)
+offset_left = 7.0
+offset_right = 17.0
+offset_bottom = 2.0
+scale = Vector2(1e-05, 1)
 mouse_filter = 2
 color = Color(1, 0.27065, 0.411049, 1)
 
 [node name="node2" type="ColorRect" parent="sell_token"]
+visible = false
 z_index = 1
-custom_minimum_size = Vector2(8, 8)
 layout_mode = 2
-offset_left = 22.0
-offset_right = 30.0
-offset_bottom = 8.0
-pivot_offset = Vector2(4, 4)
+offset_left = 21.0
+offset_right = 31.0
+offset_bottom = 2.0
+scale = Vector2(1e-05, 1)
 mouse_filter = 2
 color = Color(1, 0.27065, 0.411049, 1)
 
 [node name="node3" type="ColorRect" parent="sell_token"]
+visible = false
 z_index = 1
-custom_minimum_size = Vector2(8, 8)
 layout_mode = 2
-offset_left = 36.0
-offset_right = 44.0
-offset_bottom = 8.0
-pivot_offset = Vector2(4, 4)
+offset_left = 35.0
+offset_right = 45.0
+offset_bottom = 2.0
+scale = Vector2(1e-05, 1)
 mouse_filter = 2
 color = Color(1, 0.27065, 0.411049, 1)
 
 [node name="node4" type="ColorRect" parent="sell_token"]
+visible = false
 z_index = 1
-custom_minimum_size = Vector2(8, 8)
 layout_mode = 2
-offset_left = 50.0
-offset_right = 58.0
-offset_bottom = 8.0
-pivot_offset = Vector2(4, 4)
+offset_left = 49.0
+offset_right = 59.0
+offset_bottom = 2.0
+scale = Vector2(1e-05, 1)
 mouse_filter = 2
 color = Color(1, 0.27065, 0.411049, 1)
 
 [node name="node5" type="ColorRect" parent="sell_token"]
+visible = false
 z_index = 1
-custom_minimum_size = Vector2(8, 8)
 layout_mode = 2
-offset_left = 64.0
-offset_right = 72.0
-offset_bottom = 8.0
-pivot_offset = Vector2(4, 4)
+offset_left = 63.0
+offset_right = 73.0
+offset_bottom = 2.0
+scale = Vector2(1e-05, 1)
 mouse_filter = 2
 color = Color(1, 0.27065, 0.411049, 1)
 
@@ -1382,40 +1325,40 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -27.0
-offset_top = -3.0
-offset_right = 27.0
-offset_bottom = 3.0
+offset_left = -32.0
+offset_top = -4.0
+offset_right = 32.0
+offset_bottom = -2.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 6
+theme_override_constants/separation = 4
 
 [node name="base" type="ColorRect" parent="sell_token/sellbaseContainer"]
-custom_minimum_size = Vector2(8, 8)
+custom_minimum_size = Vector2(10, 2)
 layout_mode = 2
 mouse_filter = 2
 color = Color(0.585062, 0.585062, 0.585062, 1)
 
 [node name="base2" type="ColorRect" parent="sell_token/sellbaseContainer"]
-custom_minimum_size = Vector2(8, 8)
+custom_minimum_size = Vector2(10, 2)
 layout_mode = 2
 mouse_filter = 2
 color = Color(0.585062, 0.585062, 0.585062, 1)
 
 [node name="base3" type="ColorRect" parent="sell_token/sellbaseContainer"]
-custom_minimum_size = Vector2(8, 8)
+custom_minimum_size = Vector2(10, 2)
 layout_mode = 2
 mouse_filter = 2
 color = Color(0.585062, 0.585062, 0.585062, 1)
 
 [node name="base4" type="ColorRect" parent="sell_token/sellbaseContainer"]
-custom_minimum_size = Vector2(8, 8)
+custom_minimum_size = Vector2(10, 2)
 layout_mode = 2
 mouse_filter = 2
 color = Color(0.585062, 0.585062, 0.585062, 1)
 
 [node name="base5" type="ColorRect" parent="sell_token/sellbaseContainer"]
-custom_minimum_size = Vector2(8, 8)
+custom_minimum_size = Vector2(10, 2)
 layout_mode = 2
 mouse_filter = 2
 color = Color(0.585062, 0.585062, 0.585062, 1)
@@ -1431,9 +1374,6 @@ libraries = {
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
 [connection signal="toggled" from="." to="." method="_on_toggled"]
 [connection signal="resized" from="CanvasLayer/data plate" to="CanvasLayer/data plate" method="_on_resized"]
-[connection signal="gui_input" from="CanvasLayer/data plate/trash" to="CanvasLayer/data plate/trash" method="_on_gui_input"]
-[connection signal="mouse_entered" from="CanvasLayer/data plate/trash" to="CanvasLayer/data plate/trash" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="CanvasLayer/data plate/trash" to="CanvasLayer/data plate/trash" method="_on_mouse_exited"]
 [connection signal="toggled" from="CanvasLayer/data plate/Button Container/Buy_Button" to="CanvasLayer/data plate/Button Container" method="_on_buy_button_toggled"]
 [connection signal="toggled" from="CanvasLayer/data plate/Button Container/Sell_Button" to="CanvasLayer/data plate/Button Container" method="_on_sell_button_toggled"]
 [connection signal="child_entered_tree" from="CanvasLayer/data plate/Buy_plate/buyDataContainer" to="CanvasLayer/data plate/Buy_plate/buyDataContainer" method="_on_child_entered_tree"]

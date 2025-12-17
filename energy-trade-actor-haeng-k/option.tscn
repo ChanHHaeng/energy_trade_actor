@@ -1,43 +1,23 @@
 [gd_scene load_steps=5 format=3 uid="uid://cfgskv1jseyn3"]
 
 [ext_resource type="Script" uid="uid://tqrxnwbsory3" path="res://option.gd" id="1_cd5v0"]
+[ext_resource type="StyleBox" uid="uid://cyntky1c7gfu5" path="res://themes/option_time_normal.tres" id="1_slay5"]
+[ext_resource type="StyleBox" uid="uid://brncl7fasdj0o" path="res://themes/option_time_pressed.tres" id="2_l82yo"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cd5v0"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cd5v0"]
-bg_color = Color(0.529412, 1, 1, 0.501961)
-border_width_top = 1
-border_color = Color(1, 1, 1, 1)
-corner_radius_top_left = 5
-corner_radius_top_right = 5
-corner_radius_bottom_right = 5
-corner_radius_bottom_left = 5
-shadow_color = Color(0.67069, 0.67069, 0.67069, 0.6)
-shadow_size = 1
-shadow_offset = Vector2(0, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rtwqn"]
-bg_color = Color(0.372549, 0.698039, 0.698039, 0.823529)
-border_width_bottom = 1
-border_color = Color(1, 1, 1, 1)
-corner_radius_top_left = 5
-corner_radius_top_right = 5
-corner_radius_bottom_right = 5
-corner_radius_bottom_left = 5
-shadow_color = Color(0.678944, 0.678944, 0.678944, 1)
-shadow_size = 1
-shadow_offset = Vector2(0, -1)
-
 [node name="option" type="Button"]
-offset_right = 75.0
-offset_bottom = 25.0
+offset_left = 192.0
+offset_top = 102.0
+offset_right = 267.0
+offset_bottom = 127.0
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
 theme_override_styles/focus = SubResource("StyleBoxEmpty_cd5v0")
-theme_override_styles/hover = SubResource("StyleBoxFlat_cd5v0")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_rtwqn")
-theme_override_styles/normal = SubResource("StyleBoxFlat_cd5v0")
+theme_override_styles/hover = ExtResource("1_slay5")
+theme_override_styles/pressed = ExtResource("2_l82yo")
+theme_override_styles/normal = ExtResource("1_slay5")
 text = "1234"
 alignment = 0
 script = ExtResource("1_cd5v0")
