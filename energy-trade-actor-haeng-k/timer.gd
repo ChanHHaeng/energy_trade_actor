@@ -36,8 +36,6 @@ func _on_toggled(toggled_on: bool) -> void:
 
 func add_item(array:Array):
 	data=array
-	print("here is bug, time is "+self.name)
-	print(array)
 	for i in range(len(array[0])):
 		var examples=example.instantiate()
 		examples.amount=str(array[0][i][0])

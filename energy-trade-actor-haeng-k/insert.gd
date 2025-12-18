@@ -24,13 +24,13 @@ func _on_pressed() -> void:
 	var option=optionscene.instantiate()
 	option.name=get_parent().name ##price 라는 이름의 가격 조건을 저장한 노드 생성
 	if max==0:
-		option.text=" Over ₩ "+str(min)
+		option.text=str(min)+" KRW and above"
 	elif min==0:
-		option.text=" Under ₩ "+str(max)
+		option.text=" UP to "+str(max)+" KRW"
 	else:
-		option.text=" ₩ "+str(min)+" ~ ₩ "+str(max)
+		option.text=" "+str(min)+" - "+str(max)+" KRW"
 	option.custom_minimum_size.x=option.get_minimum_size().x+30
-	option.status=option.options[str(option.name)]
+	option.status=2 #status enum의 price로 입력
 	%optioncontainer.add_child(option)
 	$"../min price".value=0
 	$"../min price".text=""

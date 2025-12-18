@@ -11,7 +11,7 @@ var pricemax=10000
 var fromcond=[]
 var tocond=[]
 var fullcond=[datecond,timecond,[amountmin,amountmax],[pricemin,pricemax],fromcond,tocond]
-
+@export var point_color:Color
 
 func _ready() -> void:
 	set_column_title(0,"date")
@@ -64,13 +64,11 @@ func dataset() ->void:
 		item.set_text(4,"House number "+str(result[4]))
 		item.set_text_alignment(4,HORIZONTAL_ALIGNMENT_CENTER)
 		if result[4]==Global.building_id:
-			item.set_custom_color(4,Color.BLUE) ## 파란 계열로 변경하면 될듯
-			print("there?")
+			item.set_custom_color(4,point_color) ## 파란 계열로 변경하면 될듯
 		item.set_text(5,"House number "+str(result[5]))
 		item.set_text_alignment(5,HORIZONTAL_ALIGNMENT_CENTER)
 		if result[5]==Global.building_id:
-			print("here!")
-			item.set_custom_color(5,Color.BLACK)
+			item.set_custom_color(5,point_color)
 	for result in Global.matching_result: #데이터 중복 검사 및 필터링 등록
 		if Global.building_id!=0:
 			if result[4]!=Global.building_id and result[5]!=Global.building_id:
@@ -107,5 +105,6 @@ func dataset() ->void:
 
 
 func _on_column_title_clicked(column: int, _mouse_button_index: int) -> void:
+	print(get_column_width(column))
 	$Popups.get_child(column).popup()
 	#$PopupMenu.popup_centered()

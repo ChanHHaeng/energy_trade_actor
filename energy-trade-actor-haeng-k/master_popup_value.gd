@@ -14,4 +14,4 @@ func _on_text_changed(new_text: String) -> void:
 	else: ##올바른 텍스트
 		prev_text=text
 		value=int(text)
-	$"..".possible_check()
+	$"../..".possible_check()

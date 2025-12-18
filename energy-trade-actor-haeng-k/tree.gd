@@ -40,6 +40,7 @@ func dataset() ->void:
 	else:
 		results=Global.sell_data
 	for result in results:
+		#print(%optioncontainer.timeoption)
 		if (int(result["start_time"]) in %optioncontainer.timeoption) or len(%optioncontainer.timeoption)==0:
 			if %optioncontainer.value_min<=result[str(self.name)] and result[str(self.name)]<=%optioncontainer.value_max:
 				if %optioncontainer.price_min<=result["price"] and result["price"]<=%optioncontainer.price_max:

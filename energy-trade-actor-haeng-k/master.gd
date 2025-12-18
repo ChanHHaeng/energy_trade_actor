@@ -68,4 +68,4 @@ func transactioning() -> void:
 				buy_amount=0
 				j+=1
 	
-	$"Master tree".dataset()
+	%"Master tree".dataset()

@@ -76,7 +76,6 @@ func setting():
 
 func resetting():
 	for i in $GridContainer.get_children(): #여기에서 자료형 변형 일어났음
-		print(timetable[int(i.name)])
 		i.add_item(timetable[int(i.name)])
 	for i in $GridContainer2.get_children():
 		i.add_item(timetable[int(i.name)])
